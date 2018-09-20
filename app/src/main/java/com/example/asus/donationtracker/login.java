@@ -30,7 +30,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -38,6 +40,10 @@ import static android.Manifest.permission.READ_CONTACTS;
  * A login screen that offers login via email/password.
  */
 public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+    /**
+     * Map of current users' e-mails and passwords"
+     */
+    private HashMap<String, String> userAccts;
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -81,6 +87,9 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 return false;
             }
         });
+
+        userAccts = new HashMap<>();
+        userAccts.put("donator3@yahoo.com", "password3");
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
@@ -137,6 +146,13 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         }
     }
 
+    public String getPassword(String us) {
+        String isPass = userAccts.get(us);
+        if (isPass == null) {
+            throw new NoSuchElementException("Username does not exist");
+        }
+        return isPass;
+    }
 
     /**
      * Attempts to sign in or register the account specified by the login form.
@@ -315,16 +331,12 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 return false;
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
+            if (userAccts.get(mEmail) == mPassword) {
+                return true;
             }
 
             // TODO: register the new account here.
-            return true;
+            return false;
         }
 
         @Override

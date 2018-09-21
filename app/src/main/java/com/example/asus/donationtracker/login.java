@@ -331,7 +331,7 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 return false;
             }
 
-            if (userAccts.get(mEmail) == mPassword) {
+            if (userAccts.get(mEmail).equals(mPassword)) {
                 return true;
             }
 

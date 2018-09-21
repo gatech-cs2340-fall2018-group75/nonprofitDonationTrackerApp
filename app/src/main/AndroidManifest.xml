@@ -26,7 +26,16 @@
         <activity
             android:name=".registerAccount"
             android:label="@string/title_activity_register_account"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".mainMenu"
+            android:label="@string/title_activity_main_menu"
+            android:parentActivityName=".login"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.asus.donationtracker.login" />
+        </activity>
     </application>
 
 </manifest>

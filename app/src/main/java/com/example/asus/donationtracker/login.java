@@ -173,10 +173,16 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (TextUtils.isEmpty(password) || !isPasswordValid(email, password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
+        }
+
+        if (cancel) {
+            // There was an error; don't attempt login and focus the first
+            // form field with an error.
+            focusView.requestFocus();
         }
 
         // Check for a valid email address.
@@ -208,9 +214,9 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         return email.contains("@");
     }
 
-    private boolean isPasswordValid(String password) {
+    private boolean isPasswordValid(String email, String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.equals(userAccts.get(email));
     }
 
     /**

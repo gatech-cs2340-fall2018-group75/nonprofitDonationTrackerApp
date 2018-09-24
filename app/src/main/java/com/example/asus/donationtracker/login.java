@@ -30,6 +30,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -92,6 +94,25 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 return false;
             }
         });
+
+        TextView regFromLogin = (TextView) findViewById(R.id.regFromLogin);
+        regFromLogin.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toRegister = new Intent(login.this, registerAccount.class);
+                startActivity(toRegister);
+            }
+        });
+
+        TextView cancelLogin = (TextView) findViewById(R.id.cancelLogin);
+        cancelLogin.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backToWelcome = new Intent(login.this, welcomeScreen.class);
+                startActivity(backToWelcome);
+            }
+        });
+
 
 
 

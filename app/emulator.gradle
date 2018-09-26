@@ -3,8 +3,7 @@ task emulate() {
 	def device = null;
 	
 	//Check for command-line parameter for device, which overrides any configuration
-	if (project.hasProperty('emulator.device'))
-	{
+	if (project.hasProperty('emulator.device')) {
 		device = project.property('emulator.device')
 	}
 	

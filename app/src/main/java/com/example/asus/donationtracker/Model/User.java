@@ -57,7 +57,7 @@ public class User {
     public void setEmail(String address) {email = address;}
 
     public String getPassword() {return password;}
-    public String setPassword(String updated) {password = updated;}
+    public void setPassword(String updated) {password = updated;}
 
     /**********************************************/
 

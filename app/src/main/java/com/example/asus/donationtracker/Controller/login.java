@@ -1,4 +1,4 @@
-package com.example.asus.donationtracker;
+package com.example.asus.donationtracker.Controller;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -36,6 +36,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
+
+import com.example.asus.donationtracker.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 

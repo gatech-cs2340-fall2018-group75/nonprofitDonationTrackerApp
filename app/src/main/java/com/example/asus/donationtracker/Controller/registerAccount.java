@@ -1,4 +1,4 @@
-package com.example.asus.donationtracker;
+package com.example.asus.donationtracker.Controller;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 
 import java.util.HashMap;
+
+import com.example.asus.donationtracker.R;
 
 public class registerAccount extends AppCompatActivity {
 

@@ -1,4 +1,6 @@
-package com.example.asus.donationtracker;
+package com.example.asus.donationtracker.Controller;
+
+import com.example.asus.donationtracker.R;
 
 
 /**

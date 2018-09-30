@@ -29,4 +29,4 @@ dependencies {
 }
 
 
-//apply from: 'emulator.gradle'
+apply from: 'emulator.gradle'

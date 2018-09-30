@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".welcomeScreen"
+            android:name=".Controller.welcomeScreen"
             android:label="@string/title_activity_welcome_screen"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -26,15 +26,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".login"
+            android:name=".Controller.login"
             android:label="@string/title_activity_login">
 
         </activity>
         <activity
-            android:name=".registerAccount"
+            android:name=".Controller.registerAccount"
             android:label="@string/title_activity_register_account"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".mainMenu" />
+        <activity android:name=".Controller.mainMenu" />
 
     </application>
 

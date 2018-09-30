@@ -14,7 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".Controller.welcomeScreen"
             android:label="@string/title_activity_welcome_screen"
@@ -27,15 +26,13 @@
         </activity>
         <activity
             android:name=".Controller.login"
-            android:label="@string/title_activity_login">
-
-        </activity>
+            android:label="@string/title_activity_login"></activity>
         <activity
             android:name=".Controller.registerAccount"
             android:label="@string/title_activity_register_account"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Controller.mainMenu" />
-
+        <activity android:name=".Controller.registerAccount"></activity>
     </application>
 
 </manifest>

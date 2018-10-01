@@ -7,4 +7,9 @@
 .DS_Store
 /build
 /captures
+/app/bin
+/app/build
+.project
+.classpath
+.settings
 .externalNativeBuild

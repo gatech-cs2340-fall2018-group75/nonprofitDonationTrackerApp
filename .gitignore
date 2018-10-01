@@ -11,5 +11,5 @@
 /app/build
 .project
 .classpath
-.settings
+/.settings
 .externalNativeBuild

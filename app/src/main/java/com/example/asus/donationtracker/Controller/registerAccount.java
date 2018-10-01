@@ -51,7 +51,7 @@ public class registerAccount extends AppCompatActivity {
         AccountType regAccountType = (AccountType) accountTypeSpinner.getSelectedItem();
         users.add(new User(regEmail, regPassword, regAccountType, true));
 
-        Intent goToLogin = new Intent(registerAccount.this, login.class);
-        startActivity(goToLogin);
+        Intent goToMain = new Intent(registerAccount.this, mainMenu.class);
+        startActivity(goToMain);
     }
 }

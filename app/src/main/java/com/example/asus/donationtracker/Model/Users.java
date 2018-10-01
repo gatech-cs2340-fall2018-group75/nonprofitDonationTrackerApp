@@ -1,5 +1,7 @@
 package com.example.asus.donationtracker.Model;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Users {
@@ -18,7 +20,7 @@ public class Users {
         return true;
     }
 
-    public boolean contains(String password, String email) {
+    public boolean contains(String email, String password) {
         for (User user : users) {
             if (user.getPassword().equals(password) && user.getEmail().equals(email))
                 return true;

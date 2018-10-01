@@ -1,4 +1,4 @@
-package com.example.asus.donationtracker.Controller;
+package com.example.asus.donationtracker.Model;
 
 import com.example.asus.donationtracker.R;
 

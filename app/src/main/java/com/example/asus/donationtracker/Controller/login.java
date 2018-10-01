@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import com.example.asus.donationtracker.Controller.User;
+import com.example.asus.donationtracker.Model.User;
 import com.example.asus.donationtracker.Model.Users;
 import com.example.asus.donationtracker.R;
 
@@ -235,13 +235,13 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
         Users account = Users.getInstance();
-        return (email.contains("@") && account.accountExists(email)) ;
+        return (email.contains("@")) ;
     }
 
     private boolean isPasswordValid(String email, String password) {
         //TODO: Replace this with your own logic
         Users accounts = Users.getInstance();
-        return password.equals(accounts.getPassword(email));
+        return accounts.contains(email, password);
     }
 
     /**
@@ -359,8 +359,7 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 return false;
             }
 
-            if (accounts.accountExists(mEmail) && accounts.getPassword(mEmail)
-                    .equals(mPassword)) {
+            if (accounts.contains(mEmail, mPassword)) {
                 return true;
             }
 

@@ -106,18 +106,6 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
             }
         });
 
-        TextView cancelLogin = (TextView) findViewById(R.id.cancelLogin);
-        cancelLogin.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent backToWelcome = new Intent(login.this, welcomeScreen.class);
-                startActivity(backToWelcome);
-            }
-        });
-
-
-
-
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override

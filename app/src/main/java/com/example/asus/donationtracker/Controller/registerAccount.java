@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.asus.donationtracker.Model.AccountType;
 import com.example.asus.donationtracker.Model.Users;
@@ -21,6 +22,7 @@ public class registerAccount extends AppCompatActivity {
     private EditText pass;
     private Spinner accountTypeSpinner;
     private Button submitBtn;
+    private TextView goToLoginLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class registerAccount extends AppCompatActivity {
         pass = findViewById(R.id.regPass);
         accountTypeSpinner = findViewById(R.id.regAccountType);
         submitBtn = findViewById(R.id.registerBtn);
+        goToLoginLink = findViewById(R.id.regGoToLogin);
 
         ArrayAdapter<Enum> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, AccountType.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -40,6 +43,12 @@ public class registerAccount extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 submit();
+            }
+        });
+
+        goToLoginLink.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(registerAccount.this, login.class));
             }
         });
     }

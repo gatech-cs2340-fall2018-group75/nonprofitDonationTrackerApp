@@ -19,7 +19,7 @@ public class registerAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_account);
 
-        Button register = findViewById(R.id.registerAcctBtn);
+        Button register = findViewById(R.id.registerBtn);
         final EditText email = findViewById(R.id.regEmail);
         final EditText pass = findViewById(R.id.regPass);
 
@@ -30,7 +30,6 @@ public class registerAccount extends AppCompatActivity {
                 String regPassword = pass.getText().toString();
                 String regEmail = email.getText().toString();
                 users.add(new User(regEmail, regPassword));
-                Log.e("users", users.toString());
 
                 Intent goToLogin = new Intent(registerAccount.this, login.class);
                 startActivity(goToLogin);

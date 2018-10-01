@@ -8,49 +8,54 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="267dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="@string/registerAccount"
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-            tools:layout_editor_absoluteX="27dp"
-            tools:layout_editor_absoluteY="16dp" />
-
-        <EditText
-            android:id="@+id/regEmail"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/registerEmail"
-            android:inputType="textEmailAddress"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="87dp" />
+            android:layout_marginBottom="16px">
 
-        <EditText
-            android:id="@+id/regPass"
+            <EditText
+                android:id="@+id/regEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/registerPassword"
-            android:inputType="textEmailAddress"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="87dp" />
+            android:layout_marginVertical="15px">
 
-        <Button
-            android:id="@+id/registerAcctBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/submit"
-            tools:layout_editor_absoluteX="106dp"
-            tools:layout_editor_absoluteY="180dp" />
+            <EditText
+                android:id="@+id/regPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/prompt_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/submit"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

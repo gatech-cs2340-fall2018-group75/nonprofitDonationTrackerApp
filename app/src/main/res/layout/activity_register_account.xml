@@ -35,7 +35,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="15px">
+            android:layout_marginBottom="16px">
 
             <EditText
                 android:id="@+id/regPass"
@@ -48,6 +48,12 @@
                 android:singleLine="true" />
 
         </android.support.design.widget.TextInputLayout>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:id="@+id/regAccountType" />
     </LinearLayout>
 
     <Button

@@ -1,7 +1,6 @@
 package com.example.asus.donationtracker.Model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Users {
 
@@ -31,9 +30,9 @@ public class Users {
         return users.contains(user);
     }
 
-    public String remove(User user) {
+    public boolean remove(User user) {
         users.remove(user);
-        return "The following acount was removed:" + user.getEmail();
+        return true;
     }
 
     public String toString() {

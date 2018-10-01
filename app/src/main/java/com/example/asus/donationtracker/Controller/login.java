@@ -20,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -84,6 +85,8 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
+
+        Log.e("users", Users.getInstance().toString());
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -234,8 +237,7 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        Users account = Users.getInstance();
-        return (email.contains("@")) ;
+        return (email.contains("@"));
     }
 
     private boolean isPasswordValid(String email, String password) {

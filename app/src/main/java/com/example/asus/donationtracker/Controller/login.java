@@ -37,6 +37,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import com.example.asus.donationtracker.Controller.User;
+import com.example.asus.donationtracker.Model.Users;
 import com.example.asus.donationtracker.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -48,7 +50,7 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
     /**
      * Map of current users' e-mails and passwords"
      */
-    private HashMap<String, String> userAccts;
+
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -76,8 +78,6 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        userAccts = new HashMap<>();
-        userAccts.put("donator3@yahoo.com", "password3");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -234,12 +234,14 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+        Users account = Users.getInstance();
+        return (email.contains("@") && account.accountExists(email)) ;
     }
 
     private boolean isPasswordValid(String email, String password) {
         //TODO: Replace this with your own logic
-        return password.equals(userAccts.get(email));
+        Users accounts = Users.getInstance();
+        return password.equals(accounts.getPassword(email));
     }
 
     /**
@@ -349,7 +351,7 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-
+            Users accounts = Users.getInstance();
             try {
                 // Simulate network access.
                 Thread.sleep(2000);
@@ -357,7 +359,8 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 return false;
             }
 
-            if (userAccts.get(mEmail).equals(mPassword)) {
+            if (accounts.accountExists(mEmail) && accounts.getPassword(mEmail)
+                    .equals(mPassword)) {
                 return true;
             }
 

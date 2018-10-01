@@ -32,7 +32,6 @@
             android:label="@string/title_activity_register_account"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Controller.mainMenu" />
-        <activity android:name=".Controller.registerAccount"></activity>
     </application>
 
 </manifest>

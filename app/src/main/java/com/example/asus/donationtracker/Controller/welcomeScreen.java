@@ -15,8 +15,6 @@ public class welcomeScreen extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         Button loginbtn = (Button) findViewById(R.id.welcomeLoginBtn);
         Button registerbtn = (Button) findViewById(R.id.registerbtn);

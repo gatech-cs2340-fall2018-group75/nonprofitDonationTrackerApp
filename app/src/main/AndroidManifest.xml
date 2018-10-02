@@ -28,11 +28,12 @@
             android:name=".Controller.login"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize"
-            android:parentActivityName="com.example.asus.donationtracker.Controller.welcomeScreen"></activity>
+            android:parentActivityName="com.example.asus.donationtracker.Controller.welcomeScreen" />
         <activity
             android:name=".Controller.registerAccount"
             android:label="@string/title_activity_register_account"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:windowSoftInputMode="adjustResize"
+            android:parentActivityName="com.example.asus.donationtracker.Controller.welcomeScreen" />
         <activity android:name=".Controller.mainMenu" />
     </application>
 

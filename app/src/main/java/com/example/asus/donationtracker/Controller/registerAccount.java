@@ -17,6 +17,7 @@ import com.example.asus.donationtracker.Model.Users;
 import com.example.asus.donationtracker.Model.User;
 import com.example.asus.donationtracker.R;
 
+
 public class registerAccount extends AppCompatActivity {
 
     private EditText email;
@@ -65,6 +66,7 @@ public class registerAccount extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         } else {
             users.add(newUser);
+            users.setCurrentUser(newUser);
 
             Intent goToMain = new Intent(registerAccount.this, mainMenu.class);
             startActivity(goToMain);

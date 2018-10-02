@@ -4,11 +4,14 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+
 public class Users {
 
     private static final Users _instance = new Users();
     public static Users getInstance() { return _instance; }
     private ArrayList<User> users;
+	
+	private User currentUser;
 
 
     private Users() {
@@ -19,13 +22,19 @@ public class Users {
         users.add(user);
         return true;
     }
+	
+	public User get(String email, String password) {
+		for (User user : users) {
+            if (user.getPassword().equals(password) && user.getEmail().equals(email)) {
+                return user;
+			}
+        }
+		
+        return null;
+	}
 
     public boolean contains(String email, String password) {
-        for (User user : users) {
-            if (user.getPassword().equals(password) && user.getEmail().equals(email))
-                return true;
-        }
-        return false;
+        return (get(email, password) != null);
     }
 
     public boolean contains(User user) {
@@ -44,4 +53,15 @@ public class Users {
         }
         return str;
     }
+	
+	
+	public User getCurrentUser()
+	{
+		return currentUser;
+	}
+	
+	public void setCurrentUser(User user)
+	{
+		currentUser = user;
+	}
 }

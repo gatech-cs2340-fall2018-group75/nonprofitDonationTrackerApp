@@ -27,6 +27,7 @@
         <activity
             android:name=".Controller.login"
             android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize"
             android:parentActivityName="com.example.asus.donationtracker.Controller.welcomeScreen" />
         <activity
             android:name=".Controller.registerAccount"

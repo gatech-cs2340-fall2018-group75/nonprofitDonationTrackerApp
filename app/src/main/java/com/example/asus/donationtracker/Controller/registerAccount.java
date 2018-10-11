@@ -69,5 +69,6 @@ public class registerAccount extends AppCompatActivity {
             Intent goToMain = new Intent(registerAccount.this, mainMenu.class);
             startActivity(goToMain);
         }
+
     }
 }

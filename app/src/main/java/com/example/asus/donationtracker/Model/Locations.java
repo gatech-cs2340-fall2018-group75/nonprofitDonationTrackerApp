@@ -1,8 +1,9 @@
 package com.example.asus.donationtracker.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Locations {
+public class Locations implements Serializable {
     private static final Locations _instance = new Locations();
     public static Locations getInstance() { return _instance; }
     private ArrayList<Location> locations;

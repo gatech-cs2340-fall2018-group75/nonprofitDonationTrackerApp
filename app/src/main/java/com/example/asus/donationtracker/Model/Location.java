@@ -1,6 +1,8 @@
 package com.example.asus.donationtracker.Model;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
 
     /** Location's name**/
     private String name;
@@ -9,10 +11,10 @@ public class Location {
     private LocationType locationType;
 
     /** Location's longitude**/
-    private String longitude;
+    private double longitude;
 
     /** Location's latitude**/
-    private String latitude;
+    private double latitude;
 
     /** Location's address**/
     private String address;
@@ -25,7 +27,7 @@ public class Location {
     /**
      * creates a new location
      */
-    public Location(String name, LocationType locationType, String longitude, String latitude,
+    public Location(String name, LocationType locationType, double longitude, double latitude,
                     String address, String phoneNumber) {
         this.name = name;
         this.locationType = locationType;
@@ -46,9 +48,9 @@ public class Location {
         Location maybeSame = (Location) o;
 
         return (((Location) o).getName().equals(this.name)
-                && ((Location) o).getLocationtype().equals(this.locationType)
+                && ((Location) o).getLocationType().equals(this.locationType)
                 && (((Location) o).getLongitude() == this.longitude))
-                && ((Location) o).getLatitude().equals(this.latitude)
+                && ((Location) o).getLatitude() == (this.latitude)
                 && ((Location) o).getAddress().equals(this.address)
                 && ((Location) o).getPhoneNumber().equals(this.phoneNumber);
 
@@ -62,14 +64,14 @@ public class Location {
     public String getName() {return name;}
     public void setName(String call) {name = call;}
 
-    public String getLocationtype() {return locationType.toString();}
+    public String getLocationType() {return locationType.toString();}
     public void setLocationType(LocationType type) {locationType = type;}
 
-    public String getLongitude() {return longitude;}
-    public void setLongitude(String longy) {longitude = longy;}
+    public double getLongitude() {return longitude;}
+    public void setLongitude(double longy) {longitude = longy;}
 
-    public String getLatitude() {return latitude;}
-    public void setLatitude(String laty) {latitude = laty;}
+    public double getLatitude() {return latitude;}
+    public void setLatitude(double laty) {latitude = laty;}
 
     public String getAddress() {return address;}
     public void setAddress(String place) {address = place;}

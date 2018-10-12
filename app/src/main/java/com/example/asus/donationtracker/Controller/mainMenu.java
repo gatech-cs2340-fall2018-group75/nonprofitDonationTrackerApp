@@ -40,25 +40,6 @@ public class mainMenu extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        Button logout = (Button) findViewById(R.id.logoutButton);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent logOut = new Intent(mainMenu.this, login.class);
-                startActivity(logOut);
-            }
-        });
-        
-        
-        Users users = Users.getInstance();
-        User currentUser = users.getCurrentUser();
-        
-        TextView userEmail = (TextView) findViewById(R.id.userEmail);
-        userEmail.setText(currentUser.getEmail());
-        
-        TextView userType = (TextView) findViewById(R.id.userType);
-        userType.setText(currentUser.getAccountType().toString());
-
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -70,14 +51,9 @@ public class mainMenu extends FragmentActivity {
             return;
 
         // set initial fragment layout to the home view
-        LocationsFragment fragment = new LocationsFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("NAME", "Home");
-        fragment.setArguments(bundle);
-
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragment_container, fragment)
+                .add(R.id.fragment_container, new HomeFragment())
                 .commit();
     }
 

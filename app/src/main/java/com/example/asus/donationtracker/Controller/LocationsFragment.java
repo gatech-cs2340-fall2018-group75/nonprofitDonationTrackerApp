@@ -2,6 +2,7 @@ package com.example.asus.donationtracker.Controller;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Layout;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,15 +26,27 @@ public class LocationsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View fragment = inflater.inflate(R.layout.fragment_locations, container, false);
-//
-//        Bundle bundle = this.getArguments();
-//        if (bundle == null)
-//            return fragment;
-//
-//        Locations locations = (Locations) bundle.getSerializable("LOCATIONS");
-        LocationList listAdapter = new LocationList(inflater, Locations.getInstance().get());
+
+        final List<Location> locationList = Locations.getInstance().get();
+
+        LocationList listAdapter = new LocationList(inflater, locationList);
         ListView list = fragment.findViewById(R.id.location_list);
         list.setAdapter(listAdapter);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Location itemClicked = locationList.get(position);
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("LOCATION", itemClicked);
+                Intent intent = new Intent();
+                intent.putExtras(bundle);
+
+                //TODO: start new activity with location details (pass intent)
+            }
+        });
 
         return fragment;
     }

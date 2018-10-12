@@ -19,21 +19,31 @@ public class Location implements Serializable {
     /** Location's address**/
     private String address;
 
+    /** Location's city**/
+    private String city;
+
+    /** Location's state**/
+    private String state;
+
+    /** Location's ZIP**/
+    private String zip;
+
     /** Location's phone number**/
     private String phoneNumber;
-
-
 
     /**
      * creates a new location
      */
     public Location(String name, LocationType locationType, double longitude, double latitude,
-                    String address, String phoneNumber) {
+                    String address, String city, String state, String zip, String phoneNumber) {
         this.name = name;
         this.locationType = locationType;
         this.longitude = longitude;
         this.latitude = latitude;
         this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
         this.phoneNumber = phoneNumber;
     }
 
@@ -52,8 +62,10 @@ public class Location implements Serializable {
                 && (((Location) o).getLongitude() == this.longitude))
                 && ((Location) o).getLatitude() == (this.latitude)
                 && ((Location) o).getAddress().equals(this.address)
+                && ((Location) o).getCity().equals(this.city)
+                && ((Location) o).getState().equals(this.state)
+                && ((Location) o).getZip().equals(this.zip)
                 && ((Location) o).getPhoneNumber().equals(this.phoneNumber);
-
     }
 
 
@@ -78,6 +90,15 @@ public class Location implements Serializable {
 
     public String getPhoneNumber() {return phoneNumber;}
     public void setPhoneNumber(String num) {phoneNumber = num;}
+
+    public String getCity() {return city;}
+    public void setCity(String c) {city = c;}
+
+    public String getState() {return state;}
+    public void setState(String s) {state = s;}
+
+    public String getZip() {return zip;}
+    public void setZip(String z) {zip = z;}
 
     /**********************************************/
 

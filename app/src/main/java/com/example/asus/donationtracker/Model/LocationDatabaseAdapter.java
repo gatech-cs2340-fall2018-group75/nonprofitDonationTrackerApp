@@ -11,9 +11,6 @@ public class LocationDatabaseAdapter {
     static final String DATABASE_NAME = "database.db";
     String ok="OK";
     static final int DATABASE_VERSION = 1;
-    public  static String getPassword="";
-    public static final int NAME_COLUMN = 1;
-    // TODO: Create public field for each column in your table.
 
     // SQL query string
     static final String DATABASE_CREATE = "create table LOCATION(" +
@@ -77,5 +74,9 @@ public class LocationDatabaseAdapter {
 
     public Cursor getEntries() {
         return db.query("LOCATION", null, null, null, null, null, null);
+    }
+
+    public void clearEntries() {
+        db.execSQL("DELETE FROM LOCATION");
     }
 }

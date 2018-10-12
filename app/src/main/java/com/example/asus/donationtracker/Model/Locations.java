@@ -2,11 +2,12 @@ package com.example.asus.donationtracker.Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Locations implements Serializable {
     private static final Locations _instance = new Locations();
     public static Locations getInstance() { return _instance; }
-    private ArrayList<Location> locations;
+    private List<Location> locations;
 
 
     private Locations() {
@@ -16,6 +17,10 @@ public class Locations implements Serializable {
     public boolean add(Location place) {
         locations.add(place);
         return true;
+    }
+
+    public List<Location> get() {
+        return locations;
     }
 
     public boolean contains(String name, String address) {

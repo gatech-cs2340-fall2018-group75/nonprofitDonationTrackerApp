@@ -23,7 +23,7 @@
     <string name="cancel">Cancel</string>
     <string name="action_settings">Settings</string>
     <string name="action_login">Already have an account? Log in</string>
-    <string name="title_activity_main_menu">mainMenu</string>
+    <string name="title_activity_main_menu">Donation Tracker</string>
     <string name="title_activity_temp">Sign in</string>
     <string name="title_activity_welcome_screen">welcomeScreen</string>
     <string name="title_activity_register_account">Register</string>

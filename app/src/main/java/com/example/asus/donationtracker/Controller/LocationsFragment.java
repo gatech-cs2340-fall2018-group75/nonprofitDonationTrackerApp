@@ -58,6 +58,7 @@ public class LocationsFragment extends Fragment {
 
             name.setText(location.getName());
             address.setText(location.getAddress());
+            cityState.setText(location.getCity() + ", " + location.getState());
             return rowView;
         }
     }

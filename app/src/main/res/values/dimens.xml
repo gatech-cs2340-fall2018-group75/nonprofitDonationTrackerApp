@@ -8,4 +8,5 @@
     <!-- Text properties -->
     <dimen name="text_list_header">18dp</dimen>
     <dimen name="text_list_body">14dp</dimen>
+    <dimen name="icon">36dp</dimen>
 </resources>

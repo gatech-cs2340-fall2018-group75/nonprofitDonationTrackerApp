@@ -19,7 +19,7 @@ import com.example.asus.donationtracker.R;
 import com.example.asus.donationtracker.Model.User;
 import com.example.asus.donationtracker.Model.Users;
 
-public class mainMenu extends FragmentActivity {
+public class mainMenu extends AppCompatActivity {
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -73,6 +73,9 @@ public class mainMenu extends FragmentActivity {
                 33.75416,
                 -84.37742,
                 "309 EDGEWOOD AVE SE",
+                "Atlanta",
+                "GA",
+                "30330",
                 "(404) 555 - 3456"
         ));
 

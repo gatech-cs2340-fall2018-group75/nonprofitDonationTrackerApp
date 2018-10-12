@@ -1,9 +1,9 @@
 package com.example.asus.donationtracker.Model;
 
 public enum LocationType {
-        TYPE1 ("Type1"),
-        TYPE2 ("Type2"),
-        Type3 ("Type3");
+        DR ("Drop Off"),
+        ST ("Store"),
+        WA ("Warehouse");
 
         private final String type;
 

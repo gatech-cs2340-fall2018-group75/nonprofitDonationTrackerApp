@@ -28,4 +28,8 @@
     <string name="title_activity_welcome_screen">welcomeScreen</string>
     <string name="title_activity_register_account">Register</string>
     <string name="preferences_file_key">com.example.asus.donationTracker.preferences</string>
+
+    <!--navigation-->
+    <string name="navigation_title_home">Home</string>
+    <string name="navigation_title_locations">Locations</string>
 </resources>

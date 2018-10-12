@@ -44,6 +44,7 @@ import com.example.asus.donationtracker.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
+
 /**
  * A login screen that offers login via email/password.
  */
@@ -330,6 +331,8 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
 
         private final String mEmail;
         private final String mPassword;
+        
+        private User user;
 
         UserLoginTask(String email, String password) {
             mEmail = email;
@@ -347,11 +350,14 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 return false;
             }
 
-            if (accounts.contains(mEmail, mPassword)) {
-                return true;
-            }
 
-            // TODO: register the new account here.
+            User newUser = accounts.get(mEmail, mPassword);
+            if (newUser == null) {
+                return false;
+            }
+            
+            
+            this.user = newUser;
             return true;
         }
 
@@ -362,6 +368,10 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
 
             if (success) {
                 finish();
+				
+				Users users = Users.getInstance();
+				users.setCurrentUser(this.user);
+				
                 Intent toMainMenu =  new Intent(login.this, mainMenu.class);
                 startActivity(toMainMenu);
             } else {

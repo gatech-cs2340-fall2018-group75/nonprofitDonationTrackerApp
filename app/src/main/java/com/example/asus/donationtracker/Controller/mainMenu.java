@@ -97,6 +97,8 @@ public class mainMenu extends AppCompatActivity {
 	private void readLocations()
 	{
 		Locations locations = Locations.getInstance();
+		if (locations.get().size() != 0)
+		    return;
 		
 		try {
 			InputStream stream = getResources().openRawResource(R.raw.locations);

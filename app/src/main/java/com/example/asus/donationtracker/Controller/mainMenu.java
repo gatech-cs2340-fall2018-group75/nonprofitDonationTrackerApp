@@ -89,13 +89,8 @@ public class mainMenu extends AppCompatActivity {
                 "(404) 555 - 3456"
         ));*/
 
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("LOCATIONS", locations);
-        LocationsFragment fragment = new LocationsFragment();
-        fragment.setArguments(bundle);
-
         FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
+        manager.beginTransaction().replace(R.id.fragment_container, new LocationsFragment()).commit();
     }
 	
 	

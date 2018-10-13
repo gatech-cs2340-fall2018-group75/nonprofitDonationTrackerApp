@@ -18,6 +18,17 @@ public enum LocationType {
         public String toString() {
             return type;
         }
+		
+		
+		public static LocationType fromString(String text) {
+			for (LocationType locationType : LocationType.values()) {
+				if (locationType.type.equalsIgnoreCase(text)) {
+					return locationType;
+				}
+			}
+			
+			return null;
+		}
 
         //TODO:Fill in with actual location types
 }

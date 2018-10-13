@@ -3,6 +3,7 @@ package com.example.asus.donationtracker.Controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.example.asus.donationtracker.Model.Location;
@@ -10,7 +11,7 @@ import com.example.asus.donationtracker.R;
 
 import org.w3c.dom.Text;
 
-public class LocationDetails extends Activity {
+public class LocationDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

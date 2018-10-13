@@ -30,7 +30,7 @@ public class LocationsFragment extends Fragment {
         final List<Location> locationList = Locations.getInstance().get();
 
         LocationList listAdapter = new LocationList(inflater, locationList);
-        ListView list = fragment.findViewById(R.id.location_list);
+        final ListView list = fragment.findViewById(R.id.location_list);
         list.setAdapter(listAdapter);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -41,10 +41,10 @@ public class LocationsFragment extends Fragment {
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("LOCATION", itemClicked);
-                Intent intent = new Intent();
-                intent.putExtras(bundle);
+                Intent listDetails = new Intent(LocationsFragment.this.getActivity(), LocationDetails.class);
+                listDetails.putExtras(bundle);
 
-                //TODO: start new activity with location details (pass intent)
+                startActivity(listDetails);
             }
         });
 

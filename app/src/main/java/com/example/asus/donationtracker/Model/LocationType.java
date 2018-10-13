@@ -30,5 +30,4 @@ public enum LocationType {
 			return null;
 		}
 
-        //TODO:Fill in with actual location types
 }

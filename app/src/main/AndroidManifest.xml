@@ -41,7 +41,9 @@
             android:name=".Controller.LocationDetails"
             android:label="@string/title_activity_location_details"
             android:parentActivityName=".Controller.mainMenu" />
-        <activity android:name=".Controller.enterDonationItem"></activity>
+        <activity android:name=".Controller.enterDonationItem"
+            android:label="@string/donateItem"
+            android:windowSoftInputMode="adjustResize"></activity>
     </application>
 
 </manifest>

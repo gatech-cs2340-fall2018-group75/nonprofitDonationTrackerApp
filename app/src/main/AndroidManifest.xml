@@ -40,7 +40,8 @@
         <activity
             android:name=".Controller.LocationDetails"
             android:label="@string/title_activity_location_details"
-            android:parentActivityName=".Controller.mainMenu"></activity>
+            android:parentActivityName=".Controller.mainMenu" />
+        <activity android:name=".Controller.enterDonationItem"></activity>
     </application>
 
 </manifest>

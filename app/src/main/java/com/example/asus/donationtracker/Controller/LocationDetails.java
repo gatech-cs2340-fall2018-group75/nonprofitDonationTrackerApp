@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.asus.donationtracker.Model.DonationItem;
 import com.example.asus.donationtracker.Model.Location;
 import com.example.asus.donationtracker.R;
 
@@ -17,6 +20,7 @@ public class LocationDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_details);
+        Button donate = (Button) findViewById(R.id.donateBtn);
 
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
@@ -47,6 +51,18 @@ public class LocationDetails extends AppCompatActivity {
 
         TextView loctype = (TextView) findViewById(R.id.type);
         loctype.setText(type);
+
+        donate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(LocationDetails.this, enterDonationItem.class);
+                    startActivity(intent);
+
+            }
+        });
     }
+
+
+
 
 }

@@ -39,7 +39,7 @@ public class DonationItems implements Serializable {
     public String toString() {
         String str = "";
         for (DonationItem item : donationItems) {
-            str += item + "\n, ";
+            str += item.getName() + "\n, ";
         }
         return str;
     }

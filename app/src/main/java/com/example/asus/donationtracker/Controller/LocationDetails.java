@@ -39,19 +39,19 @@ public class LocationDetails extends AppCompatActivity {
         DonationItems items = DonationItems.getInstance();
 
         //TODO: REMOVE THIS
-        items.add(new DonationItem("name", "description", location));
+        items.add(new DonationItem("test", "description", location));
 
-        String name = location.getName();
-        String type = location.getLocationType();
-        String longitude = Double.toString(location.getLongitude());
-        String latitude = Double.toString(location.getLatitude());
-        String address = location.getAddress();
-        String city = location.getCity();
-        String state = location.getState();
-        String zip = location.getZip();
-        String phone = location.getPhoneNumber();
+        final String name = location.getName();
+        final String type = location.getLocationType();
+        final String longitude = Double.toString(location.getLongitude());
+        final String latitude = Double.toString(location.getLatitude());
+        final String address = location.getAddress();
+        final String city = location.getCity();
+        final String state = location.getState();
+        final String zip = location.getZip();
+        final String phone = location.getPhoneNumber();
 
-        String wholeAddress = address + "\n" + city + ", " + state + ", " + zip;
+        final String wholeAddress = address + "\n" + city + ", " + state + ", " + zip;
         TextView loc = (TextView) findViewById(R.id.location);
         loc.setText(wholeAddress);
 
@@ -74,6 +74,7 @@ public class LocationDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     Intent intent = new Intent(LocationDetails.this, enterDonationItem.class);
+                    intent.putExtra("location", location);
                     startActivity(intent);
 
             }

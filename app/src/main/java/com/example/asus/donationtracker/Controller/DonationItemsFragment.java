@@ -47,10 +47,10 @@ public class DonationItemsFragment extends Fragment {
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("DONATION_ITEM", itemClicked);
-//                Intent listDetails = new Intent(DonationItemsFragment.this.getActivity(), LocationDetails.class);
-//                listDetails.putExtras(bundle);
-//
-//            startActivity(listDetails);
+                Intent listDetails = new Intent(DonationItemsFragment.this.getActivity(), DonationItemDetails.class);
+                listDetails.putExtras(bundle);
+
+                startActivity(listDetails);
         }
         });
 

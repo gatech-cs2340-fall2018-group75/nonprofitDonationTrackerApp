@@ -40,11 +40,13 @@
         <activity
             android:name=".Controller.LocationDetails"
             android:label="@string/title_activity_location_details"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".Controller.mainMenu" />
-        <activity android:name=".Controller.enterDonationItem"
+            android:parentActivityName=".Controller.mainMenu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Controller.enterDonationItem"
             android:label="@string/donateItem"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".Controller.DonationItemDetails"></activity>
     </application>
 
 </manifest>

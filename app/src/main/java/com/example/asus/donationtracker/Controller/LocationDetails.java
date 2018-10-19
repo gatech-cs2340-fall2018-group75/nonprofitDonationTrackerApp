@@ -39,7 +39,7 @@ public class LocationDetails extends AppCompatActivity {
         DonationItems items = DonationItems.getInstance();
 
         //TODO: REMOVE THIS
-        items.add(new DonationItem("test", "description", location));
+        //items.add(new DonationItem("test", "description", location));
 
         final String name = location.getName();
         final String type = location.getLocationType();

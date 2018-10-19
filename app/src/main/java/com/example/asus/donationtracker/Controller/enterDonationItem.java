@@ -85,16 +85,16 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
                                 .toString(), center);
                         DonationItems donated = DonationItems.getInstance();
                         donated.add(item);
-                        Intent toLocationDetails = new Intent(enterDonationItem.this,
-                                LocationDetails.class);
-                        startActivity(toLocationDetails);
+                        Intent toMainMenu = new Intent(enterDonationItem.this,
+                                mainMenu.class);
+                        startActivity(toMainMenu);
                     } else {
                         DonationItem item = new DonationItem(title, "", center);
                         DonationItems donated = DonationItems.getInstance();
                         donated.add(item);
-                        Intent toLocationDetails = new Intent(enterDonationItem.this,
-                                LocationDetails.class);
-                        startActivity(toLocationDetails);
+                        Intent toMainMenu = new Intent(enterDonationItem.this,
+                                mainMenu.class);
+                        startActivity(toMainMenu);
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "Give the name of your donation item",

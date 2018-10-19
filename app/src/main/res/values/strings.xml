@@ -41,4 +41,5 @@
     <string name="EnterItemName">Enter item name</string>
     <string name="description">Enter description</string>
     <string name="donateItem">Donate item</string>
+    <string name="donations">DONATIONS</string>
 </resources>

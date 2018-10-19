@@ -1,6 +1,8 @@
 package com.example.asus.donationtracker.Model;
 
-public class DonationItem {
+import java.io.Serializable;
+
+public class DonationItem implements Serializable {
 
     //TODO image field
 
@@ -11,14 +13,17 @@ public class DonationItem {
     //TODO 150 char limit???
     private String description;
 
+    private Location parentLocation;
+
     /**
      * Creates a new user
      * @param name item's name
      * @param description item's description
      */
-    public DonationItem(String name, String description) {
+    public DonationItem(String name, String description, Location parentLocation) {
         this.name = name;
         this.description = description;
+        this.parentLocation = parentLocation;
     }
 
     @Override
@@ -47,6 +52,9 @@ public class DonationItem {
 
     public String getDescription() {return description;}
     public void setDescription(String updated) {description = updated;}
+
+    public Location getLocation() {return parentLocation;}
+    public void setLocation(Location updated) {parentLocation = updated;}
 
     /**********************************************/
 

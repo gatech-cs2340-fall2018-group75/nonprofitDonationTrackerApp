@@ -61,7 +61,7 @@ public class DonationItem implements Serializable {
 
     @Override
     public String toString() {
-        return (name + ":" + description);
+        return (name + ":" + description + ":" + parentLocation);
     }
 
 }

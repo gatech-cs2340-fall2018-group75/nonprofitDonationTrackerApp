@@ -1,5 +1,7 @@
 package com.example.asus.donationtracker.Model;
 
+import android.util.Log;
+
 import java.io.Serializable;
 
 public class Location implements Serializable {
@@ -55,10 +57,9 @@ public class Location implements Serializable {
         if (!(o instanceof Location)) {
             return false;
         }
-        Location maybeSame = (Location) o;
 
         return (((Location) o).getName().equals(this.name)
-                && ((Location) o).getLocationType().equals(this.locationType)
+                && ((Location) o).getLocationType() == this.locationType
                 && (((Location) o).getLongitude() == this.longitude))
                 && ((Location) o).getLatitude() == (this.latitude)
                 && ((Location) o).getAddress().equals(this.address)
@@ -76,7 +77,7 @@ public class Location implements Serializable {
     public String getName() {return name;}
     public void setName(String call) {name = call;}
 
-    public String getLocationType() {return locationType.toString();}
+    public LocationType getLocationType() {return locationType;}
     public void setLocationType(LocationType type) {locationType = type;}
 
     public double getLongitude() {return longitude;}

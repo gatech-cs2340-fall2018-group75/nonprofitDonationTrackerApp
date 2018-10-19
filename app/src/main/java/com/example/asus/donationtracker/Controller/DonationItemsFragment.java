@@ -29,7 +29,6 @@ public class DonationItemsFragment extends Fragment {
 
         View fragment = inflater.inflate(R.layout.fragment_donation_items, container, false);
 
-        Bundle bd = getArguments().getBundle("LOCATION");
         Location location = (Location) getArguments().getSerializable("LOCATION");
 
         final List<DonationItem> donationItemsList = DonationItems.getInstance().getByLocation(location);

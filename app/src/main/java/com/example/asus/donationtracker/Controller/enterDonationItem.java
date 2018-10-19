@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,8 +34,7 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_donation_item);
-        Bundle bd = getIntent().getExtras();
-        center = (Location) bd.get("location");
+        center = (Location) getIntent().getSerializableExtra("LOCATION");
         submit = (Button) findViewById(R.id.submit_donation_item);
         submit.setOnClickListener(this);
         imgBtn = (Button) findViewById(R.id.addPicBtn);
@@ -85,16 +85,12 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
                                 .toString(), center);
                         DonationItems donated = DonationItems.getInstance();
                         donated.add(item);
-                        Intent toMainMenu = new Intent(enterDonationItem.this,
-                                mainMenu.class);
-                        startActivity(toMainMenu);
+                        finish();
                     } else {
                         DonationItem item = new DonationItem(title, "", center);
                         DonationItems donated = DonationItems.getInstance();
                         donated.add(item);
-                        Intent toMainMenu = new Intent(enterDonationItem.this,
-                                mainMenu.class);
-                        startActivity(toMainMenu);
+                        finish();
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "Give the name of your donation item",

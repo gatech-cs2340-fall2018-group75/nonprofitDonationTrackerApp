@@ -38,11 +38,8 @@ public class LocationDetails extends AppCompatActivity {
 
         DonationItems items = DonationItems.getInstance();
 
-        //TODO: REMOVE THIS
-        //items.add(new DonationItem("test", "description", location));
-
         final String name = location.getName();
-        final String type = location.getLocationType();
+        final String type = location.getLocationType().toString();
         final String longitude = Double.toString(location.getLongitude());
         final String latitude = Double.toString(location.getLatitude());
         final String address = location.getAddress();
@@ -74,7 +71,7 @@ public class LocationDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     Intent intent = new Intent(LocationDetails.this, enterDonationItem.class);
-                    intent.putExtra("location", location);
+                    intent.putExtra("LOCATION", location);
                     startActivity(intent);
 
             }

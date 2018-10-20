@@ -10,12 +10,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.asus.donationtracker.Model.AccountType;
 import com.example.asus.donationtracker.Model.DonationItem;
+import com.example.asus.donationtracker.Model.DonationItemType;
 import com.example.asus.donationtracker.Model.DonationItems;
 import com.example.asus.donationtracker.Model.Location;
 import com.example.asus.donationtracker.R;
@@ -29,6 +33,7 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
     private Button submit;
     private Button imgBtn;
     private Location center;
+    private Spinner catSpinner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,10 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
         submit.setOnClickListener(this);
         imgBtn = (Button) findViewById(R.id.addPicBtn);
         imgBtn.setOnClickListener(this);
+        Spinner typesSpinner = (Spinner) findViewById(R.id.itemType);
+        ArrayAdapter<Enum> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, DonationItemType.values());
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        typesSpinner.setAdapter(adapter);
     }
 
 
@@ -79,22 +88,32 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
                 name = (EditText) findViewById(R.id.itemName);
                 description = (EditText) findViewById(R.id.itemDesc);
                 String title = name.getText().toString();
+                catSpinner = (Spinner) findViewById(R.id.itemType);
+                DonationItemType submittedType = (DonationItemType) catSpinner.getSelectedItem();
                 if (!title.equals("")) {
-                    if (!description.getText().toString().equals("")) {
-                        DonationItem item = new DonationItem(title, description.getText()
-                                .toString(), center);
-                        DonationItems donated = DonationItems.getInstance();
-                        donated.add(item);
-                        finish();
+
+                    if (!submittedType.toString().equals("Choose a category")) {
+                        if (!description.getText().toString().equals("")) {
+                            DonationItem item = new DonationItem(title, description.getText()
+                                    .toString(), center, submittedType);
+                            DonationItems donated = DonationItems.getInstance();
+                            donated.add(item);
+                            finish();
+                        } else {
+                            DonationItem item = new DonationItem(title, "", center, submittedType);
+                            DonationItems donated = DonationItems.getInstance();
+                            donated.add(item);
+                            finish();
+                        }
                     } else {
-                        DonationItem item = new DonationItem(title, "", center);
-                        DonationItems donated = DonationItems.getInstance();
-                        donated.add(item);
-                        finish();
+                        Toast.makeText(getApplicationContext(), "Choose a category for your donation",
+                                Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(getApplicationContext(), "Give the name of your donation item",
-                            Toast.LENGTH_LONG).show();
+
+                }
+                else {
+                Toast.makeText(getApplicationContext(), "Give the name of your donation item",
+                        Toast.LENGTH_SHORT).show();
                 }
                 break;
             default :

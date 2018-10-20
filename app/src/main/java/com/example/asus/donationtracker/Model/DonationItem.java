@@ -15,15 +15,18 @@ public class DonationItem implements Serializable {
 
     private Location parentLocation;
 
+    private DonationItemType category;
+
     /**
      * Creates a new user
      * @param name item's name
      * @param description item's description
      */
-    public DonationItem(String name, String description, Location parentLocation) {
+    public DonationItem(String name, String description, Location parentLocation, DonationItemType category) {
         this.name = name;
         this.description = description;
         this.parentLocation = parentLocation;
+        this.category = category;
     }
 
     @Override
@@ -55,6 +58,9 @@ public class DonationItem implements Serializable {
 
     public Location getLocation() {return parentLocation;}
     public void setLocation(Location updated) {parentLocation = updated;}
+
+    public DonationItemType getCategory() { return category;}
+    public void setCategory(DonationItemType newType) {category = newType;}
 
     /**********************************************/
 

@@ -46,7 +46,13 @@
             android:name=".Controller.enterDonationItem"
             android:label="@string/donateItem"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".Controller.DonationItemDetails"></activity>
+        <activity android:name=".Controller.DonationItemDetails" />
+        <activity
+            android:name=".Controller.Settings"
+            android:label="@string/title_activity_settings" />
+        <activity android:name=".Controller.ItemSearch" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".ResultsPage"></activity>
     </application>
 
 </manifest>

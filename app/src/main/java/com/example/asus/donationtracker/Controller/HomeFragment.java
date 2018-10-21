@@ -28,6 +28,22 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        fragment.findViewById(R.id.settingsButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToSettings = new Intent(getActivity(), Settings.class);
+                startActivity(goToSettings);
+            }
+        });
+
+        fragment.findViewById(R.id.searchButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToSearch = new Intent(getActivity(), ItemSearch.class);
+                startActivity(goToSearch);
+            }
+        });
+
 
         Users users = Users.getInstance();
         User currentUser = users.getCurrentUser();

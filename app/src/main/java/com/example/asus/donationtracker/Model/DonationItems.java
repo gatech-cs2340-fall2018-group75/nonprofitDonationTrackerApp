@@ -32,6 +32,16 @@ public class DonationItems implements Serializable {
         return matchingLocations;
     }
 
+    public List<DonationItem> getByCategory(DonationItemType type) {
+        List<DonationItem> machingTypes = new ArrayList<>();
+        for (DonationItem item : donationItems) {
+            if (item.getCategory().equals(type)) {
+                machingTypes.add(item);
+            }
+        }
+        return machingTypes;
+    }
+
     public boolean contains(DonationItem item) {
         return donationItems.contains(item);
     }

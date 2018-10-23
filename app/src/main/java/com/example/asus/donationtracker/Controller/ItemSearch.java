@@ -14,11 +14,8 @@ import com.example.asus.donationtracker.Model.DonationItem;
 import com.example.asus.donationtracker.Model.DonationItemType;
 import com.example.asus.donationtracker.Model.DonationItems;
 import com.example.asus.donationtracker.R;
-import com.example.asus.donationtracker.ResultsPage;
 
 import java.util.ArrayList;
-
-import javax.xml.transform.Result;
 
 public class ItemSearch extends AppCompatActivity {
     private EditText searchName;
@@ -53,6 +50,7 @@ public class ItemSearch extends AppCompatActivity {
                             }
                         }
                     }
+
                     Intent goToResultsPage = new Intent(getBaseContext(), ResultsPage.class);
                     goToResultsPage.putExtra("RESULTS", searchResults);
                     goToResultsPage.putExtra("QUERY", searchName.getText().toString());

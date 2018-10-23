@@ -52,7 +52,7 @@
             android:label="@string/title_activity_settings" />
         <activity android:name=".Controller.ItemSearch" />
         <activity android:name=".SearchActivity" />
-        <activity android:name=".ResultsPage"></activity>
+        <activity android:name=".Controller.ResultsPage"></activity>
     </application>
 
 </manifest>

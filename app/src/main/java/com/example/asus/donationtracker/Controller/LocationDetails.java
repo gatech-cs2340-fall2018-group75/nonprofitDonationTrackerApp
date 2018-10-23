@@ -59,7 +59,7 @@ public class LocationDetails extends AppCompatActivity {
         String fullCoords = latitude + "/" + longitude;
         coords.setText(fullCoords);
 
-        TextView nameView = (TextView) findViewById(R.id.name);
+        TextView nameView  = (TextView) findViewById(R.id.name);
         nameView.setText(name);
 
         TextView loctype = (TextView) findViewById(R.id.type);

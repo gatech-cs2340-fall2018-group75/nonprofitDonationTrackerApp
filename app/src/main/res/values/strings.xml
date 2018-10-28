@@ -48,6 +48,9 @@
     <string name="settings">Settings</string>
     <string name="optionalName">Enter item name (optional)</string>
 
+    <!-- API URL -->
+    <string name="API_base">https://cs2340-donation-tracker.herokuapp.com</string>
+
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->

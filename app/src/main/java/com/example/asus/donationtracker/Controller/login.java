@@ -31,6 +31,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -38,6 +40,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.asus.donationtracker.Model.AccountType;
 import com.example.asus.donationtracker.Model.User;
 import com.example.asus.donationtracker.Model.Users;
 import com.example.asus.donationtracker.R;
@@ -170,9 +179,6 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
      * errors are presented and no actual login attempt is made.
      */
     private void attemptLogin() {
-        if (mAuthTask != null) {
-            return;
-        }
 
         // Reset errors.
         mEmailView.setError(null);
@@ -186,7 +192,7 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (TextUtils.isEmpty(password) || !isPasswordValid(email, password)) {
+        if (TextUtils.isEmpty(password)) {
             mPasswordView.setError(getString(R.string.error_incorrect_password));
             focusView = mPasswordView;
             cancel = true;
@@ -214,23 +220,60 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
             // form field with an error.
             focusView.requestFocus();
         } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            authenticateUser(email, password);
         }
     }
+
+    public void authenticateUser(final String email, final String password) {
+        String URL=getString(R.string.API_base) + "/users/login?email=" + email + "&password=" + password;
+        Log.d("REST response", "starting... " + URL);
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.GET,
+                URL,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            Log.d("REST response", response.getString("accountType"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Users users = Users.getInstance();
+                        try {
+                            User user = new User(
+                                    response.getString("email"),
+                                    response.getString("password"),
+                                    AccountType.valueOf(response.getString("accountType")),
+                                    true
+                            );
+                            users.add(user);
+                            users.setCurrentUser(user);
+
+                            Intent toMainMenu =  new Intent(login.this, mainMenu.class);
+                            startActivity(toMainMenu);
+                        } catch (JSONException e) {
+                            mPasswordView.setError(getString(R.string.error_incorrect_password));
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("REST response", error.toString());
+                        mPasswordView.setError(getString(R.string.error_incorrect_password));
+                    }
+                }
+        );
+        requestQueue.add(request);
+    }
+
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
         return (email.contains("@"));
-    }
-
-    private boolean isPasswordValid(String email, String password) {
-        //TODO: Replace this with your own logic
-        Users accounts = Users.getInstance();
-        return accounts.contains(email, password);
     }
 
     /**

@@ -16,9 +16,6 @@ import android.widget.TextView;
 import com.example.asus.donationtracker.Model.DonationItem;
 import com.example.asus.donationtracker.Model.DonationItems;
 import com.example.asus.donationtracker.Model.Location;
-import com.example.asus.donationtracker.Model.Locations;
-import com.example.asus.donationtracker.Model.User;
-import com.example.asus.donationtracker.Model.Users;
 import com.example.asus.donationtracker.R;
 
 import java.util.List;

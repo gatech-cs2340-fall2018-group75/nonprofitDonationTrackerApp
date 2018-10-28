@@ -1,9 +1,11 @@
 package com.example.asus.donationtracker.Controller;
 
 import android.accounts.Account;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,10 +14,19 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.asus.donationtracker.Model.AccountType;
-import com.example.asus.donationtracker.Model.Users;
 import com.example.asus.donationtracker.Model.User;
+import com.example.asus.donationtracker.Model.UserSingleton;
 import com.example.asus.donationtracker.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class registerAccount extends AppCompatActivity {
@@ -56,21 +67,62 @@ public class registerAccount extends AppCompatActivity {
     }
 
     private void submit() {
-        Users users = Users.getInstance();
         String regPassword = pass.getText().toString();
         String regEmail = email.getText().toString();
         AccountType regAccountType = (AccountType) accountTypeSpinner.getSelectedItem();
         User newUser = new User(regEmail, regPassword, regAccountType);
-        if(users.contains(newUser)) {
-            Toast.makeText(this.getBaseContext(), "Account already exists",
+        try {
+            addUser(newUser);
+        } catch (JSONException e) {
+            Toast.makeText(this.getBaseContext(), "There was a problem registering your account",
                     Toast.LENGTH_LONG).show();
-        } else {
-            users.add(newUser);
-            users.setCurrentUser(newUser);
-
-            Intent goToMain = new Intent(registerAccount.this, mainMenu.class);
-            startActivity(goToMain);
+            e.printStackTrace();
         }
 
+    }
+
+    private void addUser(final User newUser) throws JSONException {
+        String URL=getString(R.string.API_base) + "/users/add";
+        Log.d("REST response", "starting... " + URL);
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final JSONObject jsonBody = new JSONObject("{" +
+                "\"email\": \"" + newUser.getEmail() + "\", " +
+                "\"password\": \"" + newUser.getPassword()+ "\", " +
+                "\"accountType\": \"" + newUser.getAccountType() + "\", " +
+                "\"isLoggedIn\": \"" + "true" + "\"" +
+                "}");
+        final Context context = this.getBaseContext();
+        Log.d("REST response", jsonBody.toString());
+
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST,
+                URL,
+                jsonBody,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        UserSingleton userInstance = UserSingleton.getInstance();
+                        userInstance.setUser(newUser);
+
+                        Intent toMainMenu =  new Intent(registerAccount.this, mainMenu.class);
+                        startActivity(toMainMenu);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("REST response", error.toString());
+                        if (error.networkResponse != null && error.networkResponse.statusCode == 409) {
+                            Toast.makeText(context, "Account already exists",
+                                    Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(context, "There was a problem registering your account",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+        );
+        requestQueue.add(request);
     }
 }

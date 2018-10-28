@@ -15,16 +15,34 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.asus.donationtracker.Model.AccountType;
 import com.example.asus.donationtracker.Model.Location;
+import com.example.asus.donationtracker.Model.LocationType;
 import com.example.asus.donationtracker.Model.Locations;
+import com.example.asus.donationtracker.Model.User;
+import com.example.asus.donationtracker.Model.UserSingleton;
 import com.example.asus.donationtracker.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class LocationsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        populateLocations();
+
         View fragment = inflater.inflate(R.layout.fragment_locations, container, false);
 
         final List<Location> locationList = Locations.getInstance().get();
@@ -49,6 +67,52 @@ public class LocationsFragment extends Fragment {
         });
 
         return fragment;
+    }
+
+    private void populateLocations() {
+        String URL=getString(R.string.API_base) + "/locations/get";
+        Log.d("REST response", "starting... " + URL);
+
+        RequestQueue requestQueue = Volley.newRequestQueue(LocationsFragment.this.getActivity());
+        JsonArrayRequest request = new JsonArrayRequest(
+                Request.Method.GET,
+                URL,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            Locations locationsInstance = Locations.getInstance();
+                            List<Location> locations = new ArrayList<>();
+                            for(int i = 0; i < response.length(); i++) {
+                                JSONObject json = response.getJSONObject(i);
+                                Location location = new Location(
+                                        json.getString("Name"),
+                                        LocationType.valueOf(json.getString("Type")),
+                                        json.getDouble("Longitude"),
+                                        json.getDouble("Latitude"),
+                                        json.getString("Street Address"),
+                                        json.getString("City"),
+                                        json.getString("State"),
+                                        json.getString("Zip"),
+                                        json.getString("Phone")
+                                );
+                                locations.add(location);
+                            }
+                            locationsInstance.set(locations);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("REST response", error.toString());
+                    }
+                }
+        );
+        requestQueue.add(request);
     }
 
     private class LocationList extends ArrayAdapter<Location> {

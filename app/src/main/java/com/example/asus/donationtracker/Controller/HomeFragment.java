@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.asus.donationtracker.Model.User;
-import com.example.asus.donationtracker.Model.Users;
+import com.example.asus.donationtracker.Model.UserSingleton;
 import com.example.asus.donationtracker.R;
 
 public class HomeFragment extends Fragment {
@@ -45,8 +45,7 @@ public class HomeFragment extends Fragment {
         });
 
 
-        Users users = Users.getInstance();
-        User currentUser = users.getCurrentUser();
+        User currentUser = UserSingleton.getInstance().getUser();
 
         TextView userEmail = fragment.findViewById(R.id.userEmail);
         userEmail.setText(currentUser.getEmail());

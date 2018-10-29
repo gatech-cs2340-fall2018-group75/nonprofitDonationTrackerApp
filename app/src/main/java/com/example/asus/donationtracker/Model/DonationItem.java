@@ -13,7 +13,7 @@ public class DonationItem implements Serializable {
     //TODO 150 char limit???
     private String description;
 
-    private Location parentLocation;
+    private String locationName;
 
     private DonationItemType category;
 
@@ -22,10 +22,10 @@ public class DonationItem implements Serializable {
      * @param name item's name
      * @param description item's description
      */
-    public DonationItem(String name, String description, Location parentLocation, DonationItemType category) {
+    public DonationItem(String name, String description, String locationName, DonationItemType category) {
         this.name = name;
         this.description = description;
-        this.parentLocation = parentLocation;
+        this.locationName = locationName;
         this.category = category;
     }
 
@@ -56,8 +56,8 @@ public class DonationItem implements Serializable {
     public String getDescription() {return description;}
     public void setDescription(String updated) {description = updated;}
 
-    public Location getLocation() {return parentLocation;}
-    public void setLocation(Location updated) {parentLocation = updated;}
+    public String getLocationName() {return locationName;}
+    public void setLocationName(String updated) {locationName = updated;}
 
     public DonationItemType getCategory() { return category;}
     public void setCategory(DonationItemType newType) {category = newType;}
@@ -67,7 +67,7 @@ public class DonationItem implements Serializable {
 
     @Override
     public String toString() {
-        return (name + ":" + description + ":" + parentLocation);
+        return (name + ":" + description + ":" + locationName);
     }
 
 }

@@ -13,11 +13,23 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.asus.donationtracker.Model.DonationItem;
+import com.example.asus.donationtracker.Model.DonationItemType;
 import com.example.asus.donationtracker.Model.DonationItems;
 import com.example.asus.donationtracker.Model.Location;
 import com.example.asus.donationtracker.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class DonationItemsFragment extends Fragment {
@@ -52,6 +64,47 @@ public class DonationItemsFragment extends Fragment {
         });
 
         return fragment;
+    }
+
+    private void populateDonationItems() {
+        String URL=getString(R.string.API_base) + "/locations/get";
+        Log.d("REST response", "starting... " + URL);
+
+        RequestQueue requestQueue = Volley.newRequestQueue(LocationsFragment.this.getActivity());
+        JsonArrayRequest request = new JsonArrayRequest(
+                Request.Method.GET,
+                URL,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        DonationItems donationItemsInstance = DonationItems.getInstance();
+                        List<DonationItem> items = new ArrayList<>();
+                        try {
+                            for(int i = 0; i < response.length(); i++) {
+                                JSONObject json = response.getJSONObject(i);
+                                DonationItem item = new DonationItem(
+                                        json.getString("Name"),
+                                        json.getString("Description"),
+                                        json.getString("Location"),
+                                        DonationItemType.valueOf(json.getString("Category"))
+                                );
+                                locations.add(location);
+                            }
+                            locationsInstance.set(locations);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("REST response", error.toString());
+                    }
+                }
+        );
+        requestQueue.add(request);
     }
 
     private class DonationItemsList extends ArrayAdapter<DonationItem> {

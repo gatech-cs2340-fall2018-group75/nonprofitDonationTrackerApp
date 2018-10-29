@@ -41,7 +41,7 @@ public class DonationItemsFragment extends Fragment {
 
         Location location = (Location) getArguments().getSerializable("LOCATION");
 
-        final List<DonationItem> donationItemsList = DonationItems.getInstance().getByLocation(location);
+        final List<DonationItem> donationItemsList = DonationItems.getInstance().get();
 
         DonationItemsList listAdapter = new DonationItemsList(inflater, donationItemsList);
         final ListView list = fragment.findViewById(R.id.donation_item_list);
@@ -70,7 +70,7 @@ public class DonationItemsFragment extends Fragment {
         String URL=getString(R.string.API_base) + "/locations/get";
         Log.d("REST response", "starting... " + URL);
 
-        RequestQueue requestQueue = Volley.newRequestQueue(LocationsFragment.this.getActivity());
+        RequestQueue requestQueue = Volley.newRequestQueue(DonationItemsFragment.this.getActivity());
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
                 URL,
@@ -89,12 +89,12 @@ public class DonationItemsFragment extends Fragment {
                                         json.getString("Location"),
                                         DonationItemType.valueOf(json.getString("Category"))
                                 );
-                                locations.add(location);
+                                items.add(item);
                             }
-                            locationsInstance.set(locations);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                        donationItemsInstance.set(items);
                     }
                 },
                 new Response.ErrorListener() {
@@ -126,7 +126,7 @@ public class DonationItemsFragment extends Fragment {
             TextView location = rowView.findViewById(R.id.item_location);
 
             name.setText(item.getName());
-            location.setText(item.getLocation().getName());
+            location.setText(item.getLocationName());
             return rowView;
         }
     }

@@ -11,10 +11,14 @@ public class DonationItems implements Serializable {
 
     private static final DonationItems _instance = new DonationItems();
     public static DonationItems getInstance() { return _instance; }
-    private ArrayList<DonationItem> donationItems;
+    private List<DonationItem> donationItems;
 
     private DonationItems() {
         donationItems = new ArrayList<>();
+    }
+
+    public List<DonationItem> get() {
+        return donationItems;
     }
 
     public boolean add(DonationItem item) {
@@ -22,34 +26,14 @@ public class DonationItems implements Serializable {
         return true;
     }
 
-    public List<DonationItem> getByLocation(Location location) {
-        List<DonationItem> matchingLocations = new ArrayList<>();
-        for (DonationItem item : donationItems) {
-            if (item.getLocation().equals(location)) {
-                matchingLocations.add(item);
-            }
-        }
-        return matchingLocations;
-    }
-
-    public List<DonationItem> getByCategory(DonationItemType type) {
-        List<DonationItem> machingTypes = new ArrayList<>();
-        for (DonationItem item : donationItems) {
-            if (item.getCategory().equals(type)) {
-                machingTypes.add(item);
-            }
-        }
-        return machingTypes;
-    }
-
-    public boolean contains(DonationItem item) {
-        return donationItems.contains(item);
+    public void set(List<DonationItem> items) {
+        donationItems = items;
     }
 
     public String toString() {
         String str = "";
         for (DonationItem item : donationItems) {
-            str += item.getName() + ":" + item.getLocation() + ",\n ";
+            str += item.getName() + ":" + item.getLocationName() + ",\n ";
         }
         return str;
     }

@@ -22,7 +22,6 @@ public class DonationItemDetails extends AppCompatActivity {
 
         String name = item.getName();
         String description = item.getDescription();
-        Location location = item.getLocation();
         String donationType = item.getCategory().toString();
 
         TextView title = (TextView) findViewById(R.id.Name);

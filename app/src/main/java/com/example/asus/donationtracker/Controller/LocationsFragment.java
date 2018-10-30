@@ -41,21 +41,20 @@ public class LocationsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        populateLocations();
 
         View fragment = inflater.inflate(R.layout.fragment_locations, container, false);
 
-        final List<Location> locationList = Locations.getInstance().get();
-
-        LocationList listAdapter = new LocationList(inflater, locationList);
-        final ListView list = fragment.findViewById(R.id.location_list);
+        LocationList listAdapter = new LocationList(inflater, Locations.getInstance().get());
+        ListView list = fragment.findViewById(R.id.location_list);
         list.setAdapter(listAdapter);
+
+        populateLocations(inflater, list);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Location itemClicked = locationList.get(position);
+                Location itemClicked = Locations.getInstance().get().get(position);
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("LOCATION", itemClicked);
@@ -69,7 +68,7 @@ public class LocationsFragment extends Fragment {
         return fragment;
     }
 
-    private void populateLocations() {
+    private void populateLocations(final LayoutInflater inflater, final ListView list) {
         String URL=getString(R.string.API_base) + "/locations/get";
         Log.d("REST response", "starting... " + URL);
 
@@ -100,6 +99,8 @@ public class LocationsFragment extends Fragment {
                                 locations.add(location);
                             }
                             locationsInstance.set(locations);
+                            LocationList listAdapter = new LocationList(inflater, locationsInstance.get());
+                            list.setAdapter(listAdapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

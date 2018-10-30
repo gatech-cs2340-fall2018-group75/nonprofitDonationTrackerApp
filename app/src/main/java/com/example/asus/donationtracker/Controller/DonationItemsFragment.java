@@ -3,6 +3,7 @@ package com.example.asus.donationtracker.Controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,10 +42,9 @@ public class DonationItemsFragment extends Fragment {
 
         Location location = (Location) getArguments().getSerializable("LOCATION");
 
-        final List<DonationItem> donationItemsList = DonationItems.getInstance().get();
-
-        DonationItemsList listAdapter = new DonationItemsList(inflater, donationItemsList);
+        DonationItemsList listAdapter = new DonationItemsList(inflater, DonationItems.getInstance().get());
         final ListView list = fragment.findViewById(R.id.donation_item_list);
+        populateDonationItems(inflater, list, location.getName());
         list.setAdapter(listAdapter);
         setListViewHeightBasedOnItems(list);
 
@@ -52,7 +52,7 @@ public class DonationItemsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                DonationItem itemClicked = donationItemsList.get(position);
+                DonationItem itemClicked = DonationItems.getInstance().get().get(position);
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("DONATION_ITEM", itemClicked);
@@ -66,8 +66,8 @@ public class DonationItemsFragment extends Fragment {
         return fragment;
     }
 
-    private void populateDonationItems() {
-        String URL=getString(R.string.API_base) + "/locations/get";
+    private void populateDonationItems(final LayoutInflater inflater, final ListView list, String locationName) {
+        String URL=getString(R.string.API_base) + "/donationitems/getByLocation?name=" + locationName;
         Log.d("REST response", "starting... " + URL);
 
         RequestQueue requestQueue = Volley.newRequestQueue(DonationItemsFragment.this.getActivity());
@@ -83,6 +83,7 @@ public class DonationItemsFragment extends Fragment {
                         try {
                             for(int i = 0; i < response.length(); i++) {
                                 JSONObject json = response.getJSONObject(i);
+                                Log.d("REST response", json.toString());
                                 DonationItem item = new DonationItem(
                                         json.getString("Name"),
                                         json.getString("Description"),
@@ -93,8 +94,12 @@ public class DonationItemsFragment extends Fragment {
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                         donationItemsInstance.set(items);
+                        DonationItemsList listAdapter = new DonationItemsList(inflater, donationItemsInstance.get());
+                        list.setAdapter(listAdapter);
                     }
                 },
                 new Response.ErrorListener() {

@@ -32,14 +32,14 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
     private EditText description;
     private Button submit;
     private Button imgBtn;
-    private Location center;
+    private Location location;
     private Spinner catSpinner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_donation_item);
-        center = (Location) getIntent().getSerializableExtra("LOCATION");
+        location = (Location) getIntent().getSerializableExtra("LOCATION");
         submit = (Button) findViewById(R.id.submit_donation_item);
         submit.setOnClickListener(this);
         imgBtn = (Button) findViewById(R.id.addPicBtn);
@@ -95,12 +95,12 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
                     if (!submittedType.toString().equals("Choose a category")) {
                         if (!description.getText().toString().equals("")) {
                             DonationItem item = new DonationItem(title, description.getText()
-                                    .toString(), center, submittedType);
+                                    .toString(), location.getName(), submittedType);
                             DonationItems donated = DonationItems.getInstance();
                             donated.add(item);
                             finish();
                         } else {
-                            DonationItem item = new DonationItem(title, "", center, submittedType);
+                            DonationItem item = new DonationItem(title, "", location.getName(), submittedType);
                             DonationItems donated = DonationItems.getInstance();
                             donated.add(item);
                             finish();

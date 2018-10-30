@@ -10,10 +10,12 @@ import android.widget.Toast;
 import com.example.asus.donationtracker.Controller.DonationItemsFragment;
 import com.example.asus.donationtracker.Model.DonationItem;
 import com.example.asus.donationtracker.Model.DonationItemType;
+import com.example.asus.donationtracker.Model.DonationItems;
 import com.example.asus.donationtracker.Model.Location;
 import com.example.asus.donationtracker.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ResultsPage extends AppCompatActivity {
@@ -28,15 +30,14 @@ public class ResultsPage extends AppCompatActivity {
         setContentView(R.layout.activity_results_page_);
 
         Bundle bd = getIntent().getExtras();
-        results = (ArrayList<DonationItem>) bd.get("RESULTS");
         query = (String) bd.get("QUERY");
         donationType = (DonationItemType) bd.get("CATEGORY");
-        resultsList = (ListView) findViewById(R.id.resultList);
-        String noResults = "No current donations match your search criteria";
+        resultsList = findViewById(R.id.resultList);
+        List<DonationItem> results = DonationItems.getInstance().get();
 
         if (results != null) {
             ArrayAdapter<DonationItem> resultContents = new ArrayAdapter<>(this,
-                    android.R.layout.simple_list_item_1 ,results);
+                    android.R.layout.simple_list_item_1 , results);
                     resultsList.setAdapter(resultContents);
         } else {
             Toast.makeText(getApplicationContext(),

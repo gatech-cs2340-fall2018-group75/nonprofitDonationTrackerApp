@@ -1,5 +1,6 @@
 package com.example.asus.donationtracker.Controller;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
@@ -17,12 +18,21 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.asus.donationtracker.Model.AccountType;
 import com.example.asus.donationtracker.Model.DonationItem;
 import com.example.asus.donationtracker.Model.DonationItemType;
 import com.example.asus.donationtracker.Model.DonationItems;
 import com.example.asus.donationtracker.Model.Location;
 import com.example.asus.donationtracker.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class enterDonationItem extends AppCompatActivity implements View.OnClickListener{
 
@@ -93,17 +103,14 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
                 if (!title.equals("")) {
 
                     if (!submittedType.toString().equals("Choose a category")) {
-                        if (!description.getText().toString().equals("")) {
-                            DonationItem item = new DonationItem(title, description.getText()
-                                    .toString(), location.getName(), submittedType);
-                            DonationItems donated = DonationItems.getInstance();
-                            donated.add(item);
-                            finish();
-                        } else {
-                            DonationItem item = new DonationItem(title, "", location.getName(), submittedType);
-                            DonationItems donated = DonationItems.getInstance();
-                            donated.add(item);
-                            finish();
+                        DonationItem item = new DonationItem(title, description.getText().toString(),
+                                location.getName(), submittedType);
+                        try {
+                            submitDonationItem(item);
+                        } catch (JSONException e) {
+                            Toast.makeText(this.getBaseContext(), "There was a problem submitting your donation",
+                                Toast.LENGTH_LONG).show();
+                            e.printStackTrace();
                         }
                     } else {
                         Toast.makeText(getApplicationContext(), "Choose a category for your donation",
@@ -119,6 +126,46 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
             default :
                 break;
         }
+    }
+    private void submitDonationItem(DonationItem item) throws JSONException {
+        String URL=getString(R.string.API_base) + "/donationitems/add";
+        Log.d("REST response", "starting... " + URL);
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final JSONObject jsonBody = new JSONObject("{" +
+                "\"name\": \"" + item.getName() + "\", " +
+                "\"description\": \"" + item.getDescription()+ "\", " +
+                "\"category\": \"" + item.getCategory().name() + "\", " +
+                "\"location\": \"" + item.getLocationName() + "\"" +
+                "}");
+        final Context context = this.getBaseContext();
+        Log.d("REST response", jsonBody.toString());
+
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST,
+                URL,
+                jsonBody,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        finish();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("REST response", error.toString());
+                        if (error.networkResponse != null && error.networkResponse.statusCode == 409) {
+                            Toast.makeText(context, "Item already exists",
+                                    Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(context, "There was a problem submitting your donation",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+        );
+        requestQueue.add(request);
     }
 
 }

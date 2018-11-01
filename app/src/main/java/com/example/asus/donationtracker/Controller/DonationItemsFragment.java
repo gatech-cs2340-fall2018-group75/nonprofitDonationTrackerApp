@@ -30,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,7 +68,7 @@ public class DonationItemsFragment extends Fragment {
     }
 
     private void populateDonationItems(final LayoutInflater inflater, final ListView list, String locationName) {
-        String URL=getString(R.string.API_base) + "/donationitems/getByLocation?name=" + locationName;
+        String URL=getString(R.string.API_base) + "/donationitems/getByLocation?name=" + URLEncoder.encode(locationName);
         Log.d("REST response", "starting... " + URL);
 
         RequestQueue requestQueue = Volley.newRequestQueue(DonationItemsFragment.this.getActivity());
@@ -100,6 +101,7 @@ public class DonationItemsFragment extends Fragment {
                         donationItemsInstance.set(items);
                         DonationItemsList listAdapter = new DonationItemsList(inflater, donationItemsInstance.get());
                         list.setAdapter(listAdapter);
+                        setListViewHeightBasedOnItems(list);
                     }
                 },
                 new Response.ErrorListener() {

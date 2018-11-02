@@ -1,7 +1,7 @@
 package com.example.asus.donationtracker.Model;
 
 public enum DonationItemType {
-    DEFAULT ("Choose a category"),
+    DEFAULT ("All categories"),
     TOYSANDGAMES ("Toys and Games"),
     FURNITURE ("Furniture"),
     OUTDOOR ("Outdoor"),

@@ -47,6 +47,9 @@
     <string name="title_activity_settings">Settings</string>
     <string name="settings">Settings</string>
     <string name="optionalName">Enter item name (optional)</string>
+    <string name="searchHeader">Search for Donation</string>
+    <string name="resultsHeader">Search Results</string>
+    <string name="noResults">Sorry, we couldn\'t find any matching donations :(</string>
 
     <!-- API URL -->
     <string name="API_base">https://cs2340-donation-tracker.herokuapp.com</string>

@@ -35,14 +35,12 @@ public class ResultsPage extends AppCompatActivity {
         resultsList = findViewById(R.id.resultList);
         List<DonationItem> results = DonationItems.getInstance().get();
 
-        if (results != null) {
+        if (results.size() > 0) {
             ArrayAdapter<DonationItem> resultContents = new ArrayAdapter<>(this,
                     android.R.layout.simple_list_item_1 , results);
                     resultsList.setAdapter(resultContents);
         } else {
-            Toast.makeText(getApplicationContext(),
-                    "No donations marched your search criteria", Toast.LENGTH_LONG).show();
-
+            setContentView(R.layout.activity_results_page_no_results);
         }
 //
 //        Toolbar toolbar = findViewById(R.id.toolbar);

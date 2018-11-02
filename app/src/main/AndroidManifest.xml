@@ -50,9 +50,12 @@
         <activity
             android:name=".Controller.Settings"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".Controller.ItemSearch" />
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".Controller.ResultsPage"></activity>
+        <activity android:name=".Controller.ItemSearch"
+            android:label="@string/searchHeader"
+            android:parentActivityName=".Controller.mainMenu"/>
+        <activity android:name=".Controller.ResultsPage"
+            android:label="@string/resultsHeader"
+            android:parentActivityName=".Controller.ItemSearch"/>
     </application>
 
 </manifest>

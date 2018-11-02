@@ -21,6 +21,14 @@ public class Locations implements Serializable {
         return locations;
     }
 
+    public List<String> getNames() {
+        List<String> names = new ArrayList<>();
+        for (Location l : locations) {
+            names.add(l.getName());
+        }
+        return names;
+    }
+
     public boolean contains(String name, String address) {
         for (Location place : locations) {
             if (place.getName().equals(name) && place.getAddress().equals(address))

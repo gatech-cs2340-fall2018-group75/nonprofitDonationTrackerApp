@@ -40,6 +40,7 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
     private ImageView pic;
     private EditText name;
     private EditText description;
+    private EditText value;
     private Button submit;
     private Button imgBtn;
     private Location location;
@@ -98,13 +99,14 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
                 name = (EditText) findViewById(R.id.itemName);
                 description = (EditText) findViewById(R.id.itemDesc);
                 String title = name.getText().toString();
+                value = findViewById(R.id.enter_donation_value);
                 catSpinner = (Spinner) findViewById(R.id.itemType);
                 DonationItemType submittedType = (DonationItemType) catSpinner.getSelectedItem();
                 if (!title.equals("")) {
 
                     if (!submittedType.toString().equals("Choose a category")) {
                         DonationItem item = new DonationItem(title, description.getText().toString(),
-                                location.getName(), 0.0, submittedType);
+                                location.getName(), Double.parseDouble(value.getText().toString()), submittedType);
                         try {
                             submitDonationItem(item);
                         } catch (JSONException e) {
@@ -136,7 +138,7 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
                 "\"name\": \"" + item.getName() + "\", " +
                 "\"description\": \"" + item.getDescription()+ "\", " +
                 "\"category\": \"" + item.getCategory().name() + "\", " +
-                "\"location\": \"" + item.getLocationName() + "\"" +
+                "\"location\": \"" + item.getLocationName() + "\", " +
                 "\"value\": \"" + item.getValue() + "\"" +
                 "}");
         final Context context = this.getBaseContext();

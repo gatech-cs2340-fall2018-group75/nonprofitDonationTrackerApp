@@ -104,7 +104,7 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
 
                     if (!submittedType.toString().equals("Choose a category")) {
                         DonationItem item = new DonationItem(title, description.getText().toString(),
-                                location.getName(), submittedType);
+                                location.getName(), 0.0, submittedType);
                         try {
                             submitDonationItem(item);
                         } catch (JSONException e) {
@@ -137,6 +137,7 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
                 "\"description\": \"" + item.getDescription()+ "\", " +
                 "\"category\": \"" + item.getCategory().name() + "\", " +
                 "\"location\": \"" + item.getLocationName() + "\"" +
+                "\"value\": \"" + item.getValue() + "\"" +
                 "}");
         final Context context = this.getBaseContext();
         Log.d("REST response", jsonBody.toString());

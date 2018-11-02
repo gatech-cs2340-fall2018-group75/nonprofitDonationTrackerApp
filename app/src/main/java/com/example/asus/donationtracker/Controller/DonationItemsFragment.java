@@ -89,6 +89,7 @@ public class DonationItemsFragment extends Fragment {
                                         json.getString("Name"),
                                         json.getString("Description"),
                                         json.getString("Location"),
+                                        json.getDouble("Value"),
                                         DonationItemType.valueOf(json.getString("Category"))
                                 );
                                 items.add(item);

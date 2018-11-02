@@ -15,6 +15,8 @@ public class DonationItem implements Serializable {
 
     private String locationName;
 
+    private double value;
+
     private DonationItemType category;
 
     /**
@@ -22,10 +24,11 @@ public class DonationItem implements Serializable {
      * @param name item's name
      * @param description item's description
      */
-    public DonationItem(String name, String description, String locationName, DonationItemType category) {
+    public DonationItem(String name, String description, String locationName, double value, DonationItemType category) {
         this.name = name;
         this.description = description;
         this.locationName = locationName;
+        this.value = value;
         this.category = category;
     }
 
@@ -58,6 +61,9 @@ public class DonationItem implements Serializable {
 
     public String getLocationName() {return locationName;}
     public void setLocationName(String updated) {locationName = updated;}
+
+    public double getValue() { return value;}
+    public void setValue(double newType) {value = newType;}
 
     public DonationItemType getCategory() { return category;}
     public void setCategory(DonationItemType newType) {category = newType;}

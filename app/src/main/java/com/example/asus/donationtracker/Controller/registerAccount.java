@@ -89,7 +89,7 @@ public class registerAccount extends AppCompatActivity {
         final JSONObject jsonBody = new JSONObject("{" +
                 "\"email\": \"" + newUser.getEmail() + "\", " +
                 "\"password\": \"" + newUser.getPassword()+ "\", " +
-                "\"accountType\": \"" + newUser.getAccountType() + "\", " +
+                "\"accountType\": \"" + newUser.getAccountType().name() + "\", " +
                 "\"isLoggedIn\": \"" + "true" + "\"" +
                 "}");
         final Context context = this.getBaseContext();

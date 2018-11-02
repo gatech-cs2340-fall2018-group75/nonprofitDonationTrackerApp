@@ -12,6 +12,8 @@ import com.example.asus.donationtracker.R;
 
 import org.w3c.dom.Text;
 
+import java.text.NumberFormat;
+
 public class DonationItemDetails extends AppCompatActivity {
 
     @Override
@@ -28,10 +30,14 @@ public class DonationItemDetails extends AppCompatActivity {
         TextView desc = (TextView) findViewById(R.id.Description);
         ImageView pic = (ImageView) findViewById(R.id.itemPic);
         TextView cat = (TextView) findViewById(R.id.Category);
+        TextView value = (TextView) findViewById(R.id.donation_item_value);
 
         title.setText(name);
         desc.setText(description);
         cat.setText(donationType);
+
+        NumberFormat format = NumberFormat.getCurrencyInstance();
+        value.setText(format.format(item.getValue()));
 
     }
 }

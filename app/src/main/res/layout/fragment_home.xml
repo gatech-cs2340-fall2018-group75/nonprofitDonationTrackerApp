@@ -40,9 +40,6 @@
 		android:layout_height="wrap_content"
 		android:layout_marginVertical="20dp"
 		
-		android:layout_marginStart="148dp"
-		android:layout_marginTop="313dp"
-		android:layout_marginEnd="148dp"
 		android:text="@string/search"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
@@ -57,9 +54,6 @@
 		android:layout_height="wrap_content"
 		android:layout_marginVertical="20dp"
 		
-		android:layout_marginStart="148dp"
-		android:layout_marginTop="313dp"
-		android:layout_marginEnd="148dp"
 		android:text="@string/settings"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
@@ -74,9 +68,6 @@
 		android:layout_height="wrap_content"
 		android:layout_marginVertical="20dp"
 		
-		android:layout_marginStart="148dp"
-		android:layout_marginTop="67dp"
-		android:layout_marginEnd="148dp"
 		android:text="@string/logout"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"

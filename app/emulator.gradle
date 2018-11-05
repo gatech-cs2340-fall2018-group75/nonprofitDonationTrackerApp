@@ -57,3 +57,7 @@ task install(dependsOn: ['emulate', 'installDebug'])
 task run(type: Exec, dependsOn: 'install') {
 	commandLine android.getAdbExe().toString(), 'shell', 'monkey', '-p', android.defaultConfig.applicationId, '1'
 }
+
+task logcat(type: Exec) {
+	commandLine android.getAdbExe().toString(), 'logcat'
+}

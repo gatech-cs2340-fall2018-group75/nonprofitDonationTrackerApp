@@ -50,6 +50,8 @@
     <string name="searchHeader">Search for Donation</string>
     <string name="resultsHeader">Search Results</string>
     <string name="noResults">Sorry, we couldn\'t find any matching donations :(</string>
+	<string name = "maps">Map</string>
+	<string name = "mapsHeader">Locations Map</string>
 
     <!-- API URL -->
     <string name="API_base">https://cs2340-donation-tracker.herokuapp.com</string>

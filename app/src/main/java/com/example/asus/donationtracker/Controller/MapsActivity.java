@@ -11,6 +11,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.example.asus.donationtracker.R;
+import com.example.asus.donationtracker.Model.Location;
+import com.example.asus.donationtracker.Model.Locations;
+
+import java.util.List;
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -32,9 +36,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		
 		mMap = googleMap;
 		
-		// Add a marker in Sydney, Australia, and move the camera.
-		LatLng sydney = new LatLng(-34, 151);
-		mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-		mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+		Locations locations = Locations.getInstance();
+		List<Location> locationsList = locations.get();
+		for (Location location : locationsList)
+		{
+			LatLng coordinates = location.getCoordinates();
+			mMap.addMarker(
+				new MarkerOptions()
+					.position(coordinates)
+					.title(location.getName())
+					.snippet(location.getPhoneNumber())
+			);
+		}
+		
+		LatLng initial = locationsList.get(0).getCoordinates();
+		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initial, 10));
 	}
 }

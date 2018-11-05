@@ -5,6 +5,8 @@ import android.util.Log;
 
 import java.io.Serializable;
 
+import com.google.android.gms.maps.model.LatLng;
+
 
 public class Location implements Serializable {
 	
@@ -85,6 +87,10 @@ public class Location implements Serializable {
 	}
 	public void setLatitude(double latitude) {
 		this.latitude = latitude;
+	}
+	
+	public LatLng getCoordinates() {
+		return new LatLng(latitude, longitude);
 	}
 	
 	public String getAddress() {

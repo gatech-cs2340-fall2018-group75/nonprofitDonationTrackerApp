@@ -100,8 +100,8 @@ public class mainMenu extends AppCompatActivity {
                                 Location location = new Location(
                                         json.getString("Name"),
                                         LocationType.valueOf(json.getString("Type")),
-                                        json.getDouble("Longitude"),
                                         json.getDouble("Latitude"),
+										json.getDouble("Longitude"),
                                         json.getString("Street Address"),
                                         json.getString("City"),
                                         json.getString("State"),

@@ -58,7 +58,7 @@
             android:parentActivityName=".Controller.ItemSearch"/>
 		<meta-data
 			android:name = "com.google.android.geo.API_KEY"
-			android:value = "AIzaSyDslw1mcY2WBDAaGyV4Cw8XIcOBKf507CE"
+			android:value = "@string/com.google.android.geo.API_KEY"
 		/>
     </application>
 </manifest>

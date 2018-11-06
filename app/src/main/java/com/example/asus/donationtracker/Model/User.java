@@ -48,11 +48,10 @@ public class User {
         if (!(o instanceof User)) {
             return false;
         }
-        User maybeSame = (User) o;
 
         return (((User) o).getEmail().equals(this.email)
                 && ((User) o).getPassword().equals(this.getPassword())
-                && (((User) o).isLoggedIn == this.isLoggedIn))
+                && ((User) o).isLoggedIn == this.isLoggedIn)
                 && ((User) o).accountType.equals(this.accountType);
 
     }

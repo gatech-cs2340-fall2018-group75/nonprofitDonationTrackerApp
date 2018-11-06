@@ -43,6 +43,14 @@ public class HomeFragment extends Fragment {
                 startActivity(goToSearch);
             }
         });
+		
+		fragment.findViewById(R.id.mapsButton).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent goToMaps= new Intent(getActivity(), MapsActivity.class);
+				startActivity(goToMaps);
+			}
+		});
 
 
         User currentUser = UserSingleton.getInstance().getUser();

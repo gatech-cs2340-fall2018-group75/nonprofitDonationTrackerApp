@@ -56,6 +56,14 @@
         <activity android:name=".Controller.ResultsPage"
             android:label="@string/resultsHeader"
             android:parentActivityName=".Controller.ItemSearch"/>
+		<activity
+			android:name = ".Controller.MapsActivity"
+			android:label = "@string/mapsHeader"
+			android:parentActivityName = ".Controller.mainMenu"
+		/>
+		<meta-data
+			android:name = "com.google.android.geo.API_KEY"
+			android:value = "@string/com.google.android.geo.API_KEY"
+		/>
     </application>
-
 </manifest>

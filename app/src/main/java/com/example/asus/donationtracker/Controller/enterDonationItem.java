@@ -34,6 +34,16 @@ import com.example.asus.donationtracker.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Activity for entering donation item fields and submitting to database
+ *
+ * <p>Queries database with constructed json string generated from User object
+ *
+ * @author Markian Hromiak
+ * @author Benjamin Holmes
+ * @see Location
+ * @see DonationItem
+ */
 public class enterDonationItem extends AppCompatActivity implements View.OnClickListener{
 
     private static int RESULT_LOAD_IMAGE = 1;
@@ -46,6 +56,11 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
     private Location location;
     private Spinner catSpinner;
 
+    /**
+     * Method called on activity creation to initialize layout elements
+     * Sets list adapters and click listeners
+     * @param savedInstanceState Current instance state
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +101,12 @@ public class enterDonationItem extends AppCompatActivity implements View.OnClick
 
     }
 
+    /**
+     * Method to handle all button clicks in activity
+     * @param v View clicked by user to check against known button IDs
+     */
+
+    @Override
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.addPicBtn :

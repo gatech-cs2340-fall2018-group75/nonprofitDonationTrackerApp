@@ -16,7 +16,14 @@ import com.example.asus.donationtracker.Model.Locations;
 
 import java.util.List;
 
-
+/**
+ * Activity for viewing locations in Google Map view
+ *
+ * <p>Requires Google Maps API key defined in a local keys.xml
+ * <p>See <a href="https://developers.google.com/maps/documentation/android-sdk/signup"></a>
+ *
+ * @author Mike Lewis
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 	
 	private GoogleMap mMap;

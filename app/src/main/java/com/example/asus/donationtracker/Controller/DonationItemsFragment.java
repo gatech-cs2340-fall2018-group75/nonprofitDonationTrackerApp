@@ -34,7 +34,24 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Fragment for Donation Items list inflated by LocationsFragment
+ *
+ * <p>Contains a method to poll the database for donation items matching a specified location
+ * <p>Individual list items are created with a listAdapter and a .xml layout for each
+ *
+ * @author Benjamin Holmes
+ * @see LocationsFragment
+ */
 public class DonationItemsFragment extends Fragment {
+    /**
+     * Method called on Fragment creation to inflate donation items layout
+     * Sets click listeners and list adapter
+     * @param inflater Inflater to create fragment
+     * @param container Where fragment will be inflated to
+     * @param savedInstanceState Current instance state
+     * @return donation items fragment view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -139,7 +156,7 @@ public class DonationItemsFragment extends Fragment {
         }
     }
 
-    public static boolean setListViewHeightBasedOnItems(ListView listView) {
+    private static boolean setListViewHeightBasedOnItems(ListView listView) {
 
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter != null) {

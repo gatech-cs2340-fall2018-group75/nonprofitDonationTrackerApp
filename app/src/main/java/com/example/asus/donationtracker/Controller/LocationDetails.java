@@ -18,10 +18,25 @@ import com.example.asus.donationtracker.R;
 
 import org.w3c.dom.Text;
 
+/**
+ * Activity for viewing details relating to specified location
+ *
+ * <p>Contains list view for all donation items relating to specified location
+ *
+ * @author Markian Hromiak
+ * @author Benjamin Holmes
+ * @see Location
+ * @see DonationItemsFragment
+ */
 public class LocationDetails extends AppCompatActivity {
 
     private Location location;
 
+    /**
+     * Method called on activity creation to initialize layout methods
+     * Sets click listeners and retrieves donation items singleton
+     * @param savedInstanceState Current instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

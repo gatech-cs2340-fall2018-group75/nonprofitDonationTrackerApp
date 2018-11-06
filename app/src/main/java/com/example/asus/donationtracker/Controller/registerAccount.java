@@ -28,7 +28,16 @@ import com.example.asus.donationtracker.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
+/**
+ * Activity for registering a new user account
+ *
+ * <p>Queries database with constructed json string generated from user object
+ *
+ * @author Markian Hromiak
+ * @author Benjamin Holmes
+ * @see UserSingleton
+ * @see User
+ */
 public class registerAccount extends AppCompatActivity {
 
     private EditText email;
@@ -37,6 +46,11 @@ public class registerAccount extends AppCompatActivity {
     private Button submitBtn;
     private TextView goToLoginLink;
 
+    /**
+     * Method called on activity creation to initialize layout elements
+     * Sets click listeners and list adapter
+     * @param savedInstanceState Current instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

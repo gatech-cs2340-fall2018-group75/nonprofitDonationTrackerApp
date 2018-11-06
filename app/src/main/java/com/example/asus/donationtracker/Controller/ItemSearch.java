@@ -31,6 +31,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Activity for searching for Donation Items
+ *
+ * <p>Queries database for search results and updates the donation items singleton with return list
+ *
+ * @author Markian Hromiak
+ * @author Benjamin Holmes
+ * @see DonationItem
+ * @see DonationItems
+ */
 public class ItemSearch extends AppCompatActivity {
     private EditText searchName;
     private Button submitSearch;
@@ -39,6 +49,11 @@ public class ItemSearch extends AppCompatActivity {
 
     private final String LOCATION_SPINNER_DEFAULT = "All locations";
 
+    /**
+     * Method called on activity creation to initialize layout elements
+     * Sets list adapters and click listeners
+     * @param savedInstanceState Current instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

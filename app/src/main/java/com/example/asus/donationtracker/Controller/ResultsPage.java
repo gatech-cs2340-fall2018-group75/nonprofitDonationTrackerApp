@@ -17,21 +17,22 @@ import com.example.asus.donationtracker.R;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Activity for viewing search results stored in donation items singleton
+ *
+ * @author Markian Hromiak
+ * @see ItemSearch
+ * @see DonationItems
+ * @see DonationItem
+ */
 public class ResultsPage extends AppCompatActivity {
 
-    private ArrayList<DonationItem> results;
-    private String query;
-    private DonationItemType donationType;
     private ListView resultsList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results_page_);
 
-        Bundle bd = getIntent().getExtras();
-        query = (String) bd.get("QUERY");
-        donationType = (DonationItemType) bd.get("CATEGORY");
         resultsList = findViewById(R.id.resultList);
         List<DonationItem> results = DonationItems.getInstance().get();
 
@@ -42,16 +43,6 @@ public class ResultsPage extends AppCompatActivity {
         } else {
             setContentView(R.layout.activity_results_page_no_results);
         }
-//
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        toolbar.setTitle(query == null ? "Search results for " + query + " in " +
-//                donationType.toString(): "Search results in " + donationType.toString());
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//
-//
-//
-
     }
 
 }

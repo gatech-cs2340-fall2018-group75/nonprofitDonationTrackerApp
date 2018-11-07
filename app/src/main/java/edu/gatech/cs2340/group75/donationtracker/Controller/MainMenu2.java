@@ -47,7 +47,7 @@ import org.json.JSONObject;
  * @see HomeFragment
  * @see LocationsFragment
  */
-public class mainMenu extends AppCompatActivity {
+public class MainMenu extends AppCompatActivity {
 
     /**
      * Listener for change in selected navigation view

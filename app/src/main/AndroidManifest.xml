@@ -35,7 +35,7 @@
             android:parentActivityName=".Controller.welcomeScreen"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Controller.mainMenu"
+            android:name=".Controller.MainMenu"
             android:label="@string/title_activity_main_menu" />
         <activity
             android:name=".Controller.LocationDetails"

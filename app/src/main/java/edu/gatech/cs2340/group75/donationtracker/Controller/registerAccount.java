@@ -119,7 +119,7 @@ public class registerAccount extends AppCompatActivity {
                         UserSingleton userInstance = UserSingleton.getInstance();
                         userInstance.setUser(newUser);
 
-                        Intent toMainMenu =  new Intent(registerAccount.this, mainMenu.class);
+                        Intent toMainMenu =  new Intent(registerAccount.this, MainMenu.class);
                         startActivity(toMainMenu);
                     }
                 },

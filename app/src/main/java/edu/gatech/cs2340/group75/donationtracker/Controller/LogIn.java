@@ -251,7 +251,7 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                             );
                             userInstance.setUser(user);
 
-                            Intent toMainMenu =  new Intent(LogIn.this, mainMenu.class);
+                            Intent toMainMenu =  new Intent(LogIn.this, MainMenu.class);
                             startActivity(toMainMenu);
                         } catch (JSONException e) {
                             mPasswordView.setError(getString(R.string.error_incorrect_password));

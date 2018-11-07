@@ -1,6 +1,6 @@
 package edu.gatech.cs2340.group75.donationtracker.Model;
 
-import edu.gatech.cs2340.group75.donationtracker.R;
+
 
 
 /**

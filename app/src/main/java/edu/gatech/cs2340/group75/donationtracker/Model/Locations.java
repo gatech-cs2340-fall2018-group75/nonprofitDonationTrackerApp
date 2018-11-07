@@ -50,15 +50,26 @@ public class Locations implements Serializable {
         return false;
     }
 
+    /**
+     * method searching for a location in the set of registered locations
+     * @param location location to be searched for
+     * @return true if location is in list, false otherwise
+     */
     public boolean contains(Location location) {
         return locations.contains(location);
     }
 
+    /**
+     * removes a location from the list of locations
+     * @param location location to be removed
+     * @return true if removing was sucessful
+     */
     public boolean remove(Location location) {
         locations.remove(location);
         return true;
     }
 
+    @Override
     public String toString() {
         String str = "";
         for (Location location : locations) {
@@ -67,6 +78,10 @@ public class Locations implements Serializable {
         return str;
     }
 
+    /**
+     * sets a list of locations
+     * @param locations list of locations to be set
+     */
     public void set(List<Location> locations) {
     	this.locations = locations;
 	}

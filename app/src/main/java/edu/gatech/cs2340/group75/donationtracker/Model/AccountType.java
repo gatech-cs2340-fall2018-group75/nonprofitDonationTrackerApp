@@ -11,10 +11,15 @@ public enum AccountType {
         this.type = type;
     }
 
+    /**
+     * getter method for account type
+     * @return account's type
+     */
     public String getType() {
         return type;
     }
 
+    @Override
     public String toString() {
         return type;
     }

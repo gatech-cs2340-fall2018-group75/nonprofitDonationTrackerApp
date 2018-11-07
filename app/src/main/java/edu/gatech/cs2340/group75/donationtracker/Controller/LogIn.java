@@ -109,7 +109,7 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         regFromLogin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toRegister = new Intent(LogIn.this, registerAccount.class);
+                Intent toRegister = new Intent(LogIn.this, RegisterAccount.class);
                 startActivity(toRegister);
             }
         });

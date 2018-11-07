@@ -49,7 +49,7 @@ public class welcomeScreen extends AppCompatActivity implements View.OnClickList
             startActivity(intent);
 
         }else if(v.getId() == R.id.registerbtn){
-            Intent intent = new Intent(welcomeScreen.this, registerAccount.class);
+            Intent intent = new Intent(welcomeScreen.this, RegisterAccount.class);
             startActivity(intent);
         }
     }

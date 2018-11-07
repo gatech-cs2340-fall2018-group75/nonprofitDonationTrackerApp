@@ -44,7 +44,7 @@ import org.json.JSONObject;
  * @see Location
  * @see DonationItem
  */
-public class enterDonationItem extends AppCompatActivity implements View.OnClickListener{
+public class EnterDonationItem extends AppCompatActivity implements View.OnClickListener{
 
     private static int RESULT_LOAD_IMAGE = 1;
     private ImageView pic;

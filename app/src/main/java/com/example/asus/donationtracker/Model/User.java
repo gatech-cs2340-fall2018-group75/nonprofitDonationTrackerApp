@@ -1,6 +1,5 @@
 package com.example.asus.donationtracker.Model;
 
-import com.example.asus.donationtracker.R;
 
 
 /**
@@ -32,6 +31,13 @@ public class User {
         this(email, password, accountType, false);
     }
 
+    /**
+     * Chained constructor for a new user
+     * @param email user's e-mail
+     * @param password user's password
+     * @param accountType user's account's type
+     * @param isLoggedIn boolean flag telling the system if the user is currently logged in
+     */
     public User(String email, String password, AccountType accountType, boolean isLoggedIn) {
         this.email = email;
         this.password = password;
@@ -62,19 +68,54 @@ public class User {
      * All property getters and setters
      */
 
+    /**
+     * getter method for user's isLoggedIn field
+     * @return if user is logged in or not
+     */
     public boolean getIsLoggedIn() {return isLoggedIn;}
+
+    /**
+     * setter method for user's isLoggedIn field
+     * @param status current login status
+     */
     public void setIsLoggedIn(boolean status) {isLoggedIn = status;}
 
+    /**
+     * getter method for user's e-mail
+     * @return user's e-mail
+     */
     public String getEmail() {return email;}
+
+    /**
+     * setter method for user's e-mail
+     * @param address user's new e-mail
+     */
     public void setEmail(String address) {email = address;}
 
+    /**
+     * getter method for user's password
+     * @return user's password
+     */
     public String getPassword() {return password;}
+
+    /**
+     * setter method for user's password
+     * @param updated user's new password
+     */
     public void setPassword(String updated) {password = updated;}
 
+    /**
+     * getter method for user's account tye
+     * @return user's account type
+     */
     public AccountType getAccountType() {
         return accountType;
     }
 
+    /**
+     * setter method for user's account type
+     * @param type user's new account type
+     */
     public void setAccountType(AccountType type) {
         accountType = type;
     }

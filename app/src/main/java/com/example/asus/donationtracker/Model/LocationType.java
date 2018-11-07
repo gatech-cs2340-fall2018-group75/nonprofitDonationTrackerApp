@@ -11,15 +11,24 @@ public enum LocationType {
             this.type = type;
         }
 
-        public String getType() {
+    /**
+     * getter method for enum
+     * @return string type of location
+     */
+    public String getType() {
             return type;
         }
 
+        @Override
         public String toString() {
             return type;
         }
-		
-		
+
+    /**
+     * constructor for LocationType enum
+     * @param text enum label
+     * @return LocationType object
+     */
 		public static LocationType fromString(String text) {
 			for (LocationType locationType : LocationType.values()) {
 				if (locationType.type.equalsIgnoreCase(text)) {

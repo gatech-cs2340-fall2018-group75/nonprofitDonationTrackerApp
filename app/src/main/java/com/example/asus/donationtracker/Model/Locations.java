@@ -1,7 +1,6 @@
 package com.example.asus.donationtracker.Model;
 
-import java.io.BufferedReader;
-import java.io.IOException;
+
 import java.io.Serializable;
 
 import java.util.ArrayList;
@@ -17,10 +16,18 @@ public class Locations implements Serializable {
         locations = new ArrayList<>();
     }
 
+    /**
+     * getter method for list of registered loations
+     * @return list of registered donation centers
+     */
     public List<Location> get() {
         return locations;
     }
 
+    /**
+     * getter method for names of registeres donation centers
+     * @return list of names of registered donation centers
+     */
     public List<String> getNames() {
         List<String> names = new ArrayList<>();
         for (Location l : locations) {
@@ -29,6 +36,12 @@ public class Locations implements Serializable {
         return names;
     }
 
+    /**
+     * 
+     * @param name
+     * @param address
+     * @return
+     */
     public boolean contains(String name, String address) {
         for (Location place : locations) {
             if (place.getName().equals(name) && place.getAddress().equals(address))

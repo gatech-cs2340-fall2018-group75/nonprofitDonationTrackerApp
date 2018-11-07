@@ -23,8 +23,8 @@ import org.json.JSONObject;
  * Activity displayed on startup with options to register as a new user or log in
  *
  * @author Markian Hromiak
- * @see registerAccount
- * @see login
+ * @see RegisterAccount
+ * @see LogIn
  */
 public class WelcomeScreen extends AppCompatActivity implements View.OnClickListener {
 

@@ -44,7 +44,7 @@ import java.util.List;
  * <p>Each list view item has independent layout inflated by list adapter
  *
  * @author Benjamin Holmes
- * @see mainMenu
+ * @see MainMenu
  * @see Locations
  * @see Location
  */

@@ -26,7 +26,7 @@ import org.json.JSONObject;
  * @see registerAccount
  * @see login
  */
-public class welcomeScreen extends AppCompatActivity implements View.OnClickListener {
+public class WelcomeScreen extends AppCompatActivity implements View.OnClickListener {
 
     /**
      * Method called on activity creation to initialize layout elements
@@ -45,11 +45,11 @@ public class welcomeScreen extends AppCompatActivity implements View.OnClickList
      */
     public void onClick(View v) {
         if(v.getId() == R.id.welcomeLoginBtn){
-            Intent intent = new Intent(welcomeScreen.this, login.class);
+            Intent intent = new Intent(WelcomeScreen.this, login.class);
             startActivity(intent);
 
         }else if(v.getId() == R.id.registerbtn){
-            Intent intent = new Intent(welcomeScreen.this, RegisterAccount.class);
+            Intent intent = new Intent(WelcomeScreen.this, RegisterAccount.class);
             startActivity(intent);
         }
     }

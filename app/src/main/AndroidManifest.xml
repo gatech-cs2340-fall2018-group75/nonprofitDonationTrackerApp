@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Controller.welcomeScreen"
+            android:name=".Controller.WelcomeScreen"
             android:label="@string/title_activity_welcome_screen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -27,12 +27,12 @@
         <activity
             android:name=".Controller.LogIn"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".Controller.welcomeScreen"
+            android:parentActivityName=".Controller.WelcomeScreen"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Controller.RegisterAccount"
             android:label="@string/title_activity_register_account"
-            android:parentActivityName=".Controller.welcomeScreen"
+            android:parentActivityName=".Controller.WelcomeScreen"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Controller.MainMenu"

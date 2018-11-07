@@ -65,7 +65,7 @@ import static android.Manifest.permission.READ_CONTACTS;
  * @see UserSingleton
  * @see User
  */
-public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -109,7 +109,7 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         regFromLogin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toRegister = new Intent(login.this, registerAccount.class);
+                Intent toRegister = new Intent(LogIn.this, registerAccount.class);
                 startActivity(toRegister);
             }
         });
@@ -251,7 +251,7 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                             );
                             userInstance.setUser(user);
 
-                            Intent toMainMenu =  new Intent(login.this, mainMenu.class);
+                            Intent toMainMenu =  new Intent(LogIn.this, mainMenu.class);
                             startActivity(toMainMenu);
                         } catch (JSONException e) {
                             mPasswordView.setError(getString(R.string.error_incorrect_password));
@@ -359,7 +359,7 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(login.this,
+                new ArrayAdapter<>(LogIn.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         mEmailView.setAdapter(adapter);

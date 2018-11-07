@@ -45,7 +45,7 @@ public class WelcomeScreen extends AppCompatActivity implements View.OnClickList
      */
     public void onClick(View v) {
         if(v.getId() == R.id.welcomeLoginBtn){
-            Intent intent = new Intent(WelcomeScreen.this, login.class);
+            Intent intent = new Intent(WelcomeScreen.this, LogIn.class);
             startActivity(intent);
 
         }else if(v.getId() == R.id.registerbtn){

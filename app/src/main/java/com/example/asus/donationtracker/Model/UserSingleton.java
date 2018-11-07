@@ -16,9 +16,14 @@ public class UserSingleton {
         user = null;
     }
 
+    /**
+     * Getter mthod for our set of Users
+     * @return User object from singleton
+     */
     public User getUser() {
         return user;
     }
+
 
     public void setUser(User user) {
         this.user = user;

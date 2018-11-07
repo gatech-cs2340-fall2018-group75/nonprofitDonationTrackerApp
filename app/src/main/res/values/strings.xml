@@ -27,7 +27,7 @@
     <string name="title_activity_temp">Sign in</string>
     <string name="title_activity_welcome_screen">welcomeScreen</string>
     <string name="title_activity_register_account">Register</string>
-    <string name="preferences_file_key">com.example.asus.donationTracker.preferences</string>
+    <string name="preferences_file_key">edu.gatech.cs2340.group75.donationtracker.preferences</string>
 
     <!--navigation-->
     <string name="navigation_title_home">Home</string>

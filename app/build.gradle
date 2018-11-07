@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.asus.donationtracker"
+        applicationId "edu.gatech.cs2340.group75.donationtracker"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1

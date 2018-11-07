@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
         fragment.findViewById(R.id.logoutButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent logOut = new Intent(getActivity(), login.class);
+                Intent logOut = new Intent(getActivity(), LogIn.class);
                 startActivity(logOut);
             }
         });

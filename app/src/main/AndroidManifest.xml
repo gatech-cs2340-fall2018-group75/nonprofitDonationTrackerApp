@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controller.login"
+            android:name=".Controller.LogIn"
             android:label="@string/title_activity_login"
             android:parentActivityName=".Controller.welcomeScreen"
             android:windowSoftInputMode="adjustResize" />

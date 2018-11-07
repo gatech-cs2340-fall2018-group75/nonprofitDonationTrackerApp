@@ -75,7 +75,7 @@ public class registerAccount extends AppCompatActivity {
 
         goToLoginLink.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(registerAccount.this, login.class));
+                startActivity(new Intent(registerAccount.this, LogIn.class));
             }
         });
     }

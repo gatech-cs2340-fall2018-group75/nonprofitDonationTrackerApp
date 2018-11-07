@@ -38,7 +38,7 @@ import org.json.JSONObject;
  * @see UserSingleton
  * @see User
  */
-public class registerAccount extends AppCompatActivity {
+public class RegisterAccount extends AppCompatActivity {
 
     private EditText email;
     private EditText pass;
@@ -75,7 +75,7 @@ public class registerAccount extends AppCompatActivity {
 
         goToLoginLink.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(registerAccount.this, LogIn.class));
+                startActivity(new Intent(RegisterAccount.this, LogIn.class));
             }
         });
     }
@@ -119,7 +119,7 @@ public class registerAccount extends AppCompatActivity {
                         UserSingleton userInstance = UserSingleton.getInstance();
                         userInstance.setUser(newUser);
 
-                        Intent toMainMenu =  new Intent(registerAccount.this, MainMenu.class);
+                        Intent toMainMenu =  new Intent(RegisterAccount.this, MainMenu.class);
                         startActivity(toMainMenu);
                     }
                 },

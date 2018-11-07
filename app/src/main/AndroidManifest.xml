@@ -43,7 +43,7 @@
             android:parentActivityName=".Controller.mainMenu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Controller.enterDonationItem"
+            android:name=".Controller.EnterDonationItem"
             android:label="@string/donateItem"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".Controller.DonationItemDetails" />

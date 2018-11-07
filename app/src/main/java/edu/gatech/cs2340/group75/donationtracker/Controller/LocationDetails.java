@@ -85,7 +85,7 @@ public class LocationDetails extends AppCompatActivity {
         donateFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(LocationDetails.this, enterDonationItem.class);
+                    Intent intent = new Intent(LocationDetails.this, EnterDonationItem.class);
                     intent.putExtra("LOCATION", location);
                     startActivity(intent);
 

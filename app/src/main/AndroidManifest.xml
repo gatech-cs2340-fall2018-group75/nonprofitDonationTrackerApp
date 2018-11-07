@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.asus.donationtracker">
+    package="edu.gatech.cs2340.group75.donationtracker">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Controller.welcomeScreen"
+            android:name=".Controller.WelcomeScreen"
             android:label="@string/title_activity_welcome_screen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -25,25 +25,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controller.login"
+            android:name=".Controller.LogIn"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".Controller.welcomeScreen"
+            android:parentActivityName=".Controller.WelcomeScreen"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Controller.registerAccount"
+            android:name=".Controller.RegisterAccount"
             android:label="@string/title_activity_register_account"
-            android:parentActivityName=".Controller.welcomeScreen"
+            android:parentActivityName=".Controller.WelcomeScreen"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Controller.mainMenu"
+            android:name=".Controller.MainMenu"
             android:label="@string/title_activity_main_menu" />
         <activity
             android:name=".Controller.LocationDetails"
             android:label="@string/title_activity_location_details"
-            android:parentActivityName=".Controller.mainMenu"
+            android:parentActivityName=".Controller.MainMenu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Controller.enterDonationItem"
+            android:name=".Controller.EnterDonationItem"
             android:label="@string/donateItem"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".Controller.DonationItemDetails" />
@@ -52,14 +52,14 @@
             android:label="@string/title_activity_settings" />
         <activity android:name=".Controller.ItemSearch"
             android:label="@string/searchHeader"
-            android:parentActivityName=".Controller.mainMenu"/>
+            android:parentActivityName=".Controller.MainMenu"/>
         <activity android:name=".Controller.ResultsPage"
             android:label="@string/resultsHeader"
             android:parentActivityName=".Controller.ItemSearch"/>
 		<activity
 			android:name = ".Controller.MapsActivity"
 			android:label = "@string/mapsHeader"
-			android:parentActivityName = ".Controller.mainMenu"
+			android:parentActivityName = ".Controller.MainMenu"
 		/>
 		<meta-data
 			android:name = "com.google.android.geo.API_KEY"

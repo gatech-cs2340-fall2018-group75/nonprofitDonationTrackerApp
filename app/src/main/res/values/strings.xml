@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">donationTracker</string>
+    <string name="app_name">Donation Tracker</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -10,24 +10,22 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">Your username or password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="submit">Submit</string>
     <string name="title_activity_login">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="logout">Logout</string>
+    <string name="logout">Log out</string>
     <string name="welcome">Welcome!</string>
-    <string name="login">Login</string>
+    <string name="login">Log in</string>
     <string name="register">Register</string>
     <string name="cancel">Cancel</string>
     <string name="action_settings">Settings</string>
     <string name="action_login">Already have an account? Log in</string>
     <string name="title_activity_main_menu">Donation Tracker</string>
     <string name="title_activity_temp">Sign in</string>
-    <string name="title_activity_welcome_screen">welcomeScreen</string>
+    <string name="title_activity_welcome_screen">Welcome</string>
     <string name="title_activity_register_account">Register</string>
-    <string name="preferences_file_key">com.example.asus.donationTracker.preferences</string>
+    <string name="preferences_file_key">edu.gatech.cs2340.group75.donationtracker.preferences</string>
 
     <!--navigation-->
     <string name="navigation_title_home">Home</string>

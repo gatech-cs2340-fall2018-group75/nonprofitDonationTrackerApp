@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.asus.donationtracker"
+        applicationId "edu.gatech.cs2340.group75.donationtracker"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
@@ -33,6 +33,7 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.0'
     implementation 'com.google.code.gson:gson:2.4'
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
+
 }
 
 

@@ -11,6 +11,7 @@ public enum DonationItemType {
     BOOKS ("Books"),
     KITCHEN ("Kitchen supplies"),
     FOOD ("Food"),
+    CLOTHES ("Clothes"),
     HEALTH ("Health");
 
 

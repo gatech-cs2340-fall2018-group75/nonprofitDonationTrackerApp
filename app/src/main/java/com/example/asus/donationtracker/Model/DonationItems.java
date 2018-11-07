@@ -9,27 +9,35 @@ import java.util.List;
 
 public class DonationItems implements Serializable {
 
-    private static final DonationItems _instance = new DonationItems();
-    public static DonationItems getInstance() { return _instance; }
+    private static final DonationItems itemsInstance = new DonationItems();
+    public static DonationItems getInstance() { return itemsInstance; }
     private List<DonationItem> donationItems;
 
     private DonationItems() {
         donationItems = new ArrayList<>();
     }
-
-    public List<DonationItem> get() {
+    /**
+    * This method is to get the item's list.
+    * @return the list of items.
+    **/
+    public List<DonationItem> getItemsList() {
         return donationItems;
     }
-
-    public boolean add(DonationItem item) {
+    /**
+    * This method is used to add a new item to the donationItem's list
+    * @param item is the new item to add to the list.
+    **/
+    public void add(DonationItem item) {
         donationItems.add(item);
-        return true;
     }
-
-    public void set(List<DonationItem> items) {
+    /**
+    * This method is used to set the list of items.
+    * @param items the list of items to set donationItems equal to.
+    **/
+    public void setItemsList(List<DonationItem> items) {
         donationItems = items;
     }
-
+    @Override
     public String toString() {
         String str = "";
         for (DonationItem item : donationItems) {

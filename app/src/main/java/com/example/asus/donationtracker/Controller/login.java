@@ -55,7 +55,15 @@ import static android.Manifest.permission.READ_CONTACTS;
 
 
 /**
- * A login screen that offers login via email/password.
+ * Activity for logging in an existing user
+ *
+ * <p>Queries database with constructed json string to check for matching user
+ * <p>Requests permission to access user contacts for auto-filling email field
+ *
+ * @author Markian Hromiak
+ * @author Benjamin Holmes
+ * @see UserSingleton
+ * @see User
  */
 public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
@@ -70,6 +78,11 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
     private View mProgressView;
     private View mLoginFormView;
 
+    /**
+     * Method called on activity creation to initialize layout elements
+     * Sets click listeners and edit listeners
+     * @param savedInstanceState Current instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -145,7 +158,10 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
     }
 
     /**
-     * Callback received when a permissions request has been completed.
+     * Callback to populate autocomplete based on contact access permission
+     * @param requestCode Code of permission request to check against
+     * @param permissions Array of permissions user is able to grant
+     * @param grantResults Array of permissions granted by users
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
@@ -296,6 +312,12 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         }
     }
 
+    /**
+     * Method to create loader of user contacts
+     * @param i Unused cursor in bundle
+     * @param bundle Unused bundle of loader options
+     * @return Cursor to track for load results
+     */
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         return new CursorLoader(this,
@@ -313,6 +335,11 @@ public class login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");
     }
 
+    /**
+     * Callback on retrieval of user contacts
+     * @param cursorLoader The loader object used
+     * @param cursor Cursor to track for load results
+     */
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
         List<String> emails = new ArrayList<>();

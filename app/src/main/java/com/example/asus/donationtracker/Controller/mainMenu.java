@@ -38,8 +38,21 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Activity for containing all menu fragments and bottom navigation
+ *
+ * <p>Queries database for current list of locations so fragment is pre-populated
+ *
+ * @author Benjamin Holmes
+ * @see HomeFragment
+ * @see LocationsFragment
+ */
 public class mainMenu extends AppCompatActivity {
 
+    /**
+     * Listener for change in selected navigation view
+     * Sets current layout fragment based on selection
+     */
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -57,6 +70,12 @@ public class mainMenu extends AppCompatActivity {
         }
     };
 
+    /**
+     * Method called on activity creation to initialize layout
+     * Sets current fragment to home fragment
+     * Sets click listeners and makes call for getting locations from db
+     * @param savedInstanceState Current instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

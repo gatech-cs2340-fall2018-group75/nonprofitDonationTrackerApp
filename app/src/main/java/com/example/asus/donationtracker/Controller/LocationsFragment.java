@@ -37,7 +37,27 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Fragment for locations page in main Activity
+ *
+ * <p>Queries database for all locations to display in list view
+ * <p>Each list view item has independent layout inflated by list adapter
+ *
+ * @author Benjamin Holmes
+ * @see mainMenu
+ * @see Locations
+ * @see Location
+ */
 public class LocationsFragment extends Fragment {
+
+    /**
+     * Method called on Fragment creation to inflate locations layout
+     * Sets click listeners and list adapter
+     * @param inflater Inflater to create fragment
+     * @param container Where fragment will be inflated to
+     * @param savedInstanceState Current instance state
+     * @return locations fragment view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

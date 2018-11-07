@@ -14,8 +14,19 @@ import org.w3c.dom.Text;
 
 import java.text.NumberFormat;
 
+/**
+ * Activity for viewing details of specified donation item
+ *
+ * @author Markian Hromiak
+ * @see DonationItem
+ */
 public class DonationItemDetails extends AppCompatActivity {
 
+    /**
+     * Method called on activity creation to initialize layout elements
+     * Retrieves donation item to display as intent extra
+     * @param savedInstanceState Current instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

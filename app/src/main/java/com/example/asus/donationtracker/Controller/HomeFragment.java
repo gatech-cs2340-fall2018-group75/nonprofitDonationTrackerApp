@@ -13,7 +13,23 @@ import com.example.asus.donationtracker.Model.User;
 import com.example.asus.donationtracker.Model.UserSingleton;
 import com.example.asus.donationtracker.R;
 
+/**
+ * Fragment for Home page in main Activity
+ *
+ * @author Markian Hromiak
+ * @author Mike Lewis
+ * @author Benjamin Holmes
+ * @see mainMenu
+ */
 public class HomeFragment extends Fragment {
+
+    /**
+     * Method called on Fragment creation to inflate home layout
+     * @param inflater Inflater to create fragment
+     * @param container Where fragment will be inflated to
+     * @param savedInstanceState Current instance state
+     * @return home fragment view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

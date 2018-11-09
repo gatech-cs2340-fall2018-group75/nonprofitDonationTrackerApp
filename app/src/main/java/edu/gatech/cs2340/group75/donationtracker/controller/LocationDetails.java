@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.group75.donationtracker.Controller;
+package edu.gatech.cs2340.group75.donationtracker.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import edu.gatech.cs2340.group75.donationtracker.Model.DonationItem;
-import edu.gatech.cs2340.group75.donationtracker.Model.DonationItems;
-import edu.gatech.cs2340.group75.donationtracker.Model.Location;
+import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
+import edu.gatech.cs2340.group75.donationtracker.model.DonationItems;
+import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import org.w3c.dom.Text;

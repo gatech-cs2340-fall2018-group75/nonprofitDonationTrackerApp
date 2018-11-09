@@ -60,7 +60,7 @@ public class User {
 
         return that.getEmail().equals(this.email)
                 && that.getPassword().equals(this.getPassword())
-                && that.isLoggedIn == this.isLoggedIn
+                && (that.isLoggedIn == this.isLoggedIn)
                 && that.accountType.equals(this.accountType);
 
     }

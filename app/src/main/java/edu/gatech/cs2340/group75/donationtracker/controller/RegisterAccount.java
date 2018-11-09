@@ -134,7 +134,7 @@ public class RegisterAccount extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         Log.e("REST response", error.toString());
 						NetworkResponse response = error.networkResponse;
-                        if (response != null && response.statusCode == HttpURLConnection.HTTP_CONFLICT) {
+                        if ((response != null) && (response.statusCode == HttpURLConnection.HTTP_CONFLICT)) {
                             Toast.makeText(context, "Account already exists",
                                     Toast.LENGTH_LONG).show();
                         } else {

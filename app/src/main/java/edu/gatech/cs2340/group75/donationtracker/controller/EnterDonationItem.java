@@ -81,7 +81,7 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+        if ((requestCode == RESULT_LOAD_IMAGE) && (resultCode == RESULT_OK) && (null != data)) {
             Uri selectedImage = data.getData();
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
@@ -194,7 +194,7 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
                     public void onErrorResponse(VolleyError error) {
                         Log.e("REST response", error.toString());
 						NetworkResponse response = error.networkResponse;
-                        if (response != null && response.statusCode == HttpURLConnection.HTTP_CONFLICT) {
+                        if ((response != null) && (response.statusCode == HttpURLConnection.HTTP_CONFLICT)) {
                             Toast.makeText(context, "Item already exists",
                                     Toast.LENGTH_LONG).show();
                         } else {

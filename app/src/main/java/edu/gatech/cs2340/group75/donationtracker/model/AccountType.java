@@ -22,6 +22,7 @@ public enum AccountType {
      * getter method for account type
      * @return account's type
      */
+    @SuppressWarnings("unused")
     public String getType() {
         return type;
     }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class DonationItems implements Serializable {
+public final class DonationItems implements Serializable {
 
     private static final DonationItems itemsInstance = new DonationItems();
     public static DonationItems getInstance() { return itemsInstance; }

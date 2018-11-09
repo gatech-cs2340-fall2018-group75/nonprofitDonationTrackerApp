@@ -25,8 +25,9 @@ public class User {
 
     /**
      * Creates a new user
-     * @param email user's email address
-     * @param password user's password
+     * @param email			user's email address
+     * @param password		user's password
+	 * @param accountType	user's account type
      */
     public User(String email, String password, AccountType accountType) {
         this(email, password, accountType, false);

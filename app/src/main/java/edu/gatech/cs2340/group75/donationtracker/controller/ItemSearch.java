@@ -41,7 +41,6 @@ import java.util.List;
  */
 public class ItemSearch extends AppCompatActivity {
     private EditText searchName;
-    private Button submitSearch;
     private Spinner searchSpinner;
     private Spinner locationSpinner;
 
@@ -56,7 +55,7 @@ public class ItemSearch extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_search);
-        submitSearch = findViewById(R.id.submitSearch);
+        Button submitSearch = findViewById(R.id.submitSearch);
         searchSpinner = findViewById(R.id.searchSpnr);
         locationSpinner = findViewById(R.id.locationSpnr);
         searchName = findViewById(R.id.srchName);
@@ -108,7 +107,7 @@ public class ItemSearch extends AppCompatActivity {
 			}
             query += "category=" + searchType.name();
         }
-        if (searchLocation != LOCATION_SPINNER_DEFAULT) {
+        if (!LOCATION_SPINNER_DEFAULT.equals(searchLocation)) {
             if (query.length() > 0) {
                 query += "&";
 			}

@@ -49,13 +49,7 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
 
     private static final int RESULT_LOAD_IMAGE = 1;
     private ImageView pic;
-    private EditText name;
-    private EditText description;
-    private EditText value;
-    private Button submit;
-    private Button imgBtn;
     private Location location;
-    private Spinner catSpinner;
 
     /**
      * Method called on activity creation to initialize layout elements
@@ -67,9 +61,9 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_donation_item);
         location = (Location) getIntent().getSerializableExtra("LOCATION");
-        submit = findViewById(R.id.submit_donation_item);
+        Button submit = findViewById(R.id.submit_donation_item);
         submit.setOnClickListener(this);
-        imgBtn = findViewById(R.id.addPicBtn);
+        Button imgBtn = findViewById(R.id.addPicBtn);
         imgBtn.setOnClickListener(this);
         Spinner typesSpinner = findViewById(R.id.itemType);
         ArrayAdapter<Enum> adapter = new ArrayAdapter
@@ -123,11 +117,11 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
                 break;
             case R.id.submit_donation_item :
-                name = findViewById(R.id.itemName);
-                description = findViewById(R.id.itemDesc);
+                EditText name = findViewById(R.id.itemName);
+                EditText description = findViewById(R.id.itemDesc);
                 String title = name.getText().toString();
-                value = findViewById(R.id.enter_donation_value);
-                catSpinner = findViewById(R.id.itemType);
+                EditText value = findViewById(R.id.enter_donation_value);
+                Spinner catSpinner = findViewById(R.id.itemType);
                 DonationItemType submittedType = (DonationItemType) catSpinner.getSelectedItem();
                 if (!"".equals(title)) {
 

@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.group75.donationtracker.model;
 
 
-public class UserSingleton {
+public final class UserSingleton {
 
     private static final UserSingleton _instance = new UserSingleton();
     public static UserSingleton getInstance() { return _instance; }

@@ -25,10 +25,8 @@ import java.util.List;
  * @author Mike Lewis
  */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-	
-	private GoogleMap mMap;
-	
-	@Override
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
@@ -40,8 +38,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 	
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
-		
-		mMap = googleMap;
+
+        GoogleMap mMap = googleMap;
 		
 		Locations locations = Locations.getInstance();
 		List<Location> locationsList = locations.get();

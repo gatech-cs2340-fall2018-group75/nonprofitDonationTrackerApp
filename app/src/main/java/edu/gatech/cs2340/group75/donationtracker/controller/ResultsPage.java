@@ -21,13 +21,12 @@ import java.util.List;
  */
 public class ResultsPage extends AppCompatActivity {
 
-    private ListView resultsList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results_page_);
 
-        resultsList = findViewById(R.id.resultList);
+        ListView resultsList = findViewById(R.id.resultList);
         List<DonationItem> results = DonationItems.getInstance().getItemsList();
 
         if (results.size() > 0) {

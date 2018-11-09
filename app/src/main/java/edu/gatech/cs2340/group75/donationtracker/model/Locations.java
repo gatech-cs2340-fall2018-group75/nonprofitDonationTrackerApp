@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Locations implements Serializable {
+public final class Locations implements Serializable {
     private static final Locations _instance = new Locations();
     public static Locations getInstance() { return _instance; }
     private List<Location> locations;
@@ -37,10 +37,12 @@ public class Locations implements Serializable {
     }
 
     /**
-     * 
-     * @param name
-     * @param address
-     * @return
+     * Check if the given name and address exists in the list of locations 
+	 *
+     * @param	name	the name of the location being checked
+     * @param	address	the address of the location being checked
+	 *
+     * @return	`true` if the name and address is shared by another location
      */
     public boolean contains(String name, String address) {
         for (Location place : locations) {
@@ -66,8 +68,7 @@ public class Locations implements Serializable {
      * @return true if removing was successful
      */
     public boolean remove(Location location) {
-        locations.remove(location);
-        return true;
+        return locations.remove(location);
     }
 
     @Override

@@ -45,8 +45,6 @@ public class RegisterAccount extends AppCompatActivity {
     private EditText email;
     private EditText pass;
     private Spinner accountTypeSpinner;
-    private Button submitBtn;
-    private TextView goToLoginLink;
 
     /**
      * Method called on activity creation to initialize layout elements
@@ -61,8 +59,8 @@ public class RegisterAccount extends AppCompatActivity {
         email = findViewById(R.id.regEmail);
         pass = findViewById(R.id.regPass);
         accountTypeSpinner = findViewById(R.id.regAccountType);
-        submitBtn = findViewById(R.id.registerBtn);
-        goToLoginLink = findViewById(R.id.regGoToLogin);
+        Button submitBtn = findViewById(R.id.registerBtn);
+        TextView goToLoginLink = findViewById(R.id.regGoToLogin);
 
         ArrayAdapter<Enum> adapter = new ArrayAdapter
 		(

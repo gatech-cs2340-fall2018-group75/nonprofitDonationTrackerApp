@@ -144,7 +144,7 @@ public class DonationItemsFragment extends Fragment {
                             e.printStackTrace();
                         }
                         donationItemsInstance.setItemsList(items);
-                        DonationItemsList listAdapter = new DonationItemsList
+                        ListAdapter listAdapter = new DonationItemsList
 						(
 							inflater, donationItemsInstance.getItemsList()
 						);
@@ -186,7 +186,7 @@ public class DonationItemsFragment extends Fragment {
         }
     }
 
-    private static boolean setListViewHeightBasedOnItems(ListView listView) {
+    private static void setListViewHeightBasedOnItems(ListView listView) {
 
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter != null) {
@@ -211,10 +211,10 @@ public class DonationItemsFragment extends Fragment {
             listView.setLayoutParams(params);
             listView.requestLayout();
 
-            return true;
+            return;
 
         } else {
-            return false;
+            return;
         }
 
     }

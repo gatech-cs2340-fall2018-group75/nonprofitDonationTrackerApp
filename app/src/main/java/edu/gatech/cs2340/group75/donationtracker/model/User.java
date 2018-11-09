@@ -49,19 +49,19 @@ public class User {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == this) {
+    public boolean equals(Object other) {
+        if (other == this) {
             return true;
         }
-        if (!(o instanceof User)) {
+        if (!(other instanceof User)) {
             return false;
         }
-        User maybeSame = (User) o;
+        User that = (User) other;
 
-        return (((User) o).getEmail().equals(this.email)
-                && ((User) o).getPassword().equals(this.getPassword())
-                && (((User) o).isLoggedIn == this.isLoggedIn))
-                && ((User) o).accountType.equals(this.accountType);
+        return that.getEmail().equals(this.email)
+                && that.getPassword().equals(this.getPassword())
+                && that.isLoggedIn == this.isLoggedIn
+                && that.accountType.equals(this.accountType);
 
     }
 	

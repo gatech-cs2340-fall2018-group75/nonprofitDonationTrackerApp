@@ -39,17 +39,17 @@ public class DonationItem implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == this) {
+    public boolean equals(Object other) {
+        if (other == this) {
             return true;
         }
-        if (!(o instanceof DonationItem)) {
+        if (!(other instanceof DonationItem)) {
             return false;
         }
-        DonationItem maybeSame = (DonationItem) o;
+        DonationItem that = (DonationItem) other;
 
-        return (((DonationItem) o).getName().equals(this.name)
-                && ((DonationItem) o).getDescription().equals(this.description));
+        return (that.getName().equals(this.name)
+                && that.getDescription().equals(this.description));
     }
 	
 	@Override

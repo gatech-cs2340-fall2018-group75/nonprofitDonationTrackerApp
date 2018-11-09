@@ -127,7 +127,7 @@ public class ItemSearch extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        donationItemsInstance.set(items);
+                        donationItemsInstance.setItemsList(items);
                         Intent goToResultsPage = new Intent(getBaseContext(), ResultsPage.class);
                         goToResultsPage.putExtra("QUERY", searchTerms);
                         goToResultsPage.putExtra("CATEGORY", searchType);

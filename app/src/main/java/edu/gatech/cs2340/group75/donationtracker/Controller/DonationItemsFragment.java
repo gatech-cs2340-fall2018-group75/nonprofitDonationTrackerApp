@@ -61,7 +61,7 @@ public class DonationItemsFragment extends Fragment {
 
         Location location = (Location) getArguments().getSerializable("LOCATION");
 
-        DonationItemsList listAdapter = new DonationItemsList(inflater, DonationItems.getInstance().get());
+        DonationItemsList listAdapter = new DonationItemsList(inflater, DonationItems.getInstance().getItemsList());
         final ListView list = fragment.findViewById(R.id.donation_item_list);
         populateDonationItems(inflater, list, location.getName());
         list.setAdapter(listAdapter);
@@ -71,7 +71,7 @@ public class DonationItemsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                DonationItem itemClicked = DonationItems.getInstance().get().get(position);
+                DonationItem itemClicked = DonationItems.getInstance().getItemsList().get(position);
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("DONATION_ITEM", itemClicked);
@@ -117,8 +117,8 @@ public class DonationItemsFragment extends Fragment {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        donationItemsInstance.set(items);
-                        DonationItemsList listAdapter = new DonationItemsList(inflater, donationItemsInstance.get());
+                        donationItemsInstance.setItemsList(items);
+                        DonationItemsList listAdapter = new DonationItemsList(inflater, donationItemsInstance.getItemsList());
                         list.setAdapter(listAdapter);
                         setListViewHeightBasedOnItems(list);
                     }

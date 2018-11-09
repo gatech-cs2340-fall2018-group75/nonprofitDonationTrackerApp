@@ -34,7 +34,7 @@ public class ResultsPage extends AppCompatActivity {
         setContentView(R.layout.activity_results_page_);
 
         resultsList = findViewById(R.id.resultList);
-        List<DonationItem> results = DonationItems.getInstance().get();
+        List<DonationItem> results = DonationItems.getInstance().getItemsList();
 
         if (results.size() > 0) {
             ArrayAdapter<DonationItem> resultContents = new ArrayAdapter<>(this,

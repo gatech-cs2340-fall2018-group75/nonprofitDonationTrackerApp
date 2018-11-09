@@ -4,6 +4,7 @@ package edu.gatech.cs2340.group75.donationtracker.model;
 import java.io.Serializable;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -33,7 +34,7 @@ public final class Locations implements Serializable {
      * @return list of registered donation centers
      */
     public List<Location> get() {
-        return locations;
+        return Collections.unmodifiableList(locations);
     }
 
     /**
@@ -97,6 +98,7 @@ public final class Locations implements Serializable {
      * sets a list of locations
      * @param locations list of locations to be set
      */
+    @SuppressWarnings("AssignmentOrReturnOfFieldWithMutableType")
     public void set(List<Location> locations) {
     	this.locations = locations;
 	}

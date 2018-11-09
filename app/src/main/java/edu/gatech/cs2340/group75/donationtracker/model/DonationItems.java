@@ -3,6 +3,7 @@ package edu.gatech.cs2340.group75.donationtracker.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -35,7 +36,7 @@ public final class DonationItems implements Serializable {
     * @return the list of items.
     **/
     public List<DonationItem> getItemsList() {
-        return donationItems;
+        return Collections.unmodifiableList(donationItems);
     }
     /**
     * This method is used to add a new item to the donationItem's list
@@ -48,6 +49,7 @@ public final class DonationItems implements Serializable {
     * This method is used to set the list of items.
     * @param items the list of items to set donationItems equal to.
     **/
+    @SuppressWarnings("AssignmentOrReturnOfFieldWithMutableType")
     public void setItemsList(List<DonationItem> items) {
         donationItems = items;
     }

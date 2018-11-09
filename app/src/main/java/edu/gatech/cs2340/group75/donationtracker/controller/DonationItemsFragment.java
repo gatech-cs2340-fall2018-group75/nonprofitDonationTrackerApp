@@ -62,7 +62,7 @@ public class DonationItemsFragment extends Fragment {
 
         View fragment = inflater.inflate(R.layout.fragment_donation_items, container, false);
 
-        Location location = (Location) getArguments().getSerializable("LOCATION");
+        Location location = (Location) Objects.requireNonNull(getArguments()).getSerializable("LOCATION");
 
         ListAdapter listAdapter = new DonationItemsList
 		(
@@ -70,7 +70,7 @@ public class DonationItemsFragment extends Fragment {
 			DonationItems.getInstance().getItemsList()
 		);
         final ListView list = fragment.findViewById(R.id.donation_item_list);
-        populateDonationItems(inflater, list, location.getName());
+        populateDonationItems(inflater, list, Objects.requireNonNull(location).getName());
         list.setAdapter(listAdapter);
         setListViewHeightBasedOnItems(list);
 

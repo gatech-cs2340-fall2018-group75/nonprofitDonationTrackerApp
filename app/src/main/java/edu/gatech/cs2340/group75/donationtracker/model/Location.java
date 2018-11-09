@@ -8,6 +8,11 @@ import java.io.Serializable;
 import com.google.android.gms.maps.model.LatLng;
 
 
+/**
+ * Model object representing a single donation location, holding location and contact information 
+ *
+ * @author mlewis61@gatech.edu
+ */
 public class Location implements Serializable {
 	
 	private String name;
@@ -233,6 +238,24 @@ public class Location implements Serializable {
 	 */
 	public void setZip(String zip) {
 		this.zip = zip;
+	}
+	
+	
+	/**
+	 * Get the full, formatted address from the component parts
+	 * The address is formatted as follows:
+	 * {address}
+	 * {city}, {state} {zip}
+	 *
+	 * @return the full address represented by this location
+	 */
+	public String getFullAddress() {
+		String fullAddress = address + "\n";
+		fullAddress = fullAddress + city + ", ";
+		fullAddress = fullAddress + state + ", ";
+		fullAddress = fullAddress + zip;
+		
+		return fullAddress;
 	}
 	
 	

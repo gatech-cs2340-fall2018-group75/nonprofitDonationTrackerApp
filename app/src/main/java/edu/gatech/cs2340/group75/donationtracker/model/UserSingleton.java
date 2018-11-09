@@ -1,6 +1,11 @@
 package edu.gatech.cs2340.group75.donationtracker.model;
 
 
+/**
+ * Singleton holder for the app's list of users
+ *
+ * @author mlewis61@gatech.edu
+ */
 public final class UserSingleton {
 
     private static final UserSingleton _instance = new UserSingleton();

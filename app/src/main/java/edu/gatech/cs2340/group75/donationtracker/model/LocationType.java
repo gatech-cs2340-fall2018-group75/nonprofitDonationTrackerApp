@@ -2,6 +2,11 @@ package edu.gatech.cs2340.group75.donationtracker.model;
 
 import android.support.annotation.NonNull;
 
+/**
+ * Enum for the type of a location
+ *
+ * @author mlewis61@gatech.edu
+ */
 public enum LocationType {
         DR ("Drop Off"),
         ST ("Store"),

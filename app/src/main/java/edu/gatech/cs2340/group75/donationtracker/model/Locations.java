@@ -6,6 +6,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Singleton holder for the app's list of locations
+ *
+ * @author mlewis61@gatech.edu
+ */
 public final class Locations implements Serializable {
     private static final Locations _instance = new Locations();
 	

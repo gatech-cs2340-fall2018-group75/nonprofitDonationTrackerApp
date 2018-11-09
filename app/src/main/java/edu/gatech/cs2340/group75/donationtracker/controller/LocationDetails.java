@@ -43,10 +43,10 @@ public class LocationDetails extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
         location = (Location) Objects.requireNonNull(bd).get("LOCATION");
-        toolbar.setTitle(location.getName());
+        toolbar.setTitle(Objects.requireNonNull(location).getName());
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         DonationItems items = DonationItems.getInstance();
 
@@ -54,13 +54,9 @@ public class LocationDetails extends AppCompatActivity {
         final String type = location.getLocationType().toString();
         final String longitude = Double.toString(location.getLongitude());
         final String latitude = Double.toString(location.getLatitude());
-        final String address = location.getAddress();
-        final String city = location.getCity();
-        final String state = location.getState();
-        final String zip = location.getZip();
         final String phone = location.getPhoneNumber();
 
-        final String wholeAddress = address + "\n" + city + ", " + state + ", " + zip;
+        final String wholeAddress = location.getFullAddress();
         TextView loc = findViewById(R.id.location);
         loc.setText(wholeAddress);
 

@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 /**
  * Test of nontrivial methods of the User Model
  */
+@SuppressWarnings("JavaDoc")
 public class UserModelTest {
     @Test
     public void equalUsersEqualsReturnsTrue() {
@@ -28,7 +29,7 @@ public class UserModelTest {
                 false
         );
 
-        assertTrue(fake1.equals(fake2));
+        assertEquals(fake1, fake2);
     }
 
     @Test
@@ -74,7 +75,7 @@ public class UserModelTest {
         };
 
         for (User fake : unequalFakes) {
-            assertFalse(fake1.equals(fake));
+            assertNotEquals(fake1, fake);
         }
     }
 
@@ -89,7 +90,7 @@ public class UserModelTest {
         );
 
         //noinspection ObjectEqualsNull
-        assertFalse(fake1.equals(null));
+        assertNotEquals(fake1, null);
     }
 
     @SuppressWarnings("EqualsBetweenInconvertibleTypes")
@@ -102,6 +103,6 @@ public class UserModelTest {
                 false
         );
 
-        assertFalse(fake1.equals(new DonationItem("", "", "", 0, null)));
+        assertNotEquals(fake1, new DonationItem("", "", "", 0, null));
     }
 }

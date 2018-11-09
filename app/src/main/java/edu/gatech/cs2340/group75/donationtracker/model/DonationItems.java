@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * Singleton holder for the app's list of donation items
+ *
+ * @author mlewis61@gatech.edu
+ */
 public final class DonationItems implements Serializable {
 
     private static final DonationItems itemsInstance = new DonationItems();

@@ -4,6 +4,11 @@ import android.support.annotation.NonNull;
 
 import java.io.Serializable;
 
+/**
+ * Model object representing a single donation item, holding description and location information
+ *
+ * @author mlewis61@gatech.edu
+ */
 public class DonationItem implements Serializable {
 
     /** Item's name**/

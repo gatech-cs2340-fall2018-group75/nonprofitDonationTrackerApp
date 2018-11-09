@@ -88,7 +88,7 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
 
             Cursor cursor = getContentResolver().query(Objects.requireNonNull(selectedImage),
                     filePathColumn, null, null, null);
-            cursor.moveToFirst();
+            Objects.requireNonNull(cursor).moveToFirst();
 
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             String picturePath = cursor.getString(columnIndex);

@@ -2,6 +2,11 @@ package edu.gatech.cs2340.group75.donationtracker.model;
 
 import android.support.annotation.NonNull;
 
+/**
+ * Enum for the category of a donation item
+ *
+ * @author mlewis61@gatech.edu
+ */
 public enum DonationItemType {
     DEFAULT ("All categories"),
     TOYSANDGAMES ("Toys and Games"),
@@ -25,6 +30,11 @@ public enum DonationItemType {
         this.type = type;
     }
 
+	/**
+     * Getter for the human-readable account type
+	 *
+     * @return human-readable donation item type
+     */
     public String getType() {
         return type;
     }

@@ -30,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.net.URLEncoder;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +102,15 @@ public class DonationItemsFragment extends Fragment {
         String URL=getString(R.string.API_base);
         //noinspection SpellCheckingInspection
         URL = URL + "/donationitems/getByLocation?name=";
-		URL = URL + URLEncoder.encode(locationName, StandardCharsets.UTF_8.toString());
+		try
+		{
+			URL = URL + URLEncoder.encode(locationName, StandardCharsets.UTF_8.toString());
+		}
+		
+		catch (UnsupportedEncodingException exception)
+		{
+			exception.printStackTrace();
+		}
 		
         Log.d("REST response", "starting... " + URL);
 

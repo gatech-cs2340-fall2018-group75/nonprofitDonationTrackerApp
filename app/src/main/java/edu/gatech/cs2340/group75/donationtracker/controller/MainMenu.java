@@ -2,6 +2,7 @@ package edu.gatech.cs2340.group75.donationtracker.controller;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,8 +42,8 @@ public class MainMenu extends AppCompatActivity {
      * Listener for change in selected navigation view
      * Sets current layout fragment based on selection
      */
-    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private final OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {

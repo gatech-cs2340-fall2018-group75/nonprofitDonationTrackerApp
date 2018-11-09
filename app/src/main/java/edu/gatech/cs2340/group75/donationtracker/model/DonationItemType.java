@@ -35,6 +35,7 @@ public enum DonationItemType {
 	 *
      * @return human-readable donation item type
      */
+    @SuppressWarnings("unused")
     public String getType() {
         return type;
     }

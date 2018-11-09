@@ -36,7 +36,6 @@ public class DonationItemDetails extends AppCompatActivity {
 
         TextView title = findViewById(R.id.Name);
         TextView desc = findViewById(R.id.Description);
-        ImageView pic = findViewById(R.id.itemPic);
         TextView cat = findViewById(R.id.Category);
         TextView value = findViewById(R.id.donation_item_value);
 

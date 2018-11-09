@@ -49,7 +49,6 @@ import org.json.JSONObject;
 public class EnterDonationItem extends AppCompatActivity implements View.OnClickListener {
 
     private static final int RESULT_LOAD_IMAGE = 1;
-    private ImageView pic;
     private Location location;
 
     /**

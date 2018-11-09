@@ -44,14 +44,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        fragment.findViewById(R.id.settingsButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goToSettings = new Intent(getActivity(), Settings.class);
-                startActivity(goToSettings);
-            }
-        });
-
         fragment.findViewById(R.id.searchButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

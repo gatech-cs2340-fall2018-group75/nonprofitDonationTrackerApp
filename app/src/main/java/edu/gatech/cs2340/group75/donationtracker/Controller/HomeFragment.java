@@ -19,7 +19,7 @@ import edu.gatech.cs2340.group75.donationtracker.R;
  * @author Markian Hromiak
  * @author Mike Lewis
  * @author Benjamin Holmes
- * @see mainMenu
+ * @see MainMenu
  */
 public class HomeFragment extends Fragment {
 

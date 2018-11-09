@@ -34,7 +34,14 @@ public class Location implements Serializable {
 	 * @param zip location's zip code
 	 * @param phoneNumber location's phoneNumber
 	 */
-	public Location(String name, LocationType locationType, double latitude, double longitude, String address, String city, String state, String zip, String phoneNumber) {
+	public Location
+	(
+		String name,
+		LocationType locationType,
+		double latitude, double longitude,
+		String address, String city, String state, String zip,
+		String phoneNumber
+	) {
 		this.name = name;
 		this.locationType = locationType;
 		this.longitude = longitude;

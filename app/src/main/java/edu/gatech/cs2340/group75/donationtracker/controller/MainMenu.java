@@ -152,6 +152,10 @@ public class MainMenu extends AppCompatActivity {
 
     private void switchToLocations() {
         FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.fragment_container, new LocationsFragment()).commit();
+        manager.beginTransaction().replace
+		(
+			R.id.fragment_container,
+			new LocationsFragment()
+		).commit();
     }
 }

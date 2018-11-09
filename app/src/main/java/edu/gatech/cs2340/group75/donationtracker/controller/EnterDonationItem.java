@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.NetworkResponse;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -44,7 +45,7 @@ import org.json.JSONObject;
  * @see Location
  * @see DonationItem
  */
-public class EnterDonationItem extends AppCompatActivity implements View.OnClickListener{
+public class EnterDonationItem extends AppCompatActivity implements View.OnClickListener {
 
     private static int RESULT_LOAD_IMAGE = 1;
     private ImageView pic;
@@ -71,7 +72,12 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
         imgBtn = (Button) findViewById(R.id.addPicBtn);
         imgBtn.setOnClickListener(this);
         Spinner typesSpinner = (Spinner) findViewById(R.id.itemType);
-        ArrayAdapter<Enum> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, DonationItemType.values());
+        ArrayAdapter<Enum> adapter = new ArrayAdapter
+		(
+			this,
+			android.R.layout.simple_spinner_item,
+			DonationItemType.values()
+		);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         typesSpinner.setAdapter(adapter);
     }
@@ -126,18 +132,31 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
                 if (!title.equals("")) {
 
                     if (!submittedType.toString().equals("Choose a category")) {
-                        DonationItem item = new DonationItem(title, description.getText().toString(),
-                                location.getName(), Double.parseDouble(value.getText().toString()), submittedType);
+                        DonationItem item = new DonationItem
+						(
+							title, description.getText().toString(),
+							location.getName(),
+							Double.parseDouble(value.getText().toString()),
+							submittedType
+						);
                         try {
                             submitDonationItem(item);
                         } catch (JSONException e) {
-                            Toast.makeText(this.getBaseContext(), "There was a problem submitting your donation",
-                                Toast.LENGTH_LONG).show();
+                            Toast.makeText
+							(
+								this.getBaseContext(),
+								"There was a problem submitting your donation",
+								Toast.LENGTH_LONG
+							).show();
                             e.printStackTrace();
                         }
                     } else {
-                        Toast.makeText(getApplicationContext(), "Choose a category for your donation",
-                                Toast.LENGTH_SHORT).show();
+                        Toast.makeText
+						(
+							getApplicationContext(),
+							"Choose a category for your donation",
+							Toast.LENGTH_SHORT
+						).show();
                     }
 
                 }
@@ -179,7 +198,8 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.e("REST response", error.toString());
-                        if (error.networkResponse != null && error.networkResponse.statusCode == 409) {
+						NetworkResponse response = error.networkResponse;
+                        if (response != null && response.statusCode == 409) {
                             Toast.makeText(context, "Item already exists",
                                     Toast.LENGTH_LONG).show();
                         } else {

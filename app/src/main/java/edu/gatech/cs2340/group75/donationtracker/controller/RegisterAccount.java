@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.NetworkResponse;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -62,7 +63,12 @@ public class RegisterAccount extends AppCompatActivity {
         submitBtn = findViewById(R.id.registerBtn);
         goToLoginLink = findViewById(R.id.regGoToLogin);
 
-        ArrayAdapter<Enum> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, AccountType.values());
+        ArrayAdapter<Enum> adapter = new ArrayAdapter
+		(
+			this,
+			android.R.layout.simple_spinner_item,
+			AccountType.values()
+		);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountTypeSpinner.setAdapter(adapter);
 
@@ -127,7 +133,8 @@ public class RegisterAccount extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.e("REST response", error.toString());
-                        if (error.networkResponse != null && error.networkResponse.statusCode == 409) {
+						NetworkResponse response = error.networkResponse;
+                        if (response != null && response.statusCode == 409) {
                             Toast.makeText(context, "Account already exists",
                                     Toast.LENGTH_LONG).show();
                         } else {

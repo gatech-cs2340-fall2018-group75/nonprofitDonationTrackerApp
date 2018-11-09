@@ -25,7 +25,8 @@ task emulate() {
 	//If no device name configured, print warning message
 	if (device == null)
 	{
-		println "To use the gradle emulator tasks, please define a value for 'emulator.device' in file 'local.properties' (generally something like 'Nexus_5X_API_27')"
+		println	"To use the gradle emulator tasks, please define a value for 'emulator.device' " +
+				"in file 'local.properties' (generally something like 'Nexus_5X_API_27')"
 	}
 	
 	//Otherwise, set up the background process in configuration step
@@ -39,10 +40,12 @@ task emulate() {
 	
 	doLast {
 		//Fail if no device is configured
-		assert device != null : "You cannot use gradle emulator tasks until a value for 'emulator.device' is provided in 'local.properties' or via the command line"
+		assert device != null :	"You cannot use gradle emulator tasks until a value for " +
+								"'emulator.device' is provided in 'local.properties' or via the command line"
 		
 		
-		//When task is run, start the process and wait for 5 seconds before exiting (to allow the emulator to start before attempting to install the APK
+		//When task is run, start the process and wait for 5 seconds before exiting
+		//This allows the emulator to start before attempting to install the APK
 		ext.process = process.start()
 		sleep(5 * 1000)
 	}
@@ -55,7 +58,8 @@ task install(dependsOn: ['emulate', 'installDebug'])
 
 //Start the app on the emulated device, ensuring the emulator is running and the app is installed
 task run(type: Exec, dependsOn: 'install') {
-	commandLine android.getAdbExe().toString(), 'shell', 'monkey', '-p', android.defaultConfig.applicationId, '1'
+	commandLine	android.getAdbExe().toString(), 'shell', 'monkey',
+				'-p', android.defaultConfig.applicationId, '1'
 }
 
 task logcat(type: Exec) {

@@ -62,14 +62,24 @@ public class ItemSearch extends AppCompatActivity {
         searchSpinner = (Spinner) findViewById(R.id.searchSpnr);
         locationSpinner = (Spinner) findViewById(R.id.locationSpnr);
         searchName = (EditText) findViewById(R.id.srchName);
-        ArrayAdapter<Enum> typeAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, DonationItemType.values());
+        ArrayAdapter<Enum> typeAdapter = new ArrayAdapter
+		(
+			this,
+			android.R.layout.simple_spinner_item,
+			DonationItemType.values()
+		);
         typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         searchSpinner.setAdapter(typeAdapter);
 
         List<String> currentLocations = new ArrayList<>();
         currentLocations.add(LOCATION_SPINNER_DEFAULT);
         currentLocations.addAll(Locations.getInstance().getNames());
-        ArrayAdapter<String> locationAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, currentLocations);
+        ArrayAdapter<String> locationAdapter = new ArrayAdapter
+		(
+			this,
+			android.R.layout.simple_spinner_item,
+			currentLocations
+		);
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
 
@@ -84,7 +94,12 @@ public class ItemSearch extends AppCompatActivity {
         });
     }
 
-    private void getMatchingResults(final String searchTerms, final DonationItemType searchType, final String searchLocation) {
+    private void getMatchingResults
+	(
+		final String searchTerms,
+		final DonationItemType searchType,
+		final String searchLocation
+	) {
         String query = "";
         if (searchTerms.length() > 0)
             query += "terms=" + searchTerms;

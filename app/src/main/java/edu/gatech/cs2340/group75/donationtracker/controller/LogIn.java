@@ -223,7 +223,10 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
     }
 
     private void authenticateUser(final String email, final String password) {
-        String URL=getString(R.string.API_base) + "/users/login?email=" + email + "&password=" + password;
+        String URL = getString(R.string.API_base);
+		URL = URL + "/users/login?email=" + email;
+		URL = URL + "&password=" + password;
+		
         Log.d("REST response", "starting... " + URL);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);

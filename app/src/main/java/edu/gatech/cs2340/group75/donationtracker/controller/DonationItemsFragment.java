@@ -61,7 +61,11 @@ public class DonationItemsFragment extends Fragment {
 
         Location location = (Location) getArguments().getSerializable("LOCATION");
 
-        DonationItemsList listAdapter = new DonationItemsList(inflater, DonationItems.getInstance().getItemsList());
+        DonationItemsList listAdapter = new DonationItemsList
+		(
+			inflater,
+			DonationItems.getInstance().getItemsList()
+		);
         final ListView list = fragment.findViewById(R.id.donation_item_list);
         populateDonationItems(inflater, list, location.getName());
         list.setAdapter(listAdapter);
@@ -75,7 +79,11 @@ public class DonationItemsFragment extends Fragment {
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("DONATION_ITEM", itemClicked);
-                Intent listDetails = new Intent(DonationItemsFragment.this.getActivity(), DonationItemDetails.class);
+                Intent listDetails = new Intent
+				(
+					DonationItemsFragment.this.getActivity(),
+					DonationItemDetails.class
+				);
                 listDetails.putExtras(bundle);
 
                 startActivity(listDetails);
@@ -85,11 +93,22 @@ public class DonationItemsFragment extends Fragment {
         return fragment;
     }
 
-    private void populateDonationItems(final LayoutInflater inflater, final ListView list, String locationName) {
-        String URL=getString(R.string.API_base) + "/donationitems/getByLocation?name=" + URLEncoder.encode(locationName);
+    private void populateDonationItems
+	(
+		final LayoutInflater inflater,
+		final ListView list,
+		String locationName
+	) {
+        String URL=getString(R.string.API_base);
+		URL = URL + "/donationitems/getByLocation?name=";
+		URL = URL + URLEncoder.encode(locationName);
+		
         Log.d("REST response", "starting... " + URL);
 
-        RequestQueue requestQueue = Volley.newRequestQueue(DonationItemsFragment.this.getActivity());
+        RequestQueue requestQueue = Volley.newRequestQueue
+		(
+			DonationItemsFragment.this.getActivity()
+		);
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
                 URL,
@@ -118,7 +137,10 @@ public class DonationItemsFragment extends Fragment {
                             e.printStackTrace();
                         }
                         donationItemsInstance.setItemsList(items);
-                        DonationItemsList listAdapter = new DonationItemsList(inflater, donationItemsInstance.getItemsList());
+                        DonationItemsList listAdapter = new DonationItemsList
+						(
+							inflater, donationItemsInstance.getItemsList()
+						);
                         list.setAdapter(listAdapter);
                         setListViewHeightBasedOnItems(list);
                     }

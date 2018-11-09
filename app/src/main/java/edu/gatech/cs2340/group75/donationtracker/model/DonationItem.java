@@ -27,7 +27,13 @@ public class DonationItem implements Serializable {
      * @param value The quantity of items available
      * @param category The category type of the item. This is for search purposes
      */
-    public DonationItem(String name, String description, String locationName, double value, DonationItemType category) {
+    public DonationItem
+	(
+		String name, String description,
+		String locationName,
+		double value,
+		DonationItemType category
+	) {
         this.name = name;
         this.description = description;
         this.locationName = locationName;

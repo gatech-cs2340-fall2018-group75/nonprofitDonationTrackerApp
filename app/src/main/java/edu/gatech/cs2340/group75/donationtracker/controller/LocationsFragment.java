@@ -78,7 +78,11 @@ public class LocationsFragment extends Fragment {
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("LOCATION", itemClicked);
-                Intent listDetails = new Intent(LocationsFragment.this.getActivity(), LocationDetails.class);
+                Intent listDetails = new Intent
+				(
+					LocationsFragment.this.getActivity(),
+					LocationDetails.class
+				);
                 listDetails.putExtras(bundle);
 
                 startActivity(listDetails);
@@ -119,7 +123,11 @@ public class LocationsFragment extends Fragment {
                                 locations.add(location);
                             }
                             locationsInstance.set(locations);
-                            LocationList listAdapter = new LocationList(inflater, locationsInstance.get());
+                            LocationList listAdapter = new LocationList
+							(
+								inflater,
+								locationsInstance.get()
+							);
                             list.setAdapter(listAdapter);
                         } catch (JSONException e) {
                             e.printStackTrace();

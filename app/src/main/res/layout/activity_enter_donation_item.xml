@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -42,7 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_margin"
                 android:hint="@string/EnterItemName"
-                android:inputType="none|textPersonName" />
+                android:inputType="none|textPersonName"
+				android:importantForAutofill = "no" />
 
             <EditText
                 android:id="@+id/itemDesc"
@@ -50,7 +52,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_margin"
                 android:hint="@string/description"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+				android:importantForAutofill = "no" />
 
             <EditText
                 android:id="@+id/enter_donation_value"
@@ -58,7 +61,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_margin"
                 android:hint="@string/valueHint"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+				android:importantForAutofill = "no" />
 
             <TextView
                 android:id="@+id/textView"

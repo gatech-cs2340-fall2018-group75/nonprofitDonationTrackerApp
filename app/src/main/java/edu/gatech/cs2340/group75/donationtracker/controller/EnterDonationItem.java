@@ -31,6 +31,7 @@ import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import java.net.HttpURLConnection;
+import java.util.Objects;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -85,7 +86,7 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
             Uri selectedImage = data.getData();
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
-            Cursor cursor = getContentResolver().query(selectedImage,
+            Cursor cursor = getContentResolver().query(Objects.requireNonNull(selectedImage),
                     filePathColumn, null, null, null);
             cursor.moveToFirst();
 

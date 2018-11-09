@@ -2,6 +2,7 @@ package edu.gatech.cs2340.group75.donationtracker.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +32,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Fragment for locations page in main Activity
@@ -55,7 +57,7 @@ public class LocationsFragment extends Fragment {
      */
     @SuppressWarnings("FeatureEnvy")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View fragment = inflater.inflate(R.layout.fragment_locations, container, false);
@@ -93,7 +95,7 @@ public class LocationsFragment extends Fragment {
         String URL=getString(R.string.API_base) + "/locations/get";
         Log.d("REST response", "starting... " + URL);
 
-        RequestQueue requestQueue = Volley.newRequestQueue(LocationsFragment.this.getActivity());
+        RequestQueue requestQueue = Volley.newRequestQueue(Objects.requireNonNull(LocationsFragment.this.getActivity()));
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
                 URL,
@@ -153,9 +155,10 @@ public class LocationsFragment extends Fragment {
             this.locations = locations;
         }
 
+        @NonNull
         @SuppressWarnings("FeatureEnvy")
         @Override
-        public View getView(int position, View view, ViewGroup parent) {
+        public View getView(int position, View view, @NonNull ViewGroup parent) {
             Location location = locations.get(position);
             View rowView= inflater.inflate(R.layout.fragment_locations_item, null, true);
             TextView name = rowView.findViewById(R.id.location_name);

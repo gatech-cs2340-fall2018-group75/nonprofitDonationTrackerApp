@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItems;
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.R;
@@ -40,7 +42,7 @@ public class LocationDetails extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
-        location = (Location) bd.get("LOCATION");
+        location = (Location) Objects.requireNonNull(bd).get("LOCATION");
         toolbar.setTitle(location.getName());
 
         setSupportActionBar(toolbar);

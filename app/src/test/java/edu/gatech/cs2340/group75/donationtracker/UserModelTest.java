@@ -78,6 +78,7 @@ public class UserModelTest {
         }
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Test
     public void nullUserEqualsReturnsFalse() {
         User fake1 = new User(
@@ -91,6 +92,7 @@ public class UserModelTest {
         assertFalse(fake1.equals(null));
     }
 
+    @SuppressWarnings("EqualsBetweenInconvertibleTypes")
     @Test
     public void notInstanceOfUserEqualsReturnsFalse() {
         User fake1 = new User(

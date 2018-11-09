@@ -15,6 +15,7 @@ import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.model.Locations;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Activity for viewing locations in Google Map view
@@ -33,7 +34,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		setContentView(R.layout.activity_maps);
 		SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
 			.findFragmentById(R.id.map);
-		mapFragment.getMapAsync(this);
+		
+		Objects.requireNonNull(mapFragment).getMapAsync(this);
 	}
 	
 	@SuppressWarnings("FeatureEnvy")

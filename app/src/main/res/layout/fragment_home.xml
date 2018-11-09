@@ -7,7 +7,7 @@
 	android:layout_width	= "match_parent"
 	android:layout_height	= "wrap_content"
 	
-	tools:context			= ".Controller.HomeFragment">
+	tools:context			= ".controller.HomeFragment">
 	
 	<TextView
 		android:id								= "@+id/userEmail"

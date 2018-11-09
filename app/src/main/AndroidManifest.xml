@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Controller.WelcomeScreen"
+            android:name=".controller.WelcomeScreen"
             android:label="@string/title_activity_welcome_screen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -25,41 +25,41 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controller.LogIn"
+            android:name=".controller.LogIn"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".Controller.WelcomeScreen"
+            android:parentActivityName=".controller.WelcomeScreen"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Controller.RegisterAccount"
+            android:name=".controller.RegisterAccount"
             android:label="@string/title_activity_register_account"
-            android:parentActivityName=".Controller.WelcomeScreen"
+            android:parentActivityName=".controller.WelcomeScreen"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Controller.MainMenu"
+            android:name=".controller.MainMenu"
             android:label="@string/title_activity_main_menu" />
         <activity
-            android:name=".Controller.LocationDetails"
+            android:name=".controller.LocationDetails"
             android:label="@string/title_activity_location_details"
-            android:parentActivityName=".Controller.MainMenu"
+            android:parentActivityName=".controller.MainMenu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Controller.EnterDonationItem"
+            android:name=".controller.EnterDonationItem"
             android:label="@string/donateItem"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".Controller.DonationItemDetails" />
+        <activity android:name=".controller.DonationItemDetails" />
         <activity
-            android:name=".Controller.Settings"
+            android:name=".controller.Settings"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".Controller.ItemSearch"
+        <activity android:name=".controller.ItemSearch"
             android:label="@string/searchHeader"
-            android:parentActivityName=".Controller.MainMenu"/>
-        <activity android:name=".Controller.ResultsPage"
+            android:parentActivityName=".controller.MainMenu"/>
+        <activity android:name=".controller.ResultsPage"
             android:label="@string/resultsHeader"
-            android:parentActivityName=".Controller.ItemSearch"/>
+            android:parentActivityName=".controller.ItemSearch"/>
 		<activity
-			android:name = ".Controller.MapsActivity"
+			android:name = ".controller.MapsActivity"
 			android:label = "@string/mapsHeader"
-			android:parentActivityName = ".Controller.MainMenu"
+			android:parentActivityName = ".controller.MainMenu"
 		/>
 		<meta-data
 			android:name = "com.google.android.geo.API_KEY"

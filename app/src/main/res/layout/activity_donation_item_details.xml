@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Controller.DonationItemDetails">
+    tools:context=".controller.DonationItemDetails">
 
     <TextView
         android:id="@+id/Name"

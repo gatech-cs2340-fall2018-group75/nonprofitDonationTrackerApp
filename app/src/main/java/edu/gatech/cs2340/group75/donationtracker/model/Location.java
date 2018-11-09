@@ -97,27 +97,11 @@ public class Location implements Serializable {
 	}
 
 	/**
-	 * setter for location's name
-	 * @param name location's new name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
 	 * getter for type of location
 	 * @return type of location
 	 */
 	public LocationType getLocationType() {
 		return locationType;
-	}
-
-	/**
-	 * setter for type of location
-	 * @param locationType location's new type
-	 */
-	public void setLocationType(LocationType locationType) {
-		this.locationType = locationType;
 	}
 
 	/**
@@ -129,27 +113,11 @@ public class Location implements Serializable {
 	}
 
 	/**
-	 * setter for location longitude
-	 * @param longitude location's new longitude
-	 */
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
-	}
-
-	/**
 	 * getter for location latitude
 	 * @return location's latitude
 	 */
 	public double getLatitude() {
 		return latitude;
-	}
-
-	/**
-	 * setter for location's latitude
-	 * @param latitude location's new latitude
-	 */
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
 	}
 
 	/**
@@ -168,13 +136,6 @@ public class Location implements Serializable {
 		return address;
 	}
 
-	/**
-	 * setter for location's address
-	 * @param address location's new address
-	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
 
 	/**
 	 * getter for location's phone number
@@ -182,14 +143,6 @@ public class Location implements Serializable {
 	 */
 	public String getPhoneNumber() {
 		return phoneNumber;
-	}
-
-	/**
-	 * setter method for location's phone number
-	 * @param phoneNumber location's new phone number
-	 */
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
 	}
 
 	/**
@@ -201,27 +154,11 @@ public class Location implements Serializable {
 	}
 
 	/**
-	 * setter method for location's city
-	 * @param city location's new city
-	 */
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	/**
 	 * getter method for location's state
 	 * @return location's state
 	 */
 	public String getState() {
 		return state;
-	}
-
-	/**
-	 * setter method for location's state
-	 * @param state location's new state
-	 */
-	public void setState(String state) {
-		this.state = state;
 	}
 
 	/**
@@ -232,14 +169,6 @@ public class Location implements Serializable {
 		return zip;
 	}
 
-	/**
-	 * setter method for location's zip code
-	 * @param zip location's new zip code
-	 */
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
-	
 	
 	/**
 	 * Get the full, formatted address from the component parts

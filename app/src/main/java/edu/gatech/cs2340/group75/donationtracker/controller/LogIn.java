@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.group75.donationtracker.Controller;
+package edu.gatech.cs2340.group75.donationtracker.controller;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -46,9 +46,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import edu.gatech.cs2340.group75.donationtracker.Model.AccountType;
-import edu.gatech.cs2340.group75.donationtracker.Model.User;
-import edu.gatech.cs2340.group75.donationtracker.Model.UserSingleton;
+import edu.gatech.cs2340.group75.donationtracker.model.AccountType;
+import edu.gatech.cs2340.group75.donationtracker.model.User;
+import edu.gatech.cs2340.group75.donationtracker.model.UserSingleton;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import static android.Manifest.permission.READ_CONTACTS;

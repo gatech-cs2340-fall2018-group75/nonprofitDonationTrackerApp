@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.group75.donationtracker.Controller;
+package edu.gatech.cs2340.group75.donationtracker.controller;
 
 
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import edu.gatech.cs2340.group75.donationtracker.R;
-import edu.gatech.cs2340.group75.donationtracker.Model.Location;
-import edu.gatech.cs2340.group75.donationtracker.Model.Locations;
+import edu.gatech.cs2340.group75.donationtracker.model.Location;
+import edu.gatech.cs2340.group75.donationtracker.model.Locations;
 
 import java.util.List;
 

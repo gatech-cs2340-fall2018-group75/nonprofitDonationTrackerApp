@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.group75.donationtracker.Controller;
+package edu.gatech.cs2340.group75.donationtracker.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import edu.gatech.cs2340.group75.donationtracker.Model.User;
-import edu.gatech.cs2340.group75.donationtracker.Model.UserSingleton;
+import edu.gatech.cs2340.group75.donationtracker.model.User;
+import edu.gatech.cs2340.group75.donationtracker.model.UserSingleton;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 /**

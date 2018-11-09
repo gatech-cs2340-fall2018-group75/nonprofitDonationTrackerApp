@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.group75.donationtracker.Controller;
+package edu.gatech.cs2340.group75.donationtracker.controller;
 
 import android.app.VoiceInteractor;
 import android.content.Intent;

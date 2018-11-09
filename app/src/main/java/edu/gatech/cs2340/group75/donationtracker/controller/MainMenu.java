@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.group75.donationtracker.Controller;
+package edu.gatech.cs2340.group75.donationtracker.controller;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -29,9 +29,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import edu.gatech.cs2340.group75.donationtracker.Model.Location;
-import edu.gatech.cs2340.group75.donationtracker.Model.LocationType;
-import edu.gatech.cs2340.group75.donationtracker.Model.Locations;
+import edu.gatech.cs2340.group75.donationtracker.model.Location;
+import edu.gatech.cs2340.group75.donationtracker.model.LocationType;
+import edu.gatech.cs2340.group75.donationtracker.model.Locations;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import org.json.JSONArray;

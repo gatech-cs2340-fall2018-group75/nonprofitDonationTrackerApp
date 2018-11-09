@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.group75.donationtracker.Model;
+package edu.gatech.cs2340.group75.donationtracker.model;
 
 
 

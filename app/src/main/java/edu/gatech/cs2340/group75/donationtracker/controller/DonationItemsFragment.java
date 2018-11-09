@@ -61,7 +61,7 @@ public class DonationItemsFragment extends Fragment {
 
         Location location = (Location) getArguments().getSerializable("LOCATION");
 
-        DonationItemsList listAdapter = new DonationItemsList
+        ListAdapter listAdapter = new DonationItemsList
 		(
 			inflater,
 			DonationItems.getInstance().getItemsList()

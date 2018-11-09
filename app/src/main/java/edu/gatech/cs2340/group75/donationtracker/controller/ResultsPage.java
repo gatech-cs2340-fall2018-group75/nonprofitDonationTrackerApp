@@ -3,6 +3,7 @@ package edu.gatech.cs2340.group75.donationtracker.controller;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
@@ -30,7 +31,7 @@ public class ResultsPage extends AppCompatActivity {
         List<DonationItem> results = DonationItems.getInstance().getItemsList();
 
         if (!results.isEmpty()) {
-            ArrayAdapter<DonationItem> resultContents = new ArrayAdapter<>(this,
+            ListAdapter resultContents = new ArrayAdapter<>(this,
                     android.R.layout.simple_list_item_1 , results);
                     resultsList.setAdapter(resultContents);
         } else {

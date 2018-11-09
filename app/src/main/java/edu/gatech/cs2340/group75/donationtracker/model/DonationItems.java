@@ -48,10 +48,13 @@ public final class DonationItems implements Serializable {
     }
     @Override
     public String toString() {
-        String str = "";
+        StringBuilder str = new StringBuilder();
         for (DonationItem item : donationItems) {
-            str += item.getName() + ":" + item.getLocationName() + ",\n ";
+            str.append(item.getName());
+			str.append(":");
+			str.append(item.getLocationName());
+			str.append(",\n ");
         }
-        return str;
+        return str.toString();
     }
 }

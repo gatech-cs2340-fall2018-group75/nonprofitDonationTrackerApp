@@ -80,11 +80,12 @@ public final class Locations implements Serializable {
 
     @Override
     public String toString() {
-        String str = "";
+        StringBuilder str = new StringBuilder();
         for (Location location : locations) {
-            str += location + "\n, ";
+            str.append(location);
+			str.append("\n, ");
         }
-        return str;
+        return str.toString();
     }
 
     /**

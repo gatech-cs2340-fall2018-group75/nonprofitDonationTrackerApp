@@ -4,13 +4,10 @@ import java.io.Serializable;
 
 public class DonationItem implements Serializable {
 
-    //TODO image field
-
     /** Item's name**/
     private String name;
 
     /** Short description of item **/
-    //TODO 150 char limit???
     private String description;
 
     private String locationName;

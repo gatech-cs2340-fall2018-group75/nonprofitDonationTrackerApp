@@ -53,6 +53,7 @@ public class DonationItemsFragment extends Fragment {
      * @param savedInstanceState Current instance state
      * @return donation items fragment view
      */
+    @SuppressWarnings("FeatureEnvy")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -93,6 +94,7 @@ public class DonationItemsFragment extends Fragment {
         return fragment;
     }
 
+    @SuppressWarnings("FeatureEnvy")
     private void populateDonationItems
 	(
 		final LayoutInflater inflater,
@@ -123,6 +125,7 @@ public class DonationItemsFragment extends Fragment {
                 URL,
                 null,
                 new Response.Listener<JSONArray>() {
+                    @SuppressWarnings("FeatureEnvy")
                     @Override
                     public void onResponse(JSONArray response) {
                         DonationItems donationItemsInstance = DonationItems.getInstance();

@@ -59,7 +59,7 @@ public class ItemSearch extends AppCompatActivity {
         searchSpinner = findViewById(R.id.searchSpnr);
         locationSpinner = findViewById(R.id.locationSpnr);
         searchName = findViewById(R.id.srchName);
-        ArrayAdapter<Enum> typeAdapter = new ArrayAdapter
+        ArrayAdapter<Enum> typeAdapter = new ArrayAdapter<Enum>
 		(
 			this,
 			android.R.layout.simple_spinner_item,
@@ -71,7 +71,7 @@ public class ItemSearch extends AppCompatActivity {
         List<String> currentLocations = new ArrayList<>();
         currentLocations.add(LOCATION_SPINNER_DEFAULT);
         currentLocations.addAll(Locations.getInstance().getNames());
-        ArrayAdapter<String> locationAdapter = new ArrayAdapter
+        ArrayAdapter<String> locationAdapter = new ArrayAdapter<Enum>
 		(
 			this,
 			android.R.layout.simple_spinner_item,

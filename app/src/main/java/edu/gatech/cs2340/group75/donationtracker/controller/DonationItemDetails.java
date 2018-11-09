@@ -23,6 +23,7 @@ public class DonationItemDetails extends AppCompatActivity {
      * Retrieves donation item to display as intent extra
      * @param savedInstanceState Current instance state
      */
+    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

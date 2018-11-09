@@ -36,7 +36,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		mapFragment.getMapAsync(this);
 	}
 	
-	@Override
+	@SuppressWarnings("FeatureEnvy")
+    @Override
 	public void onMapReady(GoogleMap googleMap) {
 
 		Locations locations = Locations.getInstance();

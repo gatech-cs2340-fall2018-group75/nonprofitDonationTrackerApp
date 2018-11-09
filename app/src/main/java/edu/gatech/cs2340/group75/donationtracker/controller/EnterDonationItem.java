@@ -66,7 +66,7 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
         Button imgBtn = findViewById(R.id.addPicBtn);
         imgBtn.setOnClickListener(this);
         Spinner typesSpinner = findViewById(R.id.itemType);
-        ArrayAdapter<Enum> adapter = new ArrayAdapter
+        ArrayAdapter<Enum> adapter = new ArrayAdapter<Enum>
 		(
 			this,
 			android.R.layout.simple_spinner_item,
@@ -163,6 +163,7 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
                 break;
         }
     }
+    @SuppressWarnings("FeatureEnvy")
     private void submitDonationItem(DonationItem item) throws JSONException {
         //noinspection SpellCheckingInspection
         String URL=getString(R.string.API_base) + "/donationitems/add";
@@ -194,7 +195,8 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
                     public void onErrorResponse(VolleyError error) {
                         Log.e("REST response", error.toString());
 						NetworkResponse response = error.networkResponse;
-                        if ((response != null) && (response.statusCode == HttpURLConnection.HTTP_CONFLICT)) {
+						int conflict = HttpURLConnection.HTTP_CONFLICT;
+                        if ((response != null) && (response.statusCode == conflict)) {
                             Toast.makeText(context, "Item already exists",
                                     Toast.LENGTH_LONG).show();
                         } else {

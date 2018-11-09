@@ -53,6 +53,7 @@ public class LocationsFragment extends Fragment {
      * @param savedInstanceState Current instance state
      * @return locations fragment view
      */
+    @SuppressWarnings("FeatureEnvy")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -87,6 +88,7 @@ public class LocationsFragment extends Fragment {
         return fragment;
     }
 
+    @SuppressWarnings("FeatureEnvy")
     private void populateLocations(final LayoutInflater inflater, final ListView list) {
         String URL=getString(R.string.API_base) + "/locations/get";
         Log.d("REST response", "starting... " + URL);
@@ -97,6 +99,7 @@ public class LocationsFragment extends Fragment {
                 URL,
                 null,
                 new Response.Listener<JSONArray>() {
+                    @SuppressWarnings("FeatureEnvy")
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
@@ -150,6 +153,7 @@ public class LocationsFragment extends Fragment {
             this.locations = locations;
         }
 
+        @SuppressWarnings("FeatureEnvy")
         @Override
         public View getView(int position, View view, ViewGroup parent) {
             Location location = locations.get(position);

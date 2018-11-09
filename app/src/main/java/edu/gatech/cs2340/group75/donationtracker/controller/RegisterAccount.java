@@ -62,7 +62,7 @@ public class RegisterAccount extends AppCompatActivity {
         Button submitBtn = findViewById(R.id.registerBtn);
         TextView goToLoginLink = findViewById(R.id.regGoToLogin);
 
-        ArrayAdapter<Enum> adapter = new ArrayAdapter
+        ArrayAdapter<Enum> adapter = new ArrayAdapter<Enum>
 		(
 			this,
 			android.R.layout.simple_spinner_item,
@@ -101,6 +101,7 @@ public class RegisterAccount extends AppCompatActivity {
 
     }
 
+    @SuppressWarnings("FeatureEnvy")
     private void addUser(final User newUser) throws JSONException {
         String URL=getString(R.string.API_base) + "/users/add";
         Log.d("REST response", "starting... " + URL);
@@ -134,7 +135,8 @@ public class RegisterAccount extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         Log.e("REST response", error.toString());
 						NetworkResponse response = error.networkResponse;
-                        if ((response != null) && (response.statusCode == HttpURLConnection.HTTP_CONFLICT)) {
+						int conflict = HttpURLConnection.HTTP_CONFLICT;
+                        if ((response != null) && (response.statusCode == conflict)) {
                             Toast.makeText(context, "Account already exists",
                                     Toast.LENGTH_LONG).show();
                         } else {

@@ -31,6 +31,7 @@ public class LocationDetails extends AppCompatActivity {
      * Sets click listeners and retrieves donation items singleton
      * @param savedInstanceState Current instance state
      */
+    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

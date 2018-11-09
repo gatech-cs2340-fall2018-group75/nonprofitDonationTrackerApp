@@ -7,6 +7,7 @@ import org.junit.Test;
  * Donation Item Model tests
  * @author Sho Szczepaniuk
  */
+@SuppressWarnings("ALL")
 public class DonationItemModelTest {
     @Test
    public void nullItemReturnsFalse() {

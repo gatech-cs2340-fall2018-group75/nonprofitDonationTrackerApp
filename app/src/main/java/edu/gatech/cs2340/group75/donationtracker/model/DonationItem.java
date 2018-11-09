@@ -71,51 +71,28 @@ public class DonationItem implements Serializable {
     public String getName() {return name;}
 
     /**
-    * This is the setter method for name.
-    * @param itemName item name to set.
-    **/
-    public void setName(String itemName) {name = itemName;}
-
-    /**
     * This is the getter method for description.
     * @return the description of the item
     **/
     public String getDescription() {return description;}
-    /**
-    * This is the setter method for description.
-    * @param newDescription the new description of the item.
-    **/
-    public void setDescription(String newDescription) {description = newDescription;}
+	
     /**
     * This is the getter method for location name.
     * @return the location name.
     **/
     public String getLocationName() {return locationName;}
-    /**
-    * This is the setter method for location Name.
-    * @param newName the new location of the item
-    **/
-    public void setLocationName(String newName) {locationName = newName;}
+	
     /**
     * This is the getter method for the quantity
     * @return the quantity
     **/
     public double getValue() { return value;}
-    /**
-    * This is the setter method for quantity
-    * @param quantity the new quantity
-    **/
-    public void setValue(double quantity) {value = quantity;}
+    
     /**
     * This is the getter method for the category type of the item
     * @return the category of the item
     **/
     public DonationItemType getCategory() { return category;}
-    /**
-    * This is the setter method for the category type of the item
-    * @param newType the new category type
-    **/
-    public void setCategory(DonationItemType newType) {category = newType;}
 
 
 

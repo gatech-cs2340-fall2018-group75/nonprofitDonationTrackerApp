@@ -1,6 +1,8 @@
 package edu.gatech.cs2340.group75.donationtracker.model;
 
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -234,7 +236,8 @@ public class Location implements Serializable {
 	}
 	
 	
-	@Override
+	@NonNull
+    @Override
 	public String toString() {
 		return (name + ", " + address + " : " + longitude + "," + latitude + " : " + phoneNumber);
 	}

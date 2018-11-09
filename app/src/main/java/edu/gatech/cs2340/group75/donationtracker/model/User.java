@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.group75.donationtracker.model;
 
 
-
+import android.support.annotation.NonNull;
 
 /**
  * Created by Markian Hromiak on 9/24/2018
@@ -130,6 +130,7 @@ public class User {
     /**********************************************/
 
 
+    @NonNull
     @Override
     public String toString() {
         return (email + ":" + password);

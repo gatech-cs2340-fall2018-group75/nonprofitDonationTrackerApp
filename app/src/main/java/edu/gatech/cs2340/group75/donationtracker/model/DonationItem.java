@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.group75.donationtracker.model;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class DonationItem implements Serializable {
@@ -112,6 +114,7 @@ public class DonationItem implements Serializable {
 
 
 
+    @NonNull
     @Override
     public String toString() {
         return (name + ":" + description + ":" + locationName);

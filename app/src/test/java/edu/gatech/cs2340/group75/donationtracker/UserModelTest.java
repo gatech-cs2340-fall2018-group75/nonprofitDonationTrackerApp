@@ -87,6 +87,7 @@ public class UserModelTest {
                 false
         );
 
+        //noinspection ObjectEqualsNull
         assertFalse(fake1.equals(null));
     }
 

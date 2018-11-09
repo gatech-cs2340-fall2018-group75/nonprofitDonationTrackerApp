@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.group75.donationtracker.model;
 
+import android.support.annotation.NonNull;
+
 public enum DonationItemType {
     DEFAULT ("All categories"),
     TOYSANDGAMES ("Toys and Games"),
@@ -27,6 +29,7 @@ public enum DonationItemType {
         return type;
     }
 
+    @NonNull
     public String toString() {
         return type;
     }

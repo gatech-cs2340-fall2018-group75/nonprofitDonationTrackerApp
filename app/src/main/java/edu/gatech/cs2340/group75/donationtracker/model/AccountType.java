@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.group75.donationtracker.model;
 
+import android.support.annotation.NonNull;
+
 public enum AccountType {
     ADMIN ("Administrator"),
     USER ("User"),
@@ -19,6 +21,7 @@ public enum AccountType {
         return type;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return type;

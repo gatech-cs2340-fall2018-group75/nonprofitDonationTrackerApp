@@ -1,6 +1,5 @@
 package edu.gatech.cs2340.group75.donationtracker.model;
 
-import android.util.Log;
 
 import java.io.Serializable;
 import java.util.ArrayList;

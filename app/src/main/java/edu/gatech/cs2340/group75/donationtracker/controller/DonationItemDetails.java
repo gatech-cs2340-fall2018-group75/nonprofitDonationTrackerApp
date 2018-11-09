@@ -1,16 +1,12 @@
 package edu.gatech.cs2340.group75.donationtracker.controller;
 
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
-import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.R;
-
-import org.w3c.dom.Text;
 
 import java.text.NumberFormat;
 

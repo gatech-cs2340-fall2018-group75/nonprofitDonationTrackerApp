@@ -1,23 +1,11 @@
 package edu.gatech.cs2340.group75.donationtracker.controller;
 
-import android.app.VoiceInteractor;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import edu.gatech.cs2340.group75.donationtracker.R;
-
-import org.json.JSONObject;
 
 /**
  * Activity displayed on startup with options to register as a new user or log in
@@ -43,6 +31,7 @@ public class WelcomeScreen extends AppCompatActivity implements View.OnClickList
      * Method to handle click events on page
      * @param v View clicked to compare against
      */
+	@Override
     public void onClick(View v) {
         if(v.getId() == R.id.welcomeLoginBtn){
             Intent intent = new Intent(WelcomeScreen.this, LogIn.class);

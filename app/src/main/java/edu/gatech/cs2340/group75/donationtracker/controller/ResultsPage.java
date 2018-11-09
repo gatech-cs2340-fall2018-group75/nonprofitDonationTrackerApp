@@ -2,18 +2,13 @@ package edu.gatech.cs2340.group75.donationtracker.controller;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
-import edu.gatech.cs2340.group75.donationtracker.model.DonationItemType;
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItems;
-import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

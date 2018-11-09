@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -25,10 +24,9 @@ import com.android.volley.NetworkResponse;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import edu.gatech.cs2340.group75.donationtracker.model.AccountType;
+
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItemType;
-import edu.gatech.cs2340.group75.donationtracker.model.DonationItems;
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
@@ -131,7 +129,7 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
                 value = findViewById(R.id.enter_donation_value);
                 catSpinner = (Spinner) findViewById(R.id.itemType);
                 DonationItemType submittedType = (DonationItemType) catSpinner.getSelectedItem();
-                if (!title.equals("")) {
+                if (!"".equals(title)) {
 
                     if (!submittedType.toString().equals("Choose a category")) {
                         DonationItem item = new DonationItem

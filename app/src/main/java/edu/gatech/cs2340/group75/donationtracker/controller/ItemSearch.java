@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,7 +19,6 @@ import com.android.volley.toolbox.Volley;
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItemType;
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItems;
-import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.model.Locations;
 import edu.gatech.cs2340.group75.donationtracker.R;
 

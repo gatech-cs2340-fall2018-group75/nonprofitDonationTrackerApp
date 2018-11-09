@@ -1,9 +1,5 @@
 package edu.gatech.cs2340.group75.donationtracker.model;
 
-import android.util.Log;
-
-import java.util.ArrayList;
-
 
 public class UserSingleton {
 
@@ -13,6 +9,7 @@ public class UserSingleton {
 
 
     private UserSingleton() {
+        //noinspection AssignmentToNull
         user = null;
     }
 

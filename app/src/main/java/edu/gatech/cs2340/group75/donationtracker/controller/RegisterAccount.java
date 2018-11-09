@@ -1,6 +1,5 @@
 package edu.gatech.cs2340.group75.donationtracker.controller;
 
-import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -82,6 +81,7 @@ public class RegisterAccount extends AppCompatActivity {
         });
 
         goToLoginLink.setOnClickListener(new View.OnClickListener() {
+			@Override
             public void onClick(View v) {
                 startActivity(new Intent(RegisterAccount.this, LogIn.class));
             }

@@ -47,7 +47,7 @@ import org.json.JSONObject;
  */
 public class EnterDonationItem extends AppCompatActivity implements View.OnClickListener {
 
-    private static int RESULT_LOAD_IMAGE = 1;
+    private static final int RESULT_LOAD_IMAGE = 1;
     private ImageView pic;
     private EditText name;
     private EditText description;
@@ -67,11 +67,11 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_donation_item);
         location = (Location) getIntent().getSerializableExtra("LOCATION");
-        submit = (Button) findViewById(R.id.submit_donation_item);
+        submit = findViewById(R.id.submit_donation_item);
         submit.setOnClickListener(this);
-        imgBtn = (Button) findViewById(R.id.addPicBtn);
+        imgBtn = findViewById(R.id.addPicBtn);
         imgBtn.setOnClickListener(this);
-        Spinner typesSpinner = (Spinner) findViewById(R.id.itemType);
+        Spinner typesSpinner = findViewById(R.id.itemType);
         ArrayAdapter<Enum> adapter = new ArrayAdapter
 		(
 			this,
@@ -99,7 +99,7 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
 
-            ImageView imageView = (ImageView) findViewById(R.id.itemPic);
+            ImageView imageView = findViewById(R.id.itemPic);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 
         }
@@ -123,15 +123,15 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
                 break;
             case R.id.submit_donation_item :
-                name = (EditText) findViewById(R.id.itemName);
-                description = (EditText) findViewById(R.id.itemDesc);
+                name = findViewById(R.id.itemName);
+                description = findViewById(R.id.itemDesc);
                 String title = name.getText().toString();
                 value = findViewById(R.id.enter_donation_value);
-                catSpinner = (Spinner) findViewById(R.id.itemType);
+                catSpinner = findViewById(R.id.itemType);
                 DonationItemType submittedType = (DonationItemType) catSpinner.getSelectedItem();
                 if (!"".equals(title)) {
 
-                    if (!submittedType.toString().equals("Choose a category")) {
+                    if (!"Choose a category".equals(submittedType.toString())) {
                         DonationItem item = new DonationItem
 						(
 							title, description.getText().toString(),

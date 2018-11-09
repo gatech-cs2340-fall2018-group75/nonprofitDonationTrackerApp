@@ -44,8 +44,9 @@ public class Locations implements Serializable {
      */
     public boolean contains(String name, String address) {
         for (Location place : locations) {
-            if (place.getName().equals(name) && place.getAddress().equals(address))
+            if (place.getName().equals(name) && place.getAddress().equals(address)) {
                 return true;
+			}
         }
         return false;
     }

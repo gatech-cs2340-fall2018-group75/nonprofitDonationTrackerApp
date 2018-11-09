@@ -33,11 +33,11 @@ public class DonationItemDetails extends AppCompatActivity {
         String description = item.getDescription();
         String donationType = item.getCategory().toString();
 
-        TextView title = (TextView) findViewById(R.id.Name);
-        TextView desc = (TextView) findViewById(R.id.Description);
-        ImageView pic = (ImageView) findViewById(R.id.itemPic);
-        TextView cat = (TextView) findViewById(R.id.Category);
-        TextView value = (TextView) findViewById(R.id.donation_item_value);
+        TextView title = findViewById(R.id.Name);
+        TextView desc = findViewById(R.id.Description);
+        ImageView pic = findViewById(R.id.itemPic);
+        TextView cat = findViewById(R.id.Category);
+        TextView value = findViewById(R.id.donation_item_value);
 
         title.setText(name);
         desc.setText(description);

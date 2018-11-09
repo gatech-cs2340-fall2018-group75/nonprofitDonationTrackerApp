@@ -58,20 +58,20 @@ public class LocationDetails extends AppCompatActivity {
         final String phone = location.getPhoneNumber();
 
         final String wholeAddress = address + "\n" + city + ", " + state + ", " + zip;
-        TextView loc = (TextView) findViewById(R.id.location);
+        TextView loc = findViewById(R.id.location);
         loc.setText(wholeAddress);
 
-        TextView phoneNmbr = (TextView) findViewById(R.id.phone);
+        TextView phoneNmbr = findViewById(R.id.phone);
         phoneNmbr.setText(phone);
 
-        TextView coords = (TextView) findViewById(R.id.coords);
+        TextView coords = findViewById(R.id.coords);
         String fullCoords = latitude + "/" + longitude;
         coords.setText(fullCoords);
 
-        TextView nameView  = (TextView) findViewById(R.id.name);
+        TextView nameView  = findViewById(R.id.name);
         nameView.setText(name);
 
-        TextView loctype = (TextView) findViewById(R.id.type);
+        TextView loctype = findViewById(R.id.type);
         loctype.setText(type);
 
         FloatingActionButton donateFAB = findViewById(R.id.donate_fab);
@@ -90,8 +90,9 @@ public class LocationDetails extends AppCompatActivity {
     }
 
     private void inflateInitialFragment() {
-        if(findViewById(R.id.donation_items_fragment_container) == null)
+        if(findViewById(R.id.donation_items_fragment_container) == null) {
             return;
+		}
         // set initial fragment layout to the home view
         DonationItemsFragment fragment = new DonationItemsFragment();
         Bundle args = new Bundle();

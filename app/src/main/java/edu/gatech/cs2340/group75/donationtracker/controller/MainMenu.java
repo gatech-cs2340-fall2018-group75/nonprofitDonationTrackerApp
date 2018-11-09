@@ -41,7 +41,7 @@ public class MainMenu extends AppCompatActivity {
      * Listener for change in selected navigation view
      * Sets current layout fragment based on selection
      */
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -77,8 +77,9 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void inflateInitialFragment() {
-        if(findViewById(R.id.fragment_container) == null)
+        if(findViewById(R.id.fragment_container) == null) {
             return;
+		}
 
         // set initial fragment layout to the home view
         getSupportFragmentManager()

@@ -56,10 +56,10 @@ public class ItemSearch extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_search);
-        submitSearch = (Button) findViewById(R.id.submitSearch);
-        searchSpinner = (Spinner) findViewById(R.id.searchSpnr);
-        locationSpinner = (Spinner) findViewById(R.id.locationSpnr);
-        searchName = (EditText) findViewById(R.id.srchName);
+        submitSearch = findViewById(R.id.submitSearch);
+        searchSpinner = findViewById(R.id.searchSpnr);
+        locationSpinner = findViewById(R.id.locationSpnr);
+        searchName = findViewById(R.id.srchName);
         ArrayAdapter<Enum> typeAdapter = new ArrayAdapter
 		(
 			this,
@@ -99,16 +99,19 @@ public class ItemSearch extends AppCompatActivity {
 		final String searchLocation
 	) {
         String query = "";
-        if (searchTerms.length() > 0)
+        if (searchTerms.length() > 0) {
             query += "terms=" + searchTerms;
+		}
         if (searchType != DonationItemType.DEFAULT) {
-            if (query.length() > 0)
+            if (query.length() > 0) {
                 query += "&";
+			}
             query += "category=" + searchType.name();
         }
         if (searchLocation != LOCATION_SPINNER_DEFAULT) {
-            if (query.length() > 0)
+            if (query.length() > 0) {
                 query += "&";
+			}
             query += "location=" + searchLocation;
         }
 

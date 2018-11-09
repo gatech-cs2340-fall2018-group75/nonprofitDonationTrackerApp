@@ -98,17 +98,17 @@ public class ItemSearch extends AppCompatActivity {
 		final String searchLocation
 	) {
         String query = "";
-        if (searchTerms.length() > 0) {
+        if (!searchTerms.isEmpty()) {
             query += "terms=" + searchTerms;
 		}
         if (searchType != DonationItemType.DEFAULT) {
-            if (query.length() > 0) {
+            if (!query.isEmpty()) {
                 query += "&";
 			}
             query += "category=" + searchType.name();
         }
         if (!LOCATION_SPINNER_DEFAULT.equals(searchLocation)) {
-            if (query.length() > 0) {
+            if (!query.isEmpty()) {
                 query += "&";
 			}
             query += "location=" + searchLocation;

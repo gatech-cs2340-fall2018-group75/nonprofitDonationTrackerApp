@@ -29,7 +29,7 @@ public class ResultsPage extends AppCompatActivity {
         ListView resultsList = findViewById(R.id.resultList);
         List<DonationItem> results = DonationItems.getInstance().getItemsList();
 
-        if (results.size() > 0) {
+        if (!results.isEmpty()) {
             ArrayAdapter<DonationItem> resultContents = new ArrayAdapter<>(this,
                     android.R.layout.simple_list_item_1 , results);
                     resultsList.setAdapter(resultContents);

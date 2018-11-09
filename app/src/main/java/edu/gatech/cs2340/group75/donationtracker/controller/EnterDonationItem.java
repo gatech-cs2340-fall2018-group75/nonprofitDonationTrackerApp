@@ -32,6 +32,8 @@ import edu.gatech.cs2340.group75.donationtracker.model.DonationItems;
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
+import java.net.HttpURLConnection;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -199,7 +201,7 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
                     public void onErrorResponse(VolleyError error) {
                         Log.e("REST response", error.toString());
 						NetworkResponse response = error.networkResponse;
-                        if (response != null && response.statusCode == 409) {
+                        if (response != null && response.statusCode == HttpURLConnection.HTTP_CONFLICT) {
                             Toast.makeText(context, "Item already exists",
                                     Toast.LENGTH_LONG).show();
                         } else {

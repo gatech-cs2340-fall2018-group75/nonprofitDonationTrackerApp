@@ -26,6 +26,8 @@ import edu.gatech.cs2340.group75.donationtracker.model.User;
 import edu.gatech.cs2340.group75.donationtracker.model.UserSingleton;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
+import java.net.HttpURLConnection;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -134,7 +136,7 @@ public class RegisterAccount extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         Log.e("REST response", error.toString());
 						NetworkResponse response = error.networkResponse;
-                        if (response != null && response.statusCode == 409) {
+                        if (response != null && response.statusCode == HttpURLConnection.HTTP_CONFLICT) {
                             Toast.makeText(context, "Account already exists",
                                     Toast.LENGTH_LONG).show();
                         } else {

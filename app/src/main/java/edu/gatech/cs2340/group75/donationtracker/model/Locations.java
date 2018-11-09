@@ -17,7 +17,7 @@ public class Locations implements Serializable {
     }
 
     /**
-     * getter method for list of registered loations
+     * getter method for list of registered locations
      * @return list of registered donation centers
      */
     public List<Location> get() {
@@ -25,7 +25,7 @@ public class Locations implements Serializable {
     }
 
     /**
-     * getter method for names of registeres donation centers
+     * getter method for names of registered donation centers
      * @return list of names of registered donation centers
      */
     public List<String> getNames() {
@@ -62,7 +62,7 @@ public class Locations implements Serializable {
     /**
      * removes a location from the list of locations
      * @param location location to be removed
-     * @return true if removing was sucessful
+     * @return true if removing was successful
      */
     public boolean remove(Location location) {
         locations.remove(location);

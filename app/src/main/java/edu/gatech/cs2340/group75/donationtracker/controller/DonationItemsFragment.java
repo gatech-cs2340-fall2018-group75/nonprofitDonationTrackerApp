@@ -100,7 +100,8 @@ public class DonationItemsFragment extends Fragment {
 		String locationName
 	) {
         String URL=getString(R.string.API_base);
-		URL = URL + "/donationitems/getByLocation?name=";
+        //noinspection SpellCheckingInspection
+        URL = URL + "/donationitems/getByLocation?name=";
 		URL = URL + URLEncoder.encode(locationName);
 		
         Log.d("REST response", "starting... " + URL);

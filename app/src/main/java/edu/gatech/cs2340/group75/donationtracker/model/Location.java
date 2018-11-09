@@ -142,7 +142,7 @@ public class Location implements Serializable {
 
 	/**
 	 * getter for location's coordinates
-	 * @return location's oordinates
+	 * @return location's coordinates
 	 */
 	public LatLng getCoordinates() {
 		return new LatLng(latitude, longitude);
@@ -214,7 +214,7 @@ public class Location implements Serializable {
 
 	/**
 	 * getter method for location's zip code
-	 * @return location's zip ode
+	 * @return location's zip code
 	 */
 	public String getZip() {
 		return zip;

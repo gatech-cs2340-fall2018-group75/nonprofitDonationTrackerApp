@@ -172,6 +172,7 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
         }
     }
     private void submitDonationItem(DonationItem item) throws JSONException {
+        //noinspection SpellCheckingInspection
         String URL=getString(R.string.API_base) + "/donationitems/add";
         Log.d("REST response", "starting... " + URL);
 

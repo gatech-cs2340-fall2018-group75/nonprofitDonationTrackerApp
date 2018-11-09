@@ -51,6 +51,11 @@ public class DonationItem implements Serializable {
         return (((DonationItem) o).getName().equals(this.name)
                 && ((DonationItem) o).getDescription().equals(this.description));
     }
+	
+	@Override
+	public int hashCode() {
+		return 1;
+	}
 
     /**
     * This is the getter method for name.

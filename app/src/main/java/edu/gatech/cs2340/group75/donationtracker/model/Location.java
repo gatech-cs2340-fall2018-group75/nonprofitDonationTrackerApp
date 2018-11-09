@@ -75,6 +75,11 @@ public class Location implements Serializable {
 				&& that.getZip().equals(this.zip)
 				&& that.getPhoneNumber().equals(this.phoneNumber);
 	}
+	
+	@Override
+	public int hashCode() {
+		return 1;
+	}
 
 	/**
 	 * getter for location's name

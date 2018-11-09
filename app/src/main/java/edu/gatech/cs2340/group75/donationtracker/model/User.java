@@ -63,6 +63,11 @@ public class User {
                 && ((User) o).accountType.equals(this.accountType);
 
     }
+	
+	@Override
+	public int hashCode() {
+		return 1;
+	}
 
 
     /* *************************************

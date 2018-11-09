@@ -1,6 +1,6 @@
 package edu.gatech.cs2340.group75.donationtracker;
-import  edu.gatech.cs2340.group75.donationtracker.Model.DonationItem;
-import  edu.gatech.cs2340.group75.donationtracker.Model.DonationItemType;
+import  edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
+import  edu.gatech.cs2340.group75.donationtracker.model.DonationItemType;
 import org.junit.Test;
  import static org.junit.Assert.*;
  /**

@@ -1,8 +1,8 @@
 package edu.gatech.cs2340.group75.donationtracker;
 
-import  edu.gatech.cs2340.group75.donationtracker.Model.AccountType;
-import  edu.gatech.cs2340.group75.donationtracker.Model.DonationItem;
-import  edu.gatech.cs2340.group75.donationtracker.Model.User;
+import  edu.gatech.cs2340.group75.donationtracker.model.AccountType;
+import  edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
+import  edu.gatech.cs2340.group75.donationtracker.model.User;
 
 import org.junit.Test;
 

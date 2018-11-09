@@ -1,6 +1,6 @@
 //Launch emulator in background, using configured AVD name
 task emulate() {
-	def device = null;
+	def device = null
 	
 	//Check for command-line parameter for device, which overrides any configuration
 	if (project.hasProperty('emulator.device'))
@@ -19,7 +19,7 @@ task emulate() {
 	
 	
 	//Initialize process to null to allow access during task execution
-	ProcessBuilder process = null;
+	ProcessBuilder process = null
 	
 	
 	//If no device name configured, print warning message

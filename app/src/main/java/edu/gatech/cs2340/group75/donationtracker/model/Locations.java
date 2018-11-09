@@ -8,9 +8,16 @@ import java.util.List;
 
 public final class Locations implements Serializable {
     private static final Locations _instance = new Locations();
+	
+	/**
+	 * Get the instance of this singleton class
+	 *
+	 * @return the single instance of this class
+	 */
     public static Locations getInstance() { return _instance; }
+	
+	
     private List<Location> locations;
-
 
     private Locations() {
         locations = new ArrayList<>();

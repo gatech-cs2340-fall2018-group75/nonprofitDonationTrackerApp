@@ -167,7 +167,7 @@ public class DonationItemsFragment extends Fragment {
         private final LayoutInflater inflater;
         private final List<DonationItem> donationItems;
 
-        public DonationItemsList(LayoutInflater inflater, List<DonationItem> donationItems) {
+        DonationItemsList(LayoutInflater inflater, List<DonationItem> donationItems) {
             super(inflater.getContext(), R.layout.fragment_donation_items_item, donationItems);
             this.inflater = inflater;
             this.donationItems = donationItems;
@@ -210,12 +210,6 @@ public class DonationItemsFragment extends Fragment {
             params.height = totalItemsHeight + totalDividersHeight;
             listView.setLayoutParams(params);
             listView.requestLayout();
-
-            return;
-
-        } else {
-            return;
-        }
-
+        } 
     }
 }

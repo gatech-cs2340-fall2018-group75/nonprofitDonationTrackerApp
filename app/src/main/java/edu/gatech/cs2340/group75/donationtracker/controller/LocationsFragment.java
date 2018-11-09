@@ -144,7 +144,7 @@ public class LocationsFragment extends Fragment {
         private final LayoutInflater inflater;
         private final List<Location> locations;
 
-        public LocationList(LayoutInflater inflater, List<Location> locations) {
+        LocationList(LayoutInflater inflater, List<Location> locations) {
             super(inflater.getContext(), R.layout.fragment_locations_item, locations);
             this.inflater = inflater;
             this.locations = locations;

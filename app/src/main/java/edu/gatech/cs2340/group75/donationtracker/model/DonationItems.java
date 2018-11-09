@@ -9,7 +9,17 @@ import java.util.List;
 public final class DonationItems implements Serializable {
 
     private static final DonationItems itemsInstance = new DonationItems();
-    public static DonationItems getInstance() { return itemsInstance; }
+	
+	/**
+	 * Get the instance of this singleton class
+	 *
+	 * @return the single instance of this class
+	 */
+    public static DonationItems getInstance() { 
+		return itemsInstance; 
+	}
+	
+	
     private List<DonationItem> donationItems;
 
     private DonationItems() {

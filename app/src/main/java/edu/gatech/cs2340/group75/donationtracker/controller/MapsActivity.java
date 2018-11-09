@@ -39,14 +39,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
 
-        GoogleMap mMap = googleMap;
-		
 		Locations locations = Locations.getInstance();
 		List<Location> locationsList = locations.get();
 		for (Location location : locationsList)
 		{
 			LatLng coordinates = location.getCoordinates();
-			mMap.addMarker(
+			googleMap.addMarker(
 				new MarkerOptions()
 					.position(coordinates)
 					.title(location.getName())
@@ -55,6 +53,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		}
 		
 		LatLng initial = locationsList.get(0).getCoordinates();
-		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initial, 10));
+		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initial, 10));
 	}
 }

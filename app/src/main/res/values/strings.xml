@@ -7,7 +7,6 @@
     <string name="action_sign_in">Sign in</string>
     <string name="action_register">Don\'t have an account? Register here</string>
     <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">Your username or password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
@@ -18,14 +17,10 @@
     <string name="welcome">Welcome!</string>
     <string name="login">Log in</string>
     <string name="register">Register</string>
-    <string name="cancel">Cancel</string>
-    <string name="action_settings">Settings</string>
     <string name="action_login">Already have an account? Log in</string>
     <string name="title_activity_main_menu">Donation Tracker</string>
-    <string name="title_activity_temp">Sign in</string>
     <string name="title_activity_welcome_screen">Welcome</string>
     <string name="title_activity_register_account">Register</string>
-    <string name="preferences_file_key">edu.gatech.cs2340.group75.donationtracker.preferences</string>
 
     <!--navigation-->
     <string name="navigation_title_home">Home</string>
@@ -33,14 +28,12 @@
     <string name="title_activity_location_details">Location Details</string>
     <string name="location">LOCATION</string>
     <string name="phone">PHONE</string>
-    <string name="website">WEBSITE</string>
     <string name="latLong">LATITUDE/LONGITUDE</string>
     <string name="addPic">Add picture</string>
     <string name="EnterItemName">Enter item name</string>
     <string name="description">Enter description</string>
 	<string name = "valueHint">Enter dollar value</string>
     <string name="donateItem">Donate item</string>
-    <string name="category">Choose a category</string>
     <string name="donations">DONATIONS</string>
     <string name="search">Search</string>
     <string name="title_activity_settings">Settings</string>
@@ -106,20 +99,6 @@
         <item>-1</item>
     </string-array>
 
-    <string-array name="list_preference_entries">
-        <item>Entry 1</item>
-        <item>Entry 2</item>
-        <item>Entry 3</item>
-    </string-array>
-
-    <string-array name="list_preference_entry_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="multi_select_list_preference_default_value" />
-
     <string name="pref_title_system_sync_settings">System sync settings</string>
 
     <!-- Example settings for Notifications -->
@@ -131,7 +110,4 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

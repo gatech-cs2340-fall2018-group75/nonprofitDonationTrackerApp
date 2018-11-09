@@ -16,9 +16,9 @@
             <ImageView
                 android:layout_width="@dimen/icon"
                 android:layout_height="@dimen/icon"
-                android:layout_marginRight="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
                 app:srcCompat="@drawable/ic_location_on_gray_36dp"
-                android:contentDescription="Location pin icon" />
+                android:contentDescription="@string/locationPinDescription" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

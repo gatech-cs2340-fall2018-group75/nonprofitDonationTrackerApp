@@ -27,7 +27,7 @@
                 android:layout_height="200dp"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 app:srcCompat="@android:drawable/ic_menu_gallery" 
-                android:contentDescription="Uploaded picture of item being donated" />
+                android:contentDescription="@string/itemPictureDescription" />
 
             <Button
                 android:id="@+id/addPicBtn"
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_margin"
-                android:hint="Enter dollar value"
+                android:hint="@string/valueHint"
                 android:inputType="numberDecimal"/>
 
             <TextView

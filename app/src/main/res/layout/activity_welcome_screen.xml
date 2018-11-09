@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/tempdonationpic"
-        android:contentDescription="Placeholder logo image" />
+        android:contentDescription="@string/logoDescription" />
 
     <TextView
         android:id="@+id/textView2"

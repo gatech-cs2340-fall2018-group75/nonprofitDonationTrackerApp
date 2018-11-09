@@ -38,6 +38,7 @@
     <string name="addPic">Add picture</string>
     <string name="EnterItemName">Enter item name</string>
     <string name="description">Enter description</string>
+	<string name = "valueHint">Enter dollar value</string>
     <string name="donateItem">Donate item</string>
     <string name="category">Choose a category</string>
     <string name="donations">DONATIONS</string>
@@ -50,6 +51,11 @@
     <string name="noResults">Sorry, we couldn\'t find any matching donations :(</string>
 	<string name = "maps">Map</string>
 	<string name = "mapsHeader">Locations Map</string>
+
+	<!--Strings for image descriptions-->
+	<string name = "itemPictureDescription">Uploaded picture of item being donated</string>
+	<string name = "logoDescription">Placeholder logo image</string>
+	<string name = "locationPinDescription">Location pin icon</string>
 
     <!-- API URL -->
     <string name="API_base">https://cs2340-donation-tracker.herokuapp.com</string>

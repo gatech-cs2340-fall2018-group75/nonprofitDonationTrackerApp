@@ -44,7 +44,9 @@ public final class Locations implements Serializable {
     public List<String> getNames() {
         List<String> names = new ArrayList<>();
         for (Location l : locations) {
-            names.add(l.getName());
+            if(l != null && !names.contains(l.getName())) {
+                names.add(l.getName());
+            }
         }
         return names;
     }

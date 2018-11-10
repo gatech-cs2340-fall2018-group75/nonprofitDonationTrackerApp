@@ -92,7 +92,13 @@ public class DonationItem implements Serializable {
     * This is the getter method for the category type of the item
     * @return the category of the item
     **/
-    public DonationItemType getCategory() { return category;}
+    public DonationItemType getCategory() {
+		return category;
+	}
+	
+	public String getCategoryString() {
+		return category.toString();
+	}
 
 
 

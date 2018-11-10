@@ -166,6 +166,7 @@ public class LocationsFragment extends Fragment {
             this.locations = locations;
         }
 
+        @SuppressWarnings("FeatureEnvy")
         @Override
         @NonNull
         public View getView(int position, View view, @NonNull ViewGroup parent) {

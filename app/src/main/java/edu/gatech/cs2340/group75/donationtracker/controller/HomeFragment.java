@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import edu.gatech.cs2340.group75.donationtracker.model.AccountType;
 import edu.gatech.cs2340.group75.donationtracker.model.User;
 import edu.gatech.cs2340.group75.donationtracker.model.UserSingleton;
 import edu.gatech.cs2340.group75.donationtracker.R;
@@ -64,16 +63,16 @@ public class HomeFragment extends Fragment {
 			}
 		});
 
-		UserSingleton userHolder = UserSingleton.getInstance();
-        User currentUser = userHolder.getUser();
+        User currentUser = UserSingleton.getInstanceUser();
 
         TextView userEmail = fragment.findViewById(R.id.userEmail);
+        //noinspection LawOfDemeter
         userEmail.setText(currentUser.getEmail());
 
         TextView userType = fragment.findViewById(R.id.userType);
-		
-		AccountType accountType = currentUser.getAccountType();
-        userType.setText(accountType.toString());
+
+        //noinspection LawOfDemeter
+        userType.setText(currentUser.getAccountTypeString());
 
         return fragment;
     }

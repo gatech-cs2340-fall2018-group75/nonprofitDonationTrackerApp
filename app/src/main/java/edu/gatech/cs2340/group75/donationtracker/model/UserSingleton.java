@@ -19,6 +19,14 @@ public final class UserSingleton {
 		return _instance;
 	}
 	
+	public static User getInstanceUser() { 
+		return _instance.getUser();
+	}
+	
+	public static void setInstanceUser(User user) { 
+		return _instance.setUser(user);
+	}
+	
 	
     private User user;
 

@@ -243,7 +243,6 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        UserSingleton userInstance = UserSingleton.getInstance();
                         try {
                             User user = new User(
                                     response.getString("email"),
@@ -251,7 +250,7 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                                     AccountType.valueOf(response.getString("accountType")),
                                     true
                             );
-                            userInstance.setUser(user);
+                            UserSingleton.setInstanceUser(user);
 
                             Intent toMainMenu =  new Intent(LogIn.this, MainMenu.class);
                             startActivity(toMainMenu);

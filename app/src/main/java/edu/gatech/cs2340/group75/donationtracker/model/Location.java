@@ -103,6 +103,10 @@ public class Location implements Serializable {
 	public LocationType getLocationType() {
 		return locationType;
 	}
+	
+	public String getLocationTypeString() {
+		return locationType.toString();
+	}
 
 	/**
 	 * getter for location longitude

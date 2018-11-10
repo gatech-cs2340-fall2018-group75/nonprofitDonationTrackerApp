@@ -14,7 +14,6 @@ import android.widget.TextView;
 import java.util.Objects;
 
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
-import edu.gatech.cs2340.group75.donationtracker.model.LocationType;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 /**
@@ -53,10 +52,7 @@ public class LocationDetails extends AppCompatActivity {
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
         final String name = location.getName();
-		
-		LocationType locationType = location.getLocationType();
-        final String type = locationType.toString();
-		
+        final String type = location.getLocationTypeString();
         final String longitude = Double.toString(location.getLongitude());
         final String latitude = Double.toString(location.getLatitude());
         final String phone = location.getPhoneNumber();

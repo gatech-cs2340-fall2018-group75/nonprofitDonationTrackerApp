@@ -11,7 +11,6 @@ import android.support.annotation.NonNull;
  * Information holder
  */
 public class User {
-
     /** Tells us if the user is currently logged in or not **/
     private final boolean isLoggedIn;
 
@@ -98,9 +97,13 @@ public class User {
      * getter method for user's account tye
      * @return user's account type
      */
-    public AccountType getAccountType() {
-        return accountType;
-    }
+	public AccountType getAccountType() {
+		return accountType;
+	}
+	
+	public String getAccountTypeString() {
+		return accountType.toString();
+	}
 
     /**********************************************/
 

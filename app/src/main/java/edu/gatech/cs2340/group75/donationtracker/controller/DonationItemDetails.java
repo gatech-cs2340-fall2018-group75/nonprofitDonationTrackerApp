@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
-import edu.gatech.cs2340.group75.donationtracker.model.DonationItemType;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import java.text.NumberFormat;
@@ -35,9 +34,7 @@ public class DonationItemDetails extends AppCompatActivity {
 
         String name = item.getName();
         String description = item.getDescription();
-		
-		DonationItemType category = item.getCategory();
-        String donationType = category.toString();
+        String donationType = item.getCategoryString();
 
         TextView title = findViewById(R.id.Name);
         TextView desc = findViewById(R.id.Description);

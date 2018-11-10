@@ -133,8 +133,7 @@ public class RegisterAccount extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        UserSingleton userInstance = UserSingleton.getInstance();
-                        userInstance.setUser(newUser);
+                        UserSingleton.setInstanceUser(newUser);
 
                         Intent toMainMenu =  new Intent(RegisterAccount.this, MainMenu.class);
                         startActivity(toMainMenu);

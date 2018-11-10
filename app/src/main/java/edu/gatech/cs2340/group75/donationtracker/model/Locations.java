@@ -20,7 +20,9 @@ public final class Locations implements Serializable {
 	 *
 	 * @return the single instance of this class
 	 */
-    public static Locations getInstance() { return _instance; }
+    public static Locations getInstance() {
+		return _instance;
+	}
 	
 	
     private List<Location> locations;

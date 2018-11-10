@@ -22,7 +22,7 @@ public final class DonationItems implements Serializable {
 	 * @return the single instance of this class
 	 */
     public static DonationItems getInstance() { 
-		return itemsInstance; 
+		return itemsInstance;
 	}
 	
 	

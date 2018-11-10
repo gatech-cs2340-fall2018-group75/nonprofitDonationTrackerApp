@@ -20,9 +20,10 @@ public class LocationsTest {
     private static final int TIMEOUT = 200;
     private static final Locations tester = Locations.getInstance();
     private static final List<Location> currReg = tester.get();
+    @SuppressWarnings("TypeMayBeWeakened")
     private static final List<String> answer = new ArrayList<>();
 
-    @SuppressWarnings("ConstantConditions")
+    @SuppressWarnings({"ConstantConditions", "MagicNumber"})
     @Before
     public void setUp() {
         Location place1 = new Location("DropOff1", DR, 38.8951, 38.8951, "111 temp Way",

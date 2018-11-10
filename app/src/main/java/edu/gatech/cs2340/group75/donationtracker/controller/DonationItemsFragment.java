@@ -62,15 +62,17 @@ public class DonationItemsFragment extends Fragment {
 
         View fragment = inflater.inflate(R.layout.fragment_donation_items, container, false);
 
-        Location location = (Location) Objects.requireNonNull(getArguments()).getSerializable("LOCATION");
+		Bundle arguments = Objects.requireNonNull(getArguments());
+        Location location = Objects.requireNonNull(arguments.getSerializable("LOCATION"));
 
+		DonationItems items = DonationItems.getInstance();
         ListAdapter listAdapter = new DonationItemsList
 		(
 			inflater,
-			DonationItems.getInstance().getItemsList()
+			items.getItemsList()
 		);
         final ListView list = fragment.findViewById(R.id.donation_item_list);
-        populateDonationItems(inflater, list, Objects.requireNonNull(location).getName());
+        populateDonationItems(inflater, list, location.getName());
         list.setAdapter(listAdapter);
         setListViewHeightBasedOnItems(list);
 
@@ -78,7 +80,9 @@ public class DonationItemsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                DonationItem itemClicked = DonationItems.getInstance().getItemsList().get(position);
+				DonationItems items = DonationItems.getInstance();
+				List<DonationItem> itemList = items.getItemsList();
+                DonationItem itemClicked = itemList.get(position);
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("DONATION_ITEM", itemClicked);

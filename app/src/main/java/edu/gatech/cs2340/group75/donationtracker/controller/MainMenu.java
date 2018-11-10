@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -83,10 +84,10 @@ public class MainMenu extends AppCompatActivity {
 		}
 
         // set initial fragment layout to the home view
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.fragment_container, new HomeFragment())
-                .commit();
+		FragmentManager manager = getSupportFragmentManager();
+		FragmentTransaction transaction = manager.beginTransaction();
+		transaction.add(R.id.fragment_container, new HomeFragment());
+		transaction.commit();
     }
 
     private void populateLocationsInstance() {
@@ -136,16 +137,16 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void switchToHome() {
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+		FragmentManager manager = getSupportFragmentManager();
+		FragmentTransaction transaction = manager.beginTransaction();
+		transaction.replace(R.id.fragment_container, new HomeFragment());
+		transaction.commit();
     }
 
     private void switchToLocations() {
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace
-		(
-			R.id.fragment_container,
-			new LocationsFragment()
-		).commit();
+		FragmentManager manager = getSupportFragmentManager();
+		FragmentTransaction transaction = manager.beginTransaction();
+		transaction.replace(R.id.fragment_container, new LocationsFragment());
+		transaction.commit();
     }
 }

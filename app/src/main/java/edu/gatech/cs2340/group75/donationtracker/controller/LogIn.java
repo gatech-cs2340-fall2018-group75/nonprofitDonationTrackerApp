@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.LoaderManager;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
@@ -16,6 +17,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.Editable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -121,7 +123,8 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
             return;
         }
 
-        getLoaderManager().initLoader(0, null, this);
+		LoaderManager manager = getLoaderManager();
+		manager.initLoader(0, null, this);
     }
 
     private boolean mayRequestContacts() {
@@ -129,14 +132,14 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
             return true;
         }
         if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
-            Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
-                    .setAction(android.R.string.ok, new View.OnClickListener() {
-                        @Override
-                        @TargetApi(Build.VERSION_CODES.M)
-                        public void onClick(View v) {
-                            requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
-                        }
-                    });
+			Snackbar snackbar = Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE);
+			snackbar.setAction(android.R.string.ok, new View.OnClickListener() {
+				@Override
+				@TargetApi(Build.VERSION_CODES.M)
+				public void onClick(View v) {
+					requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
+				}
+			});
         } else {
             requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
         }
@@ -173,8 +176,11 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
+		Editable emailText = mEmailView.getText();
+        String email = emailText.toString();
+		
+		Editable passwordText = mPasswordView.getText();
+        String password = passwordText.toString();
 
         boolean cancel = false;
         View focusView = null;

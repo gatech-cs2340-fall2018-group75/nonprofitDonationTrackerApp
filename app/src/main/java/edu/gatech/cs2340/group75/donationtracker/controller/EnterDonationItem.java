@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.group75.donationtracker.controller;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -8,11 +9,13 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -60,7 +63,9 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_donation_item);
-        location = (Location) getIntent().getSerializableExtra("LOCATION");
+		
+		Intent intent = getIntent();
+        location = (Location) intent.getSerializableExtra("LOCATION");
         Button submit = findViewById(R.id.submit_donation_item);
         submit.setOnClickListener(this);
         Button imgBtn = findViewById(R.id.addPicBtn);
@@ -85,9 +90,10 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
             Uri selectedImage = data.getData();
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
-            Cursor cursor = getContentResolver().query(Objects.requireNonNull(selectedImage),
-                    filePathColumn, null, null, null);
-            Objects.requireNonNull(cursor).moveToFirst();
+			ContentResolver resolver = getContentResolver();
+            Cursor cursor = Objects.requireNonNull(resolver.query(Objects.requireNonNull(selectedImage),
+                    filePathColumn, null, null, null));
+            cursor.moveToFirst();
 
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             String picturePath = cursor.getString(columnIndex);
@@ -119,44 +125,51 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
             case R.id.submit_donation_item :
                 EditText name = findViewById(R.id.itemName);
                 EditText description = findViewById(R.id.itemDesc);
-                String title = name.getText().toString();
+				
+				Editable nameText = name.getText();
+                String title = nameText.toString();
                 EditText value = findViewById(R.id.enter_donation_value);
                 Spinner catSpinner = findViewById(R.id.itemType);
                 DonationItemType submittedType = (DonationItemType) catSpinner.getSelectedItem();
                 if (!"".equals(title)) {
 
                     if (!"Choose a category".equals(submittedType.toString())) {
+						Editable descriptionText = description.getText();
+						Editable valueText = value.getText();
                         DonationItem item = new DonationItem
 						(
-							title, description.getText().toString(),
+							title, descriptionText.toString(),
 							location.getName(),
-							Double.parseDouble(value.getText().toString()),
+							Double.parseDouble(valueText.toString()),
 							submittedType
 						);
                         try {
                             submitDonationItem(item);
                         } catch (JSONException e) {
-                            Toast.makeText
+							Toast toast = Toast.makeText
 							(
 								this.getBaseContext(),
 								"There was a problem submitting your donation",
 								Toast.LENGTH_LONG
-							).show();
+							);
+							toast.show();
                             e.printStackTrace();
                         }
                     } else {
-                        Toast.makeText
+                        Toast toast = Toast.makeText
 						(
 							getApplicationContext(),
 							"Choose a category for your donation",
 							Toast.LENGTH_SHORT
-						).show();
+						);
+						toast.show();
                     }
 
                 }
                 else {
-                Toast.makeText(getApplicationContext(), "Give the name of your donation item",
-                        Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(getApplicationContext(), "Give the name of your donation item",
+                        Toast.LENGTH_SHORT);
+				toast.show();
                 }
                 break;
             default :
@@ -170,10 +183,11 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
         Log.d("REST response", "starting... " + URL);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
+		DonationItemType category = item.getCategory();
         final JSONObject jsonBody = new JSONObject("{" +
                 "\"name\": \"" + item.getName() + "\", " +
                 "\"description\": \"" + item.getDescription()+ "\", " +
-                "\"category\": \"" + item.getCategory().name() + "\", " +
+                "\"category\": \"" + category.name() + "\", " +
                 "\"location\": \"" + item.getLocationName() + "\", " +
                 "\"value\": \"" + item.getValue() + "\"" +
                 "}");
@@ -197,11 +211,13 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
 						NetworkResponse response = error.networkResponse;
 						int conflict = HttpURLConnection.HTTP_CONFLICT;
                         if ((response != null) && (response.statusCode == conflict)) {
-                            Toast.makeText(context, "Item already exists",
-                                    Toast.LENGTH_LONG).show();
+                            Toast toast = Toast.makeText(context, "Item already exists",
+                                    Toast.LENGTH_LONG);
+							toast.show();
                         } else {
-                            Toast.makeText(context, "There was a problem submitting your donation",
-                                    Toast.LENGTH_LONG).show();
+                            Toast toast = Toast.makeText(context, "There was a problem submitting your donation",
+                                    Toast.LENGTH_LONG);
+							toast.show();
                         }
                     }
                 }

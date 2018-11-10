@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -87,15 +88,19 @@ public class RegisterAccount extends AppCompatActivity {
     }
 
     private void submit() {
-        String regPassword = pass.getText().toString();
-        String regEmail = email.getText().toString();
+		Editable passwordText = pass.getText();
+        String regPassword = passwordText.toString();
+		
+		Editable emailText = email.getText();
+        String regEmail = emailText.toString();
         AccountType regAccountType = (AccountType) accountTypeSpinner.getSelectedItem();
         User newUser = new User(regEmail, regPassword, regAccountType);
         try {
             addUser(newUser);
         } catch (JSONException e) {
-            Toast.makeText(this.getBaseContext(), "There was a problem registering your account",
-                    Toast.LENGTH_LONG).show();
+			Toast toast = Toast.makeText(this.getBaseContext(), "There was a problem registering your account",
+			        Toast.LENGTH_LONG);
+			toast.show();
             e.printStackTrace();
         }
 
@@ -107,10 +112,11 @@ public class RegisterAccount extends AppCompatActivity {
         Log.d("REST response", "starting... " + URL);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
+		AccountType accountType = newUser.getAccountType();
         final JSONObject jsonBody = new JSONObject("{" +
                 "\"email\": \"" + newUser.getEmail() + "\", " +
                 "\"password\": \"" + newUser.getPassword()+ "\", " +
-                "\"accountType\": \"" + newUser.getAccountType().name() + "\", " +
+                "\"accountType\": \"" + accountType.name() + "\", " +
                 "\"isLoggedIn\": \"" + "true" + "\"" +
                 "}");
         final Context context = this.getBaseContext();
@@ -137,11 +143,13 @@ public class RegisterAccount extends AppCompatActivity {
 						NetworkResponse response = error.networkResponse;
 						int conflict = HttpURLConnection.HTTP_CONFLICT;
                         if ((response != null) && (response.statusCode == conflict)) {
-                            Toast.makeText(context, "Account already exists",
-                                    Toast.LENGTH_LONG).show();
+                            Toast toast = Toast.makeText(context, "Account already exists",
+                                    Toast.LENGTH_LONG);
+							toast.show();
                         } else {
-                            Toast.makeText(context, "There was a problem registering your account",
-                                    Toast.LENGTH_LONG).show();
+                            Toast toast = Toast.makeText(context, "There was a problem registering your account",
+                                    Toast.LENGTH_LONG);
+							toast.show();
                         }
                     }
                 }

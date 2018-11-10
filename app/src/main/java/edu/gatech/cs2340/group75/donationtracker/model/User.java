@@ -57,9 +57,9 @@ public class User {
             return false;
         }
         User that = (User) other;
-
-        return that.getEmail().equals(this.email)
-                && that.getPassword().equals(this.getPassword())
+		
+        return that.email.equals(this.email)
+                && that.password.equals(this.getPassword())
                 && (that.isLoggedIn == this.isLoggedIn)
                 && that.accountType.equals(this.accountType);
 

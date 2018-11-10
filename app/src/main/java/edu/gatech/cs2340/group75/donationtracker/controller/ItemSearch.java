@@ -3,6 +3,7 @@ package edu.gatech.cs2340.group75.donationtracker.controller;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -70,7 +71,9 @@ public class ItemSearch extends AppCompatActivity {
 
         List<String> currentLocations = new ArrayList<>();
         currentLocations.add(LOCATION_SPINNER_DEFAULT);
-        currentLocations.addAll(Locations.getInstance().getNames());
+		
+		Locations locations = Locations.getInstance();
+        currentLocations.addAll(locations.getNames());
         ArrayAdapter<String> locationAdapter = new ArrayAdapter<>
                 (
                         this,
@@ -83,7 +86,8 @@ public class ItemSearch extends AppCompatActivity {
         submitSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String searchTerms = searchName.getText().toString();
+				Editable searchNameText = searchName.getText();
+                String searchTerms = searchNameText.toString();
                 DonationItemType submittedType = (DonationItemType) searchSpinner.getSelectedItem();
                 String submittedLocation = (String) locationSpinner.getSelectedItem();
                 getMatchingResults(searchTerms, submittedType, submittedLocation);

@@ -62,7 +62,8 @@ public class LocationsFragment extends Fragment {
 
         View fragment = inflater.inflate(R.layout.fragment_locations, container, false);
 
-        ListAdapter listAdapter = new LocationList(inflater, Locations.getInstance().get());
+		Locations locations = Locations.getInstance();
+        ListAdapter listAdapter = new LocationList(inflater, locations.get());
         ListView list = fragment.findViewById(R.id.location_list);
         list.setAdapter(listAdapter);
 
@@ -72,7 +73,9 @@ public class LocationsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Location itemClicked = Locations.getInstance().get().get(position);
+				Locations locations = Locations.getInstance();
+				List<Location> locationsList = locations.get();
+                Location itemClicked = locationsList.get(position);
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("LOCATION", itemClicked);

@@ -3,6 +3,7 @@ package edu.gatech.cs2340.group75.donationtracker.controller;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -32,10 +33,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_maps);
-		SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-			.findFragmentById(R.id.map);
 		
-		Objects.requireNonNull(mapFragment).getMapAsync(this);
+		FragmentManager manager = getSupportFragmentManager();
+		SupportMapFragment mapFragment = (SupportMapFragment) Objects.requireNonNull(manager.findFragmentById(R.id.map));
+		
+		mapFragment.getMapAsync(this);
 	}
 	
 	@SuppressWarnings("FeatureEnvy")
@@ -46,16 +48,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		List<Location> locationsList = locations.get();
 		for (Location location : locationsList)
 		{
-			LatLng coordinates = location.getCoordinates();
-			googleMap.addMarker(
-				new MarkerOptions()
-					.position(coordinates)
-					.title(location.getName())
-					.snippet(location.getPhoneNumber())
-			);
+			MarkerOptions options = new MarkerOptions();
+			options.position(location.getCoordinates());
+			options.title(location.getName());
+			options.snippet(location.getPhoneNumber());
+			googleMap.addMarker(options);
 		}
 		
-		LatLng initial = locationsList.get(0).getCoordinates();
-		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initial, 10));
+		Location initialLocation = locationsList.get(0);
+		LatLng initialCoordinates = initialLocation.getCoordinates();
+		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialCoordinates, 10));
 	}
 }

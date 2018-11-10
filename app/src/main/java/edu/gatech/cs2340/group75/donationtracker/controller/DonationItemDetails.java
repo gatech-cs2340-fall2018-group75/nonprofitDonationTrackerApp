@@ -1,10 +1,12 @@
 package edu.gatech.cs2340.group75.donationtracker.controller;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
+import edu.gatech.cs2340.group75.donationtracker.model.DonationItemType;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import java.text.NumberFormat;
@@ -27,11 +29,15 @@ public class DonationItemDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation_item_details);
-        DonationItem item = (DonationItem) getIntent().getSerializableExtra("DONATION_ITEM");
+		
+		Intent intent = getIntent();
+        DonationItem item = (DonationItem) intent.getSerializableExtra("DONATION_ITEM");
 
         String name = item.getName();
         String description = item.getDescription();
-        String donationType = item.getCategory().toString();
+		
+		DonationItemType category = item.getCategory();
+        String donationType = category.toString();
 
         TextView title = findViewById(R.id.Name);
         TextView desc = findViewById(R.id.Description);

@@ -72,15 +72,15 @@ public class Location implements Serializable {
 		
 		Location that = (Location) other;
 		
-		return that.getName().equals(this.name)
-				&& (that.getLocationType() == this.locationType)
-				&& (that.getLongitude() == this.longitude)
-				&& (that.getLatitude() == this.latitude)
-				&& that.getAddress().equals(this.address)
-				&& that.getCity().equals(this.city)
-				&& that.getState().equals(this.state)
-				&& that.getZip().equals(this.zip)
-				&& that.getPhoneNumber().equals(this.phoneNumber);
+		return that.name.equals(this.name)
+				&& (that.locationType == this.locationType)
+				&& (that.longitude == this.longitude)
+				&& (that.latitude == this.latitude)
+				&& that.address.equals(this.address)
+				&& that.city.equals(this.city)
+				&& that.state.equals(this.state)
+				&& that.zip.equals(this.zip)
+				&& that.phoneNumber.equals(this.phoneNumber);
 	}
 	
 	@Override
@@ -165,6 +165,7 @@ public class Location implements Serializable {
 	 * getter method for location's zip code
 	 * @return location's zip code
 	 */
+	@SuppressWarnings("unused")
 	private String getZip() {
 		return zip;
 	}

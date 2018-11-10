@@ -3,6 +3,9 @@ package edu.gatech.cs2340.group75.donationtracker.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,6 +14,7 @@ import android.widget.TextView;
 import java.util.Objects;
 
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
+import edu.gatech.cs2340.group75.donationtracker.model.LocationType;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 /**
@@ -40,15 +44,19 @@ public class LocationDetails extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
 
         Intent intent = getIntent();
-        Bundle bd = intent.getExtras();
-        location = (Location) Objects.requireNonNull(bd).get("LOCATION");
-        toolbar.setTitle(Objects.requireNonNull(location).getName());
+        Bundle bd = Objects.requireNonNull(intent.getExtras());
+        location = (Location) Objects.requireNonNull(bd.get("LOCATION"));
+        toolbar.setTitle(location.getName());
 
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+		ActionBar actionBar =  Objects.requireNonNull(getSupportActionBar());
+		actionBar.setDisplayHomeAsUpEnabled(true);
 
         final String name = location.getName();
-        final String type = location.getLocationType().toString();
+		
+		LocationType locationType = location.getLocationType();
+        final String type = locationType.toString();
+		
         final String longitude = Double.toString(location.getLongitude());
         final String latitude = Double.toString(location.getLatitude());
         final String phone = location.getPhoneNumber();
@@ -95,9 +103,10 @@ public class LocationDetails extends AppCompatActivity {
         args.putSerializable("LOCATION", location);
         fragment.setArguments(args);
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.donation_items_fragment_container, fragment)
-                .commit();
+        FragmentManager manager = getSupportFragmentManager();
+		
+		FragmentTransaction transaction = manager.beginTransaction();
+		transaction.add(R.id.donation_items_fragment_container, fragment);
+		transaction.commit();
     }
 }

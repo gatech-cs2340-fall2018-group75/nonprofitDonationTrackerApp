@@ -79,6 +79,7 @@ public class User {
      * getter method for user's isLoggedIn field
      * @return if user is logged in or not
      */
+    @SuppressWarnings("unused")
     public boolean getIsLoggedIn() {return isLoggedIn;}
 
     /**

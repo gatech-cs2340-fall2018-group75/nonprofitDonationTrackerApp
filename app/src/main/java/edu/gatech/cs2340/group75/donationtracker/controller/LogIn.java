@@ -71,8 +71,6 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
-    private View mProgressView;
-    private View mLoginFormView;
 
     /**
      * Method called on activity creation to initialize layout elements
@@ -118,9 +116,6 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 attemptLogin();
             }
         });
-
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
     }
 
     private void populateAutoComplete() {
@@ -273,32 +268,6 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
     }
 
     /**
-     * Shows the progress UI and hides the login form.
-     */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    private void showProgress(final boolean show) {
-        int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
-
-        mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-        mLoginFormView.animate().setDuration(shortAnimTime).alpha(
-                show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-            }
-        });
-
-        mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-        mProgressView.animate().setDuration(shortAnimTime).alpha(
-                show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            }
-        });
-    }
-
-    /**
      * Method to create loader of user contacts
      * @param i Unused cursor in bundle
      * @param bundle Unused bundle of loader options
@@ -358,9 +327,6 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 ContactsContract.CommonDataKinds.Email.ADDRESS,
                 ContactsContract.CommonDataKinds.Email.IS_PRIMARY,
         };
-
-        int ADDRESS = 0;
-        int IS_PRIMARY = 1;
     }
 }
 

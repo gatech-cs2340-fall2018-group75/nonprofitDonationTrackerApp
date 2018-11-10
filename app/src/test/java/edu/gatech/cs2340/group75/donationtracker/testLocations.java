@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 
-import edu.gatech.cs2340.group75.donationtracker.Model.Location;
-import edu.gatech.cs2340.group75.donationtracker.Model.Locations;
+import edu.gatech.cs2340.group75.donationtracker.model.Location;
+import edu.gatech.cs2340.group75.donationtracker.model.Locations;
 
-import static edu.gatech.cs2340.group75.donationtracker.Model.LocationType.DR;
+import static edu.gatech.cs2340.group75.donationtracker.model.LocationType.DR;
 import static org.junit.Assert.*;
 
 public class testLocations {

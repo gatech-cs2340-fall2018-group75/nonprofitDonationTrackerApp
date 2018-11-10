@@ -24,10 +24,14 @@ public class LocationsTest {
     @SuppressWarnings({"ConstantConditions", "MagicNumber"})
     @Before
     public void setUp() {
-        Location place1 = new Location("DropOff1", DR, 38.8951, 38.8951, "111 temp Way",
-                "Fort Myers", "FL", "33993", "(345)135-1468");
-        Location RLyeh = new Location("R'lyeh", DR, 47.9, 126.43, "Madness Way",
-                "Pacific Ocean","The Beyond","00000", "(366)822-5548");
+        Location place1 = new Location("DropOff1", DR, 38.8951, 38.8951);
+		place1.setContactInfo("111 temp Way", "Fort Myers", "FL", "33993", "(345)135-1468");
+        Location RLyeh = new Location("R'lyeh", DR, 47.9, 126.43);
+		RLyeh.setContactInfo
+		(
+			"Madness Way", "Pacific Ocean", "The Beyond", "00000",
+			"(366)822-5548"
+		);
         Location nulled = null;
         currReg.add(place1);
         currReg.add(RLyeh);

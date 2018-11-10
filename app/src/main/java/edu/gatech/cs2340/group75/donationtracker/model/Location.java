@@ -59,29 +59,17 @@ public class Location implements Serializable {
 	 * @param locationType location's type
 	 * @param latitude location's latitude
 	 * @param longitude location's longitude
-	 * @param address location's address
-	 * @param city location's city
-	 * @param state location's state
-	 * @param zip location's zip code
-	 * @param phoneNumber location's phoneNumber
 	 */
 	public Location
 	(
 		String name,
 		LocationType locationType,
-		double latitude, double longitude,
-		String address, String city, String state, String zip,
-		String phoneNumber
+		double latitude, double longitude
 	) {
 		this.name = name;
 		this.locationType = locationType;
 		this.longitude = longitude;
 		this.latitude = latitude;
-		this.address = address;
-		this.city = city;
-		this.state = state;
-		this.zip = zip;
-		this.phoneNumber = phoneNumber;
 	}
 	
 	@Override
@@ -99,19 +87,37 @@ public class Location implements Serializable {
 		return that.name.equals(this.name)
 				&& (that.locationType == this.locationType)
 				&& (that.longitude == this.longitude)
-				&& (that.latitude == this.latitude)
-				&& that.address.equals(this.address)
-				&& that.city.equals(this.city)
-				&& that.state.equals(this.state)
-				&& that.zip.equals(this.zip)
-				&& that.phoneNumber.equals(this.phoneNumber);
+				&& (that.latitude == this.latitude);
 	}
 	
 	@Override
 	public int hashCode() {
 		return 1;
 	}
-
+	
+	/**
+	 * Set auxillary contact information for a location object
+	 *
+	 * @param	address		the location's street address
+	 * @param	city		the location's city
+	 * @param	state		the location's state
+	 * @param	zip			the location's zip code
+	 * @param	phoneNumber	the location's phone number
+	 */
+	public void setContactInfo
+	( 
+		String address, String city, String state, String zip,
+		String phoneNumber
+	)
+	{
+		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.phoneNumber = phoneNumber;
+	}
+	
+	
 	/**
 	 * getter for location's name
 	 * @return location's name

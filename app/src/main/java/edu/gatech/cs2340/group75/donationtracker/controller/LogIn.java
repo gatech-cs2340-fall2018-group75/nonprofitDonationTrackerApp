@@ -44,7 +44,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import edu.gatech.cs2340.group75.donationtracker.model.AccountType;
 import edu.gatech.cs2340.group75.donationtracker.model.User;
-import edu.gatech.cs2340.group75.donationtracker.model.UserSingleton;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -58,7 +57,6 @@ import static android.Manifest.permission.READ_CONTACTS;
  *
  * @author Markian Hromiak
  * @author Benjamin Holmes
- * @see UserSingleton
  * @see User
  */
 public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> {
@@ -250,7 +248,7 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                                     AccountType.valueOf(response.getString("accountType")),
                                     true
                             );
-                            UserSingleton.setInstanceUser(user);
+                            User.setCurrentUser(user);
 
                             Intent toMainMenu =  new Intent(LogIn.this, MainMenu.class);
                             startActivity(toMainMenu);

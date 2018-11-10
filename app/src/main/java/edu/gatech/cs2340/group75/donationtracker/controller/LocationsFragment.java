@@ -23,7 +23,6 @@ import com.android.volley.toolbox.Volley;
 
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.model.LocationType;
-import edu.gatech.cs2340.group75.donationtracker.model.Locations;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import org.json.JSONArray;
@@ -42,7 +41,6 @@ import java.util.Objects;
  *
  * @author Benjamin Holmes
  * @see MainMenu
- * @see Locations
  * @see Location
  */
 public class LocationsFragment extends Fragment {
@@ -62,7 +60,7 @@ public class LocationsFragment extends Fragment {
 
         View fragment = inflater.inflate(R.layout.fragment_locations, container, false);
 
-		List<Location> locationsList = Locations.getLocationsList();
+		List<Location> locationsList = Location.getLocationsList();
         ListAdapter listAdapter = new LocationList(inflater, locationsList);
         ListView list = fragment.findViewById(R.id.location_list);
         list.setAdapter(listAdapter);
@@ -73,7 +71,7 @@ public class LocationsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-				List<Location> locationsList = Locations.getLocationsList();
+				List<Location> locationsList = Location.getLocationsList();
                 Location itemClicked = locationsList.get(position);
 
                 Bundle bundle = new Bundle();
@@ -126,11 +124,11 @@ public class LocationsFragment extends Fragment {
                                 );
                                 locations.add(location);
                             }
-                            Locations.setLocationsList(locations);
+                            Location.setLocationsList(locations);
                             ListAdapter listAdapter = new LocationList
 							(
 								inflater,
-								Locations.getLocationsList()
+								Location.getLocationsList()
 							);
                             list.setAdapter(listAdapter);
                         } catch (JSONException e) {

@@ -3,6 +3,9 @@ package edu.gatech.cs2340.group75.donationtracker.model;
 import android.support.annotation.NonNull;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Model object representing a single donation item, holding description and location information
@@ -10,7 +13,18 @@ import java.io.Serializable;
  * @author mlewis61@gatech.edu
  */
 public class DonationItem implements Serializable {
-
+	
+	private static List<DonationItem> itemsList = new ArrayList<>();
+	
+	public static List<DonationItem> getItemsList() {
+		return Collections.unmodifiableList(itemsList);
+	}
+	
+	public static void setItemsList(List<DonationItem> list) {
+		itemsList = Collections.unmodifiableList(list);
+	}
+	
+	
     /** Item's name**/
     private final String name;
 

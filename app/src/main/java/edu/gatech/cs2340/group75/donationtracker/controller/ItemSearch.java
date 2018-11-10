@@ -19,8 +19,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItemType;
-import edu.gatech.cs2340.group75.donationtracker.model.DonationItems;
-import edu.gatech.cs2340.group75.donationtracker.model.Locations;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import org.json.JSONArray;
@@ -38,7 +36,6 @@ import java.util.List;
  * @author Markian Hromiak
  * @author Benjamin Holmes
  * @see DonationItem
- * @see DonationItems
  */
 public class ItemSearch extends AppCompatActivity {
     private EditText searchName;
@@ -145,7 +142,7 @@ public class ItemSearch extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        DonationItems.setItemsList(items);
+                        DonationItem.setItemsList(items);
                         Intent goToResultsPage = new Intent(getBaseContext(), ResultsPage.class);
                         goToResultsPage.putExtra("QUERY", searchTerms);
                         goToResultsPage.putExtra("CATEGORY", searchType);

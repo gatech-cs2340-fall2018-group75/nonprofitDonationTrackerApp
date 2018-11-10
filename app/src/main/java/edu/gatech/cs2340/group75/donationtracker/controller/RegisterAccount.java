@@ -23,7 +23,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import edu.gatech.cs2340.group75.donationtracker.model.AccountType;
 import edu.gatech.cs2340.group75.donationtracker.model.User;
-import edu.gatech.cs2340.group75.donationtracker.model.UserSingleton;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import java.net.HttpURLConnection;
@@ -38,7 +37,6 @@ import org.json.JSONObject;
  *
  * @author Markian Hromiak
  * @author Benjamin Holmes
- * @see UserSingleton
  * @see User
  */
 public class RegisterAccount extends AppCompatActivity {
@@ -133,7 +131,7 @@ public class RegisterAccount extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        UserSingleton.setInstanceUser(newUser);
+                        User.setCurrentUser(newUser);
 
                         Intent toMainMenu =  new Intent(RegisterAccount.this, MainMenu.class);
                         startActivity(toMainMenu);

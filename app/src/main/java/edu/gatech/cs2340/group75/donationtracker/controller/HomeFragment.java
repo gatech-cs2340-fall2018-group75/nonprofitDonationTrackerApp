@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import edu.gatech.cs2340.group75.donationtracker.model.User;
-import edu.gatech.cs2340.group75.donationtracker.model.UserSingleton;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 /**
@@ -30,6 +29,7 @@ public class HomeFragment extends Fragment {
      * @param savedInstanceState Current instance state
      * @return home fragment view
      */
+    @SuppressWarnings("FeatureEnvy")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
 			}
 		});
 
-        User currentUser = UserSingleton.getInstanceUser();
+        User currentUser = User.getCurrentUser();
 
         TextView userEmail = fragment.findViewById(R.id.userEmail);
         //noinspection LawOfDemeter

@@ -11,6 +11,18 @@ import android.support.annotation.NonNull;
  * Information holder
  */
 public class User {
+	
+	private static User currentUser;
+	
+	public static User getCurrentUser() {
+		return currentUser;
+	}
+	
+	public static void setCurrentUser(User user) {
+		currentUser = user;
+	}
+	
+	
     /** Tells us if the user is currently logged in or not **/
     private final boolean isLoggedIn;
 

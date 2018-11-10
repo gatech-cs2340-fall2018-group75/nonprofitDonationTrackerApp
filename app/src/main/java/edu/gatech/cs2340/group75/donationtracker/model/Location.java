@@ -4,6 +4,9 @@ package edu.gatech.cs2340.group75.donationtracker.model;
 import android.support.annotation.NonNull;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -14,6 +17,17 @@ import com.google.android.gms.maps.model.LatLng;
  * @author mlewis61@gatech.edu
  */
 public class Location implements Serializable {
+	
+	private static List<Location> locationsList = new ArrayList<>();
+	
+	public static List<Location> getLocationsList() {
+		return Collections.unmodifiableList(locationsList);
+	}
+	
+	public static void setLocationsList(List<Location> list) {
+		locationsList = Collections.unmodifiableList(list);
+	}
+	
 	
 	private final String name;
 	
@@ -100,6 +114,7 @@ public class Location implements Serializable {
 	 * getter for type of location
 	 * @return type of location
 	 */
+	@SuppressWarnings("unused")
 	public LocationType getLocationType() {
 		return locationType;
 	}

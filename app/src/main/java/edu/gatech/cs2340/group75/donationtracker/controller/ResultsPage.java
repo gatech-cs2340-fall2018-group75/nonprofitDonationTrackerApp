@@ -7,7 +7,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
-import edu.gatech.cs2340.group75.donationtracker.model.DonationItems;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import java.util.List;
@@ -17,7 +16,6 @@ import java.util.List;
  *
  * @author Markian Hromiak
  * @see ItemSearch
- * @see DonationItems
  * @see DonationItem
  */
 public class ResultsPage extends AppCompatActivity {
@@ -28,7 +26,7 @@ public class ResultsPage extends AppCompatActivity {
         setContentView(R.layout.activity_results_page_);
 
         ListView resultsList = findViewById(R.id.resultList);
-        List<DonationItem> results = DonationItems.getItemsList();
+        List<DonationItem> results = DonationItem.getItemsList();
 
         if (!results.isEmpty()) {
             ListAdapter resultContents = new ArrayAdapter<>(this,

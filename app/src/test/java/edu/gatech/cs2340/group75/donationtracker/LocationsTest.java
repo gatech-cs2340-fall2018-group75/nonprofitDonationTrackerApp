@@ -10,15 +10,14 @@ import java.util.List;
 
 
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
-import edu.gatech.cs2340.group75.donationtracker.model.Locations;
 
 import static edu.gatech.cs2340.group75.donationtracker.model.LocationType.DR;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @SuppressWarnings("JavaDoc")
 public class LocationsTest {
     private static final int TIMEOUT = 200;
-    private static final List<Location> currReg = Locations.getLocationsList();
+    private static final List<Location> currReg = Location.getLocationsList();
     @SuppressWarnings("TypeMayBeWeakened")
     private static final List<String> answer = new ArrayList<>();
 
@@ -44,7 +43,7 @@ public class LocationsTest {
     //tests the "for" branch case where no locations are added in the singleton
     @Test(timeout = TIMEOUT)
     public void testNoContents() {
-    assertEquals(answer, Locations.getNames());
+		assertEquals(answer, Locations.getNames());
     }
 
     //tests the "for" branch when items are in the singleton

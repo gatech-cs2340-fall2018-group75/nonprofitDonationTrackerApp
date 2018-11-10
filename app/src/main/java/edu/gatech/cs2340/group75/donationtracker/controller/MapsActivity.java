@@ -13,7 +13,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import edu.gatech.cs2340.group75.donationtracker.R;
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
-import edu.gatech.cs2340.group75.donationtracker.model.Locations;
 
 import java.util.List;
 import java.util.Objects;
@@ -47,7 +46,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
 	public void onMapReady(GoogleMap googleMap) {
 
-		List<Location> locationsList = Locations.getLocationsList();
+		List<Location> locationsList = Location.getLocationsList();
 		for (Location location : locationsList)
 		{
 			MarkerOptions options = new MarkerOptions();

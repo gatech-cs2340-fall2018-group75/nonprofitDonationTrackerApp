@@ -23,7 +23,6 @@ import com.android.volley.toolbox.Volley;
 
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItemType;
-import edu.gatech.cs2340.group75.donationtracker.model.DonationItems;
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
@@ -68,7 +67,7 @@ public class DonationItemsFragment extends Fragment {
 			arguments.getSerializable("LOCATION")
 		);
 
-		List<DonationItem> donationItemsList = DonationItems.getItemsList();
+		List<DonationItem> donationItemsList = DonationItem.getItemsList();
         ListAdapter listAdapter = new DonationItemsList
 		(
 			inflater,
@@ -83,7 +82,7 @@ public class DonationItemsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-				List<DonationItem> donationItemsList = DonationItems.getItemsList();
+				List<DonationItem> donationItemsList = DonationItem.getItemsList();
                 DonationItem itemClicked = donationItemsList.get(position);
 
                 Bundle bundle = new Bundle();
@@ -153,10 +152,10 @@ public class DonationItemsFragment extends Fragment {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        DonationItems.setItemsList(items);
+                        DonationItem.setItemsList(items);
                         ListAdapter listAdapter = new DonationItemsList
 						(
-							inflater, DonationItems.getItemsList()
+							inflater, DonationItem.getItemsList()
 						);
                         list.setAdapter(listAdapter);
                         setListViewHeightBasedOnItems(list);

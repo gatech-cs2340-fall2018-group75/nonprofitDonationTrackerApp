@@ -23,6 +23,7 @@ public enum LocationType {
      * getter method for enum
      * @return string type of location
      */
+    @SuppressWarnings("unused")
     public String getType() {
             return type;
     }

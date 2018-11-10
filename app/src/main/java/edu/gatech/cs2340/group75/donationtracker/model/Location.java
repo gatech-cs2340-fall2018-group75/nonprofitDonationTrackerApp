@@ -15,19 +15,19 @@ import com.google.android.gms.maps.model.LatLng;
  */
 public class Location implements Serializable {
 	
-	private String name;
+	private final String name;
 	
-	private LocationType locationType;
+	private final LocationType locationType;
 	
-	private double longitude;
-	private double latitude;
+	private final double longitude;
+	private final double latitude;
 	
-	private String address;
-	private String city;
-	private String state;
-	private String zip;
+	private final String address;
+	private final String city;
+	private final String state;
+	private final String zip;
 	
-	private String phoneNumber;
+	private final String phoneNumber;
 
 	/**
 	 * constructor for a new Location object
@@ -165,7 +165,7 @@ public class Location implements Serializable {
 	 * getter method for location's zip code
 	 * @return location's zip code
 	 */
-	public String getZip() {
+	private String getZip() {
 		return zip;
 	}
 

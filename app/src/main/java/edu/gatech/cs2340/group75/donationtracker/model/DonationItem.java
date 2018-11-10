@@ -12,16 +12,16 @@ import java.io.Serializable;
 public class DonationItem implements Serializable {
 
     /** Item's name**/
-    private String name;
+    private final String name;
 
     /** Short description of item **/
-    private String description;
+    private final String description;
 
-    private String locationName;
+    private final String locationName;
 
-    private double value;
+    private final double value;
 
-    private DonationItemType category;
+    private final DonationItemType category;
 
     /**
      * Creates a new item.

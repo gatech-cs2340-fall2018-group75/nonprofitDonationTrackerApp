@@ -13,15 +13,15 @@ import android.support.annotation.NonNull;
 public class User {
 
     /** Tells us if the user is currently logged in or not **/
-    private boolean isLoggedIn;
+    private final boolean isLoggedIn;
 
     /** User's e-mail used to login **/
-    private String email;
+    private final String email;
 
     /** User's password **/
-    private String password;
+    private final String password;
 
-    private AccountType accountType;
+    private final AccountType accountType;
 
     /**
      * Creates a new user

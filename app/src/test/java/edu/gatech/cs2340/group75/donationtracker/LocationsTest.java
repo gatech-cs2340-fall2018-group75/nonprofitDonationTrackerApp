@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 @SuppressWarnings("JavaDoc")
 public class LocationsTest {
-    public static final int TIMEOUT = 200;
+    private static final int TIMEOUT = 200;
     private static final Locations tester = Locations.getInstance();
     private static final List<Location> currReg = tester.get();
     private static final List<String> answer = new ArrayList<>();

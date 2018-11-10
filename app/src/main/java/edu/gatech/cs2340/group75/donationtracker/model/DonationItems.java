@@ -35,8 +35,8 @@ public final class DonationItems implements Serializable {
     * This method is to get the item's list.
     * @return the list of items.
     **/
-    public List<DonationItem> getItemsList() {
-        return Collections.unmodifiableList(donationItems);
+    public static List<DonationItem> getItemsList() {
+        return Collections.unmodifiableList(itemsInstance.donationItems);
     }
 	
     /**
@@ -44,8 +44,8 @@ public final class DonationItems implements Serializable {
     * @param items the list of items to set donationItems equal to.
     **/
     @SuppressWarnings("AssignmentOrReturnOfFieldWithMutableType")
-    public void setItemsList(List<DonationItem> items) {
-        donationItems = items;
+    public static void setItemsList(List<DonationItem> items) {
+        itemsInstance.donationItems = items;
     }
     @Override
     public String toString() {

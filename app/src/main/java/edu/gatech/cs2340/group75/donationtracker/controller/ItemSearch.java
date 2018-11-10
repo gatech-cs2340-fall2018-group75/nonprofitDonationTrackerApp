@@ -129,7 +129,6 @@ public class ItemSearch extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        DonationItems donationItemsInstance = DonationItems.getInstance();
                         List<DonationItem> items = new ArrayList<>();
                         try {
                             for(int i = 0; i < response.length(); i++) {
@@ -146,7 +145,7 @@ public class ItemSearch extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        donationItemsInstance.setItemsList(items);
+                        DonationItems.setItemsList(items);
                         Intent goToResultsPage = new Intent(getBaseContext(), ResultsPage.class);
                         goToResultsPage.putExtra("QUERY", searchTerms);
                         goToResultsPage.putExtra("CATEGORY", searchType);

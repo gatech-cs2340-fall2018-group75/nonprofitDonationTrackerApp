@@ -68,11 +68,11 @@ public class DonationItemsFragment extends Fragment {
 			arguments.getSerializable("LOCATION")
 		);
 
-		DonationItems items = DonationItems.getInstance();
+		List<DonationItem> donationItemsList = DonationItems.getItemsList();
         ListAdapter listAdapter = new DonationItemsList
 		(
 			inflater,
-			items.getItemsList()
+			donationItemsList
 		);
         final ListView list = fragment.findViewById(R.id.donation_item_list);
         populateDonationItems(inflater, list, location.getName());
@@ -83,9 +83,8 @@ public class DonationItemsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-				DonationItems items = DonationItems.getInstance();
-				List<DonationItem> itemList = items.getItemsList();
-                DonationItem itemClicked = itemList.get(position);
+				List<DonationItem> donationItemsList = DonationItems.getItemsList();
+                DonationItem itemClicked = donationItemsList.get(position);
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("DONATION_ITEM", itemClicked);
@@ -137,7 +136,6 @@ public class DonationItemsFragment extends Fragment {
                     @SuppressWarnings("FeatureEnvy")
                     @Override
                     public void onResponse(JSONArray response) {
-                        DonationItems donationItemsInstance = DonationItems.getInstance();
                         List<DonationItem> items = new ArrayList<>();
                         try {
                             for(int i = 0; i < response.length(); i++) {
@@ -155,10 +153,10 @@ public class DonationItemsFragment extends Fragment {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        donationItemsInstance.setItemsList(items);
+                        DonationItems.setItemsList(items);
                         ListAdapter listAdapter = new DonationItemsList
 						(
-							inflater, donationItemsInstance.getItemsList()
+							inflater, DonationItems.getItemsList()
 						);
                         list.setAdapter(listAdapter);
                         setListViewHeightBasedOnItems(list);
@@ -174,10 +172,16 @@ public class DonationItemsFragment extends Fragment {
         requestQueue.add(request);
     }
 
+    static class ViewHolder {
+        TextView nameView;
+        TextView locationView;
+    }
+
     private class DonationItemsList extends ArrayAdapter<DonationItem> {
 
         private final LayoutInflater inflater;
         private final List<DonationItem> donationItems;
+        private View inflatedView;
 
         DonationItemsList(LayoutInflater inflater, List<DonationItem> donationItems) {
             super(inflater.getContext(), R.layout.fragment_donation_items_item, donationItems);
@@ -189,13 +193,23 @@ public class DonationItemsFragment extends Fragment {
         @Override
         public View getView(int position, View view, @NonNull ViewGroup parent) {
             DonationItem item = donationItems.get(position);
-            View rowView= inflater.inflate(R.layout.fragment_donation_items_item, null, true);
-            TextView name = rowView.findViewById(R.id.item_name);
-            TextView location = rowView.findViewById(R.id.item_location);
+            if (item == null) {
+                return view;
+            }
+            ViewHolder donationViewHolder = new ViewHolder();
+            if (view == null) {
+                inflatedView = inflater.inflate(R.layout.fragment_donation_items_item, parent,
+                        false);
+                donationViewHolder.nameView = inflatedView.findViewById(R.id.item_name);
+                donationViewHolder.locationView = inflatedView.findViewById(R.id.item_location);
+            } else {
+                inflatedView = view;
+                donationViewHolder = (ViewHolder) inflatedView.getTag();
+            }
 
-            name.setText(item.getName());
-            location.setText(item.getLocationName());
-            return rowView;
+            donationViewHolder.nameView.setText(item.getName());
+            donationViewHolder.locationView.setText(item.getLocationName());
+            return inflatedView;
         }
     }
 

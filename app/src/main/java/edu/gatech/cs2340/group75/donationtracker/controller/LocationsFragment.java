@@ -148,31 +148,48 @@ public class LocationsFragment extends Fragment {
         requestQueue.add(request);
     }
 
-    private class LocationList extends ArrayAdapter<Location> {
+    static class ViewHolder {
+        TextView nameView;
+        TextView addressView;
+        TextView cityStateView;
+    }
+
+    private final class LocationList extends ArrayAdapter<Location> {
 
         private final LayoutInflater inflater;
         private final List<Location> locations;
+        private View inflatedView;
 
-        LocationList(LayoutInflater inflater, List<Location> locations) {
+        private LocationList(LayoutInflater inflater, List<Location> locations) {
             super(inflater.getContext(), R.layout.fragment_locations_item, locations);
             this.inflater = inflater;
             this.locations = locations;
         }
 
-        @NonNull
-        @SuppressWarnings("FeatureEnvy")
         @Override
+        @NonNull
         public View getView(int position, View view, @NonNull ViewGroup parent) {
             Location location = locations.get(position);
-            View rowView= inflater.inflate(R.layout.fragment_locations_item, parent, false);
-            TextView name = rowView.findViewById(R.id.location_name);
-            TextView address = rowView.findViewById(R.id.location_address);
-            TextView cityState = rowView.findViewById(R.id.location_city_state);
+            if (location == null) {
+                return view;
+            }
+            ViewHolder viewHolderItem = new ViewHolder();
+            if (view == null) {
+                inflatedView = inflater.inflate(R.layout.fragment_locations_item, parent, false);
+                viewHolderItem.nameView = inflatedView.findViewById(R.id.location_name);
+                viewHolderItem.addressView = inflatedView.findViewById(R.id.location_address);
+                viewHolderItem.cityStateView = inflatedView.findViewById(R.id.location_city_state);
+                inflatedView.setTag(viewHolderItem);
+            } else {
+                inflatedView = view;
+                viewHolderItem = (ViewHolder) inflatedView.getTag();
+            }
 
-            name.setText(location.getName());
-            address.setText(location.getAddress());
-            cityState.setText(location.getCity() + ", " + location.getState());
-            return rowView;
+            viewHolderItem.nameView.setText(location.getName());
+            viewHolderItem.addressView.setText(location.getAddress());
+            viewHolderItem.cityStateView.setText(getString(R.string.cityStateFormat,
+                    location.getCity(), location.getState()));
+            return inflatedView;
         }
     }
 }

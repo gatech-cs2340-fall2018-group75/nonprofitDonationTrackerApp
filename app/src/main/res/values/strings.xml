@@ -47,6 +47,7 @@
 	<string name = "itemPictureDescription">Uploaded picture of item being donated</string>
 	<string name = "logoDescription">Placeholder logo image</string>
 	<string name = "locationPinDescription">Location pin icon</string>
+    <string name="cityStateFormat">%1$s, %2$s</string>
 
     <!-- API URL -->
     <string name="API_base">https://cs2340-donation-tracker.herokuapp.com</string>

@@ -98,7 +98,10 @@ public class LocationsFragment extends Fragment {
         String URL=getString(R.string.API_base) + "/locations/get";
         Log.d("REST response", "starting... " + URL);
 
-        RequestQueue requestQueue = Volley.newRequestQueue(Objects.requireNonNull(LocationsFragment.this.getActivity()));
+        RequestQueue requestQueue = Volley.newRequestQueue
+		(
+			Objects.requireNonNull(LocationsFragment.this.getActivity())
+		);
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
                 URL,

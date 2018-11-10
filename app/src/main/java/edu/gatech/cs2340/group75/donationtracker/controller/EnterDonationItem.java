@@ -87,12 +87,19 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
         super.onActivityResult(requestCode, resultCode, data);
 
         if ((requestCode == RESULT_LOAD_IMAGE) && (resultCode == RESULT_OK) && (null != data)) {
-            Uri selectedImage = data.getData();
+            Uri selectedImage = Objects.requireNonNull(data.getData());
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
 			ContentResolver resolver = getContentResolver();
-            Cursor cursor = Objects.requireNonNull(resolver.query(Objects.requireNonNull(selectedImage),
-                    filePathColumn, null, null, null));
+            Cursor cursor = Objects.requireNonNull
+			(
+				resolver.query
+				(
+					selectedImage,
+                    filePathColumn,
+					null, null, null
+				)
+			);
             cursor.moveToFirst();
 
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
@@ -167,9 +174,13 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
 
                 }
                 else {
-                Toast toast = Toast.makeText(getApplicationContext(), "Give the name of your donation item",
-                        Toast.LENGTH_SHORT);
-				toast.show();
+					Toast toast = Toast.makeText
+					(
+						getApplicationContext(),
+						"Give the name of your donation item",
+						Toast.LENGTH_SHORT
+					);
+					toast.show();
                 }
                 break;
             default :
@@ -211,12 +222,20 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
 						NetworkResponse response = error.networkResponse;
 						int conflict = HttpURLConnection.HTTP_CONFLICT;
                         if ((response != null) && (response.statusCode == conflict)) {
-                            Toast toast = Toast.makeText(context, "Item already exists",
-                                    Toast.LENGTH_LONG);
+							Toast toast = Toast.makeText
+							(
+								context,
+								"Item already exists",
+								Toast.LENGTH_LONG
+							);
 							toast.show();
                         } else {
-                            Toast toast = Toast.makeText(context, "There was a problem submitting your donation",
-                                    Toast.LENGTH_LONG);
+							Toast toast = Toast.makeText
+							(
+								context,
+								"There was a problem submitting your donation",
+								Toast.LENGTH_LONG
+							);
 							toast.show();
                         }
                     }

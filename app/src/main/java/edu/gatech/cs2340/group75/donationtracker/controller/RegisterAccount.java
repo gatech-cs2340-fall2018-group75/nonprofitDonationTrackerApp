@@ -98,8 +98,12 @@ public class RegisterAccount extends AppCompatActivity {
         try {
             addUser(newUser);
         } catch (JSONException e) {
-			Toast toast = Toast.makeText(this.getBaseContext(), "There was a problem registering your account",
-			        Toast.LENGTH_LONG);
+			Toast toast = Toast.makeText
+			(
+				this.getBaseContext(),
+				"There was a problem registering your account",
+				Toast.LENGTH_LONG
+			);
 			toast.show();
             e.printStackTrace();
         }
@@ -147,8 +151,12 @@ public class RegisterAccount extends AppCompatActivity {
                                     Toast.LENGTH_LONG);
 							toast.show();
                         } else {
-                            Toast toast = Toast.makeText(context, "There was a problem registering your account",
-                                    Toast.LENGTH_LONG);
+							Toast toast = Toast.makeText
+							(
+								context,
+								"There was a problem registering your account",
+								Toast.LENGTH_LONG
+							);
 							toast.show();
                         }
                     }

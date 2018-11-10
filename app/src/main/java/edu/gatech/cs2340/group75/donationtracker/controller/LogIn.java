@@ -132,7 +132,12 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
             return true;
         }
         if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
-			Snackbar snackbar = Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE);
+			Snackbar snackbar = Snackbar.make
+			(
+				mEmailView,
+				R.string.permission_rationale,
+				Snackbar.LENGTH_INDEFINITE
+			);
 			snackbar.setAction(android.R.string.ok, new View.OnClickListener() {
 				@Override
 				@TargetApi(Build.VERSION_CODES.M)

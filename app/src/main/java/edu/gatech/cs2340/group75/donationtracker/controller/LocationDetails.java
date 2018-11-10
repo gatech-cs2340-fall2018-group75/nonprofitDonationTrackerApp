@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import java.util.Objects;
 
-import edu.gatech.cs2340.group75.donationtracker.model.DonationItems;
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.R;
 

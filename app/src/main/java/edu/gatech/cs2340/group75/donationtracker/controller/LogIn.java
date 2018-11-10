@@ -327,6 +327,8 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 ContactsContract.CommonDataKinds.Email.ADDRESS,
                 ContactsContract.CommonDataKinds.Email.IS_PRIMARY,
         };
+		
+		int ADDRESS = 0;
     }
 }
 

@@ -25,8 +25,6 @@ public class LocationsTest {
     @SuppressWarnings("ConstantConditions")
     @Before
     public void setUp() {
-        List<String> result = new ArrayList<>();
-
         Location place1 = new Location("DropOff1", DR, 38.8951, 38.8951, "111 temp Way",
                 "Fort Myers", "FL", "33993", "(345)135-1468");
         Location RLyeh = new Location("R'lyeh", DR, 47.9, 126.43, "Madness Way",

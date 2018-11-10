@@ -33,19 +33,4 @@ public enum LocationType {
     public String toString() {
         return type;
     }
-
-    /**
-     * constructor for LocationType enum
-     * @param text enum label
-     * @return LocationType object
-     */
-	public static LocationType fromString(String text) {
-		for (LocationType locationType : LocationType.values()) {
-			if (locationType.type.equalsIgnoreCase(text)) {
-				return locationType;
-			}
-		}
-		
-		return null;
-	}
 }

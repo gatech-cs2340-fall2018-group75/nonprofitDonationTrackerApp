@@ -48,8 +48,6 @@ public class LocationDetails extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        DonationItems items = DonationItems.getInstance();
-
         final String name = location.getName();
         final String type = location.getLocationType().toString();
         final String longitude = Double.toString(location.getLongitude());

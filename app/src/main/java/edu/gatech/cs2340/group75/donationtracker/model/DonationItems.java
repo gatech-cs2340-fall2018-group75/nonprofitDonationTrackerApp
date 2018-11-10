@@ -38,13 +38,7 @@ public final class DonationItems implements Serializable {
     public List<DonationItem> getItemsList() {
         return Collections.unmodifiableList(donationItems);
     }
-    /**
-    * This method is used to add a new item to the donationItem's list
-    * @param item is the new item to add to the list.
-    **/
-    public void add(DonationItem item) {
-        donationItems.add(item);
-    }
+	
     /**
     * This method is used to set the list of items.
     * @param items the list of items to set donationItems equal to.

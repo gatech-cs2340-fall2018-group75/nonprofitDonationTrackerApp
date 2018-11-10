@@ -71,12 +71,12 @@ public class ItemSearch extends AppCompatActivity {
         List<String> currentLocations = new ArrayList<>();
         currentLocations.add(LOCATION_SPINNER_DEFAULT);
         currentLocations.addAll(Locations.getInstance().getNames());
-        ArrayAdapter<String> locationAdapter = new ArrayAdapter<String>
-		(
-			this,
-			android.R.layout.simple_spinner_item,
-			currentLocations
-		);
+        ArrayAdapter<String> locationAdapter = new ArrayAdapter<>
+                (
+                        this,
+                        android.R.layout.simple_spinner_item,
+                        currentLocations
+                );
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
 

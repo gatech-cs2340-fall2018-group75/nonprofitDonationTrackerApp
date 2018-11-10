@@ -62,8 +62,8 @@ public class LocationsFragment extends Fragment {
 
         View fragment = inflater.inflate(R.layout.fragment_locations, container, false);
 
-		Locations locations = Locations.getInstance();
-        ListAdapter listAdapter = new LocationList(inflater, locations.get());
+		List<Location> locationsList = Locations.getLocationsList();
+        ListAdapter listAdapter = new LocationList(inflater, locationsList);
         ListView list = fragment.findViewById(R.id.location_list);
         list.setAdapter(listAdapter);
 
@@ -73,8 +73,7 @@ public class LocationsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-				Locations locations = Locations.getInstance();
-				List<Location> locationsList = locations.get();
+				List<Location> locationsList = Locations.getLocationsList();
                 Location itemClicked = locationsList.get(position);
 
                 Bundle bundle = new Bundle();
@@ -111,7 +110,6 @@ public class LocationsFragment extends Fragment {
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
-                            Locations locationsInstance = Locations.getInstance();
                             List<Location> locations = new ArrayList<>();
                             for(int i = 0; i < response.length(); i++) {
                                 JSONObject json = response.getJSONObject(i);
@@ -128,11 +126,11 @@ public class LocationsFragment extends Fragment {
                                 );
                                 locations.add(location);
                             }
-                            locationsInstance.set(locations);
+                            Locations.setLocationsList(locations);
                             ListAdapter listAdapter = new LocationList
 							(
 								inflater,
-								locationsInstance.get()
+								Locations.getLocationsList()
 							);
                             list.setAdapter(listAdapter);
                         } catch (JSONException e) {
@@ -166,7 +164,7 @@ public class LocationsFragment extends Fragment {
         @Override
         public View getView(int position, View view, @NonNull ViewGroup parent) {
             Location location = locations.get(position);
-            View rowView= inflater.inflate(R.layout.fragment_locations_item, null, true);
+            View rowView= inflater.inflate(R.layout.fragment_locations_item, parent, false);
             TextView name = rowView.findViewById(R.id.location_name);
             TextView address = rowView.findViewById(R.id.location_address);
             TextView cityState = rowView.findViewById(R.id.location_city_state);

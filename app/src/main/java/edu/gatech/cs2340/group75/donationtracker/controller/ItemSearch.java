@@ -72,8 +72,7 @@ public class ItemSearch extends AppCompatActivity {
         List<String> currentLocations = new ArrayList<>();
         currentLocations.add(LOCATION_SPINNER_DEFAULT);
 		
-		Locations locations = Locations.getInstance();
-        currentLocations.addAll(locations.getNames());
+        currentLocations.addAll(Locations.getNames());
         ArrayAdapter<String> locationAdapter = new ArrayAdapter<>
                 (
                         this,

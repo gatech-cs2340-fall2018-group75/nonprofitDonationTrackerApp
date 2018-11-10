@@ -103,7 +103,6 @@ public class MainMenu extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
-                            Locations locationsInstance = Locations.getInstance();
                             List<Location> locations = new ArrayList<>();
                             for(int i = 0; i < response.length(); i++) {
                                 JSONObject json = response.getJSONObject(i);
@@ -120,7 +119,7 @@ public class MainMenu extends AppCompatActivity {
                                 );
                                 locations.add(location);
                             }
-                            locationsInstance.set(locations);
+                            Locations.setLocationsList(locations);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

@@ -24,7 +24,6 @@ public final class Locations implements Serializable {
 		return _instance;
 	}
 	
-	
     private List<Location> locations;
 
     private Locations() {
@@ -35,17 +34,17 @@ public final class Locations implements Serializable {
      * getter method for list of registered locations
      * @return list of registered donation centers
      */
-    public List<Location> get() {
-        return Collections.unmodifiableList(locations);
+    public static List<Location> getLocationsList() {
+        return Collections.unmodifiableList(_instance.locations);
     }
 
     /**
      * getter method for names of registered donation centers
      * @return list of names of registered donation centers
      */
-    public List<String> getNames() {
+    public static List<String> getNames() {
         List<String> names = new ArrayList<>();
-        for (Location l : locations) {
+        for (Location l : _instance.locations) {
             if((l != null) && !names.contains(l.getName())) {
                 names.add(l.getName());
             }
@@ -68,7 +67,7 @@ public final class Locations implements Serializable {
      * @param locations list of locations to be set
      */
     @SuppressWarnings("AssignmentOrReturnOfFieldWithMutableType")
-    public void set(List<Location> locations) {
-    	this.locations = locations;
+    public static void setLocationsList(List<Location> locations) {
+    	_instance.locations = locations;
 	}
 }

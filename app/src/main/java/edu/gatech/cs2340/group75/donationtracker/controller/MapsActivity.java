@@ -47,8 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
 	public void onMapReady(GoogleMap googleMap) {
 
-		Locations locations = Locations.getInstance();
-		List<Location> locationsList = locations.get();
+		List<Location> locationsList = Locations.getLocationsList();
 		for (Location location : locationsList)
 		{
 			MarkerOptions options = new MarkerOptions();

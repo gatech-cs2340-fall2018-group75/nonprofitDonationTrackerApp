@@ -18,8 +18,7 @@ import static org.junit.Assert.*;
 @SuppressWarnings("JavaDoc")
 public class LocationsTest {
     private static final int TIMEOUT = 200;
-    private static final Locations tester = Locations.getInstance();
-    private static final List<Location> currReg = tester.get();
+    private static final List<Location> currReg = Locations.getLocationsList();
     @SuppressWarnings("TypeMayBeWeakened")
     private static final List<String> answer = new ArrayList<>();
 
@@ -45,20 +44,20 @@ public class LocationsTest {
     //tests the "for" branch case where no locations are added in the singleton
     @Test(timeout = TIMEOUT)
     public void testNoContents() {
-    assertEquals(answer, tester.getNames());
+    assertEquals(answer, Locations.getNames());
     }
 
     //tests the "for" branch when items are in the singleton
     @Test(timeout = TIMEOUT)
     public void testWithContents() {
-        assertEquals(answer, tester.getNames());
+        assertEquals(answer, Locations.getNames());
 
     }
 
     //tests the "for" branch when Null item is in the singleton
     @Test(timeout = TIMEOUT)
     public void testWithNull() {
-        assertEquals(answer, tester.getNames());
+        assertEquals(answer, Locations.getNames());
 
     }
 }

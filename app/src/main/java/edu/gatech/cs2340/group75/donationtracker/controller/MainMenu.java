@@ -122,7 +122,7 @@ public class MainMenu extends AppCompatActivity {
                                 );
                                 locations.add(location);
                             }
-                            Locations.setLocationsList(locations);
+                            Location.setLocationsList(locations);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

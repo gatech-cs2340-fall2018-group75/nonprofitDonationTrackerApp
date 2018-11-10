@@ -111,11 +111,16 @@ public class LocationsFragment extends Fragment {
                             List<Location> locations = new ArrayList<>();
                             for(int i = 0; i < response.length(); i++) {
                                 JSONObject json = response.getJSONObject(i);
-                                Location location = new Location(
+                                Location location = new Location
+								(
                                         json.getString("Name"),
                                         LocationType.valueOf(json.getString("Type")),
                                         json.getDouble("Latitude"),
-										json.getDouble("Longitude"),
+										json.getDouble("Longitude")
+								);
+								
+								location.setContactInfo
+								(
                                         json.getString("Street Address"),
                                         json.getString("City"),
                                         json.getString("State"),

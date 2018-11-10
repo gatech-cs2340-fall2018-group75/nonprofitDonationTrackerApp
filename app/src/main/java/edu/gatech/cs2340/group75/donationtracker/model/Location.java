@@ -40,7 +40,7 @@ public class Location implements Serializable {
 	
 	public static List<String> getLocationNames() {
 		List<String> names = new ArrayList<>();
-		for (Location l : _instance.locations) {
+		for (Location l : locationsList) {
 			if((l != null) && !names.contains(l.getName())) {
 				names.add(l.getName());
 			}

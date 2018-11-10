@@ -47,20 +47,20 @@ public class LocationsTest {
     //tests the "for" branch case where no locations are added in the singleton
     @Test(timeout = TIMEOUT)
     public void testNoContents() {
-		assertEquals(answer, Locations.getNames());
+		assertEquals(answer, Location.getLocationNames());
     }
 
     //tests the "for" branch when items are in the singleton
     @Test(timeout = TIMEOUT)
     public void testWithContents() {
-        assertEquals(answer, Locations.getNames());
+        assertEquals(answer, Location.getLocationNames());
 
     }
 
     //tests the "for" branch when Null item is in the singleton
     @Test(timeout = TIMEOUT)
     public void testWithNull() {
-        assertEquals(answer, Locations.getNames());
+        assertEquals(answer, Location.getLocationNames());
 
     }
 }

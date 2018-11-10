@@ -38,6 +38,16 @@ public class Location implements Serializable {
 		locationsList = Collections.unmodifiableList(list);
 	}
 	
+	public static List<String> getLocationNames() {
+		List<String> names = new ArrayList<>();
+		for (Location l : _instance.locations) {
+			if((l != null) && !names.contains(l.getName())) {
+				names.add(l.getName());
+			}
+		}
+		return names;
+	}
+	
 	
 	private final String name;
 	
@@ -46,12 +56,12 @@ public class Location implements Serializable {
 	private final double longitude;
 	private final double latitude;
 	
-	private final String address;
-	private final String city;
-	private final String state;
-	private final String zip;
+	private String address;
+	private String city;
+	private String state;
+	private String zip;
 	
-	private final String phoneNumber;
+	private String phoneNumber;
 
 	/**
 	 * constructor for a new Location object

@@ -16,10 +16,20 @@ public class DonationItem implements Serializable {
 	
 	private static List<DonationItem> itemsList = new ArrayList<>();
 	
+	/**
+	 * Get the static list of donation items for the app
+	 *
+	 * @return an unmodifiable reference to the list of donation items
+	 */
 	public static List<DonationItem> getItemsList() {
 		return Collections.unmodifiableList(itemsList);
 	}
 	
+	/**
+	 * Set the static list of donation items for the app
+	 *
+	 * @param	list	the new list of items to be used for the app
+	 */
 	public static void setItemsList(List<DonationItem> list) {
 		itemsList = Collections.unmodifiableList(list);
 	}
@@ -110,6 +120,12 @@ public class DonationItem implements Serializable {
 		return category;
 	}
 	
+	/**
+	 * Get the string verion of this item's category
+	 * This method only exists to silence Law of Demeter linter issues
+	 *
+	 * @return the item's category in string form
+	 */
 	public String getCategoryString() {
 		return category.toString();
 	}

@@ -14,10 +14,20 @@ public class User {
 	
 	private static User currentUser;
 	
+	/**
+	 * Get the (static) currently-logged-in user
+	 *
+	 * @return the current user logged into the app
+	 */
 	public static User getCurrentUser() {
 		return currentUser;
 	}
 	
+	/**
+	 * Set the (static) currently-logged-in user
+	 *
+	 * @param	user	the current user to set as logged in
+	 */
 	public static void setCurrentUser(User user) {
 		currentUser = user;
 	}
@@ -113,6 +123,12 @@ public class User {
 		return accountType;
 	}
 	
+	/**
+	 * Get the string verion of this user's account type
+	 * This method only exists to silence Law of Demeter linter issues
+	 *
+	 * @return the user's type in string form
+	 */
 	public String getAccountTypeString() {
 		return accountType.toString();
 	}

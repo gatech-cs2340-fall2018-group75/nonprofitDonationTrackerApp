@@ -20,10 +20,20 @@ public class Location implements Serializable {
 	
 	private static List<Location> locationsList = new ArrayList<>();
 	
+	/**
+	 * Get the static list of donation locations for the app
+	 *
+	 * @return an unmodifiable reference to the list of donation locations
+	 */
 	public static List<Location> getLocationsList() {
 		return Collections.unmodifiableList(locationsList);
 	}
 	
+	/**
+	 * Set the static list of donation locations for the app
+	 *
+	 * @param	list	the new list of locations to be used for the app
+	 */
 	public static void setLocationsList(List<Location> list) {
 		locationsList = Collections.unmodifiableList(list);
 	}
@@ -119,6 +129,12 @@ public class Location implements Serializable {
 		return locationType;
 	}
 	
+	/**
+	 * Get the string verion of this location's type
+	 * This method only exists to silence Law of Demeter linter issues
+	 *
+	 * @return the location's type in string form
+	 */
 	public String getLocationTypeString() {
 		return locationType.toString();
 	}

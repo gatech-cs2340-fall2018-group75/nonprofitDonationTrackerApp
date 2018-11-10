@@ -1,4 +1,4 @@
-package com.example.asus.donationtracker;
+package edu.gatech.cs2340.group75.donationtracker;
 
 
 

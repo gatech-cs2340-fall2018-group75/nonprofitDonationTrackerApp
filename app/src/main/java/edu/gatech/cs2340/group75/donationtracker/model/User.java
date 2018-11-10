@@ -82,22 +82,10 @@ public class User {
     public boolean getIsLoggedIn() {return isLoggedIn;}
 
     /**
-     * setter method for user's isLoggedIn field
-     * @param status current login status
-     */
-    public void setIsLoggedIn(boolean status) {isLoggedIn = status;}
-
-    /**
      * getter method for user's e-mail
      * @return user's e-mail
      */
     public String getEmail() {return email;}
-
-    /**
-     * setter method for user's e-mail
-     * @param address user's new e-mail
-     */
-    public void setEmail(String address) {email = address;}
 
     /**
      * getter method for user's password
@@ -106,25 +94,11 @@ public class User {
     public String getPassword() {return password;}
 
     /**
-     * setter method for user's password
-     * @param updated user's new password
-     */
-    public void setPassword(String updated) {password = updated;}
-
-    /**
      * getter method for user's account tye
      * @return user's account type
      */
     public AccountType getAccountType() {
         return accountType;
-    }
-
-    /**
-     * setter method for user's account type
-     * @param type user's new account type
-     */
-    public void setAccountType(AccountType type) {
-        accountType = type;
     }
 
     /**********************************************/

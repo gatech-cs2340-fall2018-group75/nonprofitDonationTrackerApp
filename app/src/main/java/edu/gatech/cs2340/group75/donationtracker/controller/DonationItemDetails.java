@@ -2,7 +2,6 @@ package edu.gatech.cs2340.group75.donationtracker.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;

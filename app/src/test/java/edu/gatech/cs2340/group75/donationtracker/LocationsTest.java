@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
@@ -16,12 +15,14 @@ import edu.gatech.cs2340.group75.donationtracker.model.Locations;
 import static edu.gatech.cs2340.group75.donationtracker.model.LocationType.DR;
 import static org.junit.Assert.*;
 
+@SuppressWarnings("JavaDoc")
 public class LocationsTest {
     public static final int TIMEOUT = 200;
     private static final Locations tester = Locations.getInstance();
     private static final List<Location> currReg = tester.get();
     private static final List<String> answer = new ArrayList<>();
 
+    @SuppressWarnings("ConstantConditions")
     @Before
     public void setUp() {
         List<String> result = new ArrayList<>();

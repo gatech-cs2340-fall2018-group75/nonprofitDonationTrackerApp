@@ -10,8 +10,8 @@ import android.support.annotation.NonNull;
  */
 public enum LocationType {
     DR ("Drop Off"),
-    ST ("Store"),
-    WA ("Warehouse");
+    @SuppressWarnings("unused") ST ("Store"),
+    @SuppressWarnings("unused") WA ("Warehouse");
 
     private final String type;
 

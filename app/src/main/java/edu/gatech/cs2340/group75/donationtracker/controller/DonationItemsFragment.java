@@ -63,7 +63,7 @@ public class DonationItemsFragment extends Fragment {
         View fragment = inflater.inflate(R.layout.fragment_donation_items, container, false);
 
 		Bundle arguments = Objects.requireNonNull(getArguments());
-        Location location = Objects.requireNonNull(arguments.getSerializable("LOCATION"));
+        Location location = (Location) Objects.requireNonNull(arguments.getSerializable("LOCATION"));
 
 		DonationItems items = DonationItems.getInstance();
         ListAdapter listAdapter = new DonationItemsList

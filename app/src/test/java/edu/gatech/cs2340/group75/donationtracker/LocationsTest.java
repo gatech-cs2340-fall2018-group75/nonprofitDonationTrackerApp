@@ -31,7 +31,7 @@ public class LocationsTest {
 
 	//This unit is explicitly checking constant conditions to ensure they evaluate as expected
 	//Magic numbers are not an issue in unit tests, as it is just testing data
-    @SuppressWarnings({"ConstantConditions", "MagicNumber"})
+    @SuppressWarnings({"ConstantConditions", "MagicNumber", "FeatureEnvy"})
     @Before
     public void setUp() {
         Location place1 = new Location("DropOff1", DR, 38.8951, 38.8951);

@@ -38,6 +38,10 @@ public class Location implements Serializable {
 		locationsList = Collections.unmodifiableList(list);
 	}
 	
+	 /**
+      * getter method for names of registered donation centers
+      * @return list of names of registered donation centers
+      */
 	public static List<String> getLocationNames() {
 		List<String> names = new ArrayList<>();
 		for (Location l : locationsList) {

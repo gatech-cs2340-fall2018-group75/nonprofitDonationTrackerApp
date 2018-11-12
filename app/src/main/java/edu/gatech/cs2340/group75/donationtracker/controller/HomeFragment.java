@@ -41,10 +41,10 @@ public class HomeFragment extends Fragment {
         View fragment = inflater.inflate(R.layout.fragment_home, container, false);
 		
 		View logoutButton = fragment.findViewById(R.id.logoutButton);
-		UIClasses classes = new UIClasses();
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+				ActivityClasses classes = new ActivityClasses();
                 Intent logOut = new Intent(getActivity(), classes.get("LogIn"));
                 startActivity(logOut);
             }

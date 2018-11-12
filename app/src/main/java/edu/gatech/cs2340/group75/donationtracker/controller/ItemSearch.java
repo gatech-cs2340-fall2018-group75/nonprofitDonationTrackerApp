@@ -151,7 +151,11 @@ public class ItemSearch extends AppCompatActivity {
                         DonationItem.setItemsList(items);
 						
 						ActivityClasses classes = new ActivityClasses();
-                        Intent goToResultsPage = new Intent(getBaseContext(), classes.get("ResultsPage"));
+                        Intent goToResultsPage = new Intent
+						(
+							getBaseContext(),
+							classes.get("ResultsPage")
+						);
                         goToResultsPage.putExtra("QUERY", searchTerms);
                         goToResultsPage.putExtra("CATEGORY", searchType);
                         startActivity(goToResultsPage);

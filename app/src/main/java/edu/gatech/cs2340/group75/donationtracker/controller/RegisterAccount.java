@@ -141,7 +141,11 @@ public class RegisterAccount extends AppCompatActivity {
                         User.setCurrentUser(newUser);
 
 						ActivityClasses classes = new ActivityClasses();
-                        Intent toMainMenu =  new Intent(RegisterAccount.this, classes.get("MainMenu"));
+                        Intent toMainMenu =  new Intent
+						(
+							RegisterAccount.this,
+							classes.get("MainMenu")
+						);
                         startActivity(toMainMenu);
                     }
                 },

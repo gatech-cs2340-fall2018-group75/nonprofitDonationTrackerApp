@@ -39,7 +39,12 @@ import java.util.Objects;
  * <p>Queries database for all locations to display in list view
  * <p>Each list view item has independent layout inflated by list adapter
  *
- * @author Benjamin Holmes
+ * @author bholmes34@gatech.edu
+ * @author mhromiak3@gatech.edu
+ * @author mlewis61@gatech.edu
+ * @author spadi29@gatech.edu
+ * @author sszczepaniuk3@gatech.edu
+ *
  * @see MainMenu
  * @see Location
  */

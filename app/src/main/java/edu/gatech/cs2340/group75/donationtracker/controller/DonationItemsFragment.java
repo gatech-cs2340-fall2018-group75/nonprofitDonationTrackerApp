@@ -42,7 +42,12 @@ import java.util.Objects;
  * <p>Contains a method to poll the database for donation items matching a specified location
  * <p>Individual list items are created with a listAdapter and a .xml layout for each
  *
- * @author Benjamin Holmes
+ * @author bholmes34@gatech.edu
+ * @author mhromiak3@gatech.edu
+ * @author mlewis61@gatech.edu
+ * @author spadi29@gatech.edu
+ * @author sszczepaniuk3@gatech.edu
+ *
  * @see LocationsFragment
  */
 public class DonationItemsFragment extends Fragment {

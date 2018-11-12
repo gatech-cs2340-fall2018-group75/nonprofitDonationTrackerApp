@@ -5,7 +5,8 @@ import org.junit.Test;
  import static org.junit.Assert.*;
  /**
  * Donation Item Model tests
- * @author Sho Szczepaniuk
+ *
+ * @author sszczepaniuk3@gatech.edu
  */
 //Unit tests do not need documentation
 @SuppressWarnings("JavaDoc")

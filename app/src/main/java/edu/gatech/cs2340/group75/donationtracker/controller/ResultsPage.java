@@ -14,7 +14,12 @@ import java.util.List;
 /**
  * Activity for viewing search results stored in donation items singleton
  *
- * @author Markian Hromiak
+ * @author bholmes34@gatech.edu
+ * @author mhromiak3@gatech.edu
+ * @author mlewis61@gatech.edu
+ * @author spadi29@gatech.edu
+ * @author sszczepaniuk3@gatech.edu
+ *
  * @see ItemSearch
  * @see DonationItem
  */

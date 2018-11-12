@@ -15,9 +15,12 @@ import edu.gatech.cs2340.group75.donationtracker.R;
 /**
  * Fragment for Home page in main Activity
  *
- * @author Markian Hromiak
- * @author Mike Lewis
- * @author Benjamin Holmes
+ * @author bholmes34@gatech.edu
+ * @author mhromiak3@gatech.edu
+ * @author mlewis61@gatech.edu
+ * @author spadi29@gatech.edu
+ * @author sszczepaniuk3@gatech.edu
+ *
  * @see MainMenu
  */
 public class HomeFragment extends Fragment {

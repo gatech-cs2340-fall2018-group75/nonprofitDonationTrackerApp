@@ -23,7 +23,12 @@ import java.util.Objects;
  * <p>Requires Google Maps API key defined in a local keys.xml
  * <p>See <a href="https://developers.google.com/maps/documentation/android-sdk/signup"></a>
  *
- * @author Mike Lewis
+ * @author bholmes34@gatech.edu
+ * @author mhromiak3@gatech.edu
+ * @author mlewis61@gatech.edu
+ * @author spadi29@gatech.edu
+ * @author sszczepaniuk3@gatech.edu
+ *
  */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 

@@ -4,11 +4,13 @@ package edu.gatech.cs2340.group75.donationtracker.model;
 import android.support.annotation.NonNull;
 
 /**
- * Created by Markian Hromiak on 9/24/2018
- *
  * Represents a single user and their information and login status
  *
- * Information holder
+ * @author bholmes34@gatech.edu
+ * @author mhromiak3@gatech.edu
+ * @author mlewis61@gatech.edu
+ * @author spadi29@gatech.edu
+ * @author sszczepaniuk3@gatech.edu
  */
 public class User {
 	

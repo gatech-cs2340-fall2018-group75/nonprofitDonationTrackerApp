@@ -14,7 +14,12 @@ import com.google.android.gms.maps.model.LatLng;
 /**
  * Model object representing a single donation location, holding location and contact information 
  *
+ * @author bholmes34@gatech.edu
+ * @author mhromiak3@gatech.edu
  * @author mlewis61@gatech.edu
+ * @author spadi29@gatech.edu
+ * @author sszczepaniuk3@gatech.edu
+ *
  */
 public class Location implements Serializable {
 	

@@ -14,6 +14,11 @@ import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import static edu.gatech.cs2340.group75.donationtracker.model.LocationType.DR;
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Test of the Locations model class
+ *
+ * @author mhromiak3@gatech.edu
+ */
 //Unit tests do not need documentation
 @SuppressWarnings("JavaDoc")
 public class LocationsTest {

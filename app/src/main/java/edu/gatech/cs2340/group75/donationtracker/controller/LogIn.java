@@ -55,8 +55,12 @@ import static android.Manifest.permission.READ_CONTACTS;
  * <p>Queries database with constructed json string to check for matching user
  * <p>Requests permission to access user contacts for auto-filling email field
  *
- * @author Markian Hromiak
- * @author Benjamin Holmes
+ * @author bholmes34@gatech.edu
+ * @author mhromiak3@gatech.edu
+ * @author mlewis61@gatech.edu
+ * @author spadi29@gatech.edu
+ * @author sszczepaniuk3@gatech.edu
+ *
  * @see User
  */
 public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> {

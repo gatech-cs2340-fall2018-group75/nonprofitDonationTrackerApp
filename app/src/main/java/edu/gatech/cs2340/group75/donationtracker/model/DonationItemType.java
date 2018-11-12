@@ -5,7 +5,11 @@ import android.support.annotation.NonNull;
 /**
  * Enum for the category of a donation item
  *
+ * @author bholmes34@gatech.edu
+ * @author mhromiak3@gatech.edu
  * @author mlewis61@gatech.edu
+ * @author spadi29@gatech.edu
+ * @author sszczepaniuk3@gatech.edu
  */
 public enum DonationItemType {
     DEFAULT ("All categories"),

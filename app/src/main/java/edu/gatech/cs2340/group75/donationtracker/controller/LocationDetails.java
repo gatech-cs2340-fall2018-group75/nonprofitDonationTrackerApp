@@ -21,8 +21,12 @@ import edu.gatech.cs2340.group75.donationtracker.R;
  *
  * <p>Contains list view for all donation items relating to specified location
  *
- * @author Markian Hromiak
- * @author Benjamin Holmes
+ * @author bholmes34@gatech.edu
+ * @author mhromiak3@gatech.edu
+ * @author mlewis61@gatech.edu
+ * @author spadi29@gatech.edu
+ * @author sszczepaniuk3@gatech.edu
+ *
  * @see Location
  * @see DonationItemsFragment
  */

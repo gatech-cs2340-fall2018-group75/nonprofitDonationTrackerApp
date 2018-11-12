@@ -10,6 +10,8 @@ import static org.junit.Assert.*;
 
 /**
  * Test of nontrivial methods of the User Model
+ *
+ * @author bholmes34@gatech.edu
  */
 //Unit tests do not need documentation
 @SuppressWarnings("JavaDoc")

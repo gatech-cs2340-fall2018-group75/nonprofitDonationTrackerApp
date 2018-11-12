@@ -35,8 +35,8 @@ public class LocationDetails extends AppCompatActivity {
      * Sets click listeners and retrieves donation items singleton
      * @param savedInstanceState Current instance state
      */
-    @SuppressWarnings("FeatureEnvy")
     @Override
+	@SuppressWarnings("FeatureEnvy")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_details);
@@ -56,7 +56,27 @@ public class LocationDetails extends AppCompatActivity {
 		ActionBar actionBar =  Objects.requireNonNull(getSupportActionBar());
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
-        final String name = location.getName();
+        setText(location);
+
+        FloatingActionButton donateFAB = findViewById(R.id.donate_fab);
+
+        donateFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+				ActivityClasses classes = new ActivityClasses();
+				Intent intent = new Intent(LocationDetails.this, classes.get("EnterDonationItem"));
+				intent.putExtra("LOCATION", location);
+				startActivity(intent);
+
+            }
+        });
+
+        inflateInitialFragment();
+    }
+	
+	@SuppressWarnings("FeatureEnvy")
+	private void setText(Location location) {
+		final String name = location.getName();
         final String type = location.getLocationTypeString();
         final String longitude = Double.toString(location.getLongitude());
         final String latitude = Double.toString(location.getLatitude());
@@ -78,22 +98,7 @@ public class LocationDetails extends AppCompatActivity {
 
         TextView loctype = findViewById(R.id.type);
         loctype.setText(type);
-
-        FloatingActionButton donateFAB = findViewById(R.id.donate_fab);
-
-        donateFAB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-				ActivityClasses classes = new ActivityClasses();
-				Intent intent = new Intent(LocationDetails.this, classes.get("EnterDonationItem"));
-				intent.putExtra("LOCATION", location);
-				startActivity(intent);
-
-            }
-        });
-
-        inflateInitialFragment();
-    }
+	}
 
     private void inflateInitialFragment() {
         if(findViewById(R.id.donation_items_fragment_container) == null) {

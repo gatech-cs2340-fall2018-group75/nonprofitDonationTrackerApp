@@ -60,6 +60,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeLoginButton" />
 
+	<!--Small text is intentional as citing the creator of the logo-->
 	<TextView
 		android:id = "@+id/logoCitation"
 		
@@ -69,6 +70,7 @@
 		
 		android:layout_width = "fill_parent"
 		android:layout_height = "fill_parent"
+		
 		android:layout_margin = "10dp"
 		android:gravity = "bottom|center_horizontal"
 		

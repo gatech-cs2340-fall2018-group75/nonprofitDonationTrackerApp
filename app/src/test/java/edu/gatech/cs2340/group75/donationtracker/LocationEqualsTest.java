@@ -8,6 +8,14 @@ import edu.gatech.cs2340.group75.donationtracker.model.Location;
 import edu.gatech.cs2340.group75.donationtracker.model.LocationType;
 
 
+/**
+ * Test the `equals` method in the Location model class
+ * 
+ * @author mlewis61@gatech.edu
+ */
+//Numbers are not magic numbers, just testing data
+//Unit tests do not require documentation
+@SuppressWarnings({"MagicNumber", "JavaDoc"})
 public class LocationEqualsTest {
 	
 	private final String testName = "Georgia Tech";

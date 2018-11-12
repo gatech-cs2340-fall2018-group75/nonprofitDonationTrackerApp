@@ -21,7 +21,8 @@
     <string name="title_activity_main_menu">Donation Tracker</string>
     <string name="title_activity_welcome_screen">Welcome</string>
     <string name="title_activity_register_account">Register</string>
-	<string name = "logoAttribution">Icon made by Swifticons from www.flaticon.com and is licensed by CC 3.0 BY</string>
+	<string name = "logoAttribution">Icon made by Swifticons from www.flaticon.com and is licensed
+by CC 3.0 BY</string>
 
     <!--navigation-->
     <string name="navigation_title_home">Home</string>

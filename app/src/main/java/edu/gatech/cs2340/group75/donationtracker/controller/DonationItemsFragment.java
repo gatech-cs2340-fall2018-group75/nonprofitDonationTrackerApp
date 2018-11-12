@@ -59,6 +59,9 @@ public class DonationItemsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+		ActivityClasses classes = new ActivityClasses();
+		classes.add(DonationItemDetails.class);
+		
         View fragment = inflater.inflate(R.layout.fragment_donation_items, container, false);
 
 		Bundle arguments = Objects.requireNonNull(getArguments());
@@ -87,10 +90,12 @@ public class DonationItemsFragment extends Fragment {
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("DONATION_ITEM", itemClicked);
+				
+				ActivityClasses classes = new ActivityClasses();
                 Intent listDetails = new Intent
 				(
 					DonationItemsFragment.this.getActivity(),
-					DonationItemDetails.class
+					classes.get("DonationItemDetails")
 				);
                 listDetails.putExtras(bundle);
 

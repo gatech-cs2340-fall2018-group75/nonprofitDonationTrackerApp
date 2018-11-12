@@ -58,6 +58,9 @@ public class LocationsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+		ActivityClasses classes = new ActivityClasses();
+		classes.add(LocationDetails.class);
+		
         View fragment = inflater.inflate(R.layout.fragment_locations, container, false);
 
 		List<Location> locationsList = Location.getLocationsList();
@@ -76,10 +79,12 @@ public class LocationsFragment extends Fragment {
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("LOCATION", itemClicked);
+				
+				ActivityClasses classes = new ActivityClasses();
                 Intent listDetails = new Intent
 				(
 					LocationsFragment.this.getActivity(),
-					LocationDetails.class
+					classes.get("LocationDetails")
 				);
                 listDetails.putExtras(bundle);
 

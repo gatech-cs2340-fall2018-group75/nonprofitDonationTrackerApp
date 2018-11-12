@@ -54,6 +54,11 @@ public class ItemSearch extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_search);
+		
+		ActivityClasses classes = new ActivityClasses();
+		classes.add(this.getClass());
+		classes.add(ResultsPage.class);
+		
         Button submitSearch = findViewById(R.id.submitSearch);
         searchSpinner = findViewById(R.id.searchSpnr);
         locationSpinner = findViewById(R.id.locationSpnr);
@@ -144,7 +149,9 @@ public class ItemSearch extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         DonationItem.setItemsList(items);
-                        Intent goToResultsPage = new Intent(getBaseContext(), ResultsPage.class);
+						
+						ActivityClasses classes = new ActivityClasses();
+                        Intent goToResultsPage = new Intent(getBaseContext(), classes.get("ResultsPage"));
                         goToResultsPage.putExtra("QUERY", searchTerms);
                         goToResultsPage.putExtra("CATEGORY", searchType);
                         startActivity(goToResultsPage);

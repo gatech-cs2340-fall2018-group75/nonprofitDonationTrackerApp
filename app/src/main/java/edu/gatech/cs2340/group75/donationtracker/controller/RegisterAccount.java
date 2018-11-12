@@ -50,10 +50,16 @@ public class RegisterAccount extends AppCompatActivity {
      * Sets click listeners and list adapter
      * @param savedInstanceState Current instance state
      */
+    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_account);
+		
+		
+		ActivityClasses classes = new ActivityClasses();
+		classes.add(this.getClass());
+		classes.add(MainMenu.class);
 
         email = findViewById(R.id.regEmail);
         pass = findViewById(R.id.regPass);
@@ -80,7 +86,8 @@ public class RegisterAccount extends AppCompatActivity {
         goToLoginLink.setOnClickListener(new View.OnClickListener() {
 			@Override
             public void onClick(View v) {
-                startActivity(new Intent(RegisterAccount.this, LogIn.class));
+				ActivityClasses classes = new ActivityClasses();
+                startActivity(new Intent(RegisterAccount.this, classes.get("LogIn")));
             }
         });
     }
@@ -133,7 +140,8 @@ public class RegisterAccount extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         User.setCurrentUser(newUser);
 
-                        Intent toMainMenu =  new Intent(RegisterAccount.this, MainMenu.class);
+						ActivityClasses classes = new ActivityClasses();
+                        Intent toMainMenu =  new Intent(RegisterAccount.this, classes.get("MainMenu"));
                         startActivity(toMainMenu);
                     }
                 },

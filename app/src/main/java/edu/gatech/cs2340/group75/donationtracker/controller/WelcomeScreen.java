@@ -21,10 +21,17 @@ public class WelcomeScreen extends AppCompatActivity implements View.OnClickList
      * Sets click listeners to display either register or login view
      * @param savedInstanceState Current instance state
      */
+    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
+		
+		
+		ActivityClasses classes = new ActivityClasses();
+		classes.add(this.getClass());
+		classes.add(LogIn.class);
+		classes.add(RegisterAccount.class);
     }
 
     /**
@@ -33,12 +40,14 @@ public class WelcomeScreen extends AppCompatActivity implements View.OnClickList
      */
 	@Override
     public void onClick(View v) {
+		ActivityClasses classes = new ActivityClasses();
+		
         if(v.getId() == R.id.welcomeLoginBtn){
-            Intent intent = new Intent(WelcomeScreen.this, LogIn.class);
+            Intent intent = new Intent(WelcomeScreen.this, classes.get("LogIn"));
             startActivity(intent);
 
         }else if(v.getId() == R.id.registerbtn){
-            Intent intent = new Intent(WelcomeScreen.this, RegisterAccount.class);
+            Intent intent = new Intent(WelcomeScreen.this, classes.get("RegisterAccount"));
             startActivity(intent);
         }
     }

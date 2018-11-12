@@ -24,7 +24,7 @@ public class ResultsPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results_page_);
-
+		
         ListView resultsList = findViewById(R.id.resultList);
         List<DonationItem> results = DonationItem.getItemsList();
 

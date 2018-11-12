@@ -75,12 +75,17 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
      * Sets click listeners and edit listeners
      * @param savedInstanceState Current instance state
      */
+    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+		
+		
+		ActivityClasses classes = new ActivityClasses();
+		classes.add(this.getClass());
+		classes.add(MainMenu.class);
 
         // Set up the login form.
         mEmailView = findViewById(R.id.email);
@@ -102,7 +107,8 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         regFromLogin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toRegister = new Intent(LogIn.this, RegisterAccount.class);
+				ActivityClasses classes = new ActivityClasses();
+                Intent toRegister = new Intent(LogIn.this, classes.get("RegisterAccount"));
                 startActivity(toRegister);
             }
         });
@@ -250,7 +256,8 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                             );
                             User.setCurrentUser(user);
 
-                            Intent toMainMenu =  new Intent(LogIn.this, MainMenu.class);
+							ActivityClasses classes = new ActivityClasses();
+                            Intent toMainMenu =  new Intent(LogIn.this, classes.get("MainMenu"));
                             startActivity(toMainMenu);
                         } catch (JSONException e) {
                             mPasswordView.setError(getString(R.string.error_incorrect_password));

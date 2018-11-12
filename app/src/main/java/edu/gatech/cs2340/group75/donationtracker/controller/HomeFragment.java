@@ -34,13 +34,18 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+		ActivityClasses classes = new ActivityClasses();
+		classes.add(ItemSearch.class);
+		classes.add(MapsActivity.class);
+		
         View fragment = inflater.inflate(R.layout.fragment_home, container, false);
 		
 		View logoutButton = fragment.findViewById(R.id.logoutButton);
+		UIClasses classes = new UIClasses();
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent logOut = new Intent(getActivity(), LogIn.class);
+                Intent logOut = new Intent(getActivity(), classes.get("LogIn"));
                 startActivity(logOut);
             }
         });
@@ -49,7 +54,8 @@ public class HomeFragment extends Fragment {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToSearch = new Intent(getActivity(), ItemSearch.class);
+				ActivityClasses classes = new ActivityClasses();
+                Intent goToSearch = new Intent(getActivity(), classes.get("ItemSearch"));
                 startActivity(goToSearch);
             }
         });
@@ -58,7 +64,8 @@ public class HomeFragment extends Fragment {
 		mapsButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent goToMaps = new Intent(getActivity(), MapsActivity.class);
+				ActivityClasses classes = new ActivityClasses();
+				Intent goToMaps = new Intent(getActivity(), classes.get("MapsActivity"));
 				startActivity(goToMaps);
 			}
 		});

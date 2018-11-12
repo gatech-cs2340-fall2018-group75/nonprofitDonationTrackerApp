@@ -21,6 +21,8 @@ public class WelcomeScreen extends AppCompatActivity implements View.OnClickList
      * Sets click listeners to display either register or login view
      * @param savedInstanceState Current instance state
      */
+	//The entire point of Model classes is to separate features into distinct objects
+	//Moving functionality from the model to this class will violate many design principles
     @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -29,6 +29,8 @@ public class HomeFragment extends Fragment {
      * @param savedInstanceState Current instance state
      * @return home fragment view
      */
+	//The entire point of Model classes is to separate features into distinct objects
+	//Moving functionality from the model to this class will violate many design principles
     @SuppressWarnings("FeatureEnvy")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -73,11 +75,16 @@ public class HomeFragment extends Fragment {
         User currentUser = User.getCurrentUser();
 
         TextView userEmail = fragment.findViewById(R.id.userEmail);
+		
+		//This statement is just accessing a property of the User model class
+		//Changing the interface would only make the model class less usable
         //noinspection LawOfDemeter
         userEmail.setText(currentUser.getEmail());
 
         TextView userType = fragment.findViewById(R.id.userType);
 
+		//This statement is just accessing a property of the User model class
+		//Changing the interface would only make the model class less usable
         //noinspection LawOfDemeter
         userType.setText(currentUser.getAccountTypeString());
 

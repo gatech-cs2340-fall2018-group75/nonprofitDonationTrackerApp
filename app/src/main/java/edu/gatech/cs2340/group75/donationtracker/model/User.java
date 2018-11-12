@@ -31,10 +31,6 @@ public class User {
 	public static void setCurrentUser(User user) {
 		currentUser = user;
 	}
-	
-	
-    /** Tells us if the user is currently logged in or not **/
-    private final boolean isLoggedIn;
 
     /** User's e-mail used to login **/
     private final String email;
@@ -43,30 +39,18 @@ public class User {
     private final String password;
 
     private final AccountType accountType;
-
+	
+	
     /**
      * Creates a new user
-     * @param email			user's email address
-     * @param password		user's password
-	 * @param accountType	user's account type
-     */
-    public User(String email, String password, AccountType accountType) {
-        this(email, password, accountType, false);
-    }
-
-    /**
-     * Chained constructor for a new user
      * @param email user's e-mail
      * @param password user's password
      * @param accountType user's account's type
-     * @param isLoggedIn boolean flag telling the system if the user is currently logged in
      */
-    public User(String email, String password, AccountType accountType, boolean isLoggedIn) {
+    public User(String email, String password, AccountType accountType) {
         this.email = email;
         this.password = password;
         this.accountType = accountType;
-        this.isLoggedIn = isLoggedIn;
-
     }
 
     @Override
@@ -80,8 +64,7 @@ public class User {
         User that = (User) other;
 		
         return that.email.equals(this.email)
-                && that.password.equals(this.getPassword())
-                && (that.isLoggedIn == this.isLoggedIn)
+				&& that.password.equals(this.getPassword())
                 && that.accountType.equals(this.accountType);
 
     }
@@ -95,14 +78,7 @@ public class User {
     /* *************************************
      * All property getters and setters
      */
-
-    /**
-     * getter method for user's isLoggedIn field
-     * @return if user is logged in or not
-     */
-    @SuppressWarnings("unused")
-    public boolean getIsLoggedIn() {return isLoggedIn;}
-
+	
     /**
      * getter method for user's e-mail
      * @return user's e-mail

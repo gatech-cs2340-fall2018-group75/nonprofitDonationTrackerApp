@@ -75,6 +75,8 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
      * Sets click listeners and edit listeners
      * @param savedInstanceState Current instance state
      */
+	//The entire point of Model classes is to separate features into distinct objects
+	//Moving functionality from the model to this class will violate many design principles
     @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -251,8 +253,7 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                             User user = new User(
                                     response.getString("email"),
                                     response.getString("password"),
-                                    AccountType.valueOf(response.getString("accountType")),
-                                    true
+                                    AccountType.valueOf(response.getString("accountType"))
                             );
                             User.setCurrentUser(user);
 

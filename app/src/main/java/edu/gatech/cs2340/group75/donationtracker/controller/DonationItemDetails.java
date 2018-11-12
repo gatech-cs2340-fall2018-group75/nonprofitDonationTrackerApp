@@ -23,6 +23,8 @@ public class DonationItemDetails extends AppCompatActivity {
      * Retrieves donation item to display as intent extra
      * @param savedInstanceState Current instance state
      */
+	//The entire point of Model classes is to separate features into distinct objects
+	//Moving functionality from the model to this class will violate many design principles
     @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

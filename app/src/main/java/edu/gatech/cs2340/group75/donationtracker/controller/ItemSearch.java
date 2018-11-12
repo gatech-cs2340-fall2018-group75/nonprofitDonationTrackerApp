@@ -120,6 +120,7 @@ public class ItemSearch extends AppCompatActivity {
             query += "location=" + searchLocation;
         }
 
+		//The API URL is not a typo
         //noinspection SpellCheckingInspection
         String URL=getString(R.string.API_base) + "/donationitems/search?" + query;
         Log.d("REST response", "starting... " + URL);

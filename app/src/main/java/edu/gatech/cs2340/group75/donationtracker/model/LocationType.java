@@ -10,6 +10,8 @@ import android.support.annotation.NonNull;
  */
 public enum LocationType {
     DR ("Drop Off"),
+	//These two enum types are actually used, but only through the inherited `valueOf`
+	//Thus, the lint rules think the types aren't used since they're never directly accessed
     @SuppressWarnings("unused") ST ("Store"),
     @SuppressWarnings("unused") WA ("Warehouse");
 
@@ -23,6 +25,7 @@ public enum LocationType {
      * getter method for enum
      * @return string type of location
      */
+	//This is a model class, and accessing the type directly may be used in the future
     @SuppressWarnings("unused")
     public String getType() {
             return type;

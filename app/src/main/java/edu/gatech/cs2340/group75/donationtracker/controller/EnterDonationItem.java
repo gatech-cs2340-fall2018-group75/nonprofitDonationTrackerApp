@@ -187,8 +187,12 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
                 break;
         }
     }
+	
+	//The entire point of Model classes is to separate features into distinct objects
+	//Moving functionality from the model to this class will violate many design principles
     @SuppressWarnings("FeatureEnvy")
     private void submitDonationItem(DonationItem item) throws JSONException {
+		//The API URL is not a typo
         //noinspection SpellCheckingInspection
         String URL=getString(R.string.API_base) + "/donationitems/add";
         Log.d("REST response", "starting... " + URL);

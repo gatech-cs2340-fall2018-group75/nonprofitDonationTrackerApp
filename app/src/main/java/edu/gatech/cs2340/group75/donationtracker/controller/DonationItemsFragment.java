@@ -54,6 +54,8 @@ public class DonationItemsFragment extends Fragment {
      * @param savedInstanceState Current instance state
      * @return donation items fragment view
      */
+	//The entire point of Model classes is to separate features into distinct objects
+	//Moving functionality from the model to this class will violate many design principles
     @SuppressWarnings("FeatureEnvy")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -78,6 +80,8 @@ public class DonationItemsFragment extends Fragment {
 		);
         final ListView list = fragment.findViewById(R.id.donation_item_list);
 
+		//This statement is just accessing a property of the Location model class
+		//Changing the interface would only make the model class less usable
         //noinspection LawOfDemeter
         populateDonationItems(inflater, list, location.getName());
         list.setAdapter(listAdapter);
@@ -108,6 +112,8 @@ public class DonationItemsFragment extends Fragment {
         return fragment;
     }
 
+	//The entire point of Model classes is to separate features into distinct objects
+	//Moving functionality from the model to this class will violate many design principles
     @SuppressWarnings("FeatureEnvy")
     private void populateDonationItems
 	(
@@ -116,6 +122,7 @@ public class DonationItemsFragment extends Fragment {
 		String locationName
 	) {
         String URL=getString(R.string.API_base);
+		//The API URL is not a typo
         //noinspection SpellCheckingInspection
         URL = URL + "/donationitems/getByLocation?name=";
 		try
@@ -139,6 +146,8 @@ public class DonationItemsFragment extends Fragment {
                 URL,
                 null,
                 new Response.Listener<JSONArray>() {
+			//The entire point of Model classes is to separate features into distinct objects
+			//Moving functionality from the model to this class will violate many design principles
                     @SuppressWarnings("FeatureEnvy")
                     @Override
                     public void onResponse(JSONArray response) {

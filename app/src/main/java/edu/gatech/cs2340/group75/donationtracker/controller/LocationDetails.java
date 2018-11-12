@@ -36,6 +36,8 @@ public class LocationDetails extends AppCompatActivity {
      * @param savedInstanceState Current instance state
      */
     @Override
+	//The entire point of Model classes is to separate features into distinct objects
+	//Moving functionality from the model to this class will violate many design principles
 	@SuppressWarnings("FeatureEnvy")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +76,8 @@ public class LocationDetails extends AppCompatActivity {
         inflateInitialFragment();
     }
 	
+	//The entire point of Model classes is to separate features into distinct objects
+	//Moving functionality from the model to this class will violate many design principles
 	@SuppressWarnings("FeatureEnvy")
 	private void setText(Location location) {
 		final String name = location.getName();

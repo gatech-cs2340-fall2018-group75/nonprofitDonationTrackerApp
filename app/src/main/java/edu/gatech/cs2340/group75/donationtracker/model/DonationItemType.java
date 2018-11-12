@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
  */
 public enum DonationItemType {
     DEFAULT ("All categories"),
+	//This is not a typo, just a simplification
     @SuppressWarnings("SpellCheckingInspection") TOYSANDGAMES ("Toys and Games"),
     FURNITURE ("Furniture"),
     OUTDOOR ("Outdoor"),
@@ -35,6 +36,7 @@ public enum DonationItemType {
 	 *
      * @return human-readable donation item type
      */
+	//This is a model class, and accessing the type directly may be used in the future
     @SuppressWarnings("unused")
     public String getType() {
         return type;

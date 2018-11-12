@@ -10,7 +10,8 @@ import android.support.annotation.NonNull;
 public enum AccountType {
     ADMIN ("Administrator"),
     USER ("User"),
-    LOCATION_EMPLOYEE ("Location Employee");
+	///This is not a typo, just an abbreviation
+    @SuppressWarnings("SpellCheckingInspection") LOCEMP ("Location Employee");
 
     private final String type;
 
@@ -22,6 +23,7 @@ public enum AccountType {
      * getter method for account type
      * @return account's type
      */
+	//This is a model class, and accessing the type directly may be used in the future
     @SuppressWarnings("unused")
     public String getType() {
         return type;

@@ -50,6 +50,8 @@ public class RegisterAccount extends AppCompatActivity {
      * Sets click listeners and list adapter
      * @param savedInstanceState Current instance state
      */
+	//The entire point of model classes is to separate features into distinct objects
+	//Moving functionality from the model to this class will violate many design principles
     @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +117,8 @@ public class RegisterAccount extends AppCompatActivity {
 
     }
 
+	//The entire point of model classes is to separate features into distinct objects
+	//Moving functionality from the model to this class will violate many design principles
     @SuppressWarnings("FeatureEnvy")
     private void addUser(final User newUser) throws JSONException {
         String URL=getString(R.string.API_base) + "/users/add";
@@ -141,6 +145,9 @@ public class RegisterAccount extends AppCompatActivity {
                         User.setCurrentUser(newUser);
 
 						ActivityClasses classes = new ActivityClasses();
+						
+						//This statement is just accessing a getter for the list of activities
+						//Changing the interface would only decrease separation and usability
                         //noinspection LawOfDemeter
                         Intent toMainMenu =  new Intent
 						(

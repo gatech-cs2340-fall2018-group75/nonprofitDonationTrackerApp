@@ -9,8 +9,9 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
+//Unit tests do not need documentation
+@SuppressWarnings("JavaDoc")
 public class ExampleUnitTest {
-    @SuppressWarnings("JavaDoc")
     @Test
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);

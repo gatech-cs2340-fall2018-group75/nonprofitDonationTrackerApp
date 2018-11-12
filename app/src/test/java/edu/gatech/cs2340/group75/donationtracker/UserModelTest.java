@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 /**
  * Test of nontrivial methods of the User Model
  */
+//Unit tests do not need documentation
 @SuppressWarnings("JavaDoc")
 public class UserModelTest {
     @Test
@@ -18,15 +19,13 @@ public class UserModelTest {
         User fake1 = new User(
                 "fake@gmail.com",
                 "1234",
-                AccountType.ADMIN,
-                false
+                AccountType.ADMIN
         );
 
         User fake2 = new User(
                 "fake@gmail.com",
                 "1234",
-                AccountType.ADMIN,
-                false
+                AccountType.ADMIN
         );
 
         assertEquals(fake1, fake2);
@@ -37,40 +36,34 @@ public class UserModelTest {
         User fake1 = new User(
                 "fake@gmail.com",
                 "1234",
-                AccountType.ADMIN,
-                false
+                AccountType.ADMIN
         );
 
         User unequalFakes[] = {
                 new User(
                         "totallyReal@gmail.com",
                         "1234",
-                        AccountType.ADMIN,
-                        false
+                        AccountType.ADMIN
                 ),
                 new User(
                         "fake@gmail.com",
                         "5678",
-                        AccountType.ADMIN,
-                        false
+                        AccountType.ADMIN
                 ),
                 new User(
                         "fake@gmail.com",
                         "1234",
-                        AccountType.USER,
-                        false
+                        AccountType.USER
                 ),
                 new User(
                         "fake@gmail.com",
                         "1234",
-                        AccountType.ADMIN,
-                        true
+                        AccountType.ADMIN
                 ),
                 new User(
                         "veryUnequal@aol.com",
                         "password",
-                        AccountType.LOCATION_EMPLOYEE,
-                        true
+                        AccountType.LOCEMP
                 )
         };
 
@@ -79,28 +72,29 @@ public class UserModelTest {
         }
     }
 
+	//This unit is explicitly checking constant conditions to ensure they evaluate as expected
     @SuppressWarnings("ConstantConditions")
     @Test
     public void nullUserEqualsReturnsFalse() {
         User fake1 = new User(
                 "fake@gmail.com",
                 "1234",
-                AccountType.ADMIN,
-                false
+                AccountType.ADMIN
         );
 
+		//This unit is explicitly checking for null-inequality
         //noinspection ObjectEqualsNull
         assertNotEquals(fake1, null);
     }
 
+	//This unit is explicitly checking inconvertible types for inequality
     @SuppressWarnings("EqualsBetweenInconvertibleTypes")
     @Test
     public void notInstanceOfUserEqualsReturnsFalse() {
         User fake1 = new User(
                 "fake@gmail.com",
                 "1234",
-                AccountType.ADMIN,
-                false
+                AccountType.ADMIN
         );
 
         assertNotEquals(fake1, new DonationItem("", "", "", 0, null));

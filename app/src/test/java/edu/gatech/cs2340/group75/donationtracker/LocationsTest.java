@@ -29,8 +29,9 @@ public class LocationsTest {
     @SuppressWarnings("TypeMayBeWeakened")
     private static final List<String> answer = new ArrayList<>();
 
-	//This unit is explicitly checking constant conditions to ensure they evaluate as expected
+	//This unit test explicitly checks constant conditions to ensure they evaluate as expected
 	//Magic numbers are not an issue in unit tests, as it is just testing data
+	//This unit test is testing the location class, so feature envy of it can be ignored
     @SuppressWarnings({"ConstantConditions", "MagicNumber", "FeatureEnvy"})
     @Before
     public void setUp() {

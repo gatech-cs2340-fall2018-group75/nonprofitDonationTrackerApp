@@ -1,8 +1,8 @@
 package edu.gatech.cs2340.group75.donationtracker;
 
-import  edu.gatech.cs2340.group75.donationtracker.model.AccountType;
-import  edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
-import  edu.gatech.cs2340.group75.donationtracker.model.User;
+import edu.gatech.cs2340.group75.donationtracker.model.AccountType;
+import edu.gatech.cs2340.group75.donationtracker.model.DonationItem;
+import edu.gatech.cs2340.group75.donationtracker.model.User;
 
 import org.junit.Test;
 
@@ -56,11 +56,6 @@ public class UserModelTest {
                         "fake@gmail.com",
                         "1234",
                         AccountType.USER
-                ),
-                new User(
-                        "fake@gmail.com",
-                        "1234",
-                        AccountType.ADMIN
                 ),
                 new User(
                         "veryUnequal@aol.com",

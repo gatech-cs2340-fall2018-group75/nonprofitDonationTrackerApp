@@ -84,7 +84,10 @@ public class DonationItem implements Serializable {
         DonationItem that = (DonationItem) other;
 
         return (that.name.equals(this.name)
-                && that.description.equals(this.description));
+                && that.description.equals(this.description)
+                && that.locationName.equals(this.locationName)
+                && (that.value == this.value)
+                && that.category.equals(this.category));
     }
 	
 	@Override

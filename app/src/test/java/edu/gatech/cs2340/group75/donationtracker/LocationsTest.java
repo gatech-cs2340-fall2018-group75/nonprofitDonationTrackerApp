@@ -23,15 +23,16 @@ import static org.junit.Assert.assertEquals;
 @SuppressWarnings("JavaDoc")
 public class LocationsTest {
     private static final int TIMEOUT = 200;
-    private static final List<Location> currReg = Location.getLocationsList();
+    private static final List<Location> currReg = new ArrayList<>(Location.getLocationsList());
 	
 	//This test compares this and a List from the Model, so the ordering should be identical
     @SuppressWarnings("TypeMayBeWeakened")
     private static final List<String> answer = new ArrayList<>();
 
-	//This unit is explicitly checking constant conditions to ensure they evaluate as expected
+	//This unit test explicitly checks constant conditions to ensure they evaluate as expected
 	//Magic numbers are not an issue in unit tests, as it is just testing data
-    @SuppressWarnings({"ConstantConditions", "MagicNumber"})
+	//This unit test is testing the location class, so feature envy of it can be ignored
+    @SuppressWarnings({"ConstantConditions", "MagicNumber", "FeatureEnvy"})
     @Before
     public void setUp() {
         Location place1 = new Location("DropOff1", DR, 38.8951, 38.8951);
@@ -48,6 +49,9 @@ public class LocationsTest {
         currReg.add(place1);
         currReg.add(RLyeh);
         currReg.add(nullLocation);
+		
+		Location.setLocationsList(currReg);
+		
         answer.clear();
         answer.add("DropOff1");
         answer.add("R'lyeh");

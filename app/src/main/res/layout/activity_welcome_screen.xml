@@ -64,7 +64,7 @@
 		android:id = "@+id/logoCitation"
 		
 		android:text = "@string/logoAttribution"
-		android:textSize = "12sp"
+		android:textSize = "10sp"
 		android:textColor = "#777777"
 		
 		android:layout_width = "fill_parent"

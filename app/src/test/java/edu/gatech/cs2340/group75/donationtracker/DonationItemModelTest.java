@@ -24,7 +24,7 @@ public class DonationItemModelTest {
 		);
 		assertNotEquals(item1, null);
 	}
-	
+
 	@Test
 	public void equalItemsReturnsTrue() {
 		DonationItem item1 = new DonationItem(
@@ -43,7 +43,7 @@ public class DonationItemModelTest {
 		);
 		assertEquals(item1, item2);
 	}
-	
+
 	//Misspelling of testing data does not indicate an issue
 	//These are not true magic numbers, as it is just testing data
 	@SuppressWarnings({"SpellCheckingInspection", "MagicNumber"})
@@ -87,15 +87,39 @@ public class DonationItemModelTest {
 			),
 			new DonationItem(
 				"Fake Yeezys",
-				"Wow someone paid $800 for shoes???",
+				"Yeezys but edible this time",
 				"Goodwill",
 				5,
-				DonationItemType.CLOTHES
+				DonationItemType.FOOD
 			),
 		};
-		
+
 		for (DonationItem fakeItem : itemCollection) {
 			assertNotEquals(item1, fakeItem);
 		}
 	}
+    @Test
+    public void sameObjectReturnsTrue() {
+        DonationItem item1 = new DonationItem(
+            "A white lamp",
+            "A nice lamp to brighten up the room",
+            "John's Store",
+            2,
+            DonationItemType.FURNITURE
+        );
+        assertEquals(item1, item1);
+    }
+    @Test
+    public void differentClassReturnsFalse() {
+        DonationItem item1 = new DonationItem(
+            "Canned tuna",
+            "Ah yes, canned tuna.",
+            "GOODWILL",
+            10,
+            DonationItemType.FOOD
+        );
+        String string1 = "String beans";
+
+        assertNotEquals(item1, string1);
+    }
 }

@@ -69,7 +69,7 @@ public class UserModelTest {
                 new User(
                         "veryUnequal@aol.com",
                         "password",
-                        AccountType.LOCEMP,
+                        AccountType.LOCATION_EMPLOYEE,
                         true
                 )
         };

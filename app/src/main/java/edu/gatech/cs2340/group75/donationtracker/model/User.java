@@ -124,8 +124,8 @@ public class User {
 	}
 	
 	/**
-	 * Get the string verion of this user's account type
-	 * This method only exists to silence Law of Demeter linter issues
+	 * Get the string version of this user's account type
+	 * This method only exists to silence Law of Demeter lint issues
 	 *
 	 * @return the user's type in string form
 	 */

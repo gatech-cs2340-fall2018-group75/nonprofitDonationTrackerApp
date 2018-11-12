@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 public enum AccountType {
     ADMIN ("Administrator"),
     USER ("User"),
-    LOCEMP ("Location Employee");
+    LOCATION_EMPLOYEE ("Location Employee");
 
     private final String type;
 

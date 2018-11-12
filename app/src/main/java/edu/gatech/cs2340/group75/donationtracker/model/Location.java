@@ -110,7 +110,7 @@ public class Location implements Serializable {
 	}
 	
 	/**
-	 * Set auxillary contact information for a location object
+	 * Set auxiliary contact information for a location object
 	 *
 	 * @param	address		the location's street address
 	 * @param	city		the location's city
@@ -150,8 +150,8 @@ public class Location implements Serializable {
 	}
 	
 	/**
-	 * Get the string verion of this location's type
-	 * This method only exists to silence Law of Demeter linter issues
+	 * Get the string version of this location's type
+	 * This method only exists to silence Law of Demeter lint issues
 	 *
 	 * @return the location's type in string form
 	 */

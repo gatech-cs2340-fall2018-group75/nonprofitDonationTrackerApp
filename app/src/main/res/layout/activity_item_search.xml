@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/srchName"
+        android:id="@+id/searchName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_margin"
@@ -23,24 +23,24 @@
 		android:importantForAutofill = "no" />
 
     <Spinner
-        android:id="@+id/searchSpnr"
+        android:id="@+id/searchSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/srchName" />
+        app:layout_constraintTop_toBottomOf="@+id/searchName" />
 
     <Spinner
-        android:id="@+id/locationSpnr"
+        android:id="@+id/locationSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchSpnr" />
+        app:layout_constraintTop_toBottomOf="@+id/searchSpinner" />
 
     <Button
         android:id="@+id/submitSearch"
@@ -52,5 +52,5 @@
         android:text="@string/search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationSpnr" />
+        app:layout_constraintTop_toBottomOf="@+id/locationSpinner" />
 </android.support.constraint.ConstraintLayout>

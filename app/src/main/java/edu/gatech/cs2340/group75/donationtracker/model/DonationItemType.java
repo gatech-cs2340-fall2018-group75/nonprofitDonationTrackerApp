@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
  */
 public enum DonationItemType {
     DEFAULT ("All categories"),
-    TOYSANDGAMES ("Toys and Games"),
+    @SuppressWarnings("SpellCheckingInspection") TOYSANDGAMES ("Toys and Games"),
     FURNITURE ("Furniture"),
     OUTDOOR ("Outdoor"),
     ELECTRONICS ("Electronics"),

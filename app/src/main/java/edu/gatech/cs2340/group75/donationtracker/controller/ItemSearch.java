@@ -60,9 +60,9 @@ public class ItemSearch extends AppCompatActivity {
 		classes.add(ResultsPage.class);
 		
         Button submitSearch = findViewById(R.id.submitSearch);
-        searchSpinner = findViewById(R.id.searchSpnr);
-        locationSpinner = findViewById(R.id.locationSpnr);
-        searchName = findViewById(R.id.srchName);
+        searchSpinner = findViewById(R.id.searchSpinner);
+        locationSpinner = findViewById(R.id.locationSpinner);
+        searchName = findViewById(R.id.searchName);
         ArrayAdapter<Enum> typeAdapter = new ArrayAdapter<Enum>
 		(
 			this,

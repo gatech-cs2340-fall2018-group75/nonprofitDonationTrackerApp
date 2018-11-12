@@ -86,18 +86,18 @@ public class LocationDetails extends AppCompatActivity {
         TextView loc = findViewById(R.id.location);
         loc.setText(wholeAddress);
 
-        TextView phoneNmbr = findViewById(R.id.phone);
-        phoneNmbr.setText(phone);
+        TextView phoneNumber = findViewById(R.id.phone);
+        phoneNumber.setText(phone);
 
-        TextView coords = findViewById(R.id.coords);
-        String fullCoords = latitude + "/" + longitude;
-        coords.setText(fullCoords);
+        TextView coordinates = findViewById(R.id.coordinates);
+        String formattedCoordinates = latitude + "/" + longitude;
+        coordinates.setText(formattedCoordinates);
 
-        TextView nameView  = findViewById(R.id.name);
+        TextView nameView = findViewById(R.id.name);
         nameView.setText(name);
 
-        TextView loctype = findViewById(R.id.type);
-        loctype.setText(type);
+        TextView locationType = findViewById(R.id.type);
+        locationType.setText(type);
 	}
 
     private void inflateInitialFragment() {

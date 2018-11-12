@@ -121,8 +121,8 @@ public class DonationItem implements Serializable {
 	}
 	
 	/**
-	 * Get the string verion of this item's category
-	 * This method only exists to silence Law of Demeter linter issues
+	 * Get the string version of this item's category
+	 * This method only exists to silence Law of Demeter lint issues
 	 *
 	 * @return the item's category in string form
 	 */

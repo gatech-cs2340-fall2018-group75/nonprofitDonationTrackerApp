@@ -71,19 +71,19 @@
             android:text="@string/latLong" />
 
         <TextView
-            android:id="@+id/coords"
+            android:id="@+id/coordinates"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
-            android:id="@+id/coords2"
+            android:id="@+id/coordinates2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
-            android:id="@+id/coords3"
+            android:id="@+id/coordinates3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />

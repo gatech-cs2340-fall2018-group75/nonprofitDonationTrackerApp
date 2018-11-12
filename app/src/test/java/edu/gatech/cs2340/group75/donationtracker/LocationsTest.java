@@ -26,16 +26,17 @@ public class LocationsTest {
     public void setUp() {
         Location place1 = new Location("DropOff1", DR, 38.8951, 38.8951);
 		place1.setContactInfo("111 temp Way", "Fort Myers", "FL", "33993", "(345)135-1468");
+        //noinspection SpellCheckingInspection
         Location RLyeh = new Location("R'lyeh", DR, 47.9, 126.43);
 		RLyeh.setContactInfo
 		(
 			"Madness Way", "Pacific Ocean", "The Beyond", "00000",
 			"(366)822-5548"
 		);
-        Location nulled = null;
+        Location nullLocation = null;
         currReg.add(place1);
         currReg.add(RLyeh);
-        currReg.add(nulled);
+        currReg.add(nullLocation);
         answer.clear();
         answer.add("DropOff1");
         answer.add(("R'lyeh"));

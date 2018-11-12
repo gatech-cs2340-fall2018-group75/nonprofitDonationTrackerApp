@@ -4,8 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import edu.gatech.cs2340.donationtracker.model.Location;
-import edu.gatech.cs2340.donationtracker.model.LocationType;
+import edu.gatech.cs2340.group75.donationtracker.model.Location;
+import edu.gatech.cs2340.group75.donationtracker.model.LocationType;
 
 
 public class LocationEqualsTest {

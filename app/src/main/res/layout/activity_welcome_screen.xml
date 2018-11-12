@@ -60,4 +60,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeLoginButton" />
 
+	<TextView
+		android:id = "@+id/logoCitation"
+		
+		android:text = "@string/logoAttribution"
+		android:textSize = "10sp"
+		android:textColor = "#777777"
+		
+		android:layout_width = "fill_parent"
+		android:layout_height = "fill_parent"
+		android:layout_margin = "10dp"
+		android:gravity = "bottom|center_horizontal"
+		
+		app:layout_constraintStart_toStartOf = "parent"
+		app:layout_constraintEnd_toEndOf = "parent"
+		app:layout_constraintBottom_toBottomOf = "parent"
+	/>
 </android.support.constraint.ConstraintLayout>

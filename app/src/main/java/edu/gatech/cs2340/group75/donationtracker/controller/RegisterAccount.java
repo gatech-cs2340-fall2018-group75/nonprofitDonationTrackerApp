@@ -141,6 +141,7 @@ public class RegisterAccount extends AppCompatActivity {
                         User.setCurrentUser(newUser);
 
 						ActivityClasses classes = new ActivityClasses();
+                        //noinspection LawOfDemeter
                         Intent toMainMenu =  new Intent
 						(
 							RegisterAccount.this,

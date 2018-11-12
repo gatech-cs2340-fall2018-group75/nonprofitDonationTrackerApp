@@ -77,6 +77,8 @@ public class DonationItemsFragment extends Fragment {
 			donationItemsList
 		);
         final ListView list = fragment.findViewById(R.id.donation_item_list);
+
+        //noinspection LawOfDemeter
         populateDonationItems(inflater, list, location.getName());
         list.setAdapter(listAdapter);
         setListViewHeightBasedOnItems(list);

@@ -150,13 +150,11 @@ public class RegisterAccount extends AppCompatActivity {
 
 						ActivityClasses classes = new ActivityClasses();
 						
-						//This statement is just accessing a getter for the list of activities
-						//Changing the interface would only decrease separation and usability
-                        //noinspection LawOfDemeter
+                        Class mainMenuClass = classes.get("MainMenu");
                         Intent toMainMenu =  new Intent
 						(
 							RegisterAccount.this,
-							classes.get("MainMenu")
+							mainMenuClass
 						);
                         startActivity(toMainMenu);
                     }

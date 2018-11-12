@@ -78,18 +78,12 @@ public class HomeFragment extends Fragment {
         User currentUser = User.getCurrentUser();
 
         TextView userEmail = fragment.findViewById(R.id.userEmail);
-		
-		//This statement is just accessing a property of the User model class
-		//Changing the interface would only make the model class less usable
-        //noinspection LawOfDemeter
-        userEmail.setText(currentUser.getEmail());
+        String emailText = currentUser.getEmail();
+        userEmail.setText(emailText);
 
         TextView userType = fragment.findViewById(R.id.userType);
-
-		//This statement is just accessing a property of the User model class
-		//Changing the interface would only make the model class less usable
-        //noinspection LawOfDemeter
-        userType.setText(currentUser.getAccountTypeString());
+        String accountTypeText = currentUser.getAccountTypeString();
+        userType.setText(accountTypeText);
 
         return fragment;
     }

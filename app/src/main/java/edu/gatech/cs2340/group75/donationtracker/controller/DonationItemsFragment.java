@@ -85,10 +85,8 @@ public class DonationItemsFragment extends Fragment {
 		);
         final ListView list = fragment.findViewById(R.id.donation_item_list);
 
-		//This statement is just accessing a property of the Location model class
-		//Changing the interface would only make the model class less usable
-        //noinspection LawOfDemeter
-        populateDonationItems(inflater, list, location.getName());
+        String locationName = location.getName();
+        populateDonationItems(inflater, list, locationName);
         list.setAdapter(listAdapter);
         setListViewHeightBasedOnItems(list);
 

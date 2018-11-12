@@ -131,6 +131,8 @@ public class LocationEqualsTest {
 	
 	@Test
 	public void differentNameAndLongitudeReturnsFalse() {
+		//The university name is not a typo
+		//noinspection SpellCheckingInspection
 		Location otherLocation = new Location(
 			"Kennesaw State University",
 			testType,
@@ -220,6 +222,8 @@ public class LocationEqualsTest {
 	
 	@Test
 	public void allDifferentReturnsFalse() {
+		//The university name is not a typo
+		//noinspection SpellCheckingInspection
 		Location otherLocation = new Location(
 			"Morehouse College",
 			LocationType.WA,

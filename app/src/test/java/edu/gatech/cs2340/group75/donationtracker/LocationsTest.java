@@ -23,7 +23,7 @@ import static org.junit.Assert.assertEquals;
 @SuppressWarnings("JavaDoc")
 public class LocationsTest {
     private static final int TIMEOUT = 200;
-    private static final List<Location> currReg = Location.getLocationsList();
+    private static final List<Location> currReg = new ArrayList<>(Location.getLocationsList());
 	
 	//This test compares this and a List from the Model, so the ordering should be identical
     @SuppressWarnings("TypeMayBeWeakened")
@@ -48,6 +48,9 @@ public class LocationsTest {
         currReg.add(place1);
         currReg.add(RLyeh);
         currReg.add(nullLocation);
+		
+		Location.setLocationsList(currReg);
+		
         answer.clear();
         answer.add("DropOff1");
         answer.add("R'lyeh");

@@ -32,8 +32,7 @@ public class WelcomeScreen extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_welcome_screen);
 		
 		
-		ActivityClasses classes = new ActivityClasses();
-		classes.add(this.getClass(), LogIn.class, RegisterAccount.class);
+		ActivityClasses.add(this.getClass(), LogIn.class, RegisterAccount.class);
     }
 
     /**
@@ -42,14 +41,12 @@ public class WelcomeScreen extends AppCompatActivity implements View.OnClickList
      */
 	@Override
     public void onClick(View v) {
-		ActivityClasses classes = new ActivityClasses();
-		
-        if(v.getId() == R.id.welcomeLoginButton){
-            Intent intent = new Intent(WelcomeScreen.this, classes.get("LogIn"));
+		if(v.getId() == R.id.welcomeLoginButton){
+            Intent intent = new Intent(WelcomeScreen.this, ActivityClasses.get("LogIn"));
             startActivity(intent);
 
         }else if(v.getId() == R.id.registerButton){
-            Intent intent = new Intent(WelcomeScreen.this, classes.get("RegisterAccount"));
+            Intent intent = new Intent(WelcomeScreen.this, ActivityClasses.get("RegisterAccount"));
             startActivity(intent);
         }
     }

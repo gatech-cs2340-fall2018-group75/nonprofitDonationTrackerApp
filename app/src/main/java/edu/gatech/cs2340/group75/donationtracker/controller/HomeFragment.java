@@ -39,9 +39,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-		ActivityClasses classes = new ActivityClasses();
-		classes.add(ItemSearch.class);
-		classes.add(MapsActivity.class);
+		ActivityClasses.add(ItemSearch.class, MapsActivity.class);
 		
         View fragment = inflater.inflate(R.layout.fragment_home, container, false);
 		
@@ -49,8 +47,7 @@ public class HomeFragment extends Fragment {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-				ActivityClasses classes = new ActivityClasses();
-                Intent logOut = new Intent(getActivity(), classes.get("LogIn"));
+                Intent logOut = new Intent(getActivity(), ActivityClasses.get("LogIn"));
                 startActivity(logOut);
             }
         });
@@ -59,8 +56,7 @@ public class HomeFragment extends Fragment {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-				ActivityClasses classes = new ActivityClasses();
-                Intent goToSearch = new Intent(getActivity(), classes.get("ItemSearch"));
+                Intent goToSearch = new Intent(getActivity(), ActivityClasses.get("ItemSearch"));
                 startActivity(goToSearch);
             }
         });
@@ -69,8 +65,7 @@ public class HomeFragment extends Fragment {
 		mapsButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				ActivityClasses classes = new ActivityClasses();
-				Intent goToMaps = new Intent(getActivity(), classes.get("MapsActivity"));
+				Intent goToMaps = new Intent(getActivity(), ActivityClasses.get("MapsActivity"));
 				startActivity(goToMaps);
 			}
 		});

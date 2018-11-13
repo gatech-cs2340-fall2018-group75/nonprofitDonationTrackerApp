@@ -37,8 +37,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_maps);
 		
-		ActivityClasses classes = new ActivityClasses();
-		classes.add(this.getClass());
+		ActivityClasses.add(this.getClass());
 		
 		FragmentManager manager = getSupportFragmentManager();
 		SupportMapFragment mapFragment = (SupportMapFragment) Objects.requireNonNull

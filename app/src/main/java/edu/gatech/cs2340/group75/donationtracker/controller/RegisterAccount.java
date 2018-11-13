@@ -63,9 +63,7 @@ public class RegisterAccount extends AppCompatActivity {
         setContentView(R.layout.activity_register_account);
 		
 		
-		ActivityClasses classes = new ActivityClasses();
-		classes.add(this.getClass());
-		classes.add(MainMenu.class);
+		ActivityClasses.add(this.getClass(), MainMenu.class);
 
         email = findViewById(R.id.regEmail);
         pass = findViewById(R.id.regPass);
@@ -92,8 +90,7 @@ public class RegisterAccount extends AppCompatActivity {
         goToLoginLink.setOnClickListener(new View.OnClickListener() {
 			@Override
             public void onClick(View v) {
-				ActivityClasses classes = new ActivityClasses();
-                startActivity(new Intent(RegisterAccount.this, classes.get("LogIn")));
+                startActivity(new Intent(RegisterAccount.this, ActivityClasses.get("LogIn")));
             }
         });
     }
@@ -148,13 +145,10 @@ public class RegisterAccount extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         User.setCurrentUser(newUser);
 
-						ActivityClasses classes = new ActivityClasses();
-						
-                        Class mainMenuClass = classes.get("MainMenu");
                         Intent toMainMenu =  new Intent
 						(
 							RegisterAccount.this,
-							mainMenuClass
+							ActivityClasses.get("MainMenu");
 						);
                         startActivity(toMainMenu);
                     }

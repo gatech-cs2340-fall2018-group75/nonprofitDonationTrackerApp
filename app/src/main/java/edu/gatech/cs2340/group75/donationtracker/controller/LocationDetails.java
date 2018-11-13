@@ -47,9 +47,7 @@ public class LocationDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_details);
 		
-		ActivityClasses classes = new ActivityClasses();
-		classes.add(this.getClass());
-		classes.add(EnterDonationItem.class);
+		ActivityClasses.add(this.getClass(), EnterDonationItem.class);
 		
         Toolbar toolbar = findViewById(R.id.toolbar);
 
@@ -69,8 +67,7 @@ public class LocationDetails extends AppCompatActivity {
         donateFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-				ActivityClasses classes = new ActivityClasses();
-				Intent intent = new Intent(LocationDetails.this, classes.get("EnterDonationItem"));
+				Intent intent = new Intent(LocationDetails.this, ActivityClasses.get("EnterDonationItem"));
 				intent.putExtra("LOCATION", location);
 				startActivity(intent);
 

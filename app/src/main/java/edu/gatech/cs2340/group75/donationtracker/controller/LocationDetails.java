@@ -39,6 +39,7 @@ public class LocationDetails extends AppCompatActivity {
      * Sets click listeners and retrieves donation items singleton
      * @param savedInstanceState Current instance state
      */
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_details);
@@ -101,7 +102,7 @@ public class LocationDetails extends AppCompatActivity {
 	private void bindCoordinates(TextView view, Location location) {
 		String latitude = Double.toString(location.getLatitude());
 		String longitude = Double.toString(location.getLongitude());
-		view.setText(latitude + "/" + longitude);
+		view.setText(getString(R.string.latLongFormat, latitude, longitude));
 	}
 	
 	private void bindPhone(TextView view, Location location) {

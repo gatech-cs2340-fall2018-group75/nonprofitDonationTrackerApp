@@ -24,7 +24,7 @@ public class DonationItemModelTest {
 		);
 		assertNotEquals(item1, null);
 	}
-	
+
 	@Test
 	public void equalItemsReturnsTrue() {
 		DonationItem item1 = new DonationItem(
@@ -43,7 +43,7 @@ public class DonationItemModelTest {
 		);
 		assertEquals(item1, item2);
 	}
-	
+
 	//Misspelling of testing data does not indicate an issue
 	//These are not true magic numbers, as it is just testing data
 	@SuppressWarnings({"SpellCheckingInspection", "MagicNumber"})
@@ -57,6 +57,7 @@ public class DonationItemModelTest {
 			DonationItemType.CLOTHES
 		);
 		DonationItem itemCollection[] = {
+            //wrong Name
 			new DonationItem(
 				"Fake Yeezys",
 				"Wow someone paid $500 for shoes???",
@@ -64,13 +65,15 @@ public class DonationItemModelTest {
 				5,
 				DonationItemType.CLOTHES
 			),
+            //wrong Description and Name
 			new DonationItem(
 				"Discount Yeezys",
 				"Chinese knockoffs are just as good.",
 				"Goodwill",
-				84,
+				5,
 				DonationItemType.CLOTHES
 			),
+            //wrong Location and Quantity
 			new DonationItem(
 				"Real Yeezys",
 				"Wow someone paid $500 for shoes???",
@@ -78,6 +81,7 @@ public class DonationItemModelTest {
 				40,
 				DonationItemType.CLOTHES
 			),
+            //wrong Name, Description, and Quantity
 			new DonationItem(
 				"Jordan 1's",
 				"Made with real leather.",
@@ -85,6 +89,7 @@ public class DonationItemModelTest {
 				1,
 				DonationItemType.CLOTHES
 			),
+            //wrong Item type and Name
 			new DonationItem(
 				"Fake Yeezys",
 				"Yeezys but edible this time",
@@ -92,6 +97,7 @@ public class DonationItemModelTest {
 				5,
 				DonationItemType.FOOD
 			),
+            //wrong Item type
 			new DonationItem(
 				"Real Yeezys",
 				"Wow someone paid $500 for shoes???",
@@ -99,6 +105,7 @@ public class DonationItemModelTest {
 				5,
 				DonationItemType.FOOD
 			),
+            //wrong quantity
 			new DonationItem(
 				"Real Yeezys",
 				"Wow someone paid $500 for shoes???",
@@ -106,6 +113,7 @@ public class DonationItemModelTest {
 				9,
 				DonationItemType.CLOTHES
 			),
+            //wrong location
 			new DonationItem(
 				"Real Yeezys",
 				"Wow someone paid $500 for shoes???",
@@ -113,6 +121,7 @@ public class DonationItemModelTest {
 				5,
 				DonationItemType.CLOTHES
 			),
+            // wrong description
 			new DonationItem(
 				"Real Yeezys",
 				"Yeezys but edible this time",
@@ -120,15 +129,16 @@ public class DonationItemModelTest {
 				5,
 				DonationItemType.CLOTHES
 			),
+            //Wrong everything
 			new DonationItem(
-				"Fake Yeezys",
-				"Wow someone paid $500 for shoes???",
-				"Goodwill",
-				5,
-				DonationItemType.CLOTHES
+				"A lamp",
+				"An inconspicuous lamp",
+				"Rag-o-Rama",
+				42,
+				DonationItemType.FURNITURE
 			),
 		};
-		
+
 		for (DonationItem fakeItem : itemCollection) {
 			assertNotEquals(item1, fakeItem);
 		}
@@ -144,7 +154,7 @@ public class DonationItemModelTest {
 		);
 		assertEquals(item1, item1);
 	}
-	
+
 	@Test
 	public void differentClassReturnsFalse() {
 		DonationItem item1 = new DonationItem(
@@ -155,7 +165,7 @@ public class DonationItemModelTest {
 			DonationItemType.FOOD
 		);
 		String string1 = "String beans";
-		
+
 		assertNotEquals(item1, string1);
 	}
 }

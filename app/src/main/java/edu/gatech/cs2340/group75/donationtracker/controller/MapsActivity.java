@@ -48,9 +48,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		mapFragment.getMapAsync(this);
 	}
 	
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-	@SuppressWarnings("FeatureEnvy")
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
 		
@@ -61,7 +58,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		}
 		
 		Location initialLocation = locationsList.get(0);
-		LatLng initialCoordinates = initialLocation.getCoordinates();
-		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialCoordinates, 10));
+		moveCamera(initialLocation);
+	}
+	
+	private void moveCamera(Location location) {
+		
+		LatLng coordinates = location.getCoordinates();
+		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coordinates, 10));
 	}
 }

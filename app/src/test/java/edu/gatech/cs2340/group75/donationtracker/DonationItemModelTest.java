@@ -122,4 +122,65 @@ public class DonationItemModelTest {
 
         assertNotEquals(item1, string1);
     }
+    @Test
+	public void sameAttributesReturnsTrue() {
+		DonationItem item1 = new DonationItem(
+			"A hat",
+			"Not just a hat, a bucket hat",
+			"Goodwill",
+			2,
+			DonationItemType.CLOTHES
+		);
+        DonationItem item2 = new DonationItem(
+            "A hat",
+            "Not just a hat, a bucket hat",
+            "Goodwill",
+            2,
+            DonationItemType.CLOTHES
+        );
+        DonationItem item3 = new DonationItem(
+            "A different hat",
+            "Not just a hat, a tophat hat",
+            "Goodwill",
+            2,
+            DonationItemType.CLOTHES
+        );
+		assertTrue(item1.getName().equals(item2.getName()));
+        assertTrue(item1.getName().equals(item2.getName())
+            && item1.getDescription().equals(item2.getDescription()));
+        assertTrue(item1.getLocationName().equals(item2.getLocationName())
+            && item1.getLocationName().equals(item3.getLocationName()));
+        assertTrue(item1.getCategoryString().equals(item2.getCategoryString())
+            && item1.getCategoryString().equals(item3.getCategoryString()));
+	}
+    @Test
+    public void differentAttributesReturnsFalse() {
+        DonationItem item1 = new DonationItem(
+            "A hat",
+            "Not just a hat, a bucket hat",
+            "Goodwill",
+            2,
+            DonationItemType.CLOTHES
+        );
+        DonationItem item2 = new DonationItem(
+            "A hat",
+            "Not just a hat, a bucket hat",
+            "Goodwill",
+            3,
+            DonationItemType.CLOTHES
+        );
+        DonationItem item3 = new DonationItem(
+            "A different hat",
+            "Not just a hat, a tophat hat",
+            "Goodwill",
+            4,
+            DonationItemType.CLOTHES
+        );
+        assertFalse(item1.getName().equals(item2.getName())
+            && item1.getName().equals(item2.getName()));
+        assertFalse(item1.getValue() == item2.getValue()
+            && item1.getValue() == item2.getValue());
+        assertFalse(item1.getName().equals(item2.getName())
+            && item2.getDescription().equals(item3.getDescription()));
+    }
 }

@@ -11,6 +11,8 @@ import java.util.List;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONObject;
+
 
 /**
  * Model object representing a single donation location, holding location and contact information 
@@ -56,6 +58,28 @@ public class Location implements Serializable {
 			}
 		}
 		return names;
+	}
+	
+	
+	public static Location fromJson(JSONObject json) {
+		Location location = new Location
+		(
+			json.getString("Name"),
+			LocationType.valueOf(json.getString("Type")),
+			json.getDouble("Latitude"),
+			json.getDouble("Longitude")
+		);
+		
+		location.setContactInfo
+		(
+			json.getString("Street Address"),
+			json.getString("City"),
+			json.getString("State"),
+			json.getString("Zip"),
+			json.getString("Phone")
+		);
+		
+		return location;
 	}
 	
 	

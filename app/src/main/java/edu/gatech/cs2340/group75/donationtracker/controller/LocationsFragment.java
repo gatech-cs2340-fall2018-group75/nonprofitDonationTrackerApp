@@ -97,9 +97,6 @@ public class LocationsFragment extends Fragment {
         return fragment;
     }
 
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     private void populateLocations(final LayoutInflater inflater, final ListView list) {
         String URL=getString(R.string.API_base) + "/locations/get";
         Log.d("REST response", "starting... " + URL);
@@ -119,24 +116,9 @@ public class LocationsFragment extends Fragment {
                             List<Location> locations = new ArrayList<>();
                             for(int i = 0; i < response.length(); i++) {
                                 JSONObject json = response.getJSONObject(i);
-                                Location location = new Location
-								(
-                                        json.getString("Name"),
-                                        LocationType.valueOf(json.getString("Type")),
-                                        json.getDouble("Latitude"),
-										json.getDouble("Longitude")
-								);
-								
-								location.setContactInfo
-								(
-                                        json.getString("Street Address"),
-                                        json.getString("City"),
-                                        json.getString("State"),
-                                        json.getString("Zip"),
-                                        json.getString("Phone")
-                                );
-                                locations.add(location);
+                                locations.add(Location.fromJson(json));
                             }
+							
                             Location.setLocationsList(locations);
                             ListAdapter listAdapter = new LocationList
 							(

@@ -55,7 +55,7 @@ class ActivityClasses implements Map<String, Class> {
 			return false;
 		}
 		
-		return classes.equals(other);
+		return classes.equals(other.classes);
 	}
 	
 	@Override

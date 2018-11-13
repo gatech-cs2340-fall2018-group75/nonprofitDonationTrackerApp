@@ -26,19 +26,13 @@ public class WelcomeScreen extends AppCompatActivity implements View.OnClickList
      * Sets click listeners to display either register or login view
      * @param savedInstanceState Current instance state
      */
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
 		
 		
-		ActivityClasses classes = new ActivityClasses();
-		classes.add(this.getClass());
-		classes.add(LogIn.class);
-		classes.add(RegisterAccount.class);
+		ActivityClasses.add(this.getClass(), LogIn.class, RegisterAccount.class);
     }
 
     /**
@@ -47,14 +41,12 @@ public class WelcomeScreen extends AppCompatActivity implements View.OnClickList
      */
 	@Override
     public void onClick(View v) {
-		ActivityClasses classes = new ActivityClasses();
-		
-        if(v.getId() == R.id.welcomeLoginButton){
-            Intent intent = new Intent(WelcomeScreen.this, classes.get("LogIn"));
+		if(v.getId() == R.id.welcomeLoginButton){
+            Intent intent = new Intent(WelcomeScreen.this, ActivityClasses.get("LogIn"));
             startActivity(intent);
 
         }else if(v.getId() == R.id.registerButton){
-            Intent intent = new Intent(WelcomeScreen.this, classes.get("RegisterAccount"));
+            Intent intent = new Intent(WelcomeScreen.this, ActivityClasses.get("RegisterAccount"));
             startActivity(intent);
         }
     }

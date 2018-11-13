@@ -28,9 +28,6 @@ public class DonationItemDetails extends AppCompatActivity {
      * Retrieves donation item to display as intent extra
      * @param savedInstanceState Current instance state
      */
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,21 +36,32 @@ public class DonationItemDetails extends AppCompatActivity {
 		Intent intent = getIntent();
         DonationItem item = (DonationItem) intent.getSerializableExtra("DONATION_ITEM");
 
-        String name = item.getName();
-        String description = item.getDescription();
-        String donationType = item.getCategoryString();
-
         TextView title = findViewById(R.id.Name);
         TextView desc = findViewById(R.id.Description);
         TextView cat = findViewById(R.id.Category);
         TextView value = findViewById(R.id.donation_item_value);
 
-        title.setText(name);
-        desc.setText(description);
-        cat.setText(donationType);
-
-        NumberFormat format = NumberFormat.getCurrencyInstance();
-        value.setText(format.format(item.getValue()));
-
+		bindName(title, item);
+		bindDescription(desc, item);
+		bindType(cat, item);
+		
+		NumberFormat format = NumberFormat.getCurrencyInstance();
+		bindValue(value, item, format);
     }
+	
+	private void bindName(TextView view, DonationItem item) {
+		view.setText(item.getName());
+	}
+	
+	private void bindDescription(TextView view, DonationItem item) {
+		view.setText(item.getDescription());
+	}
+	
+	private void bindType(TextView view, DonationItem item) {
+		view.setText(item.getCategoryString());
+	}
+	
+	private void bindValue(TextView view, DonationItem item, NumberFormat format) {
+		view.setText(format.format(item.getValue()));
+	}
 }

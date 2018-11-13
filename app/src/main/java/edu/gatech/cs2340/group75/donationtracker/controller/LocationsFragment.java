@@ -22,7 +22,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
-import edu.gatech.cs2340.group75.donationtracker.model.LocationType;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import org.json.JSONArray;
@@ -58,15 +57,11 @@ public class LocationsFragment extends Fragment {
      * @param savedInstanceState Current instance state
      * @return locations fragment view
      */
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-		ActivityClasses classes = new ActivityClasses();
-		classes.add(LocationDetails.class);
+		ActivityClasses.add(LocationDetails.class);
 		
         View fragment = inflater.inflate(R.layout.fragment_locations, container, false);
 
@@ -87,11 +82,10 @@ public class LocationsFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("LOCATION", itemClicked);
 				
-				ActivityClasses classes = new ActivityClasses();
                 Intent listDetails = new Intent
 				(
 					LocationsFragment.this.getActivity(),
-					classes.get("LocationDetails")
+					ActivityClasses.get("LocationDetails")
 				);
                 listDetails.putExtras(bundle);
 
@@ -102,9 +96,6 @@ public class LocationsFragment extends Fragment {
         return fragment;
     }
 
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     private void populateLocations(final LayoutInflater inflater, final ListView list) {
         String URL=getString(R.string.API_base) + "/locations/get";
         Log.d("REST response", "starting... " + URL);
@@ -118,38 +109,20 @@ public class LocationsFragment extends Fragment {
                 URL,
                 null,
                 new Response.Listener<JSONArray>() {
-			//The entire point of Model classes is to separate features into distinct objects
-			//Moving functionality from the model to this class will violate many design principles
-                    @SuppressWarnings("FeatureEnvy")
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
                             List<Location> locations = new ArrayList<>();
                             for(int i = 0; i < response.length(); i++) {
                                 JSONObject json = response.getJSONObject(i);
-                                Location location = new Location
-								(
-                                        json.getString("Name"),
-                                        LocationType.valueOf(json.getString("Type")),
-                                        json.getDouble("Latitude"),
-										json.getDouble("Longitude")
-								);
-								
-								location.setContactInfo
-								(
-                                        json.getString("Street Address"),
-                                        json.getString("City"),
-                                        json.getString("State"),
-                                        json.getString("Zip"),
-                                        json.getString("Phone")
-                                );
-                                locations.add(location);
+                                locations.add(Location.fromJson(json));
                             }
+							
                             Location.setLocationsList(locations);
                             ListAdapter listAdapter = new LocationList
 							(
 								inflater,
-								Location.getLocationsList()
+								locations
 							);
                             list.setAdapter(listAdapter);
                         } catch (JSONException e) {
@@ -185,9 +158,6 @@ public class LocationsFragment extends Fragment {
             this.locations = locations;
         }
 
-		//The entire point of Model classes is to separate features into distinct objects
-		//Moving functionality from the model to this class will violate many design principles
-        @SuppressWarnings("FeatureEnvy")
         @Override
         @NonNull
         public View getView(int position, View view, @NonNull ViewGroup parent) {
@@ -207,11 +177,27 @@ public class LocationsFragment extends Fragment {
                 viewHolderItem = (ViewHolder) inflatedView.getTag();
             }
 
-            viewHolderItem.nameView.setText(location.getName());
-            viewHolderItem.addressView.setText(location.getAddress());
-            viewHolderItem.cityStateView.setText(getString(R.string.cityStateFormat,
-                    location.getCity(), location.getState()));
+			bindName(viewHolderItem.nameView, location);
+			bindAddress(viewHolderItem.addressView, location);
+			bindCityState(viewHolderItem.cityStateView, location);
             return inflatedView;
         }
+		
+		private void bindName(TextView view, Location location) {
+			view.setText(location.getName());
+		}
+		
+		private void bindAddress(TextView view, Location location) {
+			view.setText(location.getAddress());
+		}
+		
+		private void bindCityState(TextView view, Location location) {
+			view.setText(
+				getString(
+					R.string.cityStateFormat,
+					location.getCity(), location.getState()
+				)
+			);
+		}
     }
 }

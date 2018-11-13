@@ -11,8 +11,6 @@ import java.util.List;
 
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
 
-import edu.gatech.cs2340.group75.donationtracker.model.LocationType;
-
 import static edu.gatech.cs2340.group75.donationtracker.model.LocationType.DR;
 import static org.junit.Assert.assertEquals;
 
@@ -46,6 +44,8 @@ public class LocationsTest {
         assertEquals(answer, Location.getLocationNames());
     }
 
+	//Magic numbers are not an issue in unit tests, as it is just testing data
+	@SuppressWarnings("MagicNumber")
     //tests the "for" branch when items are in the singleton
     @Test(timeout = TIMEOUT)
     public void testWithContents() {
@@ -69,6 +69,8 @@ public class LocationsTest {
         answer.clear();
     }
 
+	//Magic numbers are not an issue in unit tests, as it is just testing data
+	@SuppressWarnings("MagicNumber")
     //tests the "for" branch when Null item is in the singleton
     @Test(timeout = TIMEOUT)
     public void testWithNull() {
@@ -82,10 +84,10 @@ public class LocationsTest {
                         "Madness Way", "Pacific Ocean", "The Beyond", "00000",
                         "(366)822-5548"
                 );
-        Location nullLocation = null;
+        
         currReg.add(place1);
         currReg.add(RLyeh);
-        currReg.add(nullLocation);
+        currReg.add(null);
 
         Location.setLocationsList(currReg);
         answer.add("DropOff1");

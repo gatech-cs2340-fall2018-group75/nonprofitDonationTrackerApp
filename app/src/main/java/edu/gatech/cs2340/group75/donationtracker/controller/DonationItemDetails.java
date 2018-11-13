@@ -49,19 +49,19 @@ public class DonationItemDetails extends AppCompatActivity {
 		bindValue(value, item, format);
     }
 	
-	protected void bindName(TextView view, DonationItem item) {
+	private void bindName(TextView view, DonationItem item) {
 		view.setText(item.getName());
 	}
 	
-	protected void bindDescription(TextView view, DonationItem item) {
+	private void bindDescription(TextView view, DonationItem item) {
 		view.setText(item.getDescription());
 	}
 	
-	protected void bindType(TextView view, DonationItem item) {
+	private void bindType(TextView view, DonationItem item) {
 		view.setText(item.getCategoryString());
 	}
 	
-	protected void bindValue(TextView view, DonationItem item, NumberFormat format) {
+	private void bindValue(TextView view, DonationItem item, NumberFormat format) {
 		view.setText(format.format(item.getValue()));
 	}
 }

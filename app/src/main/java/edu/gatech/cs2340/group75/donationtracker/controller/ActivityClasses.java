@@ -7,8 +7,10 @@ class ActivityClasses {
 	
 	private static final Map<String, Class> classes = new HashMap<>();
 	
-	public void add(Class newClass) {
-		classes.put(newClass.getSimpleName(), newClass);
+	public void add(Class... newClasses) {
+		for (Class newClass : newClasses) {
+			classes.put(newClass.getSimpleName(), newClass);
+		}
 	}
 	
 	public Class get(String name) {

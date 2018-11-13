@@ -20,12 +20,6 @@ class ActivityClasses implements Map<String, Class> {
 		return classes.get(name);
 	}
 	
-	protected ActivityClasses() {}
-	
-	public static Map<String, Class> getInstance() {
-		return Collections.unmodifiableMap(classes);
-	}
-	
 	
 	@Override
 	public void clear() {
@@ -42,6 +36,7 @@ class ActivityClasses implements Map<String, Class> {
 		return classes.containsValue(value);
 	}
 	
+	@NonNull
 	@Override
 	public Set<Map.Entry<String, Class>> entrySet() {
 		return classes.entrySet();
@@ -49,6 +44,14 @@ class ActivityClasses implements Map<String, Class> {
 	
 	@Override
 	public boolean equals(Object other) {
+		if (other == this) {
+			return true;
+		}
+		
+		if (!(other instanceof ActivityClasses)) {
+			return true;
+		}
+		
 		return classes.equals(other);
 	}
 	
@@ -67,18 +70,19 @@ class ActivityClasses implements Map<String, Class> {
 		return classes.isEmpty();
 	}
 	
+	@NonNull
 	@Override
 	public Set<String> keySet() {
 		return classes.keySet();
 	}
 	
 	@Override
-	public Class put(String key, Class value) {
+	public Class put(@NonNull String key, @NonNull Class value) {
 		return classes.put(key, value);
 	}
 	
 	@Override
-	public void putAll(Map<? extends String, ? extends Class> map) {
+	public void putAll(@NonNull Map<? extends String, ? extends Class> map) {
 		classes.putAll(map);
 	}
 	
@@ -92,6 +96,7 @@ class ActivityClasses implements Map<String, Class> {
 		return classes.size();
 	}
 	
+	@NonNull
 	@Override
 	public Collection<Class> values() {
 		return classes.values();

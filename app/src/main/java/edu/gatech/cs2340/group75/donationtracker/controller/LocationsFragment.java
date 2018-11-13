@@ -159,9 +159,6 @@ public class LocationsFragment extends Fragment {
             this.locations = locations;
         }
 
-		//The entire point of Model classes is to separate features into distinct objects
-		//Moving functionality from the model to this class will violate many design principles
-        @SuppressWarnings("FeatureEnvy")
         @Override
         @NonNull
         public View getView(int position, View view, @NonNull ViewGroup parent) {
@@ -181,11 +178,27 @@ public class LocationsFragment extends Fragment {
                 viewHolderItem = (ViewHolder) inflatedView.getTag();
             }
 
-            viewHolderItem.nameView.setText(location.getName());
-            viewHolderItem.addressView.setText(location.getAddress());
-            viewHolderItem.cityStateView.setText(getString(R.string.cityStateFormat,
-                    location.getCity(), location.getState()));
+			bindName(viewHolderItem.nameView, location);
+			bindAddress(viewHolderItem.addressView, location);
+			bindCityState(viewHolderItem.cityStateView, location);
             return inflatedView;
         }
+		
+		private void bindName(TextView view, Location location) {
+			view.setText(location.getName());
+		}
+		
+		private void bindAddress(TextView view, Location location) {
+			view.setText(location.getAddress());
+		}
+		
+		private void bindCityState(TextView view, Location location) {
+			view.setText(
+				getString(
+					R.string.cityStateFormat,
+					location.getCity(), location.getState()
+				)
+			);
+		}
     }
 }

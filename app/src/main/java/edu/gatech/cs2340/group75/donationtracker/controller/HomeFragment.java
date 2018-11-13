@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Map;
+
 import edu.gatech.cs2340.group75.donationtracker.model.User;
 import edu.gatech.cs2340.group75.donationtracker.R;
 

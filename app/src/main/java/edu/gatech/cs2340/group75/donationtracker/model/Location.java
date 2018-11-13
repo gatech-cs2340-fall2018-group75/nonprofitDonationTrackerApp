@@ -9,6 +9,10 @@ import java.util.Collections;
 import java.util.List;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.json.JSONObject;
+import org.json.JSONException;
 
 
 /**
@@ -55,6 +59,37 @@ public class Location implements Serializable {
 			}
 		}
 		return names;
+	}
+	
+	
+	/**
+	 * Read in a location object from a JSON object
+	 *
+	 * @param	json	the JSON object representing a Location
+	 * 
+	 * @return a Location object representing the information in the JSON object
+	 *
+	 * @throws	org.json.JSONException	when a JSON formatting error is encountered
+	 */
+	public static Location fromJson(JSONObject json) throws JSONException {
+		Location location = new Location
+		(
+			json.getString("Name"),
+			LocationType.valueOf(json.getString("Type")),
+			json.getDouble("Latitude"),
+			json.getDouble("Longitude")
+		);
+		
+		location.setContactInfo
+		(
+			json.getString("Street Address"),
+			json.getString("City"),
+			json.getString("State"),
+			json.getString("Zip"),
+			json.getString("Phone")
+		);
+		
+		return location;
 	}
 	
 	
@@ -144,16 +179,6 @@ public class Location implements Serializable {
 	public String getName() {
 		return name;
 	}
-
-	/**
-	 * getter for type of location
-	 * @return type of location
-	 */
-	//This is a model class, and accessing the type directly may be used in the future
-	@SuppressWarnings("unused")
-	public LocationType getLocationType() {
-		return locationType;
-	}
 	
 	/**
 	 * Get the string version of this location's type
@@ -222,16 +247,6 @@ public class Location implements Serializable {
 		return state;
 	}
 
-	/**
-	 * getter method for location's zip code
-	 * @return location's zip code
-	 */
-	//This is a model class, and accessing the ZIP code directly may be used in the future
-	@SuppressWarnings("unused")
-	private String getZip() {
-		return zip;
-	}
-
 	
 	/**
 	 * Get the full, formatted address from the component parts
@@ -255,5 +270,21 @@ public class Location implements Serializable {
     @Override
 	public String toString() {
 		return (name + ", " + address + " : " + longitude + "," + latitude + " : " + phoneNumber);
+	}
+	
+	
+	/**
+	 * Convert this location to a Google Map "pin"
+	 *
+	 * @return a MarkerOptions object representing this location
+	 */
+	public MarkerOptions toMarkerOptions() {
+		
+		MarkerOptions options = new MarkerOptions();
+		options.position(getCoordinates());
+		options.title(name);
+		options.snippet(phoneNumber);
+		
+		return options;
 	}
 }

@@ -25,16 +25,6 @@ public enum LocationType {
         this.type = type;
     }
 
-    /**
-     * getter method for enum
-     * @return string type of location
-     */
-	//This is a model class, and accessing the type directly may be used in the future
-    @SuppressWarnings("unused")
-    public String getType() {
-            return type;
-    }
-
     @NonNull
     @Override
     public String toString() {

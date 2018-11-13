@@ -21,6 +21,8 @@
     <string name="title_activity_main_menu">Donation Tracker</string>
     <string name="title_activity_welcome_screen">Welcome</string>
     <string name="title_activity_register_account">Register</string>
+	
+	<!--The attribution name and website are not typos-->
 	<string name = "logoAttribution">Icon made by Swifticons from www.flaticon.com and is licensed
 by CC 3.0 BY</string>
 
@@ -31,6 +33,7 @@ by CC 3.0 BY</string>
     <string name="location">LOCATION</string>
     <string name="phone">PHONE</string>
     <string name="latLong">LATITUDE/LONGITUDE</string>
+	<string name = "latLongFormat">%1$s/%2$s</string>
     <string name="addPic">Add picture</string>
     <string name="EnterItemName">Enter item name</string>
     <string name="description">Enter description</string>

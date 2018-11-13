@@ -144,16 +144,6 @@ public class Location implements Serializable {
 	public String getName() {
 		return name;
 	}
-
-	/**
-	 * getter for type of location
-	 * @return type of location
-	 */
-	//This is a model class, and accessing the type directly may be used in the future
-	@SuppressWarnings("unused")
-	public LocationType getLocationType() {
-		return locationType;
-	}
 	
 	/**
 	 * Get the string version of this location's type
@@ -220,16 +210,6 @@ public class Location implements Serializable {
 	 */
 	public String getState() {
 		return state;
-	}
-
-	/**
-	 * getter method for location's zip code
-	 * @return location's zip code
-	 */
-	//This is a model class, and accessing the ZIP code directly may be used in the future
-	@SuppressWarnings("unused")
-	private String getZip() {
-		return zip;
 	}
 
 	

@@ -33,6 +33,15 @@ public class User {
 	public static void setCurrentUser(User user) {
 		currentUser = user;
 	}
+	
+	
+	public static String getCurrentEmail() {
+		return currentUser.getEmail();
+	}
+	
+	public static String getCurrentAccountType() {
+		return currentUser.getAccountTypeString();
+	}
 
     /** User's e-mail used to login **/
     private final String email;

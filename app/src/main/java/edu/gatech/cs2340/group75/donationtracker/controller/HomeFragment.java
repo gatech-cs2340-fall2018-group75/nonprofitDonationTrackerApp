@@ -55,14 +55,12 @@ public class HomeFragment extends Fragment {
 		View mapsButton = fragment.findViewById(R.id.mapsButton);
 		mapsButton.setOnClickListener(new MapsListener(classes));
 
-        User currentUser = User.getCurrentUser();
-
         TextView userEmail = fragment.findViewById(R.id.userEmail);
-        String emailText = currentUser.getEmail();
+        String emailText = User.getCurrentEmail();
         userEmail.setText(emailText);
 
         TextView userType = fragment.findViewById(R.id.userType);
-        String accountTypeText = currentUser.getAccountTypeString();
+        String accountTypeText = User.getCurrentAccountTypeString();
         userType.setText(accountTypeText);
 
         return fragment;

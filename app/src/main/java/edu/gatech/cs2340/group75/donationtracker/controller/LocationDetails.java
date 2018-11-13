@@ -39,10 +39,6 @@ public class LocationDetails extends AppCompatActivity {
      * Sets click listeners and retrieves donation items singleton
      * @param savedInstanceState Current instance state
      */
-    @Override
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-	@SuppressWarnings("FeatureEnvy")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_details);
@@ -77,33 +73,45 @@ public class LocationDetails extends AppCompatActivity {
         inflateInitialFragment();
     }
 	
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-	@SuppressWarnings("FeatureEnvy")
 	private void setText(Location location) {
-		final String name = location.getName();
-        final String type = location.getLocationTypeString();
-        final String longitude = Double.toString(location.getLongitude());
-        final String latitude = Double.toString(location.getLatitude());
-        final String phone = location.getPhoneNumber();
-
-        final String wholeAddress = location.getFullAddress();
-        TextView loc = findViewById(R.id.location);
-        loc.setText(wholeAddress);
-
-        TextView phoneNumber = findViewById(R.id.phone);
-        phoneNumber.setText(phone);
-
-        TextView coordinates = findViewById(R.id.coordinates);
-        String formattedCoordinates = latitude + "/" + longitude;
-        coordinates.setText(formattedCoordinates);
-
-        TextView nameView = findViewById(R.id.name);
-        nameView.setText(name);
-
-        TextView locationType = findViewById(R.id.type);
-        locationType.setText(type);
+		TextView loc = findViewById(R.id.location);
+		bindFullAddress(loc, location);
+		
+		TextView phoneNumber = findViewById(R.id.phone);
+		bindPhone(phoneNumber, location);
+		
+		TextView coordinates = findViewById(R.id.coordinates);
+		bindCoordinates(coordinates, location);
+		
+		TextView nameView = findViewById(R.id.name);
+		bindName(nameView, location).setText(name);
+		
+		TextView locationType = findViewById(R.id.type);
+		bindType(locationType.setText(type);
 	}
+	
+	private void bindName(TextView view, Location location) {
+		view.setText(location.getName());
+	}
+	
+	private void bindType(TextView view, Location location) {
+		view.setText(location.getLocationTypeString());
+	}
+	
+	private void bindCoordinates(TextView view, Location location) {
+		String latitude = Double.toString(location.getLatitude());
+		String longitude = Double.toString(location.getLongitude());
+		view.setText(latitude + "/" + longitude);
+	}
+	
+	private void bindPhone(TextView view, Location location) {
+		view.setText(location.getPhoneNumber());
+	}
+	
+	private void bindFullAddress(TextView view, Location location) {
+		view.setText(location.getFullAddress());
+	}
+	
 
     private void inflateInitialFragment() {
         if(findViewById(R.id.donation_items_fragment_container) == null) {

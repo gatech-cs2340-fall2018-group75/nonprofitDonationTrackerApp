@@ -31,8 +31,8 @@ import java.util.Objects;
  *
  */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
-    @Override
+	
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
@@ -53,17 +53,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 	//The entire point of Model classes is to separate features into distinct objects
 	//Moving functionality from the model to this class will violate many design principles
 	@SuppressWarnings("FeatureEnvy")
-    @Override
+	@Override
 	public void onMapReady(GoogleMap googleMap) {
-
+		
 		List<Location> locationsList = Location.getLocationsList();
 		for (Location location : locationsList)
 		{
-			MarkerOptions options = new MarkerOptions();
-			options.position(location.getCoordinates());
-			options.title(location.getName());
-			options.snippet(location.getPhoneNumber());
-			googleMap.addMarker(options);
+			googleMap.addMarker(location.toMarkerOptions());
 		}
 		
 		Location initialLocation = locationsList.get(0);

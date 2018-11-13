@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 
 /**
@@ -235,5 +236,16 @@ public class Location implements Serializable {
     @Override
 	public String toString() {
 		return (name + ", " + address + " : " + longitude + "," + latitude + " : " + phoneNumber);
+	}
+	
+	
+	public MarkerOptions toMarkerOptions() {
+		
+		MarkerOptions options = new MarkerOptions();
+		options.position(getCoordinates());
+		options.title(name);
+		options.snippet(phoneNumber);
+		
+		return options;
 	}
 }

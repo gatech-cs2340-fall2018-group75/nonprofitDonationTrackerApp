@@ -35,8 +35,6 @@ public class HomeFragment extends Fragment {
      * @param savedInstanceState Current instance state
      * @return home fragment view
      */
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

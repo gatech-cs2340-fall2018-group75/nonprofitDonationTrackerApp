@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Model object representing a single donation item, holding description and location information
  *
@@ -119,13 +122,6 @@ public class DonationItem implements Serializable {
     **/
     public double getValue() { return value;}
     
-    /**
-    * This is the getter method for the category type of the item
-    * @return the category of the item
-    **/
-    public DonationItemType getCategory() {
-		return category;
-	}
 	
 	/**
 	 * Get the string version of this item's category
@@ -144,5 +140,23 @@ public class DonationItem implements Serializable {
     public String toString() {
         return (name + ":" + description + ":" + locationName);
     }
-
+	
+	/**
+	 * Convert this object to a JSON string
+	 *
+	 * @return a JSON object representing this donation item
+	 *
+	 * @throws	org.json.JSONException	when a JSON formatting error is encountered
+	 */
+	public JSONObject toJson() throws JSONException {
+		return new JSONObject(
+			"{" +
+				"\"name\": \"" + name + "\", " +
+				"\"description\": \"" + description + "\", " +
+				"\"category\": \"" + name + "\", " +
+				"\"location\": \"" + locationName + "\", " +
+				"\"value\": \"" + value + "\"" +
+			"}"
+		);
+	}
 }

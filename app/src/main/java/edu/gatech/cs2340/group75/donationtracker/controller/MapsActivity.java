@@ -9,7 +9,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import edu.gatech.cs2340.group75.donationtracker.R;
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
@@ -31,15 +30,14 @@ import java.util.Objects;
  *
  */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
-    @Override
+	
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_maps);
 		
-		ActivityClasses classes = new ActivityClasses();
-		classes.add(this.getClass());
+		ActivityClasses.add(this.getClass());
 		
 		FragmentManager manager = getSupportFragmentManager();
 		SupportMapFragment mapFragment = (SupportMapFragment) Objects.requireNonNull
@@ -50,24 +48,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		mapFragment.getMapAsync(this);
 	}
 	
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-	@SuppressWarnings("FeatureEnvy")
-    @Override
+	@Override
 	public void onMapReady(GoogleMap googleMap) {
-
+		
 		List<Location> locationsList = Location.getLocationsList();
 		for (Location location : locationsList)
 		{
-			MarkerOptions options = new MarkerOptions();
-			options.position(location.getCoordinates());
-			options.title(location.getName());
-			options.snippet(location.getPhoneNumber());
-			googleMap.addMarker(options);
+			googleMap.addMarker(location.toMarkerOptions());
 		}
 		
 		Location initialLocation = locationsList.get(0);
-		LatLng initialCoordinates = initialLocation.getCoordinates();
-		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialCoordinates, 10));
+		moveCamera(map, initialLocation);
+	}
+	
+	private void moveCamera(GoogleMap map, Location location) {
+		
+		LatLng coordinates = location.getCoordinates();
+		map.moveCamera(CameraUpdateFactory.newLatLngZoom(coordinates, 10));
 	}
 }

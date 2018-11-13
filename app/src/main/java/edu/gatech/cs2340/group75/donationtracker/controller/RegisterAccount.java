@@ -54,18 +54,13 @@ public class RegisterAccount extends AppCompatActivity {
      * Sets click listeners and list adapter
      * @param savedInstanceState Current instance state
      */
-	//The entire point of model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_account);
 		
 		
-		ActivityClasses classes = new ActivityClasses();
-		classes.add(this.getClass());
-		classes.add(MainMenu.class);
+		ActivityClasses.add(this.getClass(), MainMenu.class);
 
         email = findViewById(R.id.regEmail);
         pass = findViewById(R.id.regPass);
@@ -92,8 +87,7 @@ public class RegisterAccount extends AppCompatActivity {
         goToLoginLink.setOnClickListener(new View.OnClickListener() {
 			@Override
             public void onClick(View v) {
-				ActivityClasses classes = new ActivityClasses();
-                startActivity(new Intent(RegisterAccount.this, classes.get("LogIn")));
+                startActivity(new Intent(RegisterAccount.this, ActivityClasses.get("LogIn")));
             }
         });
     }
@@ -121,21 +115,12 @@ public class RegisterAccount extends AppCompatActivity {
 
     }
 
-	//The entire point of model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     private void addUser(final User newUser) throws JSONException {
         String URL=getString(R.string.API_base) + "/users/add";
         Log.d("REST response", "starting... " + URL);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-		AccountType accountType = newUser.getAccountType();
-        final JSONObject jsonBody = new JSONObject("{" +
-                "\"email\": \"" + newUser.getEmail() + "\", " +
-                "\"password\": \"" + newUser.getPassword()+ "\", " +
-                "\"accountType\": \"" + accountType.name() + "\", " +
-                "\"isLoggedIn\": \"" + "true" + "\"" +
-                "}");
+        final JSONObject jsonBody = newUser.toJson();
         final Context context = this.getBaseContext();
         Log.d("REST response", jsonBody.toString());
 
@@ -148,15 +133,10 @@ public class RegisterAccount extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         User.setCurrentUser(newUser);
 
-						ActivityClasses classes = new ActivityClasses();
-						
-						//This statement is just accessing a getter for the list of activities
-						//Changing the interface would only decrease separation and usability
-                        //noinspection LawOfDemeter
                         Intent toMainMenu =  new Intent
 						(
 							RegisterAccount.this,
-							classes.get("MainMenu")
+							ActivityClasses.get("MainMenu")
 						);
                         startActivity(toMainMenu);
                     }

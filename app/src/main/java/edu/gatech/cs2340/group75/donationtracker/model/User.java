@@ -3,6 +3,9 @@ package edu.gatech.cs2340.group75.donationtracker.model;
 
 import android.support.annotation.NonNull;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Represents a single user and their information and login status
  *
@@ -17,21 +20,39 @@ public class User {
 	private static User currentUser;
 	
 	/**
-	 * Get the (static) currently-logged-in user
-	 *
-	 * @return the current user logged into the app
-	 */
-	public static User getCurrentUser() {
-		return currentUser;
-	}
-	
-	/**
 	 * Set the (static) currently-logged-in user
 	 *
 	 * @param	user	the current user to set as logged in
 	 */
 	public static void setCurrentUser(User user) {
 		currentUser = user;
+	}
+	
+	
+	/**
+	 * Get the email address of the currently-logged-in user
+	 *
+	 * @return the email address of the current user, or null if the user is null
+	 */
+	public static String getCurrentEmail() {
+		if (currentUser == null) {
+			return null;
+		}
+		
+		return currentUser.email;
+	}
+	
+	/**
+	 * Get the account type of the currently-logged-in user
+	 *
+	 * @return the account type string of the current user, or null is the user is null
+	 */
+	public static String getCurrentAccountType() {
+		if (currentUser == null) {
+			return null;
+		}
+		
+		return currentUser.accountType.toString();
 	}
 
     /** User's e-mail used to login **/
@@ -66,7 +87,7 @@ public class User {
         User that = (User) other;
 		
         return that.email.equals(this.email)
-				&& that.password.equals(this.getPassword())
+				&& that.password.equals(this.password)
                 && that.accountType.equals(this.accountType);
 
     }
@@ -74,41 +95,6 @@ public class User {
 	@Override
 	public int hashCode() {
 		return 1;
-	}
-
-
-    /* *************************************
-     * All property getters and setters
-     */
-	
-    /**
-     * getter method for user's e-mail
-     * @return user's e-mail
-     */
-    public String getEmail() {return email;}
-
-    /**
-     * getter method for user's password
-     * @return user's password
-     */
-    public String getPassword() {return password;}
-
-    /**
-     * getter method for user's account tye
-     * @return user's account type
-     */
-	public AccountType getAccountType() {
-		return accountType;
-	}
-	
-	/**
-	 * Get the string version of this user's account type
-	 * This method only exists to silence Law of Demeter lint issues
-	 *
-	 * @return the user's type in string form
-	 */
-	public String getAccountTypeString() {
-		return accountType.toString();
 	}
 
     /**********************************************/
@@ -119,5 +105,23 @@ public class User {
     public String toString() {
         return (email + ":" + password);
     }
+	
+	/**
+	 * Convert this object to a JSON string
+	 *
+	 * @return a JSON object representing this user object
+	 *
+	 * @throws	org.json.JSONException	when a JSON formatting error is encountered
+	 */
+	public JSONObject toJson() throws JSONException {
+		return new JSONObject(
+			"{" +
+				"\"email\": \"" + email + "\", " +
+				"\"password\": \"" + password + "\", " +
+				"\"accountType\": \"" + accountType + "\", " +
+				"\"isLoggedIn\": \"" + "true" + "\"" +
+			"}"
+		);
+	}
 
 }

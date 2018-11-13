@@ -35,17 +35,6 @@ public enum DonationItemType {
         this.type = type;
     }
 
-	/**
-     * Getter for the human-readable account type
-	 *
-     * @return human-readable donation item type
-     */
-	//This is a model class, and accessing the type directly may be used in the future
-    @SuppressWarnings("unused")
-    public String getType() {
-        return type;
-    }
-
     @NonNull
     public String toString() {
         return type;

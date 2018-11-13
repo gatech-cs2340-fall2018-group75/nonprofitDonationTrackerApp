@@ -96,4 +96,15 @@ public class UserModelTest {
 
         assertNotEquals(fake1, new DonationItem("", "", "", 0, null));
     }
+
+    @Test
+    public void userEqualsItselfEqualsReturnsTrue() {
+        User fake1 = new User(
+                "cool@aol.com",
+                "5678",
+                AccountType.LOCEMP
+        );
+
+        assertEquals(fake1, fake1);
+    }
 }

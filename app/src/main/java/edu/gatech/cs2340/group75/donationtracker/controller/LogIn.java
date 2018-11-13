@@ -79,9 +79,6 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
      * Sets click listeners and edit listeners
      * @param savedInstanceState Current instance state
      */
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -89,9 +86,7 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         setContentView(R.layout.activity_login);
 		
 		
-		ActivityClasses classes = new ActivityClasses();
-		classes.add(this.getClass());
-		classes.add(MainMenu.class);
+		ActivityClasses.add(this.getClass(), MainMenu.class);
 
         // Set up the login form.
         mEmailView = findViewById(R.id.email);
@@ -113,8 +108,7 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         regFromLogin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-				ActivityClasses classes = new ActivityClasses();
-                Intent toRegister = new Intent(LogIn.this, classes.get("RegisterAccount"));
+                Intent toRegister = new Intent(LogIn.this, ActivityClasses.get("RegisterAccount"));
                 startActivity(toRegister);
             }
         });
@@ -261,8 +255,10 @@ public class LogIn extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                             );
                             User.setCurrentUser(user);
 
-							ActivityClasses classes = new ActivityClasses();
-                            Intent toMainMenu =  new Intent(LogIn.this, classes.get("MainMenu"));
+                            Intent toMainMenu =  new Intent(
+								LogIn.this, 
+								ActivityClasses.get("MainMenu")
+							);
                             startActivity(toMainMenu);
                         } catch (JSONException e) {
                             mPasswordView.setError(getString(R.string.error_incorrect_password));

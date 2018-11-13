@@ -1,10 +1,14 @@
 package edu.gatech.cs2340.group75.donationtracker.controller;
 
+
+import android.support.annotation.NonNull;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
 
 class ActivityClasses implements Map<String, Class> {
 	
@@ -49,7 +53,7 @@ class ActivityClasses implements Map<String, Class> {
 		}
 		
 		if (!(other instanceof ActivityClasses)) {
-			return true;
+			return false;
 		}
 		
 		return classes.equals(other);

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.json.JSONObject;
+
 /**
  * Model object representing a single donation item, holding description and location information
  *
@@ -144,5 +146,16 @@ public class DonationItem implements Serializable {
     public String toString() {
         return (name + ":" + description + ":" + locationName);
     }
-
+	
+	public JSONObject toJson() {
+		return new JSONObject(
+			"{" +
+				"\"name\": \"" + name + "\", " +
+				"\"description\": \"" + description + "\", " +
+				"\"category\": \"" + name + "\", " +
+				"\"location\": \"" + locationName + "\", " +
+				"\"value\": \"" + value + "\"" +
+			"}"
+		);
+	}
 }

@@ -192,9 +192,6 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
         }
     }
 	
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     private void submitDonationItem(DonationItem item) throws JSONException {
 		//The API URL is not a typo
         //noinspection SpellCheckingInspection
@@ -203,13 +200,7 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 		DonationItemType category = item.getCategory();
-        final JSONObject jsonBody = new JSONObject("{" +
-                "\"name\": \"" + item.getName() + "\", " +
-                "\"description\": \"" + item.getDescription()+ "\", " +
-                "\"category\": \"" + category.name() + "\", " +
-                "\"location\": \"" + item.getLocationName() + "\", " +
-                "\"value\": \"" + item.getValue() + "\"" +
-                "}");
+        final JSONObject jsonBody = item.toJson();
         final Context context = this.getBaseContext();
         Log.d("REST response", jsonBody.toString());
 

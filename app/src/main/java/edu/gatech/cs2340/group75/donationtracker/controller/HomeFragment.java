@@ -85,7 +85,7 @@ public class HomeFragment extends Fragment {
 	class SearchListener implements View.OnClickListener {
 		private Map<String, Class> classes;
 		
-		public LogoutListener(Map<String, Class> classes) {
+		public SearchListener(Map<String, Class> classes) {
 			this.classes = classes;
 		}
 		
@@ -99,7 +99,7 @@ public class HomeFragment extends Fragment {
 	class MapsListener implements View.OnClickListener {
 		private Map<String, Class> classes;
 		
-		public LogoutListener(Map<String, Class> classes) {
+		public MapsListener(Map<String, Class> classes) {
 			this.classes = classes;
 		}
 		

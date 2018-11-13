@@ -4,7 +4,6 @@ package edu.gatech.cs2340.group75.donationtracker.controller;
 import android.support.annotation.NonNull;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;

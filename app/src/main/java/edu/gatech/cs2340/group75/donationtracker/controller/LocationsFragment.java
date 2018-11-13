@@ -123,7 +123,7 @@ public class LocationsFragment extends Fragment {
                             ListAdapter listAdapter = new LocationList
 							(
 								inflater,
-								Location.getLocationsList()
+								locations
 							);
                             list.setAdapter(listAdapter);
                         } catch (JSONException e) {

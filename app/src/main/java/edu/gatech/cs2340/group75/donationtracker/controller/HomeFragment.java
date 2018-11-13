@@ -34,13 +34,12 @@ public class HomeFragment extends Fragment {
      */
 	//The entire point of Model classes is to separate features into distinct objects
 	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-		ActivityClasses classes = new ActivityClasses();
-		classes.add(ItemSearch.class, MapsActivity.class);
+		Map<String,Class> classes = new ActivityClasses();
+		ActivityClasses.add(ItemSearch.class, MapsActivity.class);
 		
         View fragment = inflater.inflate(R.layout.fragment_home, container, false);
 		

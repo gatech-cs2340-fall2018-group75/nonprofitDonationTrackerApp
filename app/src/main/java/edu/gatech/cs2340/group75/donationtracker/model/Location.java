@@ -68,6 +68,8 @@ public class Location implements Serializable {
 	 * @param	json	the JSON object representing a Location
 	 * 
 	 * @return a Location object representing the information in the JSON object
+	 *
+	 * @throws	org.json.JSONException	when a JSON formatting error is encountered
 	 */
 	public static Location fromJson(JSONObject json) throws JSONException {
 		Location location = new Location

@@ -145,6 +145,8 @@ public class DonationItem implements Serializable {
 	 * Convert this object to a JSON string
 	 *
 	 * @return a JSON object representing this donation item
+	 *
+	 * @throws	org.json.JSONException	when a JSON formatting error is encountered
 	 */
 	public JSONObject toJson() throws JSONException {
 		return new JSONObject(

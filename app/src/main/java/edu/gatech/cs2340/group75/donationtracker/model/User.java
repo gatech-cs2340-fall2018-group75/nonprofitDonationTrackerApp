@@ -110,6 +110,8 @@ public class User {
 	 * Convert this object to a JSON string
 	 *
 	 * @return a JSON object representing this user object
+	 *
+	 * @throws	org.json.JSONException	when a JSON formatting error is encountered
 	 */
 	public JSONObject toJson() throws JSONException {
 		return new JSONObject(

@@ -147,7 +147,7 @@ public class DonationItem implements Serializable {
         return (name + ":" + description + ":" + locationName);
     }
 	
-	public JSONObject toJson() {
+	public JSONObject toJson() throws JSONException {
 		return new JSONObject(
 			"{" +
 				"\"name\": \"" + name + "\", " +

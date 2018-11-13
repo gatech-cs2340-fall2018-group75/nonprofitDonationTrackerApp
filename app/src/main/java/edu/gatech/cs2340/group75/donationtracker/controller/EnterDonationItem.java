@@ -199,7 +199,6 @@ public class EnterDonationItem extends AppCompatActivity implements View.OnClick
         Log.d("REST response", "starting... " + URL);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-		DonationItemType category = item.getCategory();
         final JSONObject jsonBody = item.toJson();
         final Context context = this.getBaseContext();
         Log.d("REST response", jsonBody.toString());

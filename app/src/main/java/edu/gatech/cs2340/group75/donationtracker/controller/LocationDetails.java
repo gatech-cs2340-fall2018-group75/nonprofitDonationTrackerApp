@@ -84,10 +84,10 @@ public class LocationDetails extends AppCompatActivity {
 		bindCoordinates(coordinates, location);
 		
 		TextView nameView = findViewById(R.id.name);
-		bindName(nameView, location).setText(name);
+		bindName(nameView, location);
 		
 		TextView locationType = findViewById(R.id.type);
-		bindType(locationType.setText(type);
+		bindType(locationType, location);
 	}
 	
 	private void bindName(TextView view, Location location) {

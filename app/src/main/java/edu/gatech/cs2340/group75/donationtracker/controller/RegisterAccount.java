@@ -120,7 +120,6 @@ public class RegisterAccount extends AppCompatActivity {
         Log.d("REST response", "starting... " + URL);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-		AccountType accountType = newUser.getAccountType();
         final JSONObject jsonBody = newUser.toJson();
         final Context context = this.getBaseContext();
         Log.d("REST response", jsonBody.toString());

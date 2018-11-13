@@ -69,7 +69,7 @@ public class User {
         User that = (User) other;
 		
         return that.email.equals(this.email)
-				&& that.password.equals(this.getPassword())
+				&& that.password.equals(this.password)
                 && that.accountType.equals(this.accountType);
 
     }
@@ -77,31 +77,6 @@ public class User {
 	@Override
 	public int hashCode() {
 		return 1;
-	}
-
-
-    /* *************************************
-     * All property getters and setters
-     */
-	
-    /**
-     * getter method for user's e-mail
-     * @return user's e-mail
-     */
-    public String getEmail() {return email;}
-
-    /**
-     * getter method for user's password
-     * @return user's password
-     */
-    public String getPassword() {return password;}
-
-    /**
-     * getter method for user's account tye
-     * @return user's account type
-     */
-	public AccountType getAccountType() {
-		return accountType;
 	}
 
     /**********************************************/

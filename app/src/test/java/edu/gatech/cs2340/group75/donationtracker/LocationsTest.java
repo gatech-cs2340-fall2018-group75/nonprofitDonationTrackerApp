@@ -28,15 +28,7 @@ public class LocationsTest {
 	//This test compares this and a List from the Model, so the ordering should be identical
     @SuppressWarnings("TypeMayBeWeakened")
     private static final List<String> answer = new ArrayList<>();
-
-	//This unit test explicitly checks constant conditions to ensure they evaluate as expected
-	//Magic numbers are not an issue in unit tests, as it is just testing data
-	//This unit test is testing the location class, so feature envy of it can be ignored
-    @SuppressWarnings({"ConstantConditions", "MagicNumber", "FeatureEnvy"})
-
-
-
-
+	
 
     //tests the "for" branch case where no locations are added in the singleton
     @Test(timeout = TIMEOUT)
@@ -45,7 +37,8 @@ public class LocationsTest {
     }
 
 	//Magic numbers are not an issue in unit tests, as it is just testing data
-	@SuppressWarnings("MagicNumber")
+	//This unit test is testing the location class, so feature envy of it can be ignored
+	@SuppressWarnings({"MagicNumber", "FeatureEnvy"})
     //tests the "for" branch when items are in the singleton
     @Test(timeout = TIMEOUT)
     public void testWithContents() {
@@ -70,7 +63,8 @@ public class LocationsTest {
     }
 
 	//Magic numbers are not an issue in unit tests, as it is just testing data
-	@SuppressWarnings("MagicNumber")
+	//This unit test is testing the location class, so feature envy of it can be ignored
+	@SuppressWarnings({"MagicNumber", "FeatureEnvy"})
     //tests the "for" branch when Null item is in the singleton
     @Test(timeout = TIMEOUT)
     public void testWithNull() {

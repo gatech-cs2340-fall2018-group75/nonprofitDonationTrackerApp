@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
         userEmail.setText(emailText);
 
         TextView userType = fragment.findViewById(R.id.userType);
-        String accountTypeText = User.getCurrentAccountTypeString();
+        String accountTypeText = User.getCurrentAccountType();
         userType.setText(accountTypeText);
 
         return fragment;

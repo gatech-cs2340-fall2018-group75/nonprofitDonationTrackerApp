@@ -3,6 +3,9 @@ package edu.gatech.cs2340.group75.donationtracker.model;
 
 import android.support.annotation.NonNull;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Represents a single user and their information and login status
  *
@@ -109,5 +112,16 @@ public class User {
     public String toString() {
         return (email + ":" + password);
     }
+	
+	public JSONObject toJson() throws JSONException {
+		return new JSONObject(
+			"{" +
+				"\"email\": \"" + email + "\", " +
+				"\"password\": \"" + password + "\", " +
+				"\"accountType\": \"" + accountType + "\", " +
+				"\"isLoggedIn\": \"" + "true" + "\"" +
+			"}"
+		);
+	}
 
 }

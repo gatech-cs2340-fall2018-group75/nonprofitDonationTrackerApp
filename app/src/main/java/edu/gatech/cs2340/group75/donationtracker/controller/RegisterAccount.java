@@ -54,9 +54,6 @@ public class RegisterAccount extends AppCompatActivity {
      * Sets click listeners and list adapter
      * @param savedInstanceState Current instance state
      */
-	//The entire point of model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,21 +115,13 @@ public class RegisterAccount extends AppCompatActivity {
 
     }
 
-	//The entire point of model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     private void addUser(final User newUser) throws JSONException {
         String URL=getString(R.string.API_base) + "/users/add";
         Log.d("REST response", "starting... " + URL);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 		AccountType accountType = newUser.getAccountType();
-        final JSONObject jsonBody = new JSONObject("{" +
-                "\"email\": \"" + newUser.getEmail() + "\", " +
-                "\"password\": \"" + newUser.getPassword()+ "\", " +
-                "\"accountType\": \"" + accountType.name() + "\", " +
-                "\"isLoggedIn\": \"" + "true" + "\"" +
-                "}");
+        final JSONObject jsonBody = newUser.toJson();
         final Context context = this.getBaseContext();
         Log.d("REST response", jsonBody.toString());
 

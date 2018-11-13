@@ -42,22 +42,32 @@ public class UserModelTest {
         );
 
         User unequalFakes[] = {
-                new User(
+                new User( //incorrect email
                         "totallyReal@gmail.com",
                         "1234",
                         AccountType.ADMIN
                 ),
-                new User(
+                new User( //incorrect password
                         "fake@gmail.com",
                         "5678",
                         AccountType.ADMIN
                 ),
-                new User(
+                new User( //incorrect password, email
+                        "totesReal@gmail.com",
+                        "p@ssword",
+                        AccountType.ADMIN
+                ),
+                new User( //incorrect accountType
                         "fake@gmail.com",
                         "1234",
                         AccountType.USER
                 ),
-                new User(
+                new User( //incorrect accountType, password
+                        "fake@gmail.com",
+                        "p@ssw0rd",
+                        AccountType.USER
+                ),
+                new User( //incorrect everything
                         "veryUnequal@aol.com",
                         "password",
                         AccountType.LOCEMP

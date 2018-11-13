@@ -59,9 +59,6 @@ public class DonationItemsFragment extends Fragment {
      * @param savedInstanceState Current instance state
      * @return donation items fragment view
      */
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -115,9 +112,6 @@ public class DonationItemsFragment extends Fragment {
         return fragment;
     }
 
-	//The entire point of Model classes is to separate features into distinct objects
-	//Moving functionality from the model to this class will violate many design principles
-    @SuppressWarnings("FeatureEnvy")
     private void populateDonationItems
 	(
 		final LayoutInflater inflater,
@@ -149,9 +143,6 @@ public class DonationItemsFragment extends Fragment {
                 URL,
                 null,
                 new Response.Listener<JSONArray>() {
-			//The entire point of Model classes is to separate features into distinct objects
-			//Moving functionality from the model to this class will violate many design principles
-                    @SuppressWarnings("FeatureEnvy")
                     @Override
                     public void onResponse(JSONArray response) {
                         List<DonationItem> items = new ArrayList<>();

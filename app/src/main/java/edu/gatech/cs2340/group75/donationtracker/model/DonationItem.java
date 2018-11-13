@@ -122,13 +122,6 @@ public class DonationItem implements Serializable {
     **/
     public double getValue() { return value;}
     
-    /**
-    * This is the getter method for the category type of the item
-    * @return the category of the item
-    **/
-    public DonationItemType getCategory() {
-		return category;
-	}
 	
 	/**
 	 * Get the string version of this item's category

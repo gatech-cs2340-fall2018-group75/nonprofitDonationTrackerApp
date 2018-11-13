@@ -29,11 +29,29 @@ public class User {
 	}
 	
 	
+	/**
+	 * Get the email address of the currently-logged-in user
+	 *
+	 * @return the email address of the current user, or null if the user is null
+	 */
 	public static String getCurrentEmail() {
+		if (currentUser == null) {
+			return null;
+		}
+		
 		return currentUser.email;
 	}
 	
+	/**
+	 * Get the account type of the currently-logged-in user
+	 *
+	 * @return the account type string of the current user, or null is the user is null
+	 */
 	public static String getCurrentAccountType() {
+		if (currentUser == null) {
+			return null;
+		}
+		
 		return currentUser.accountType.toString();
 	}
 
@@ -88,6 +106,11 @@ public class User {
         return (email + ":" + password);
     }
 	
+	/**
+	 * Convert this object to a JSON string
+	 *
+	 * @return a JSON object representing this user object
+	 */
 	public JSONObject toJson() throws JSONException {
 		return new JSONObject(
 			"{" +

@@ -12,6 +12,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONObject;
+import org.json.JSONException;
 
 
 /**
@@ -61,7 +62,14 @@ public class Location implements Serializable {
 	}
 	
 	
-	public static Location fromJson(JSONObject json) {
+	/**
+	 * Read in a location object from a JSON object
+	 *
+	 * @param	json	the JSON object representing a Location
+	 * 
+	 * @return a Location object representing the information in the JSON object
+	 */
+	public static Location fromJson(JSONObject json) throws JSONException {
 		Location location = new Location
 		(
 			json.getString("Name"),
@@ -263,6 +271,11 @@ public class Location implements Serializable {
 	}
 	
 	
+	/**
+	 * Convert this location to a Google Map "pin"
+	 *
+	 * @return a MarkerOptions object representing this location
+	 */
 	public MarkerOptions toMarkerOptions() {
 		
 		MarkerOptions options = new MarkerOptions();

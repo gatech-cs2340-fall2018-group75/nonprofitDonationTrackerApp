@@ -141,6 +141,11 @@ public class DonationItem implements Serializable {
         return (name + ":" + description + ":" + locationName);
     }
 	
+	/**
+	 * Convert this object to a JSON string
+	 *
+	 * @return a JSON object representing this donation item
+	 */
 	public JSONObject toJson() throws JSONException {
 		return new JSONObject(
 			"{" +

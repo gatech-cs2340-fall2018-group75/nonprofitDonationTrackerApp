@@ -58,7 +58,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		}
 		
 		Location initialLocation = locationsList.get(0);
-		moveCamera(map, initialLocation);
+		moveCamera(googleMap, initialLocation);
 	}
 	
 	private void moveCamera(GoogleMap map, Location location) {

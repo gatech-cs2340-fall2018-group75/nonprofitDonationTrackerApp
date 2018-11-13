@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Collections;
 import java.util.Map;
 
 import edu.gatech.cs2340.group75.donationtracker.model.User;
@@ -69,10 +70,10 @@ public class HomeFragment extends Fragment {
 	
 	
 	class LogoutListener implements View.OnClickListener {
-		private Map<String, Class> classes;
+		private final Map<String, Class> classes;
 		
-		public LogoutListener(Map<String, Class> classes) {
-			this.classes = classes;
+		LogoutListener(Map<String, Class> classes) {
+			this.classes = Collections.unmodifiableMap(classes);
 		}
 		
 		@Override
@@ -83,10 +84,10 @@ public class HomeFragment extends Fragment {
 	}
 	
 	class SearchListener implements View.OnClickListener {
-		private Map<String, Class> classes;
+		private final Map<String, Class> classes;
 		
-		public SearchListener(Map<String, Class> classes) {
-			this.classes = classes;
+		SearchListener(Map<String, Class> classes) {
+			this.classes = Collections.unmodifiableMap(classes);
 		}
 		
 		@Override
@@ -97,10 +98,10 @@ public class HomeFragment extends Fragment {
 	}
 	
 	class MapsListener implements View.OnClickListener {
-		private Map<String, Class> classes;
+		private final Map<String, Class> classes;
 		
-		public MapsListener(Map<String, Class> classes) {
-			this.classes = classes;
+		MapsListener(Map<String, Class> classes) {
+			this.classes = Collections.unmodifiableMap(classes);
 		}
 		
 		@Override

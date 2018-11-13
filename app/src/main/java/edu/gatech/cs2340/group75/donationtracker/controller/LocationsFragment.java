@@ -22,7 +22,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
 import edu.gatech.cs2340.group75.donationtracker.model.Location;
-import edu.gatech.cs2340.group75.donationtracker.model.LocationType;
 import edu.gatech.cs2340.group75.donationtracker.R;
 
 import org.json.JSONArray;

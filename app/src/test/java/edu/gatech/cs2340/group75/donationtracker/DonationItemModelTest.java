@@ -24,7 +24,7 @@ public class DonationItemModelTest {
 		);
 		assertNotEquals(item1, null);
 	}
-
+	
 	@Test
 	public void equalItemsReturnsTrue() {
 		DonationItem item1 = new DonationItem(
@@ -43,7 +43,7 @@ public class DonationItemModelTest {
 		);
 		assertEquals(item1, item2);
 	}
-
+	
 	//Misspelling of testing data does not indicate an issue
 	//These are not true magic numbers, as it is just testing data
 	@SuppressWarnings({"SpellCheckingInspection", "MagicNumber"})
@@ -92,95 +92,70 @@ public class DonationItemModelTest {
 				5,
 				DonationItemType.FOOD
 			),
+			new DonationItem(
+				"Real Yeezys",
+				"Wow someone paid $500 for shoes???",
+				"Goodwill",
+				5,
+				DonationItemType.FOOD
+			),
+			new DonationItem(
+				"Real Yeezys",
+				"Wow someone paid $500 for shoes???",
+				"Goodwill",
+				9,
+				DonationItemType.CLOTHES
+			),
+			new DonationItem(
+				"Real Yeezys",
+				"Wow someone paid $500 for shoes???",
+				"Thrift Store",
+				5,
+				DonationItemType.CLOTHES
+			),
+			new DonationItem(
+				"Real Yeezys",
+				"Yeezys but edible this time",
+				"Goodwill",
+				5,
+				DonationItemType.CLOTHES
+			),
+			new DonationItem(
+				"Fake Yeezys",
+				"Wow someone paid $500 for shoes???",
+				"Goodwill",
+				5,
+				DonationItemType.CLOTHES
+			),
 		};
-
+		
 		for (DonationItem fakeItem : itemCollection) {
 			assertNotEquals(item1, fakeItem);
 		}
 	}
-    @Test
-    public void sameObjectReturnsTrue() {
-        DonationItem item1 = new DonationItem(
-            "A white lamp",
-            "A nice lamp to brighten up the room",
-            "John's Store",
-            2,
-            DonationItemType.FURNITURE
-        );
-        assertEquals(item1, item1);
-    }
-    @Test
-    public void differentClassReturnsFalse() {
-        DonationItem item1 = new DonationItem(
-            "Canned tuna",
-            "Ah yes, canned tuna.",
-            "GOODWILL",
-            10,
-            DonationItemType.FOOD
-        );
-        String string1 = "String beans";
-
-        assertNotEquals(item1, string1);
-    }
-    @Test
-	public void sameAttributesReturnsTrue() {
+	@Test
+	public void sameObjectReturnsTrue() {
 		DonationItem item1 = new DonationItem(
-			"A hat",
-			"Not just a hat, a bucket hat",
-			"Goodwill",
+			"A white lamp",
+			"A nice lamp to brighten up the room",
+			"John's Store",
 			2,
-			DonationItemType.CLOTHES
+			DonationItemType.FURNITURE
 		);
-        DonationItem item2 = new DonationItem(
-            "A hat",
-            "Not just a hat, a bucket hat",
-            "Goodwill",
-            2,
-            DonationItemType.CLOTHES
-        );
-        DonationItem item3 = new DonationItem(
-            "A different hat",
-            "Not just a hat, a tophat hat",
-            "Goodwill",
-            2,
-            DonationItemType.CLOTHES
-        );
-		assertTrue(item1.getName().equals(item2.getName()));
-        assertTrue(item1.getName().equals(item2.getName())
-            && item1.getDescription().equals(item2.getDescription()));
-        assertTrue(item1.getLocationName().equals(item2.getLocationName())
-            && item1.getLocationName().equals(item3.getLocationName()));
-        assertTrue(item1.getCategoryString().equals(item2.getCategoryString())
-            && item1.getCategoryString().equals(item3.getCategoryString()));
+		assertEquals(item1, item1);
 	}
-    @Test
-    public void differentAttributesReturnsFalse() {
-        DonationItem item1 = new DonationItem(
-            "A hat",
-            "Not just a hat, a bucket hat",
-            "Goodwill",
-            2,
-            DonationItemType.CLOTHES
-        );
-        DonationItem item2 = new DonationItem(
-            "A hat",
-            "Not just a hat, a bucket hat",
-            "Goodwill",
-            3,
-            DonationItemType.CLOTHES
-        );
-        DonationItem item3 = new DonationItem(
-            "A different hat",
-            "Not just a hat, a tophat hat",
-            "Goodwill",
-            4,
-            DonationItemType.CLOTHES
-        );
-        assertFalse(item1.getName().equals(item2.getName())
-            && item1.getName().equals(item2.getName()));
-        assertFalse(item1.getValue() == item2.getValue()
-            && item1.getValue() == item2.getValue());
-        assertFalse(item1.getName().equals(item2.getName())
-            && item2.getDescription().equals(item3.getDescription()));
-    }
+	
+	@Test
+	public void differentClassReturnsFalse() {
+		DonationItem item1 = new DonationItem(
+			"Canned tuna",
+			"Ah yes, canned tuna.",
+			"GOODWILL",
+			10,
+			DonationItemType.FOOD
+		);
+		String string1 = "String beans";
+		
+		assertNotEquals(item1, string1);
+	}
 }

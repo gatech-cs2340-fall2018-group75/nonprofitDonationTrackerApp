@@ -39,36 +39,19 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-		ActivityClasses.add(ItemSearch.class, MapsActivity.class);
+		ActivityClasses classes = new ActivityClasses();
+		classes.add(ItemSearch.class, MapsActivity.class);
 		
         View fragment = inflater.inflate(R.layout.fragment_home, container, false);
 		
 		View logoutButton = fragment.findViewById(R.id.logoutButton);
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent logOut = new Intent(getActivity(), ActivityClasses.get("LogIn"));
-                startActivity(logOut);
-            }
-        });
+        logoutButton.setOnClickListener(new LogoutListener(classes));
 
 		View searchButton = fragment.findViewById(R.id.searchButton);
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goToSearch = new Intent(getActivity(), ActivityClasses.get("ItemSearch"));
-                startActivity(goToSearch);
-            }
-        });
+        searchButton.setOnClickListener(new SearchListener(classes));
 		
 		View mapsButton = fragment.findViewById(R.id.mapsButton);
-		mapsButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent goToMaps = new Intent(getActivity(), ActivityClasses.get("MapsActivity"));
-				startActivity(goToMaps);
-			}
-		});
+		mapsButton.setOnClickListener(new MapsListener(classes));
 
         User currentUser = User.getCurrentUser();
 
@@ -82,4 +65,47 @@ public class HomeFragment extends Fragment {
 
         return fragment;
     }
+	
+	
+	class LogoutListener implements View.OnClickListener {
+		private Map<String, Class> classes;
+		
+		public LogoutListener(Map<String, Class> classes) {
+			this.classes = classes;
+		}
+		
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent(getActivity(), classes.get("LogIn"));
+			startActivity(intent);
+		}
+	}
+	
+	class SearchListener implements View.OnClickListener {
+		private Map<String, Class> classes;
+		
+		public LogoutListener(Map<String, Class> classes) {
+			this.classes = classes;
+		}
+		
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent(getActivity(), classes.get("ItemSearch"));
+			startActivity(intent);
+		}
+	}
+	
+	class MapsListener implements View.OnClickListener {
+		private Map<String, Class> classes;
+		
+		public LogoutListener(Map<String, Class> classes) {
+			this.classes = classes;
+		}
+		
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent(getActivity(), classes.get("MapsActivity"));
+			startActivity(intent);
+		}
+	}
 }
